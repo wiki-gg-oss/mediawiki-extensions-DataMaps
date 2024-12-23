@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"datamap-ve-experimental-close": "Затвори",
+	"datamap-ve-edit-source-action": "Уреди извор",
+	"datamap-ve-background-default-name": "Без наслова",
+	"datamap-ve-generic-cancel": "Откажи",
+	"datamap-ve-panel-msettings-field-coordorder": "Координатни систем",
+	"datamap-ve-panel-mgroups": "Групе",
+	"datamap-ve-panel-mcats": "Категорије",
+	"datamap-ve-workflow-marker-create": "Направи",
+	"datamap-ve-workflow-marker-edit": "Сачувај",
+	"datamap-ve-workflow-marker-field-lon": "Дужина",
+	"datamap-ve-workflow-marker-field-lat": "Ширина",
+	"datamap-ve-workflow-marker-field-group": "Група",
+	"datamap-ve-workflow-marker-field-categories": "Категорије",
+	"datamap-ve-workflow-marker-field-name": "Наслов",
+	"datamap-ve-workflow-marker-field-desc": "Опис",
+	"datamap-ve-workflow-marker-field-image": "Минијатура",
+	"datamap-ve-workflow-save": "Сачувајте своје измене",
+	"datamap-ve-workflow-save-submit": "Објави измене",
+	"datamap-ve-workflow-save-summary": "Опис измене",
+	"datamap-ve-workflow-save-summary-desc": "Опишите шта сте променили"
+}
