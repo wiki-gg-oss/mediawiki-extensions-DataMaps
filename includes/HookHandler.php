@@ -244,10 +244,7 @@ final class HookHandler implements
             'IsBleedingEdge' => $extConfig->hasExperimentalFeatures(),
             'IsVisualEditorEnabled' => $extConfig->isVisualEditorEnabled(),
             'IsMapLazyLoadingEnabled' => $extConfig->isMapLazyLoadingEnabled(),
-            'TabberNeueModule' =>
-                ExtensionRegistry::getInstance()->isLoaded( 'TabberNeue', '>= 1.8.0' )
-                    ? ( $config->get( 'TabberNeueUseCodex' ) ? 'ext.tabberNeue.codex' : 'ext.tabberNeue.legacy' )
-                    : 'ext.tabberNeue',
+            'TabberNeueModule' => 'ext.tabberNeue',
             // TODO: not the brightest way
             'CanAnonsEdit' => array_key_exists( 'edit', $config->get( MainConfigNames::GroupPermissions )[ '*' ] )
         ];
