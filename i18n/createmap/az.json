@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Şeyx Şamil",
+			"Əkrəm Cəfər"
+		]
+	},
+	"datamap-ve-skip": "Ötür",
+	"datamap-vec-crs-top-left": "Sol yuxarı",
+	"datamap-vec-crs-bottom-left": "Sol aşağı",
+	"datamap-vec-select-crs": "Koordinat sistemi",
+	"datamap-vec-crs-percent": "Faiz (0–100%)",
+	"datamap-vec-extra-options": "Əlavə seçimlər",
+	"datamap-vec-example-group-id": "nümunə",
+	"datamap-vec-example-group-name": "Nümunə qrupu"
+}

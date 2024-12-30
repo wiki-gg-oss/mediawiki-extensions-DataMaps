@@ -26,6 +26,7 @@
 	"datamap-validate-constraint-minlength": "텍스트 속성은 최소 $2자로 구성되어야 합니다: <code>$1</code>.",
 	"datamap-validate-constraint-minimum": "숫자 속성의 값은 $2보다 커야 합니다: <code>$1</code>.",
 	"datamap-validate-constraint-maximum": "숫자 속성의 값은 $2보다 작아야 합니다: <code>$1</code>.",
+	"datamap-validate-constraint-fallback": "<code>$1</code> 속성을 검증하는 동안 알 수 없는 오류가 발생했습니다. 개발자에게 [$2 이 문제를 보고]해 주십시오.",
 	"datamap-validate-constraint-requiredfile": "다음 파일이 참조되었으나 존재하지 않습니다: $1",
 	"datamap-error-pf-page-does-not-exist": "\"[[$1]]\" 데이터 지도 문서가 존재하지 않습니다.",
 	"datamap-background-name-fallback": "제목 없음",
