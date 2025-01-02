@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cigaryno",
 			"Hubaishan",
 			"MRidhaAJ",
 			"Meno25",
@@ -10,6 +11,7 @@
 	},
 	"datamap-ve-experimental-close": "أغلق",
 	"datamap-ve-edit-source-action": "عدل المصدر",
+	"tag-datamaps-visualeditor": "تعديل خريطة مرئي",
 	"datamap-ve-background-default-name": "غير معنون",
 	"datamap-ve-generic-cancel": "ألغ",
 	"datamap-ve-panel-msettings": "الإعدادات",
@@ -37,6 +39,7 @@
 	"datamap-ve-workflow-marker-field-group": "مجموعة",
 	"datamap-ve-workflow-marker-field-categories": "التصنيفات",
 	"datamap-ve-workflow-marker-set-behaviour": "وصلات دائمة",
+	"datamap-ve-workflow-marker-field-id": "المعرف الفريد",
 	"datamap-ve-workflow-marker-field-name": "العنوان",
 	"datamap-ve-workflow-marker-field-desc": "الوصف",
 	"datamap-ve-workflow-marker-field-image": "صورة مصغرة",

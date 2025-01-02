@@ -1,13 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cigaryno",
 			"Hubaishan",
 			"Mohammed Qays",
 			"جودت",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
+	"datamap-desc": "يسمح بتضمين الخرائط التفاعلية في صفحات الويكي.",
 	"content-model-datamap": "خريطة البيانات التفاعلية",
+	"datamap-doc-page-does-not-exist": "''يمكن إنشاء صفحة توثيق لهذه الخريطة في [[$1]]''",
 	"datamap-category-pages-including-maps": "الصفحات التي تحتوي على خرائط البيانات",
 	"datamap-mapsrcinfo-status-ok": "لم يتم العثور على أي مشاكل في شيفرة المصدر لهذه الخريطة.",
 	"datamap-mapsrcinfo-heading-errors": "'''الأخطاء:''' $1",
