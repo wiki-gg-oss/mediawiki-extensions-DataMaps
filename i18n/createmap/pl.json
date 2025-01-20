@@ -3,17 +3,25 @@
 		"authors": [
 			"Darellur",
 			"Frozengeist",
+			"PanWor",
 			"WaldiSt"
 		]
 	},
 	"datamap-vec-title": "Utwórz mapę",
 	"datamap-ve-skip": "Pomiń",
+	"datamap-vec-intro": "Dostosuj poniższe informacje do swoich potrzeb, abyśmy mogli przygotować podstawową mapę, zanim przejdziesz do jej edycji.",
 	"datamap-vec-crs-top-left": "Lewy górny róg",
 	"datamap-vec-crs-bottom-left": "Lewy dolny róg",
 	"datamap-vec-select-crs": "Układ współrzędnych",
 	"datamap-vec-crs-percent": "Procent (0-100%)",
+	"datamap-vec-crs-custom": "Niestandardowy",
 	"datamap-vec-select-background": "Obraz tła",
 	"datamap-vec-note-image-size": "Wielkość: $1 x $2",
+	"datamap-vec-extra-options": "Dodatkowe opcje",
+	"datamap-vec-toggle-zoom": "Włącz powiększanie",
+	"datamap-vec-toggle-search": "Włącz wyszukiwanie znaczników",
+	"datamap-vec-toggle-uid-requirement": "Wymagaj unikalnych identyfikatorów znaczników",
+	"datamap-vec-submit": "Dalej",
 	"datamap-vec-example-group-id": "przykład",
 	"datamap-vec-example-group-name": "Przykładowa grupa",
 	"datamap-vec-example-marker": "Przykładowy znacznik"
