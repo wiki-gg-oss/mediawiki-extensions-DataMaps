@@ -40,6 +40,7 @@
 	"datamap-ve-workflow-marker-field-categories": "التصنيفات",
 	"datamap-ve-workflow-marker-set-behaviour": "وصلات دائمة",
 	"datamap-ve-workflow-marker-field-id": "المعرف الفريد",
+	"datamap-ve-workflow-marker-panel-popup": "معلومات النافذة المنبثقة",
 	"datamap-ve-workflow-marker-field-name": "العنوان",
 	"datamap-ve-workflow-marker-field-desc": "الوصف",
 	"datamap-ve-workflow-marker-field-image": "صورة مصغرة",
@@ -48,5 +49,6 @@
 	"datamap-ve-workflow-marker-panel-search": "عند البحث",
 	"datamap-ve-workflow-save": "حفظ تغييراتك",
 	"datamap-ve-workflow-save-submit": "نشر التغييرات",
-	"datamap-ve-workflow-save-summary": "ملخص التعديل"
+	"datamap-ve-workflow-save-summary": "ملخص التعديل",
+	"datamap-ve-workflow-save-summary-desc": "صف ما غيرته"
 }
