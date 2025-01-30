@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Brightt11",
 			"FellowEsin",
 			"Hedda",
 			"RuzDD",
@@ -27,6 +28,11 @@
 	"datamap-validate-constraint-required": "Gerekli bir özellik eksik: <code>$1</code> .",
 	"datamap-validate-constraint-type": "Bir özellik beklenmeyen biçimdedir: <code>$1</code> .",
 	"datamap-validate-constraint-regex": "Metin özelliği beklenen biçime uymuyor: <code>$1</code> .",
+	"datamap-validate-constraint-empty": "Metin bölümü boş olamaz: <code>$1</code> .",
+	"datamap-validate-constraint-minlength": "Metin özelliği en az $2 karakterden olması zorunludur: <code>$1</code> .",
+	"datamap-validate-constraint-minimum": "Sayısal özelliğin değeri $2: <code>$1</code> değerinden büyük olması zorundadır.",
+	"datamap-validate-constraint-maximum": "Sayısal özelliğin değeri $2 : <code>$1</code> değerinden küçük olması zorundadır.",
+	"datamap-validate-constraint-fallback": "Özellik doğrulanırken bir hata oluştu: <code>$1</code> . Lütfen geliştiricilere [ $2 bu sorunu bildirin].",
 	"datamap-background-name-fallback": "Adsız",
 	"datamap-legend-label": "İçindekiler",
 	"datamap-javascript-required": "Bu haritanın çalışması için JavaScript'in etkin olması gerekir. Eğer aşağıda onu görmüyorsanız, bu muhtemelen JavaScript'in tarafınızda etkin olmadığı anlamına gelir.",

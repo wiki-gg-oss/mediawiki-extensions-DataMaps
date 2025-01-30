@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Brightt11"
+		]
+	},
+	"datamap-ve-background-default-name": "Başlıksız",
+	"datamap-ve-generic-cancel": "İptal",
+	"datamap-ve-panel-msettings-set-view": "Görüntüleyin",
+	"datamap-ve-panel-msettings-field-search-disabled": "Devre dışı",
+	"datamap-ve-panel-msettings-set-edit": "Düzenleyici",
+	"datamap-ve-panel-mgroups": "Gruplar",
+	"datamap-ve-panel-mcats": "Kategoriler",
+	"datamap-ve-workflow-marker": "İşaretleyiciler",
+	"datamap-ve-workflow-marker-delete": "Bu işaretleyiciyi kalıcı olarak silin (geri alınamaz)",
+	"datamap-ve-workflow-marker-panel-setup": "Harita üzerinde",
+	"datamap-ve-workflow-marker-field-lon": "Boylam",
+	"datamap-ve-workflow-marker-field-lat": "Enlem",
+	"datamap-ve-workflow-marker-field-group": "Grup",
+	"datamap-ve-workflow-marker-field-categories": "Kategoriler",
+	"datamap-ve-workflow-marker-set-behaviour": "Kalıcı bağlantı",
+	"datamap-ve-workflow-marker-panel-popup": "Popup bildirge",
+	"datamap-ve-workflow-marker-field-name": "Başlık",
+	"datamap-ve-workflow-marker-field-desc": "Açıklama",
+	"datamap-ve-workflow-marker-field-image": "Küçük resim",
+	"datamap-ve-workflow-marker-field-article": "Viki maddesine bağlantı",
+	"datamap-ve-workflow-marker-field-article-label": "Bağlantı etiketi",
+	"datamap-ve-workflow-save": "Değişikliklerinizi kaydedin",
+	"datamap-ve-workflow-save-submit": "Değişiklikleri yayımla"
+}

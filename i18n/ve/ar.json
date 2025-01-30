@@ -6,6 +6,7 @@
 			"MRidhaAJ",
 			"Meno25",
 			"Mohammed Qays",
+			"XIDME",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
@@ -13,7 +14,7 @@
 	"datamap-ve-edit-source-action": "عدل المصدر",
 	"tag-datamaps-visualeditor": "تعديل خريطة مرئي",
 	"datamap-ve-background-default-name": "غير معنون",
-	"datamap-ve-generic-cancel": "ألغ",
+	"datamap-ve-generic-cancel": "إلغاء",
 	"datamap-ve-panel-msettings": "الإعدادات",
 	"datamap-ve-panel-msettings-field-coordorder": "نظام الإحداثيات",
 	"datamap-ve-panel-msettings-field-coordorder-latlon": "خط العرض ثم خط الطول",
