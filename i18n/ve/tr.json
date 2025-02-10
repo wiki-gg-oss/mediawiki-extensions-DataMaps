@@ -1,17 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Brightt11"
+			"Brightt11",
+			"Slickdaddy"
 		]
 	},
+	"datamap-ve-edit-source-action": "Kaynağı düzenle",
 	"datamap-ve-background-default-name": "Başlıksız",
 	"datamap-ve-generic-cancel": "İptal",
+	"datamap-ve-panel-msettings": "Ayarlar",
 	"datamap-ve-panel-msettings-set-view": "Görüntüleyin",
 	"datamap-ve-panel-msettings-field-search-disabled": "Devre dışı",
 	"datamap-ve-panel-msettings-set-edit": "Düzenleyici",
 	"datamap-ve-panel-mgroups": "Gruplar",
 	"datamap-ve-panel-mcats": "Kategoriler",
 	"datamap-ve-workflow-marker": "İşaretleyiciler",
+	"datamap-ve-workflow-marker-create": "Oluştur",
+	"datamap-ve-workflow-marker-edit": "Kaydet",
 	"datamap-ve-workflow-marker-delete": "Bu işaretleyiciyi kalıcı olarak silin (geri alınamaz)",
 	"datamap-ve-workflow-marker-panel-setup": "Harita üzerinde",
 	"datamap-ve-workflow-marker-field-lon": "Boylam",
@@ -25,6 +30,8 @@
 	"datamap-ve-workflow-marker-field-image": "Küçük resim",
 	"datamap-ve-workflow-marker-field-article": "Viki maddesine bağlantı",
 	"datamap-ve-workflow-marker-field-article-label": "Bağlantı etiketi",
+	"datamap-ve-workflow-marker-panel-search": "Arandığında",
 	"datamap-ve-workflow-save": "Değişikliklerinizi kaydedin",
-	"datamap-ve-workflow-save-submit": "Değişiklikleri yayımla"
+	"datamap-ve-workflow-save-submit": "Değişiklikleri yayımla",
+	"datamap-ve-workflow-save-summary": "Değişiklik özeti"
 }
