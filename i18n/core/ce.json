@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Исмаил Садуев",
 			"Умар"
 		]
 	},
@@ -61,6 +62,6 @@
 	"datamap-control-edit": "Картин хаамаш хийца",
 	"datamap-control-search": "Кхузахь йазде, маркерш лаха...",
 	"datamap-control-search-toggle-sharing": "Дерриге а карташ",
-	"datamap-control-search-no-results": "ХӀума ца карийна.",
+	"datamap-control-search-no-results": "ХӀумма а ца карийна.",
 	"datamap-control-fullscreen": "Йуьззина экранан раж дӀахӀоттайе"
 }
