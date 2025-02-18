@@ -108,7 +108,7 @@ class SchemaProvider {
     public function getRevisionFromUrl( string $url ): ?string {
         // TODO: there is surely a better way to do this
         $prefixTable = [
-            'raw.githubusercontent.com' => '/alex4401/mediawiki-extensions-DataMaps/main/schemas/',
+            'raw.githubusercontent.com' => '/wiki-gg-oss/mediawiki-extensions-DataMaps/main/schemas/',
             $this->options->get( MainConfigNames::CanonicalServer ) => $this->getBaseExternalPath(),
         ];
 
@@ -138,7 +138,7 @@ class SchemaProvider {
             $this->getLocalStorePath(),
             $this->getBaseExternalPath(),
             [
-                'https://raw.githubusercontent.com/alex4401/mediawiki-extensions-DataMaps/main/schemas/',
+                'https://raw.githubusercontent.com/wiki-gg-oss/mediawiki-extensions-DataMaps/main/schemas/',
                 $this->urlUtils->expand( $this->getBaseExternalPath(), PROTO_INTERNAL ),
                 $this->urlUtils->expand( $this->getBaseExternalPath(), PROTO_CANONICAL ),
             ]
