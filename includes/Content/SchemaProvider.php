@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\DataMaps\Content;
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Utils\UrlUtils;
 
@@ -27,10 +28,12 @@ class SchemaProvider {
     /**
      * @param ServiceOptions $options
      * @param UrlUtils $urlUtils
+     * @param ExtensionConfig $extConfig
      */
     public function __construct(
         ServiceOptions $options,
-        UrlUtils $urlUtils
+        UrlUtils $urlUtils,
+        private readonly ExtensionConfig $extConfig
     ) {
         $options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
         $this->options = $options;
@@ -72,7 +75,8 @@ class SchemaProvider {
      * @return string
      */
     private function getBaseExternalPath(): string {
-        return $this->options->get( MainConfigNames::ExtensionAssetsPath ) . '/DataMaps/schemas/';
+        $publicPath = $this->extConfig->getPublicSchemaPath();
+        return "$publicPath/schemas/";
     }
 
     /**

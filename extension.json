@@ -533,6 +533,19 @@
 		"FullLinksUpdateBudget": {
 			"value": 0.5
 		},
+		"PublicSchemaPath": {
+			"description": [
+				"Public path (relative to the canonical server name) where JSON schema of the extension can be found.",
+				"Most people do not need to adjust this; this is relevant if your $wgExtensionAssetsPath has no",
+				"persistence guarantee.",
+				"",
+				"Changing this will most likely require updating all maps' $schema property, unless they're using any",
+				"of the universal schema links (wiki-gg-oss GitHub).",
+				"",
+				"By default (if set to null), this is set to $wgExtensionAssetsPath/DataMaps."
+			],
+			"value": null
+		},
 		"EnableMapLazyLoading": {
 			"description": "Temporary feature flag so it's easier to disable lazy-loading if the world gets set on fire",
 			"value": true

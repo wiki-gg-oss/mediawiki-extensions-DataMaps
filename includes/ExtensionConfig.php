@@ -2,6 +2,7 @@
 namespace MediaWiki\Extension\DataMaps;
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\MainConfigNames;
 
 class ExtensionConfig {
     public const SERVICE_NAME = 'DataMaps.Config';
@@ -10,6 +11,9 @@ class ExtensionConfig {
      * @internal Use only in ServiceWiring
      */
     public const CONSTRUCTOR_OPTIONS = [
+        // MW
+        MainConfigNames::ExtensionAssetsPath,
+        // DataMaps
         ConfigNames::NamespaceId,
         ConfigNames::ApiCacheSettings,
         ConfigNames::ReportTimingInfo,
@@ -18,6 +22,7 @@ class ExtensionConfig {
         ConfigNames::ParserExpansionLimit,
         ConfigNames::UseInProcessParserCache,
         ConfigNames::LinksUpdateBudget,
+        ConfigNames::PublicSchemaPath,
         ConfigNames::EnableMapLazyLoading,
         ConfigNames::EnableTransclusionAlias,
         ConfigNames::EnableVisualEditor,
@@ -96,6 +101,15 @@ class ExtensionConfig {
 
     public function getLinksUpdateBudget() {
         return $this->options->get( ConfigNames::LinksUpdateBudget );
+    }
+
+    public function getPublicSchemaPath(): string {
+        $retval = $this->options->get( ConfigNames::PublicSchemaPath );
+        if ( !$retval ) {
+            $wgExtensionAssetsPath = $this->options->get( MainConfigNames::ExtensionAssetsPath );
+            $retval = "$wgExtensionAssetsPath/DataMaps";
+        }
+        return $retval;
     }
 
     public function isTransclusionAliasEnabled(): bool {

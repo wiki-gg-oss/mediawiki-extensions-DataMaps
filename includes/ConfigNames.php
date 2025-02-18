@@ -57,6 +57,11 @@ class ConfigNames {
     /**
      * Name constant. For use in ExtensionConfig.
      */
+    public const PublicSchemaPath = 'DataMapsPublicSchemaPath';
+
+    /**
+     * Name constant. For use in ExtensionConfig.
+     */
     public const EnableTransclusionAlias = 'DataMapsEnableTransclusionAlias';
 
     /**

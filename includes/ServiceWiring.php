@@ -26,7 +26,8 @@ return [
                 SchemaProvider::CONSTRUCTOR_OPTIONS,
                 $services->getMainConfig()
             ),
-            $services->getUrlUtils()
+            $services->getUrlUtils(),
+            $services->getService( ExtensionConfig::SERVICE_NAME )
         );
     },
 
