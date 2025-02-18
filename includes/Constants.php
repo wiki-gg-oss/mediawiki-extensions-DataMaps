@@ -8,5 +8,5 @@ class Constants {
     public const PAGEPROP_IS_MIXIN = 'ext.datamaps.isMapMixin';
     // TODO: Documentation should be made independent
     public const DOCUMENTATION_LINK = 'https://support.wiki.gg/wiki/DataMaps/Data_format';
-    public const ISSUE_TRACKER_LINK = 'https://github.com/alex4401/mediawiki-extensions-DataMaps/issues';
+    public const ISSUE_TRACKER_LINK = 'https://github.com/wiki-gg-oss/mediawiki-extensions-DataMaps/issues';
 }
