@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kareyac",
-			"SuperYwx9"
+			"SuperYwx9",
+			"Yurina Tatiana"
 		]
 	},
 	"datamap-vec-title": "Создать карту",
@@ -17,6 +18,7 @@
 	"datamap-vec-extra-options": "Дополнительные опции",
 	"datamap-vec-toggle-zoom": "Включить масштабирование",
 	"datamap-vec-toggle-search": "Включить поиск маркеров",
+	"datamap-vec-submit": "Продолжить",
 	"datamap-vec-example-group-id": "пример",
 	"datamap-vec-example-marker": "Пример маркера"
 }

@@ -12,6 +12,7 @@
 	"datamap-ve-experimental-close": "Закрыть",
 	"datamap-userpref-enable-ve": "Включите визуальный редактор для карт данных, когда он будет работать стабильно",
 	"datamap-ve-edit-source-action": "Править код",
+	"datamap-ve-beta-notice": "Этот визуальный редактор находится на ранней стадии разработки. Пожалуйста, сообщайте о проблемах на <a href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/new\" class=\"external\">GitHub</a>.",
 	"datamap-ve-background-default-name": "Без названия",
 	"datamap-ve-generic-cancel": "Отмена",
 	"datamap-ve-panel-msettings": "Настройки",
