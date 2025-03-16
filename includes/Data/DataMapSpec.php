@@ -46,7 +46,7 @@ class DataMapSpec extends DataModel {
      */
     public function getCoordinateSystem(): CoordinateSystem {
         if ( $this->coordinateSystem === null ) {
-            if ( is_object( $this->raw->coordinates ) ) {
+            if ( is_object( $this->raw->coordinates ?? null ) ) {
                 $this->coordinateSystem = new CoordinateSystem( $this->raw->coordinates );
                 return $this->coordinateSystem;
             }
