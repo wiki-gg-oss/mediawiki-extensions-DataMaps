@@ -5,7 +5,7 @@
         ]
     },
     "datamap-desc": "Allows embedding of interactive maps into wiki pages.",
-    "content-model-datamap": "Interactive Data Map",
+    "content-model-datamap": "Interactive Map",
     "datamap-standard-title-prefix": "",
     "datamap-doc-page-suffix": "/doc",
     "datamap-doc-page-does-not-exist": "''Documentation for this map may be created at [[$1]]''",
