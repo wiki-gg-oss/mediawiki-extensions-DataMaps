@@ -8,35 +8,14 @@ use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
 use MediaWiki\Extension\DataMaps\Data\MarkerSpec;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
-use Parser;
-use ParserOptions;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Title\Title;
 use ThumbnailImage;
-use Title;
 
 class MarkerProcessor {
     private const POPUP_IMAGE_WIDTH = 288;
     private const POPUP_IMAGE_HEIGHT_MAX = 300;
-
-    /** @var Parser */
-    private Parser $parser;
-
-    /** @var ParserOptions */
-    private ParserOptions $parserOptions;
-
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /** @var ?MapCacheLRU */
-    private ?MapCacheLRU $localParserCache = null;
-
-    /** @var Title */
-    private Title $title;
-
-    /** @var DataMapSpec */
-    private DataMapSpec $dataMap;
-
-    /** @var ?array */
-    private ?array $filter;
 
     /** @var bool */
     private bool $isSearchEnabled;
@@ -45,22 +24,14 @@ class MarkerProcessor {
     private bool $isParserDirty = true;
 
     public function __construct(
-        Parser $parser,
-        ParserOptions $parserOptions,
-        ExtensionConfig $config,
-        ?MapCacheLRU $localParserCache,
-        Title $title,
-        DataMapSpec $dataMap,
-        ?array $filter
+        private readonly Parser $parser,
+        private readonly ParserOptions $parserOptions,
+        private readonly ExtensionConfig $config,
+        private readonly ?MapCacheLRU $localParserCache,
+        private readonly Title $title,
+        private readonly DataMapSpec $dataMap,
+        private readonly ?array $filter
     ) {
-        $this->parser = $parser;
-        $this->parserOptions = $parserOptions;
-        $this->config = $config;
-        $this->localParserCache = $localParserCache;
-        $this->title = $title;
-        $this->dataMap = $dataMap;
-        $this->filter = $filter;
-
         $this->isSearchEnabled = $this->dataMap->getSettings()->getSearchMode() !== MapSettingsSpec::SM_NONE;
     }
 

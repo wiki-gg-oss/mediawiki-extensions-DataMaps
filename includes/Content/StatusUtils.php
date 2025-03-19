@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use RawMessage;
+use MediaWiki\Language\RawMessage;
 
 final class StatusUtils {
     public static function formatArray( array $data, string $wrapperTag = 'code' ): RawMessage {

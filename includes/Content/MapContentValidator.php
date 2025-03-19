@@ -7,10 +7,10 @@ use JsonSchema\Uri\Retrievers\PredefinedArray;
 use JsonSchema\Uri\UriRetriever;
 use JsonSchema\Validator;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
-use RawMessage;
-use Status;
-use Title;
+use MediaWiki\Status\Status;
+use MediaWiki\Title\Title;
 
 class MapContentValidator {
     private const MAX_VALIDATION_ERROR_COUNT = 40;

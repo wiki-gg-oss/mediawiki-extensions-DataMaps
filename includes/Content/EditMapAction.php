@@ -1,20 +1,18 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use BadTitleError;
 use FormlessAction;
-use Html;
 use MediaWiki\Extension\DataMaps\Constants;
 use MediaWiki\Extension\DataMaps\HookHandler;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use OOUI\ProgressBarWidget;
-use ParserOptions;
-use ParserOutput;
-use User;
 
 class EditMapAction extends FormlessAction {
     /**

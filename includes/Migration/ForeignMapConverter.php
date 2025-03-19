@@ -1,8 +1,8 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Migration;
 
-use JsonContent;
-use Status;
+use MediaWiki\Content\JsonContent;
+use MediaWiki\Status\Status;
 
 interface ForeignMapConverter {
     public function validate( JsonContent $content ): Status;

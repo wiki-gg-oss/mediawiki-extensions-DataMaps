@@ -1,21 +1,17 @@
 <?php
 namespace MediaWiki\Extension\DataMaps;
 
-use Config;
-use ExtensionRegistry;
-use MediaWiki\Extension\DataMaps\Content\DataMapContent;
-use MediaWiki\Extension\DataMaps\Content\SchemaProvider;
+use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DataMaps\Content\SchemaRevision;
-use MediaWiki\Extension\DataMaps\Migration\Fandom\FandomMapContentHandler;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessor;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use Parser;
-use RequestContext;
-use Title;
-use User;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 // @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
@@ -28,13 +24,9 @@ final class HookHandler implements
     \MediaWiki\Hook\RecentChange_saveHook,
     \MediaWiki\Storage\Hook\RevisionDataUpdatesHook
 {
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /**
-     * @param ExtensionConfig $config
-     */
-    public function __construct( ExtensionConfig $config ) {
+    public function __construct(
+        private readonly ExtensionConfig $config
+    ) {
         $this->config = $config;
     }
 

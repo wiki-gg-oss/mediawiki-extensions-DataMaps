@@ -1,20 +1,15 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Migration;
 
-use Content;
-use Html;
-use HTMLForm;
-use JsonContentHandler;
+use MediaWiki\Content\Content;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
-use MediaWiki\Content\ValidationParams;
-use RequestContext;
-use JsonContent;
-use MediaWiki\Extension\DataMaps\Constants;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
-use Title;
-use ParserOutput;
-
+use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Title\Title;
 
 class ForeignMapContentHandler extends JsonContentHandler {
     public function __construct( $modelId = CONTENT_MODEL_DATAMAPS_FANDOM_COMPAT ) {
@@ -46,7 +41,7 @@ class ForeignMapContentHandler extends JsonContentHandler {
         $shouldGenerateHtml = $cpoParams->getGenerateHtml();
         $parserOutput = new ParserOutput();
 
-        $parserOutput->setRobotPolicy( 'noindex,follow' );
+        $parserOutput->setIndexPolicy( 'noindex' );
 
         if ( $shouldGenerateHtml ) {
             $form = HTMLForm::factory( 'ooui', [

@@ -1,8 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
-use FormatJson;
-use Html;
 use InvalidArgumentException;
 use MediaWiki\Extension\DataMaps\Data\CoordinateSystem;
 use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
@@ -14,8 +12,9 @@ use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
 use MediaWiki\Extension\DataMaps\Data\MarkerLayerSpec;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
-use stdClass;
-use Title;
+use MediaWiki\Html\Html;
+use MediaWiki\Json\FormatJson;
+use MediaWiki\Title\Title;
 
 class EmbedConfigGenerator {
     public const MARKER_ICON_WIDTH = MarkerGroupSpec::DEFAULT_ICON_SIZE[0];

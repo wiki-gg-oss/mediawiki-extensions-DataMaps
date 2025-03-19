@@ -3,22 +3,16 @@ namespace MediaWiki\Extension\DataMaps\Hooks;
 
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Migration\Fandom\FandomMapContentHandler;
-use Title;
+use MediaWiki\Title\Title;
 
 // @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 final class ContentModelHooks implements
     \MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook
 {
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /**
-     * @param ExtensionConfig $config
-     */
-    public function __construct( ExtensionConfig $config ) {
-        $this->config = $config;
-    }
+    public function __construct(
+        private readonly ExtensionConfig $config
+    ) { }
 
     public static function onRegistration(): bool {
         define( 'CONTENT_MODEL_DATAMAPS', 'datamap' );

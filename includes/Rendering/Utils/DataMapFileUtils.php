@@ -5,7 +5,7 @@ use File;
 use InvalidArgumentException;
 use MediaTransformOutput;
 use MediaWiki\MediaWikiServices;
-use ParserOutput;
+use MediaWiki\Parser\ParserOutput;
 use ThumbnailImage;
 
 class DataMapFileUtils {

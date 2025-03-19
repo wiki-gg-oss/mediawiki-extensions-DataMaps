@@ -3,8 +3,10 @@ namespace MediaWiki\Extension\DataMaps\Rendering\Utils;
 
 class DataMapColourUtils {
     public static function decode( /*string|array*/ $input ): ?array {
-        if ( is_array( $input ) && count( $input ) == 3
-            && is_numeric( $input[0] ) && is_numeric( $input[1] ) && is_numeric( $input[2] ) ) {
+        if (
+            is_array( $input ) && count( $input ) == 3 && is_numeric( $input[0] ) && is_numeric( $input[1] )
+            && is_numeric( $input[2] )
+        ) {
             return $input;
         } elseif ( is_string( $input ) ) {
             $input = ltrim( $input, '#' );
@@ -17,7 +19,7 @@ class DataMapColourUtils {
                 return null;
             }
 
-            list( $r, $g, $b ) = array_map( fn ( $c ) => hexdec( str_pad( $c, 2, $c ) ), $input );
+            [ $r, $g, $b ] = array_map( fn ( $c ) => hexdec( str_pad( $c, 2, $c ) ), $input );
             return [ $r, $g, $b ];
         }
         return null;
@@ -39,7 +41,7 @@ class DataMapColourUtils {
                 return self::decode( $input );
             }
 
-            list( $r, $g, $b, $a ) = array_map( fn ( $c ) => hexdec( str_pad( $c, 2, $c ) ), $input );
+            [ $r, $g, $b, $a ] = array_map( fn ( $c ) => hexdec( str_pad( $c, 2, $c ) ), $input );
             return [ $r, $g, $b, $a ];
         }
         return self::decode( $input );

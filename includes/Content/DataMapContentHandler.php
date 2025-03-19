@@ -1,18 +1,19 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use Content;
-use Html;
-use JsonContentHandler;
+use MediaWiki\Content\Content;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Content\ValidationParams;
 use MediaWiki\Extension\DataMaps\Constants;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use ParserOutput;
+use MediaWiki\Page\PageReference;
+use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Title\Title;
 use stdClass;
-use Title;
 
 class DataMapContentHandler extends JsonContentHandler {
     public function __construct( $modelId = CONTENT_MODEL_DATAMAPS ) {
@@ -56,9 +57,9 @@ class DataMapContentHandler extends JsonContentHandler {
         return $content->getValidationStatus();
     }
 
-    public static function getDocPage( Title $title ) {
+    public static function getDocPage( PageReference $page ) {
         $docPage = wfMessage( 'datamap-doc-page-suffix' )->inContentLanguage();
-        return $docPage->isDisabled() ? null : Title::newFromText( $title->getPrefixedText() . $docPage->plain() );
+        return $docPage->isDisabled() ? null : Title::newFromPageReference( $page )->getSubpage( $docPage->plain() );
     }
 
     public function isParserCacheSupported() {

@@ -19,25 +19,12 @@ class SchemaProvider {
         MainConfigNames::CanonicalServer,
     ];
 
-    /** @var ServiceOptions */
-    private ServiceOptions $options;
-
-    /** @var UrlUtils */
-    private UrlUtils $urlUtils;
-
-    /**
-     * @param ServiceOptions $options
-     * @param UrlUtils $urlUtils
-     * @param ExtensionConfig $extConfig
-     */
     public function __construct(
-        ServiceOptions $options,
-        UrlUtils $urlUtils,
+        private readonly ServiceOptions $options,
+        private readonly UrlUtils $urlUtils,
         private readonly ExtensionConfig $extConfig
     ) {
-        $options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
-        $this->options = $options;
-        $this->urlUtils = $urlUtils;
+        $this->options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
     }
 
     /**

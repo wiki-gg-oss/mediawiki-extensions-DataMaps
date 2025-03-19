@@ -1,8 +1,7 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
-use PPFrame;
-use PPNode;
+use MediaWiki\Parser\PPFrame;
 
 final class CommonUtilities {
     /**

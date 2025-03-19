@@ -5,10 +5,9 @@ use MediaWiki\Extension\DataMaps\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\MediaWikiServices;
-use Parser;
-use PPFrame;
-use PPNode;
-use Title;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
+use MediaWiki\Title\Title;
 
 final class EmbedMapFunction {
     /**

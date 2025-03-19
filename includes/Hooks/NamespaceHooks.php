@@ -8,20 +8,9 @@ use MediaWiki\Extension\DataMaps\ExtensionConfig;
 final class NamespaceHooks implements
     \MediaWiki\Hook\CanonicalNamespacesHook
 {
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /**
-     * @param ExtensionConfig $config
-     */
-    public function __construct( ExtensionConfig $config ) {
-        $this->config = $config;
-    }
-
-    private static function ideConstantsFromExtensionJson() {
-        define( 'NS_MAP', 2900 );
-        define( 'NS_MAP_TALK', 2901 );
-    }
+    public function __construct(
+        private readonly ExtensionConfig $config
+    ) { }
 
     /**
      * Registers Map namespace if configured so (default behaviour). Sets the robot policy if namespace ID is 2900.

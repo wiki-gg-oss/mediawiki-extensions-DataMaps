@@ -31,12 +31,10 @@ class ExtensionConfig {
         ConfigNames::EnableExperimentalFeatures,
     ];
 
-    /** @var ServiceOptions */
-    private ServiceOptions $options;
-
-    public function __construct( ServiceOptions $options ) {
-        $options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
-        $this->options = $options;
+    public function __construct(
+        private readonly ServiceOptions $options
+    ) {
+        $this->options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
     }
 
     public function getParserExpansionLimit(): int {

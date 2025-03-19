@@ -2,7 +2,7 @@
 namespace MediaWiki\Extension\DataMaps\Content\DataConstraints;
 
 use MediaWiki\Extension\DataMaps\Content\MapVersionInfo;
-use Status;
+use MediaWiki\Status\Status;
 use stdClass;
 
 abstract class DataConstraint {

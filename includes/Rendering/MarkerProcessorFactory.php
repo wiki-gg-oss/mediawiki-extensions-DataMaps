@@ -2,37 +2,22 @@
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
 use MapCacheLRU;
-use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Extension\DataMaps\ConfigNames;
 use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
-use Parser;
-use ParserFactory;
-use ParserOptions;
-use Title;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserFactory;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Title\Title;
 
 final class MarkerProcessorFactory {
     public const SERVICE_NAME = 'DataMaps.MarkerProcessorFactory';
 
     private const MAX_LRU_SIZE = 128;
 
-    /** @var ParserFactory */
-    private ParserFactory $parserFactory;
-
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /**
-     * @param ParserFactory $parserFactory
-     * @param ExtensionConfig $config
-     */
     public function __construct(
-        ParserFactory $parserFactory,
-        ExtensionConfig $config
-    ) {
-        $this->parserFactory = $parserFactory;
-        $this->config = $config;
-    }
+        private readonly ParserFactory $parserFactory,
+        private readonly ExtensionConfig $config
+    ) { }
 
     /**
      * Returns parser options for marker wikitext expansion.

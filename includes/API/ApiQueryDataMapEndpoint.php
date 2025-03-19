@@ -1,18 +1,17 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\API;
 
-use ApiBase;
-use ApiMain;
 use LogicException;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\DataMaps\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
-use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessor;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessorFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use ObjectCache;
-use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -34,12 +33,6 @@ class ApiQueryDataMapEndpoint extends ApiBase {
     /** @var Title */
     private ?Title $cachedTitle = null;
 
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /** @var MarkerProcessorFactory */
-    private MarkerProcessorFactory $markerProcessorFactory;
-
     /**
      * @stable to call
      * @param ApiMain $mainModule
@@ -50,13 +43,10 @@ class ApiQueryDataMapEndpoint extends ApiBase {
     public function __construct(
         ApiMain $mainModule,
         $moduleName,
-        ExtensionConfig $config,
-        MarkerProcessorFactory $markerProcessorFactory
+        private readonly ExtensionConfig $config,
+        private readonly MarkerProcessorFactory $markerProcessorFactory
     ) {
         parent::__construct( $mainModule, $moduleName );
-
-        $this->config = $config;
-        $this->markerProcessorFactory = $markerProcessorFactory;
     }
 
     public function getAllowedParams() {

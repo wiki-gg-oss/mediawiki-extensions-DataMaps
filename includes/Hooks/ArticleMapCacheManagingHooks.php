@@ -9,13 +9,9 @@ use WikiPage;
 final class ArticleMapCacheManagingHooks implements
     \MediaWiki\Page\Hook\ArticlePurgeHook
 {
-    /** @var ExtensionConfig */
-    private ExtensionConfig $config;
-
-    /**
-     * @param ExtensionConfig $config
-     */
-    public function __construct( ExtensionConfig $config ) {
+    public function __construct(
+        private readonly ExtensionConfig $config
+    ) {
         $this->config = $config;
     }
 

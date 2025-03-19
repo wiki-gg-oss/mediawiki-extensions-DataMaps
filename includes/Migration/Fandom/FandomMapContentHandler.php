@@ -1,18 +1,8 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Migration\Fandom;
 
-use Content;
-use Html;
-use JsonContentHandler;
-use MediaWiki\Content\Renderer\ContentParseParams;
-use MediaWiki\Content\ValidationParams;
-use MediaWiki\Extension\DataMaps\Constants;
-use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Extension\DataMaps\Migration\ForeignMapContentHandler;
-use MediaWiki\MediaWikiServices;
-use ParserOutput;
-use stdClass;
-use Title;
 
 class FandomMapContentHandler extends JsonContentHandler {
     use ForeignMapContentHandler;

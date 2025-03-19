@@ -1,9 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use JsonSchema\Exception\ResourceNotFoundException;
-use Status;
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\AssociationStringGroupExistsConstraint;
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\BackgroundLayerExistsConstraint;
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\CollectibleDependentPropertiesConstraint;
@@ -14,29 +11,15 @@ use MediaWiki\Extension\DataMaps\Content\DataConstraints\MarkerUidNoOverlapConst
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\RequiredFilesConstraint;
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\SearchDependentPropertiesConstraint;
 use MediaWiki\Extension\DataMaps\Content\DataConstraints\ZoomMinMaxConstraint;
-use MediaWiki\MainConfigNames;
-use MediaWiki\Utils\UrlUtils;
+use MediaWiki\Status\Status;
 use stdClass;
 
 class MapDataConstraintChecker {
-    /** @var Status */
-    private Status $status;
-    /** @var stdClass */
-    private stdClass $data;
-    /** @var MapVersionInfo */
-    private MapVersionInfo $version;
-
-    /**
-     */
     public function __construct(
-        MapVersionInfo $version,
-        stdClass $data,
-        Status $status
-    ) {
-        $this->status = $status;
-        $this->data = $data;
-        $this->version = $version;
-    }
+        private readonly MapVersionInfo $version,
+        private readonly stdClass $data,
+        private readonly Status $status
+    ) { }
 
     /**
      * @return DataConstraint[]

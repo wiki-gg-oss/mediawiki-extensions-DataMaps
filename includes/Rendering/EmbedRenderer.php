@@ -1,54 +1,39 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
-use FormatJson;
-use Html;
 use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
 use MediaWiki\Extension\DataMaps\Data\MapBackgroundOverlaySpec;
 use MediaWiki\Extension\DataMaps\Data\MapBackgroundTileSpec;
 use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
 use MediaWiki\Extension\DataMaps\Data\MarkerSpec;
-use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
+use MediaWiki\Html\Html;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Title\Title;
 use OOUI\HtmlSnippet;
 use OOUI\PanelLayout;
-use Parser;
-use ParserOptions;
-use ParserOutput;
-use Sanitizer;
-use Title;
 
 class EmbedRenderer {
-    public DataMapSpec $data;
-
-    private Title $title;
     private bool $useInlineData;
     private bool $forVisualEditor;
-    private Parser $linkageParser;
-    private ParserOutput $parserOutput;
-    private ParserOptions $parserOptions;
 
     /** @var MarkerProcessorFactory */
     private MarkerProcessorFactory $markerProcessorFactory;
 
     public function __construct(
-        Title $title,
-        DataMapSpec $data,
-        Parser $parser,
-        ParserOutput $parserOutput,
+        private readonly Title $title,
+        private readonly DataMapSpec $data,
+        private readonly Parser $linkageParser,
+        private readonly ParserOutput $parserOutput,
         array $options = []
     ) {
-        $this->title = $title;
-        $this->data = $data;
         $this->useInlineData = $options['inlineData'] ?? false;
         $this->forVisualEditor = $options['ve'] ?? false;
-
-        $this->linkageParser = $parser;
-
         $this->markerProcessorFactory = MediaWikiServices::getInstance()->getService(
             MarkerProcessorFactory::SERVICE_NAME );
-        $this->parserOutput = $parserOutput;
     }
 
     public function getId(): int {

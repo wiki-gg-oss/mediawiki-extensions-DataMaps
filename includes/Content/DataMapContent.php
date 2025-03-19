@@ -1,21 +1,18 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use FormatJson;
-use JsonContent;
-use MediaWiki\Extension\DataMaps\Constants;
+use MediaWiki\Content\JsonContent;
 use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
 use MediaWiki\Extension\DataMaps\Data\DataModelMixinTransformer;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderer;
-use MediaWiki\MainConfigNames;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Revision\RevisionRecord;
-use Parser;
-use ParserOutput;
-use Status;
+use MediaWiki\Title\Title;
 use stdClass;
-use Title;
 
 class DataMapContent extends JsonContent {
     public const LERR_NOT_FOUND = 1;

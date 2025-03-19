@@ -2,10 +2,9 @@
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
 use MediaWiki\MediaWikiServices;
-use Parser;
-use PPFrame;
-use PPNode;
-use Title;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
+use MediaWiki\Title\Title;
 
 final class MapLinkFunction {
     /**
