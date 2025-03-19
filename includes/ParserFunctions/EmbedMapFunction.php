@@ -36,6 +36,9 @@ final class EmbedMapFunction {
         $config = MediaWikiServices::getInstance()->get( ExtensionConfig::SERVICE_NAME );
 
         $title = Title::makeTitleSafe( $config->getNamespaceId(), $params[0] );
+        if ( !$title ) {
+            return CommonUtilities::wrapError( 'datamap-error-pf-invalid-title' );
+        }
 
         // Register page's dependency on the data map
         $parser->getOutput()->addTemplate( $title, $title->getArticleId(),

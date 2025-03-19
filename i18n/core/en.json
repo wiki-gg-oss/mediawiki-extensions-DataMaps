@@ -50,6 +50,7 @@
     "datamap-error-pf-page-does-not-exist": "Data map page \"[[$1]]\" does not exist.",
     "datamap-error-pf-page-invalid-content-model": "Content model of page \"[[$1]]\" is not <code>Interactive Data Map</code>.",
     "datamap-error-pf-max-width-invalid": "Maximum width of the map embed must be an integer greater than zero.",
+    "datamap-error-pf-invalid-title": "No (or invalid) map title given.",
     "datamap-error-map-validation-fail": "The [[$1|data map's source code]] no longer passes data validation. Please fix the errors.",
     "datamap-background-name-fallback": "Untitled",
     "datamap-legend-label": "Contents",
