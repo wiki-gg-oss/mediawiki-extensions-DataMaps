@@ -119,14 +119,22 @@ class MarkerGroupSpec extends DataModel {
     }
 
     public function getSharedRelatedArticle(): ?string {
-        return isset( $this->raw->article ) ? $this->raw->article : null;
+        if ( isset( $this->raw->article ) && $this->raw->article ) {
+            return $this->raw->article;
+        }
+        return null;
     }
 
     public function getSharedRelatedArticleTarget(): ?string {
         $value = $this->getSharedRelatedArticle();
+        if ( !$value ) {
+            return null;
+        }
+
         if ( str_contains( $value, '|' ) ) {
             return explode( '|', $value, 2 )[ 0 ];
         }
+
         return $value;
     }
 
