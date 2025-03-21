@@ -109,7 +109,10 @@ class EmbedRenderer {
             }
             // Article link
             if ( $spec->getSharedRelatedArticle() !== null ) {
-                $this->parserOutput->addLink( Title::newFromText( $spec->getSharedRelatedArticleTarget() ) );
+                $linkTarget = Title::newFromText( $spec->getSharedRelatedArticleTarget() );
+                if ( $linkTarget ) {
+                    $this->parserOutput->addLink( $linkTarget );
+                }
             }
         } );
 
@@ -128,7 +131,10 @@ class EmbedRenderer {
                 }
                 // Article link
                 if ( $marker->getRelatedArticle() !== null ) {
-                    $this->parserOutput->addLink( Title::newFromText( $marker->getRelatedArticleTarget() ) );
+                    $linkTarget = Title::newFromText( $marker->getRelatedArticleTarget() );
+                    if ( $linkTarget ) {
+                        $this->parserOutput->addLink( $linkTarget );
+                    }
                 }
             }
         } );
