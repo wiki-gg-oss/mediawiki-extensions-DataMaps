@@ -104,7 +104,7 @@ class MarkerGroupSpec extends DataModel {
     }
 
     public function getIcon(): ?string {
-        return isset( $this->raw->icon ) ? $this->raw->icon : null;
+        return ( $this->raw->icon ?? null ) ?: null;
     }
 
     public function getDisplayMode(): int {
@@ -119,10 +119,7 @@ class MarkerGroupSpec extends DataModel {
     }
 
     public function getSharedRelatedArticle(): ?string {
-        if ( isset( $this->raw->article ) && $this->raw->article ) {
-            return $this->raw->article;
-        }
-        return null;
+        return ( $this->raw->article ?? null ) ?: null;
     }
 
     public function getSharedRelatedArticleTarget(): ?string {

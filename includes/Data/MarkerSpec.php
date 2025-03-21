@@ -65,20 +65,14 @@ class MarkerSpec extends DataModel {
      * Returns marker's image to be shown in its popup.
      */
     public function getPopupImage(): ?string {
-        if ( isset( $this->raw->image ) && $this->raw->image ) {
-            return $this->raw->image;
-        }
-        return null;
+        return ( $this->raw->image ?? null ) ?: null;
     }
 
     /**
      * Returns an article to be linked in the marker's popup.
      */
     public function getRelatedArticle(): ?string {
-        if ( isset( $this->raw->article ) && $this->raw->article ) {
-            return $this->raw->article;
-        }
-        return null;
+        return ( $this->raw->article ?? null ) ?: null;
     }
 
     public function getRelatedArticleTarget(): ?string {
