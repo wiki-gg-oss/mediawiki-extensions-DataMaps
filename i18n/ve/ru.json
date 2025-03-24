@@ -33,6 +33,7 @@
 	"datamap-ve-workflow-marker-create": "Создать",
 	"datamap-ve-workflow-marker-edit": "Сохранить",
 	"datamap-ve-workflow-marker-panel-setup": "На карте",
+	"datamap-ve-workflow-marker-set-coordinates": "Размещение",
 	"datamap-ve-workflow-marker-field-lon": "Долгота",
 	"datamap-ve-workflow-marker-field-lat": "Широта",
 	"datamap-ve-workflow-marker-field-group": "Группа",

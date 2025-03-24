@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Champ0999"
+			"Champ0999",
+			"Luca.favorido"
 		]
 	},
 	"datamap-vec-title": "Crea una mappa",
@@ -11,6 +12,7 @@
 	"datamap-vec-select-crs": "Sistema di coordinate",
 	"datamap-vec-crs-percent": "Percentuale (0-100%)",
 	"datamap-vec-select-background": "Immagine di sfondo",
+	"datamap-vec-note-image-size": "Dimensioni: $1 × $2",
 	"datamap-vec-extra-options": "Opzioni aggiuntive",
 	"datamap-vec-submit": "Procedi",
 	"datamap-vec-example-group-id": "esempio"
