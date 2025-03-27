@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"datamap-ve-experimental-close": "Zoumaachen",
+	"datamap-ve-background-default-name": "Ouni Titel",
+	"datamap-ve-generic-cancel": "Ofbriechen",
+	"datamap-ve-panel-msettings": "Astellungen",
+	"datamap-ve-panel-msettings-field-coordorder-xy": "X dann Y",
+	"datamap-ve-panel-msettings-field-search-disabled": "Desaktivéiert",
+	"datamap-ve-panel-mgroups": "Gruppen",
+	"datamap-ve-panel-mcats": "Kategorien",
+	"datamap-ve-workflow-marker": "Markéierung",
+	"datamap-ve-workflow-marker-edit": "Späicheren",
+	"datamap-ve-workflow-marker-field-lon": "Längegrad",
+	"datamap-ve-workflow-marker-field-lat": "Breedegrad",
+	"datamap-ve-workflow-marker-field-group": "Grupp",
+	"datamap-ve-workflow-marker-field-categories": "Kategorien",
+	"datamap-ve-workflow-marker-set-behaviour": "Permanent Linken",
+	"datamap-ve-workflow-marker-field-name": "Titel",
+	"datamap-ve-workflow-marker-field-desc": "Beschreiwung",
+	"datamap-ve-workflow-marker-field-image": "Miniaturbild",
+	"datamap-ve-workflow-save": "Ännerunge späicheren",
+	"datamap-ve-workflow-save-summary": "Resumé vun der Ännerung"
+}
