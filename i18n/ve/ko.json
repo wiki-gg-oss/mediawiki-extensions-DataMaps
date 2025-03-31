@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -40,6 +41,7 @@
 	"datamap-ve-workflow-marker-create": "만들기",
 	"datamap-ve-workflow-marker-edit": "저장",
 	"datamap-ve-workflow-marker-delete": "이 마커를 영구적으로 삭제합니다 (취소할 수 없음)",
+	"datamap-ve-workflow-marker-panel-setup": "지도상",
 	"datamap-ve-workflow-marker-set-coordinates": "배치",
 	"datamap-ve-workflow-marker-field-lon": "경도",
 	"datamap-ve-workflow-marker-field-lat": "위도",
