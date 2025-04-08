@@ -26,9 +26,7 @@ final class HookHandler implements
 {
     public function __construct(
         private readonly ExtensionConfig $config
-    ) {
-        $this->config = $config;
-    }
+    ) { }
 
     /**
      * Registers parser functions when a parser is initialised.
