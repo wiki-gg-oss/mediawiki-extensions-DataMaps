@@ -168,6 +168,22 @@ module.exports = Object.freeze( {
     },
 
 
+    createCdxIconElement( paths, size = 'medium' ) {
+        if ( typeof( paths ) === 'object' ) {
+            paths = paths.ltr || paths.default;
+        }
+
+        const svgRoot = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' );
+        svgRoot.setAttribute( 'aria-hidden', 'true' );
+        svgRoot.setAttribute( 'viewBox', '0 0 20 20' );
+        svgRoot.innerHTML = paths;
+        return module.exports.createDomElement( 'span', {
+            classes: [ 'cdx-icon', `cdx-icon--${size}` ],
+            html: svgRoot,
+        } );
+    },
+
+
     /**
      * Retrieves Leaflet exports if they've been loaded.
      *
