@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nachi kim"
+		]
+	},
+	"datamap-background-name-fallback": "Na-enweghị isiokwu",
+	"datamap-legend-label": "Ihe dị ime",
+	"datamap-loading-js": "N'ọgbọ",
+	"datamap-loading-data": "Na-ebugo data iji gosi",
+	"datamap-legend-tab-locations": "eme eme",
+	"datamap-toggle-show-all": "Gosi ha niine",
+	"datamap-toggle-hide-all": "Zoo ha niine",
+	"datamap-layer-control": "gbanwee",
+	"datamap-legend-tab-checklist": "Nọọrọ Ọchịchị",
+	"datamap-checklist-prelude": "Ọ bụ ihe ndị a ị nwere ike ịgbasa dị ka ihe a na-emechi n'ụwa:",
+	"datamap-interact-touch": "Jiri mkpịsị aka abụọ bugharịa maapụ ahụ",
+	"datamap-interact-scroll": "Jiri CTRL + Pịgharịa ka ibugharị maapụ ahụ",
+	"datamap-interact-scroll-mac": "Jiri ⌘ + Pịgharịa gaa na mbugharị maapụ",
+	"datamap-layer-surface": "n'elu",
+	"datamap-layer-cave": "onuàlà",
+	"datamap-popup-related-article": "Gụkwuo",
+	"datamap-popup-dismissed": "nakọta",
+	"datamap-popup-mark-as-dismissed": "Kaa akara dị ka e mere ihe\" in Igbo.",
+	"datamap-popup-marker-link-get": "Nweta njikọ nwere ike ịkekọrịta",
+	"datamap-popup-marker-link-copied": "Ọgbọụgbọụ gbanyere na klipbọọdụ gị",
+	"datamap-control-zoom-in": "Bugharịa",
+	"datamap-control-zoom-out": "Wepụ ya",
+	"datamap-control-toggle-legend": "Pịa iji gbasaa akụkọ ifo ka ị gbanwee akara",
+	"datamap-control-reset-view": "Wepu ụkpụ ụkpụ dị mkpa",
+	"datamap-control-centre-view": "Echiche etiti na ọkwa mbugharị dị ugbu a",
+	"datamap-control-edit": "Dezie maapụ data",
+	"datamap-control-search": "Tinye ihe ị ga-achọta aha ihe na-egosi...",
+	"datamap-control-search-toggle-sharing": "Mapụ niile",
+	"datamap-control-search-no-results": "Ọnweghị nsonaazụ ahụrụ.",
+	"datamap-control-fullscreen": "Ọnweghị nsonaazụ ahụrụ."
+}
