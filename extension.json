@@ -104,7 +104,12 @@
 			"targets": [ "desktop", "mobile" ]
 		},
 		"ext.datamaps.core": {
-			"es6": true,
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxButton",
+				"CdxIcon"
+			],
 			"dependencies": [
 				"mediawiki.api",
 				"ext.datamaps.icons"
@@ -134,6 +139,25 @@
 				{
 					"name": "core/settings.json",
 					"callback": "MediaWiki\\Extension\\DataMaps\\HookHandler::getJsConfig"
+				},
+				{
+					"name": "core/icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAdd",
+						"cdxIconAlignCenter",
+						"cdxIconClose",
+						"cdxIconEdit",
+						"cdxIconExitFullscreen",
+						"cdxIconExpand",
+						"cdxIconFullScreen",
+						"cdxIconFunnel",
+						"cdxIconImageLayoutFrame",
+						"cdxIconInfo",
+						"cdxIconLink",
+						"cdxIconSearch",
+						"cdxIconSubtract"
+					]
 				}
 			],
 			"styles": [
