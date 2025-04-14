@@ -1,26 +1,27 @@
 .ext-datamaps-control-search ul.ext-datamaps-control-search-results {
     position: absolute;
-    top: 30px;
+    top: calc( 100% - 1px );
     left: 0;
     display: none;
     width: 100%;
     max-height: 350px;
     box-sizing: border-box;
-    border: 1px solid #a2a9b1;
+    border: 1px solid @border-color-base;
     border-radius: 0 0 4px 4px;
     margin: 0;
-    background: #fffb;
-    box-shadow: 0 2px 2px 0 #00000040;
+    background: @background-color-base;
+    box-shadow: @box-shadow-drop-medium;
     overflow-y: scroll;
 
     li {
-        padding: 0.25em 0.6em;
+        padding: 0.4em 0.6em;
         clear: both;
         line-height: 1.43em;
 
         &:focus,
         &[ data-highlighted='true' ] {
-            background: #eaecf0;
+            // FIXME: should be @background-color-interactive-subtle--hover but newer Codex is required
+            background: @background-color-interactive-subtle;
             color: @color-progressive;
         }
 
