@@ -214,12 +214,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* visual tweaks */
 
 .leaflet-container {
-	background: #ddd;
 	outline-offset: 1px;
-	}
-.leaflet-zoom-box {
-	border: 2px dotted #38f;
-	background: rgba(255,255,255,0.5);
 	}
 
 
@@ -229,122 +224,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	line-height: 1.5;
 	}
 
-
-/* button reset */
-.leaflet-bar button,
-.leaflet-popup button {
-	border: none;
-	padding: 0;
-	appearance: none;
-	background-color: transparent;
-	font-size: inherit;
-}
-
-
-/* general toolbar styles */
-
-.leaflet-bar {
-	background-color: #fff;
-	border: 1px solid #0003;
-	box-shadow: 0 1px 5px #0007;
-	border-radius: 4px;
-	}
-.leaflet-bar button {
-	border-bottom: 1px solid #ccc;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	color: black;
-	}
-.leaflet-bar button:hover,
-.leaflet-bar button:focus {
-	background-color: #f4f4f4;
-	}
-.leaflet-bar button:first-child {
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	}
-.leaflet-bar button:last-child {
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	border-bottom: none;
-	}
-.leaflet-bar button.leaflet-disabled {
-	cursor: default;
-	background-color: #f4f4f4;
-	color: #bbb;
-	}
-
-
-/* zoom control */
-
-button.leaflet-control-zoom-in,
-button.leaflet-control-zoom-out {
-	font: bold 22px 'Lucida Console', Monaco, monospace;
-	text-indent: 1px;
-	}
-
-
-/* layers control */
-/*
-.leaflet-control-layers {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #fff;
-	border-radius: 5px;
-	}
-.leaflet-control-layers-toggle {
-	background-image: url(images/layers.png);
-	width: 36px;
-	height: 36px;
-	}
-.leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(images/layers-2x.png);
-	background-size: 26px 26px;
-	}
-.leaflet-touch .leaflet-control-layers-toggle {
-	width: 44px;
-	height: 44px;
-	}
-.leaflet-control-layers .leaflet-control-layers-list,
-.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
-	display: none;
-	}
-.leaflet-control-layers-expanded .leaflet-control-layers-list {
-	display: block;
-	position: relative;
-	}
-.leaflet-control-layers-list {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	}
-.leaflet-control-layers-expanded {
-	padding: 6px 10px 6px 6px;
-	color: #333;
-	background: #fff;
-	}
-.leaflet-control-layers-scrollbar {
-	overflow-y: scroll;
-	overflow-x: hidden;
-	padding-right: 5px;
-	}
-.leaflet-control-layers-selector {
-	margin-top: 2px;
-	position: relative;
-	top: 1px;
-	}
-.leaflet-control-layers label {
-	display: block;
-	font-size: 1.08333em;
-	}
-.leaflet-control-layers-separator {
-	height: 0;
-	border-top: 1px solid #ddd;
-	margin: 5px -10px 5px -6px;
-	}*/
 
 /* Default icon URLs */
 .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
@@ -424,7 +303,6 @@ button.leaflet-control-zoom-out {
 	}
 .leaflet-popup-content-wrapper {
 	text-align: left;
-	border-radius: 5px;
 	box-sizing: border-box;
 	}
 .leaflet-popup-content {
@@ -435,51 +313,6 @@ button.leaflet-control-zoom-out {
 	max-width: 290px;
 	width: 290px;
 	box-sizing: border-box;
-	}
-.leaflet-popup-tip-container {
-	width: 40px;
-	height: 20px;
-	position: absolute;
-	left: 50%;
-	margin-top: -1px;
-	margin-left: -25px;
-	overflow: hidden;
-	pointer-events: none;
-	}
-.leaflet-popup-tip {
-	width: 20px;
-	height: 20px;
-	padding: 1px;
-
-	margin: -10px auto 0;
-	pointer-events: auto;
-
-	transform: rotate(45deg);
-	}
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
-	background: white;
-	color: #333;
-	box-shadow: 0 3px 14px #0006;
-	}
-.leaflet-container button.leaflet-popup-close-button {
-	position: absolute;
-	top: 0;
-	right: 0;
-	border: none;
-	text-align: center;
-	width: 24px;
-	height: 24px;
-	font: 16px/24px Tahoma, Verdana, sans-serif;
-	color: #000;
-	text-decoration: none;
-	background: transparent;
-	opacity: 0.7;
-	}
-.leaflet-container button.leaflet-popup-close-button:hover,
-.leaflet-container button.leaflet-popup-close-button:focus {
-	color: #000;
-	opacity: 0.85;
 	}
 .leaflet-popup-scrolled {
 	overflow: auto;
