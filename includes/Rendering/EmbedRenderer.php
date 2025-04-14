@@ -12,6 +12,7 @@ use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Title\Title;
 use OOUI\HtmlSnippet;
 use OOUI\PanelLayout;
