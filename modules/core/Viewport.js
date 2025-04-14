@@ -376,6 +376,16 @@ class Viewport extends EventEmitter {
     }
 
 
+    zoomNSteps( steps ) {
+		if ( steps > 0 && this._leaflet._zoom < this._leaflet.getMaxZoom() ) {
+            this._leaflet.zoomIn( this._leaflet.options.zoomDelta * steps );
+		}
+		if ( steps < 0 && this._leaflet._zoom > this._leaflet.getMinZoom() ) {
+            this._leaflet.zoomOut( this._leaflet.options.zoomDelta * -steps );
+		}
+    }
+
+
     /**
      * Snaps the viewport to the content. Zooms out entirely on a double click.
      */
