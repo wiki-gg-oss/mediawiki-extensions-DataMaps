@@ -2,10 +2,12 @@
 const {
     isVisualEditorEnabled,
     createDomElement,
+    createCdxIconElement,
     getNonNull,
     preventMapInterference,
     TabberNeue,
 } = require( './Util.js' );
+const CodexIcon = require( './icons.json' );
 
 
 /**
@@ -19,6 +21,7 @@ const {
  * @typedef {Object} ControlButtonOptions
  * @property {boolean} [addToSelf] Whether to add the button to the end of the control automatically.
  * @property {OO.ui.Icon} [icon] OOUI icon name, if any.
+ * @property {string} [svg] SVG icon paths, if any.
  * @property {string} [label] Label text, if any.
  * @property {boolean} [labelBeforeIcon] Whether to put the label before icon.
  * @property {string} [tooltip] Tooltip, if any.
@@ -56,7 +59,7 @@ class MapControl {
         // * datamap-control-${id}
         this.element.classList.add( 'leaflet-control', 'ext-datamaps-control', `ext-datamaps-control-${id}` );
         if ( this.isButtonGroup() ) {
-            this.element.classList.add( 'leaflet-bar' );
+            this.element.classList.add( 'ext-datamaps-control--button-group' );
         }
         if ( options.classes ) {
             // eslint-disable-next-line mediawiki/class-doc
@@ -102,7 +105,13 @@ class MapControl {
     _makeButton( options ) {
         // eslint-disable-next-line mediawiki/class-doc
         const result = createDomElement( 'button', {
-            classes: options.classes,
+            classes: [
+                'cdx-button',
+                'cdx-button--action-progressive',
+                'cdx-button--weight-normal',
+                'cdx-button--framed',
+                ...( options.classes || [] )
+            ],
             html: options.label,
             attributes: {
                 role: 'button',
@@ -123,6 +132,17 @@ class MapControl {
             result[ options.labelBeforeIcon ? 'appendChild' : 'prepend' ]( createDomElement( 'span', {
                 classes: [ `oo-ui-icon-${options.icon}` ]
             } ) );
+
+            if ( !options.label ) {
+                result.classList.add( 'cdx-button--icon-only' );
+            }
+        }
+
+        if ( options.svg ) {
+            result[ options.labelBeforeIcon ? 'appendChild' : 'prepend' ]( createCdxIconElement( options.svg ) );
+            if ( !options.label ) {
+                result.classList.add( 'cdx-button--icon-only' );
+            }
         }
 
         if ( options.returnToMap !== false ) {
@@ -178,7 +198,8 @@ class BackgroundSwitcher extends MapControl {
      */
     constructor( map ) {
         super( map, 'backgrounds', {
-            tagName: 'select'
+            tagName: 'select',
+            classes: [ 'cdx-select' ]
         } );
     }
 
@@ -244,7 +265,7 @@ class EditButton extends MapControl {
     _build() {
         this._makeButton( {
             addToSelf: true,
-            icon: 'edit',
+            svg: CodexIcon.cdxIconEdit,
             tooltip: mw.msg( 'datamap-control-edit' ),
             clickHandler: () => {
                 // @ts-ignore: wrong type signature for wikiScript in the package, argument is optional
@@ -260,7 +281,51 @@ class EditButton extends MapControl {
 /**
  * View reset and centre buttons.
 */
-class ExtraViewControls extends MapControl {
+class ZoomControls extends MapControl {
+    /**
+     * @param {DataMap} map Owning map.
+     */
+    constructor( map ) {
+        super( map, 'zoomcontrols' );
+    }
+
+
+    _build() {
+        const viewport = getNonNull( this.map.viewport );
+
+        this._zoomIn = this._makeButton( {
+            addToSelf: true,
+            svg: CodexIcon.cdxIconAdd,
+            tooltip: mw.msg( 'datamap-control-zoom-in' ),
+            clickHandler: () => viewport.zoomNSteps( 1 )
+        } );
+        this._zoomOut = this._makeButton( {
+            addToSelf: true,
+            svg: CodexIcon.cdxIconSubtract,
+            tooltip: mw.msg( 'datamap-control-zoom-out' ),
+            clickHandler: () => viewport.zoomNSteps( -1 )
+        } );
+
+		viewport.getLeafletMap().on( 'zoomend zoomlevelschange', this._updateDisabled, this );
+        this._updateDisabled();
+    }
+
+
+    _updateDisabled() {
+        const
+            map = getNonNull( this.map.viewport ).getLeafletMap(),
+            zoom = map.getZoom();
+        // Scroll-zoom might not snap us into max zoom, but the difference will be minimal. Use an error margin.
+        this._zoomIn.disabled = zoom >= ( map.getMaxZoom() - map.options.zoomDelta * 0.97 );
+        this._zoomOut.disabled = zoom <= map.getMinZoom();
+    }
+}
+
+
+/**
+ * View reset and centre buttons.
+*/
+class ViewControls extends MapControl {
     /**
      * @param {DataMap} map Owning map.
      */
@@ -272,13 +337,13 @@ class ExtraViewControls extends MapControl {
     _build() {
         this._makeButton( {
             addToSelf: true,
-            icon: 'imageLayoutFrame',
+            svg: CodexIcon.cdxIconImageLayoutFrame,
             tooltip: mw.msg( 'datamap-control-reset-view' ),
             clickHandler: () => getNonNull( this.map.viewport ).resetView()
         } );
         this._makeButton( {
             addToSelf: true,
-            icon: 'alignCenter',
+            svg: CodexIcon.cdxIconAlignCenter,
             tooltip: mw.msg( 'datamap-control-centre-view' ),
             clickHandler: () => getNonNull( this.map.viewport ).centreView()
         } );
@@ -298,7 +363,7 @@ class ToggleFullscreen extends MapControl {
 
         this._button = this._makeButton( {
             addToSelf: true,
-            icon: 'fullScreen',
+            svg: CodexIcon.cdxIconFullScreen,
             tooltip: mw.msg( 'datamap-control-fullscreen' ),
             clickHandler: () => {
                 this.map.setFullScreen( !this.map.isFullScreen() );
@@ -311,8 +376,8 @@ class ToggleFullscreen extends MapControl {
     _refreshIcon() {
         const state = this.map.isFullScreen(),
             element = getNonNull( this._button.firstElementChild );
-        element.classList[ state ? 'add' : 'remove' ]( 'oo-ui-icon-exitFullscreen' );
-        element.classList[ state ? 'remove' : 'add' ]( 'oo-ui-icon-fullScreen' );
+        element.innerHTML = '';
+        element.append( createCdxIconElement( CodexIcon[ state ? 'cdxIconExitFullscreen' : 'cdxIconFullScreen' ] ) );
     }
 }
 
@@ -400,7 +465,9 @@ module.exports = {
     BackgroundSwitcher,
     Coordinates,
     EditButton,
-    ExtraViewControls,
+    ZoomControls,
+    ViewControls,
+    ExtraViewControls: ViewControls,
     ToggleFullscreen,
     SearchHost
 };

@@ -20,13 +20,13 @@
         width: 100%;
         flex-direction: column;
         backdrop-filter: blur( 5px );
-        background: #e1e4ead4;
-        color: #000;
+        background: @background-color-backdrop-light;
+        color: @color-base;
         text-align: center;
     }
 
     &[ data-severity='error' ] > :not( .oo-ui-widget ) {
-        background: #ddcfcfd4;
+        color: @color-error;
     }
 
     .oo-ui-progressBarWidget:not( .oo-ui-pendingElement-pending ) {

@@ -41,16 +41,34 @@
     display: flex;
     max-height: 30px;
     flex-direction: column;
+    background-color: @background-color-base;
+    border: 1px solid @border-color-base;
+    border-radius: 2px;
 
     &[ aria-expanded='true' ] {
         min-height: 0;
         max-height: unset;
-        background: #fffb;
+        background: @background-color-base;
+        color: @color-base;
+
+        > button::after {
+            .cdx-mixin-css-icon-background-image( @cdx-icon-collapse, @param-fill-color: currentColor );
+        }
     }
 
-    > button > .oo-ui-iconElement {
-        float: right;
-        transform: scale( 70% );
+    > button {
+        justify-content: flex-start;
+        margin: -1px -1px 0;
+
+        &::after {
+            content: '';
+        	.cdx-mixin-css-icon( @cdx-icon-expand, @param-fill-color: currentColor );
+        }
+
+        > .cdx-icon,
+        &::after {
+            order: -1;
+        }
     }
 
     .ext-datamaps-control-expandable-content {

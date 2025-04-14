@@ -1,7 +1,8 @@
 /** @typedef {import( './DataMap.js' )} DataMap */
 const Util = require( './Util.js' ),
     { MapFlags } = require( './enums.js' ),
-    { createDomElement, getNonNull } = Util;
+    { createDomElement, getNonNull } = Util,
+    CodexIcon = require( './icons.json' );
 
 
 /**
@@ -79,6 +80,7 @@ module.exports = class MarkerPopup {
      */
     static bindTo( map, leafletMarker ) {
         leafletMarker.bindPopup( () => new ( map.getPopupClass() )( map, leafletMarker ), {
+            closeButton: false,
             // TODO: Currently VE is not compatible with ephemeral popups
             tooltip: !map.checkFeatureFlag( MapFlags.VisualEditor ) && map.checkFeatureFlag( MapFlags.PopupTooltips )
         }, Util.getLeaflet().Ark.Popup );
@@ -107,7 +109,7 @@ module.exports = class MarkerPopup {
         } ) );
         this.buildContent( element );
         // If tools are not empty, push them onto the content
-        const actionsElement = createDomElement( 'ul', {
+        const actionsElement = createDomElement( 'div', {
             classes: [ 'ext-datamaps-popup-tools' ]
         } );
         this.buildActions( actionsElement );
@@ -123,26 +125,55 @@ module.exports = class MarkerPopup {
      * @param {HTMLElement} element
      */
     buildButtons( element ) {
-        if ( this.map.canModifyUriAddress() ) {
-            const getLink = createDomElement( 'a', {
-                classes: [ 'ext-datamaps-popup-link', 'oo-ui-icon-link' ],
+        const createButton = ( id, labelMsg, svgIcon, clickHandler ) => {
+            return createDomElement( 'button', {
+                classes: [
+                    'cdx-button',
+                    'cdx-button--action-default',
+                    'cdx-button--weight-quiet',
+                    'cdx-button--size-medium',
+                    'cdx-button--icon-only',
+                    `ext-datamaps-popup-button`,
+                    `ext-datamaps-popup-button--${id}`,
+                    `ext-datamaps-popup-${id}`
+                ],
                 attributes: {
-                    role: 'button',
-                    title: mw.msg( 'datamap-popup-marker-link-get' ),
-                    'aria-label': mw.msg( 'datamap-popup-marker-link-get' ),
-                    href: Util.makeUrlWithParams( this.map, { marker: this.uid }, true )
+                    type: 'button',
+                    title: mw.msg( labelMsg ),
+                    'aria-label': mw.msg( labelMsg )
                 },
                 events: {
                     click: event => {
                         event.preventDefault();
-                        // eslint-disable-next-line compat/compat
-                        navigator.clipboard.writeText( /** @type {string} */ ( getLink.getAttribute( 'href' ) ) )
-                            .then( () => mw.notify( mw.msg( 'datamap-popup-marker-link-copied' ) ) );
+                        clickHandler();
                     }
                 },
+                html: Util.createCdxIconElement( svgIcon ),
                 appendTo: element
             } );
+        };
+
+        if ( this.map.canModifyUriAddress() ) {
+            const getLink = createButton(
+                'link',
+                'datamap-popup-marker-link-get',
+                CodexIcon.cdxIconLink,
+                () => {
+                    // eslint-disable-next-line compat/compat
+                    navigator.clipboard.writeText( /** @type {string} */ ( getLink.getAttribute( 'href' ) ) )
+                        .then( () => mw.notify( mw.msg( 'datamap-popup-marker-link-copied' ) ) );
+                }
+            );
         }
+
+        createButton(
+            'close',
+            'datamap-popup-close',
+            CodexIcon.cdxIconClose,
+            () => {
+                this.leafletMarker._popup.close();
+            }
+        );
     }
 
 
@@ -243,6 +274,41 @@ module.exports = class MarkerPopup {
      * @param {HTMLElement} element
      */
     buildActions( element ) {
+        const createButton = ( labelText, svgIcon, clickHandler ) => {
+            const buttonElement = createDomElement( 'button', {
+                classes: [
+                    'cdx-button',
+                    'cdx-button--action-progressive',
+                    'cdx-button--weight-quiet',
+                    'cdx-button--size-small',
+                    'cdx-button--framed'
+                ],
+                text: labelText
+            } );
+
+            if ( svgIcon ) {
+                buttonElement.prepend( Util.createCdxIconElement( svgIcon, 'small' ) );
+            }
+
+            if ( typeof( clickHandler ) === 'string' ) {
+                return createDomElement( 'a', {
+                    attributes: {
+                        href: clickHandler
+                    },
+                    html: buttonElement,
+                    appendTo: element
+                } );
+            } else {
+                buttonElement.addEventListener( 'click', event => {
+                    event.preventDefault();
+                    clickHandler();
+                } );
+                element.append( buttonElement );
+            }
+
+            return buttonElement
+        };
+
         // Related article
         let article = this.slots.article || this.markerGroup.article;
         if ( article ) {
@@ -253,31 +319,23 @@ module.exports = class MarkerPopup {
                 article = split[ 0 ];
             }
 
-            createDomElement( 'li', {
-                html: createDomElement( 'a', {
-                    text: msg,
-                    attributes: {
-                        href: mw.util.getUrl( article )
-                    }
-                } ),
-                appendTo: element
-            } );
+            createButton(
+                msg,
+                CodexIcon.cdxIconLink,
+                mw.util.getUrl( article )
+            );
         }
 
         // Dismissables
         if ( Util.Groups.getCollectibleType( this.markerGroup ) ) {
-            this.dismiss = createDomElement( 'a', {
-                events: {
-                    click: () => {
-                        this.map.toggleMarkerDismissal( this.leafletMarker );
-                        getNonNull( this.map.viewport ).getLeafletMap().closePopup();
-                    }
+            this.dismiss = createButton(
+                undefined,
+                undefined,
+                () => {
+                    this.map.toggleMarkerDismissal( this.leafletMarker );
+                    getNonNull( this.map.viewport ).getLeafletMap().closePopup();
                 }
-            } );
-            createDomElement( 'li', {
-                html: this.dismiss,
-                appendTo: element
-            } );
+            );
         }
     }
 

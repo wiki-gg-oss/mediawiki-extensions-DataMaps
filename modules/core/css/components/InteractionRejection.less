@@ -9,8 +9,9 @@
     align-items: center;
     justify-content: center;
     backdrop-filter: none;
-    background: #383939d4;
-    color: #fff;
+    background: @background-color-backdrop-light;
+    color: @color-base;
+    text-shadow: 0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black,0 0 2px black;
     font-size: 2.3em;
     opacity: 0;
     pointer-events: none;
@@ -18,6 +19,6 @@
     transition: opacity @transition-duration-base;
 
     &[ data-active='true' ] {
-        opacity: 0.9;
+        opacity: 1;
     }
 }

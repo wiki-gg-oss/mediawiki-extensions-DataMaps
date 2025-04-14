@@ -120,11 +120,17 @@ class Viewport extends EventEmitter {
                 this.map ) );
         }
         /**
+         * Zoom controls
+         *
+         * @type {Controls.ZoomControls?}
+         */
+        this.zoomControls = this.addControl( Viewport.anchors.bottomRight, new Controls.ZoomControls( this.map ) );
+        /**
          * Reset and centre view controls.
          *
-         * @type {Controls.ExtraViewControls?}
+         * @type {Controls.ViewControls?}
          */
-        this.viewControls = this.addControl( Viewport.anchors.bottomRight, new Controls.ExtraViewControls( this.map ) );
+        this.viewControls = this.addControl( Viewport.anchors.bottomRight, new Controls.ViewControls( this.map ) );
         /**
          * Fullscreen mode switcher control.
          *

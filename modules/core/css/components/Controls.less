@@ -1,44 +1,30 @@
+.ext-datamaps-control {
+    display: flex;
+    flex-direction: column;
+
+    &:has( .cdx-button:nth-child( 2 ) ) {
+        .cdx-button:not( :first-child ) {
+            border-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .cdx-button:not( :last-child ) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
+
 .leaflet-control-container {
-    .ext-datamaps-control-primary {
-        background: @color-progressive;
-
-        > button {
-            color: #fff;
-        }
-    }
-
-    .ext-datamaps-control > button {
-        > span {
-            display: block;
-            width: 30px;
-            height: 30px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 20px;
-        }
-
-        &[ data-style='labelled' ] {
-            width: auto;
-            padding-inline: 0.5em;
-            text-align: left;
-
-            > span {
-                display: inline-block;
-                vertical-align: middle;
-            }
-        }
-    }
-
     select.ext-datamaps-control {
-        padding: 3px 0.5em;
-        border: 0;
         opacity: 0.9;
     }
 
     .ext-datamaps-control-coords {
         padding: 0 0.4em;
-        background: #fff9;
-        color: #333;
+        background: @background-color-neutral-subtle;
+        color: @color-base--subtle;
         font-size: 1.42em;
         line-height: 1.4;
     }

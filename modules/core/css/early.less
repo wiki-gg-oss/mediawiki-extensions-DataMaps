@@ -1,7 +1,7 @@
 @import 'mediawiki.skin.variables.less';
 
 .ext-datamaps-container {
-    box-shadow: 0 0 8px #0003;
+    box-shadow: @box-shadow-drop-medium;
 }
 
 .ext-datamaps-container-content {
@@ -9,7 +9,7 @@
         position: relative;
         height: 70vh;
         min-height: 750px;
-        background: #ddd;
+        background: @background-color-interactive;
 
         @media screen and ( max-height: 900px ) {
             height: 75vh;

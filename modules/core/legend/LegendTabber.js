@@ -2,7 +2,8 @@
 /** @typedef {import( '../controls.js' ).ControlButtonOptions} ControlButtonOptions */
 const Util = require( '../Util.js' ),
     { MapControl } = require( '../controls.js' ),
-    { MapFlags } = require( '../enums.js' );
+    { MapFlags } = require( '../enums.js' ),
+    CodexIcon = require( '../icons.json' );
 
 
 /**
@@ -41,7 +42,7 @@ class LegendTabber {
          */
         this._control = new LegendTabber.ExpandableControl( this.map, {
             label: mw.msg( 'datamap-legend-label' ),
-            icon: 'funnel'
+            svg: CodexIcon.cdxIconFunnel
         }, this._tabs.$element[ 0 ] );
         Util.preventMapInterference( this._control.element );
         this.rootElement.appendChild( this._control.element );
@@ -100,19 +101,10 @@ LegendTabber.ExpandableControl = class ExpandableControl extends MapControl {
     constructor( map, buttonOptions, contentElement ) {
         super( map, 'expandable' );
 
-        /**
-         * @private
-         * @type {OO.ui.IconWidget}
-         */
-        this._expandIcon = new OO.ui.IconWidget( {
-            icon: 'expand'
-        } );
-
         const button = this._makeButton( Object.assign( /** @type {ControlButtonOptions} */ ( {
             addToSelf: true,
             clickHandler: () => this.toggle()
         } ), buttonOptions ) );
-        button.appendChild( this._expandIcon.$element[ 0 ] );
 
         /** @type {HTMLElement} */
         this.innerElement = Util.createDomElement( 'div', {
@@ -138,7 +130,6 @@ LegendTabber.ExpandableControl = class ExpandableControl extends MapControl {
      */
     setExpanded( value ) {
         this.element.setAttribute( 'aria-expanded', value ? 'true' : 'false' );
-        this._expandIcon.setIcon( value ? 'collapse' : 'expand' );
     }
 
 
