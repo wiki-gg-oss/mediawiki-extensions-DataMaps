@@ -169,6 +169,7 @@
 				"datamap-legend-label",
 				"datamap-legend-tab-locations",
 				"datamap-legend-tab-checklist",
+				"datamap-legend-tab-progress",
 				"datamap-toggle-show-all",
 				"datamap-toggle-hide-all",
 				"datamap-toggle-caves",

@@ -64,6 +64,7 @@
     "datamap-toggle-hide-all": "Hide all",
     "datamap-layer-control": "Toggle",
     "datamap-legend-tab-checklist": "Checklists",
+    "datamap-legend-tab-progress": "Progress tracking",
     "datamap-checklist-prelude": "These are the items you can mark as collected:",
     "datamap-interact-touch": "Use two fingers to move the map",
     "datamap-interact-scroll": "Use CTRL + Scroll to zoom the map",

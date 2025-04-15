@@ -9,7 +9,7 @@ class CollectiblesPanel extends LegendTabber.Tab {
      * @param {LegendTabber} tabber
      */
     constructor( tabber ) {
-        super( tabber, mw.msg( 'datamap-legend-tab-checklist' ), [ 'ext-datamaps-container-collectibles' ] );
+        super( tabber, mw.msg( 'datamap-legend-tab-progress' ), [ 'ext-datamaps-container-collectibles' ] );
 
         /**
          * @type {Record<string, CollectiblesPanel.Section>}
