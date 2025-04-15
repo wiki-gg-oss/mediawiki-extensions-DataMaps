@@ -1,4 +1,35 @@
+@control-gap: @font-size-x-small / 2;
+
 .leaflet-control-container {
+    // Basic anchors
+    > .leaflet-top {
+        top: 0;
+        padding-top: @font-size-x-small;
+    }
+
+    > .leaflet-bottom {
+        bottom: 0;
+        padding-bottom: @font-size-x-small;
+    }
+
+    > .leaflet-left {
+        left: 0;
+        padding-left: @font-size-x-small;
+    }
+
+    > .leaflet-right {
+        right: 0;
+        padding-right: @font-size-x-small;
+    }
+
+    // Use flex columns in every anchor
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: @control-gap;
+    }
+
+    // Top-left anchor needs some special treatment
     > .leaflet-top.leaflet-left {
         bottom: 10%;
         display: flex;
@@ -7,8 +38,13 @@
         padding-right: 10px;
     }
 
+    // Horizontal control group
     .ext-datamaps-control-group {
         display: flex;
+
+        &:empty {
+            display: none;
+        }
     }
 
     /* Hide zoom button only on touch devices */
