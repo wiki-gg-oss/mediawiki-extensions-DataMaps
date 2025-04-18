@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nachi kim"
+		]
+	},
+	"datamap-vec-title": "Mepe ụdị ala",
+	"datamap-ve-skip": "Gáfè",
+	"datamap-vec-crs-custom": "Omenala",
+	"datamap-vec-extra-options": "ọrịsị ndị ọzọ",
+	"datamap-vec-toggle-coord-display": "Gosi nhazi n'okpuru cursor",
+	"datamap-vec-toggle-zoom": "Mepe n'ị nwaa",
+	"datamap-vec-toggle-search": "Kwado ọchụchọ nrịbama",
+	"datamap-vec-toggle-search-tabber": "Kekọrịta data ọchụchọ n'ime tabber",
+	"datamap-vec-toggle-uid-requirement": " Ọdịdị n'otu mkpụrụ akụkọ dị iche iche dị mkpa",
+	"datamap-vec-submit": "gaba nihu",
+	"datamap-vec-example-group-id": "omuma atu",
+	"datamap-vec-example-group-name": "Otu ihe atụ",
+	"datamap-vec-example-marker": "Ihe nrịbama atụ"
+}
