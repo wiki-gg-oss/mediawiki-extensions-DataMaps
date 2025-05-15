@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bodhisattwa"
+		]
+	},
+	"datamap-vec-title": "একটি মানচিত্র তৈরি করুন",
+	"datamap-ve-skip": "এড়ান",
+	"datamap-vec-select-crs-origin": "(০, ০) স্থানাঙ্ক কোণ",
+	"datamap-vec-crs-top-left": "উপরে-বাম দিকে",
+	"datamap-vec-crs-bottom-left": "নীচে-বামে",
+	"datamap-vec-select-crs": "স্থানাঙ্ক ব্যবস্থা",
+	"datamap-vec-crs-percent": "শতাংশ (০-১০০%)",
+	"datamap-vec-select-background": "পটভূমির ছবি",
+	"datamap-vec-note-image-size": "মাপ: $1 × $2",
+	"datamap-vec-example-group-id": "উদাহরণ"
+}
