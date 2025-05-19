@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"datamap-ve-experimental-close": "Zatvori",
+	"datamap-ve-edit-source-action": "Uredi izvor",
+	"datamap-ve-background-default-name": "Bez naslova",
+	"datamap-ve-generic-cancel": "Otkaži",
+	"datamap-ve-panel-msettings-field-coordorder": "Koordinatni sistem",
+	"datamap-ve-panel-msettings-field-search-disabled": "Onemogućeno",
+	"datamap-ve-panel-mgroups": "Grupe",
+	"datamap-ve-panel-mcats": "Kategorije",
+	"datamap-ve-workflow-marker-create": "Napravi",
+	"datamap-ve-workflow-marker-edit": "Sačuvaj",
+	"datamap-ve-workflow-marker-field-lon": "Dužina",
+	"datamap-ve-workflow-marker-field-lat": "Širina",
+	"datamap-ve-workflow-marker-field-group": "Grupa",
+	"datamap-ve-workflow-marker-field-categories": "Kategorije",
+	"datamap-ve-workflow-marker-field-name": "Naslov",
+	"datamap-ve-workflow-marker-field-desc": "Opis",
+	"datamap-ve-workflow-marker-field-image": "Minijatura",
+	"datamap-ve-workflow-save": "Sačuvajte svoje izmene",
+	"datamap-ve-workflow-save-submit": "Objavi izmene",
+	"datamap-ve-workflow-save-summary": "Opis izmene",
+	"datamap-ve-workflow-save-summary-desc": "Opišite šta ste promenili"
+}
