@@ -21,6 +21,7 @@
 	"datamap-ve-panel-msettings-field-coordorder-xy": "X ثم Y",
 	"datamap-ve-panel-msettings-field-crs": "مساحة الإحداثيات",
 	"datamap-ve-panel-msettings-set-view": "المعاينة",
+	"datamap-ve-panel-msettings-field-search": "البحث عن العلامة",
 	"datamap-ve-panel-msettings-field-search-disabled": "معطل",
 	"datamap-ve-panel-msettings-field-search-enabled": "مُمكّن (داخل هذه الخريطة فقط)",
 	"datamap-ve-panel-msettings-field-search-tabber": "مُمكَّن (داخل علامة التبويب بأكملها)",
