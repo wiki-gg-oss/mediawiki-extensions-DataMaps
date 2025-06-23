@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GuoPC",
 			"HighSierra0820",
 			"Lakejason0",
 			"yanstime"
@@ -46,8 +47,8 @@
 	"datamap-error-validatespec-map-bad-mixin": "片段页面“<code>$1</code>”必须存在且使用<code>Interactive Data Map</code>内容模型，并且在语法和结构上有效。",
 	"datamap-error-validatespec-map-mixin-with-mixins": "片段中不得引用其他片段。",
 	"datamap-error-render-unsupported-displaymode": "有标记报告其需使用显示模式$1，但缺少支持。这是扩展代码中的一个错误。",
-	"datamap-error-pf-page-does-not-exist": "数据地图页面“[[$1]]”不存在。",
-	"datamap-error-pf-page-invalid-content-model": "页面“[[$1]]”的内容模型不是<code>Interactive Data Map</code>。",
+	"datamap-error-pf-page-does-not-exist": "地图源代码页面“[[$1]]”不存在。",
+	"datamap-error-pf-page-invalid-content-model": "页面“[[$1]]”必须具有<code>{{int:content-model-datamap}}</code>的内容模型。",
 	"datamap-error-pf-max-width-invalid": "地图嵌入的最大宽度必须是大于零的整数。",
 	"datamap-error-map-validation-fail": "[[$1|数据地图的源代码]]不再能通过数据验证。请修复错误。",
 	"datamap-background-name-fallback": "无标题",

@@ -11,7 +11,7 @@
 	"content-model-datamap": "Интерактивная карта данных",
 	"datamap-doc-page-does-not-exist": "''Документация для этой страницы данных может быть создана на [[$1]]''",
 	"datamap-doc-page-header": "'''Это страница документации для [[$1]]'''",
-	"datamap-category-pages-including-maps": "Страницы, включая карты данных",
+	"datamap-category-pages-including-maps": "Страницы, включающие интерактивные карты",
 	"datamap-mapsrcinfo-status-ok": "В исходном коде этой карты проблем не обнаружено.",
 	"datamap-mapsrcinfo-status-meh": "Найдены незначительные проблемы в исходном коде этой карты.",
 	"datamap-mapsrcinfo-status-errors": "Эта карта не проходит проверку исходного кода.",
