@@ -4,14 +4,15 @@
 			"GuoPC",
 			"HighSierra0820",
 			"Lakejason0",
+			"Peterxy12",
 			"yanstime"
 		]
 	},
 	"datamap-desc": "允许在Wiki页面中嵌入一个可交互地图。",
-	"content-model-datamap": "交互式数据地图",
+	"content-model-datamap": "交互式地图",
 	"datamap-doc-page-does-not-exist": "''此地图的文档可在 [[$1]] 中创建。''",
 	"datamap-doc-page-header": "'''此页面是 [[$1]] 的文档。'''",
-	"datamap-category-pages-including-maps": "包含数据地图的页面",
+	"datamap-category-pages-including-maps": "包含交互式地图的页面",
 	"datamap-category-pages-including-broken-maps": "包含未通过验证的数据地图的页面",
 	"datamap-category-maps-failing-validation": "未通过数据认证的地图",
 	"datamap-mapsrcinfo-internal-page": "此页面包含地图源代码，不适合直接访问，也不会在网络搜寻引擎里显示。相反，它应被嵌入到条目中。",
