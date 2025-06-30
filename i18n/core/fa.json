@@ -6,7 +6,7 @@
 		]
 	},
 	"datamap-desc": "امکان جاسازی نقشه‌های تعاملی را در صفحات ویکی مهیا می‌کند.",
-	"content-model-datamap": "نقشه تعاملی داده‌ها",
+	"content-model-datamap": "نقشهٔ تعاملی",
 	"datamap-doc-page-header": "'''این صفحه مستندات [[$1]] است'''",
 	"datamap-mapsrcinfo-heading-errors": "'''خطاها:''' $1",
 	"datamap-mapsrcinfo-heading-warnings": "'''هشدارها:''' $1",

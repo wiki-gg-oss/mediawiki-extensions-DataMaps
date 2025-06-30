@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Engineer56",
 			"Kareyac",
 			"SuperYwx9",
 			"Yurina Tatiana"
@@ -9,6 +10,7 @@
 	"datamap-vec-title": "Создать карту",
 	"datamap-ve-skip": "Пропустить",
 	"datamap-vec-intro": "Приведите следующую информацию в соответствие с вашими потребностями, чтобы мы могли подготовить базовую карту, прежде чем вы перейдете к ее редактированию",
+	"datamap-vec-select-crs-origin": "(0, 0) угол координат",
 	"datamap-vec-crs-top-left": "Сверху слева",
 	"datamap-vec-crs-bottom-left": "Снизу слева",
 	"datamap-vec-select-crs": "Система координат",
@@ -18,10 +20,15 @@
 	"datamap-vec-select-background": "Фоновое изображение",
 	"datamap-vec-note-image-size": "Размер: $1 × $2",
 	"datamap-vec-error-bad-file-type": "Тип файла ($1) не поддерживается; пожалуйста, выберите файл JPEG, PNG, GIF или SVG.",
+	"datamap-vec-error-poor-file-type": "Этот тип файла может плохо работать в ограниченных сетях. Используйте JPEG, когда это возможно.",
 	"datamap-vec-extra-options": "Дополнительные опции",
+	"datamap-vec-toggle-coord-display": "Отображение координат под курсором",
 	"datamap-vec-toggle-zoom": "Включить масштабирование",
 	"datamap-vec-toggle-search": "Включить поиск маркеров",
+	"datamap-vec-toggle-search-tabber": "Поделиться данными поиска в таббере/вкладке.",
+	"datamap-vec-toggle-uid-requirement": "Требуются уникальные ID маркеров",
 	"datamap-vec-submit": "Продолжить",
 	"datamap-vec-example-group-id": "пример",
+	"datamap-vec-example-group-name": "Пример группы маркеров",
 	"datamap-vec-example-marker": "Пример маркера"
 }
