@@ -1,19 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"METROKOP228 UA"
+			"METROKOP228 UA",
+			"Ата"
 		]
 	},
-	"content-model-datamap": "Інтерактивна мапа даних",
+	"content-model-datamap": "Інтерактивна мапа",
 	"datamap-doc-page-does-not-exist": "''Документацію для цієї мапи можна створити у [[$1]]''",
 	"datamap-doc-page-header": "'''Це сторінка документації для [[$1]]'''",
-	"datamap-category-pages-including-maps": "Сторінки, що включають мапи даних",
+	"datamap-category-pages-including-maps": "Сторінки, що включають інтерактивні мапи",
 	"datamap-mapsrcinfo-status-meh": "У вихідному коді цієї мапи виявлено незначні проблеми.",
 	"datamap-validate-constraint-required": "Відсутня необхідна властивість: <code>$1</code>.",
 	"datamap-validate-constraint-empty": "Текстова властивість не має бути порожньою: <code>$1</code>.",
 	"datamap-validate-constraint-minlength": "Текстова властивість має складатися щонайменше з $2 символів: <code>$1</code> .",
 	"datamap-validate-constraint-zoomminmax": "Значення властивості <code>$1</code> не має бути нижчим за <code>$2</code>.",
-	"datamap-error-pf-page-does-not-exist": "Сторінка мапи даних «[[$1]]» не існує.",
+	"datamap-error-pf-page-does-not-exist": "Сторінка джерела мапи «[[$1]]» не існує.",
 	"datamap-legend-label": "Вміст",
 	"datamap-loading-js": "Завантаження скриптів",
 	"datamap-loading-data": "Завантаження даних для відображення",
