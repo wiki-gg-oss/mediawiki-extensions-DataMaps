@@ -6,10 +6,11 @@
 		]
 	},
 	"datamap-desc": "Вики-агӀонаш чу интерактиван картанаш чудаха аьтто бо.",
-	"content-model-datamap": "Интерактиван хаамийн карта",
+	"content-model-datamap": "Интерактиван карта",
 	"datamap-doc-page-does-not-exist": "''ХӀокху хаамийн агӀонан документаци кхолла йиш йу [[$1]] тӀехь''",
 	"datamap-doc-page-header": "'''ХӀара документацин агӀо йу [[$1]]'''",
-	"datamap-category-pages-including-maps": "АгӀонаш, йукъахь хаамийн картанаш а",
+	"datamap-category-pages-including-maps": "АгӀонаш, йукъахь картанаш а",
+	"datamap-category-maps-failing-validation": "Хаамаш тӀечӀагӀбарх чекх ца девлла карташ",
 	"datamap-mapsrcinfo-status-ok": "Проблемаш ца карийра хӀокху картин йуьхьанцара кодехь.",
 	"datamap-mapsrcinfo-status-meh": "ХӀокху картин йуьхьанцара кодехь кегий проблемаш карийна.",
 	"datamap-mapsrcinfo-status-errors": "ХӀара карта йуьхьанцара код теллина чекх ца долу.",
