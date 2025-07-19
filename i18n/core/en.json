@@ -57,6 +57,7 @@
     "datamap-javascript-required": "JavaScript must be enabled for this map to work. If you do not see it below, it probably means you have JavaScript disabled.",
     "datamap-loading-js": "Loading scripts",
     "datamap-loading-data": "Loading data to display",
+    "datamap-load-map": "Load map",
     "datamap-error-dataload": "<b>Couldn't load data</b><br/>please refresh or try again later",
     "datamap-lazy-click-to-load": "Click to load the data map",
     "datamap-legend-tab-locations": "Markers",
@@ -76,6 +77,10 @@
     "datamap-popup-mark-as-dismissed": "Mark as collected",
     "datamap-popup-marker-link-get": "Get a shareable link",
     "datamap-popup-marker-link-copied": "Link copied to your clipboard.",
+    "datamap-userpref-load-map": "Load interactive maps automatically, without having to click on them",
+    "datamap-userpref-load-map-always": "Always load maps",
+    "datamap-userpref-load-map-auto": "Decide depending on device type",
+    "datamap-userpref-load-map-never": "Load maps only when I click on them",
     "datamap-coordinate-control-text": "lat $1, lon $2",
     "datamap-coordinate-control-text-xy": "x: $2, y: $1",
     "datamap-coordinate-control-text-yx": "y: $1, x: $2",
@@ -88,5 +93,6 @@
     "datamap-control-search": "Type here to search markers…",
     "datamap-control-search-toggle-sharing": "All maps",
     "datamap-control-search-no-results": "No results found.",
-    "datamap-control-fullscreen": "Toggle fullscreen mode"
+    "datamap-control-fullscreen": "Toggle fullscreen mode",
+    "prefs-datamaps": "Interactive Maps display options"
 }
