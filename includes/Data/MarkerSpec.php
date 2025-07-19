@@ -1,8 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Data;
 
-use Status;
-
 class MarkerSpec extends DataModel {
     protected static string $publicName = 'MarkerSpec';
 

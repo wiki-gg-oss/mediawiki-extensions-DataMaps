@@ -1,12 +1,10 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Data;
 
-use MediaWiki\Extension\DataMaps\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\MediaWikiServices;
-use Status;
+use MediaWiki\Title\Title;
 use stdClass;
-use Title;
 
 class DataMapSpec extends DataModel {
     protected static string $publicName = 'DataMapSpec';

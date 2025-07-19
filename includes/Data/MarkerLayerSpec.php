@@ -1,7 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Data;
 
-use Status;
 use stdclass;
 
 class MarkerLayerSpec extends DataModel {

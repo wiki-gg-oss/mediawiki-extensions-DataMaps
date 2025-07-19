@@ -2,7 +2,6 @@
 namespace MediaWiki\Extension\DataMaps\Content\DataConstraints;
 
 use MediaWiki\Extension\DataMaps\Content\MapVersionInfo;
-use Status;
 use stdClass;
 
 class MarkerUidNoOverlapConstraint extends DataConstraint {
