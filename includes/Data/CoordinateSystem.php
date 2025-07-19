@@ -1,10 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Data;
 
-use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
-use Status;
-use stdClass;
-
 class CoordinateSystem extends DataModel {
     protected static string $publicName = 'CoordinateSystem';
 

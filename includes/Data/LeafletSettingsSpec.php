@@ -1,8 +1,6 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Data;
 
-use Status;
-
 /**
  * Stub model with validation only.
  */

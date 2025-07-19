@@ -1,13 +1,12 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content\DataConstraints;
 
-use Html;
 use MediaWiki\Extension\DataMaps\Content\MapVersionInfo;
 use MediaWiki\Extension\DataMaps\Content\StatusUtils;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\Title;
 use stdClass;
-use Title;
 
 class RequiredFilesConstraint extends DataConstraint {
     private const MESSAGE = 'datamap-validate-constraint-requiredfile';

@@ -2,7 +2,6 @@
 namespace MediaWiki\Extension\DataMaps\Data;
 
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
-use Status;
 
 // TODO: this is kind of a mess, needs a rewrite
 
