@@ -29,6 +29,7 @@ class ExtensionConfig {
         ConfigNames::EnableCreateMap,
         ConfigNames::EnablePortingTools,
         ConfigNames::EnableExperimentalFeatures,
+        ConfigNames::EnableLoadMapButton,
     ];
 
     public function __construct(
@@ -124,6 +125,10 @@ class ExtensionConfig {
 
     public function isCreateMapEnabled(): bool {
         return $this->options->get( ConfigNames::EnableCreateMap );
+    }
+
+    public function isLoadMapButtonEnabled(): bool {
+        return $this->isMapLazyLoadingEnabled() && $this->options->get( ConfigNames::EnableLoadMapButton );
     }
 
     public function areFandomPortingToolsEnabled(): bool {

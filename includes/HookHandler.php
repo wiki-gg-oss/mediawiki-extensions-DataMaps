@@ -18,6 +18,7 @@ use MediaWiki\User\User;
 final class HookHandler implements
     \MediaWiki\Hook\ParserFirstCallInitHook,
     \MediaWiki\Preferences\Hook\GetPreferencesHook,
+    \MediaWiki\User\Hook\UserGetDefaultOptionsHook,
     \MediaWiki\Hook\SkinTemplateNavigation__UniversalHook,
     \MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook,
     \MediaWiki\ChangeTags\Hook\ListDefinedTagsHook,
@@ -104,6 +105,26 @@ final class HookHandler implements
                 'section' => 'editing/editor'
             ];
         }
+        $preferences[Constants::PREFERENCE_LOAD_MAP_BY_DEFAULT] = [
+            'type' => $this->config->isLoadMapButtonEnabled()
+                ? 'select'
+                : 'hidden',
+            'label-message' => 'datamap-userpref-load-map',
+            'options-messages' => [
+                'datamap-userpref-load-map-always' => 'always',
+                'datamap-userpref-load-map-auto' => 'auto',
+                'datamap-userpref-load-map-never' => 'never'
+            ],
+			// The following message is generated upstrem:
+			// * prefs-datamaps
+            'section' => 'rendering/datamaps',
+        ];
+    }
+
+    public function onUserGetDefaultOptions( &$defaultOptions ) {
+        $defaultOptions[Constants::PREFERENCE_LOAD_MAP_BY_DEFAULT] = $this->config->isLoadMapButtonEnabled()
+            ? 'auto'
+            : 'always';
     }
 
     /**

@@ -165,6 +165,7 @@
 			],
 			"messages": [
 				"datamap-loading-data",
+				"datamap-load-map",
 				"datamap-error-dataload",
 				"datamap-legend-label",
 				"datamap-legend-tab-locations",
@@ -343,6 +344,7 @@
 		"ContentHandlerDefaultModelFor": "ContentModelHooks",
 		"CanonicalNamespaces": "NamespaceHooks",
 		"GetPreferences": "MainHandler",
+		"UserGetDefaultOptions": "MainHandler",
 		"SkinTemplateNavigation::Universal": "MainHandler",
 		"ChangeTagsListActive": "MainHandler",
 		"ListDefinedTags": "MainHandler",
@@ -448,6 +450,9 @@
 			"value": true
 		},
 		"EnableFandomPortingTools": {
+			"value": false
+		},
+		"EnableLoadMapButton": {
 			"value": false
 		},
 		"AllowExperimentalFeatures": {
