@@ -24,7 +24,7 @@ function getConfig( rootElement ) {
     let config;
     const dataElement = rootElement.querySelector( INLINE_CONFIG_SELECTOR );
     if ( dataElement !== null ) {
-        config = JSON.parse( /** @type {HTMLElement} */ ( dataElement ).innerText );
+        config = JSON.parse( /** @type {HTMLElement} */ ( dataElement ).textContent );
     }
     return config;
 }
@@ -129,7 +129,7 @@ mw.dataMaps = {
             const dataNode = /** @type {HTMLElement?} */ ( rootElement.querySelector( INLINE_MARKERS_SELECTOR ) );
             if ( dataNode ) {
                 map.on( 'leafletLoaded', () => {
-                    const data = JSON.parse( dataNode.innerText );
+                    const data = JSON.parse( dataNode.textContent );
                     map.streaming.instantiateMarkers( data );
                     map.fireMemorised( 'chunkStreamingDone' );
                 } );
