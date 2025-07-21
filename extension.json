@@ -185,6 +185,7 @@
 				"datamap-coordinate-control-text",
 				"datamap-coordinate-control-text-xy",
 				"datamap-coordinate-control-text-yx",
+				"datamap-background-name-fallback",
 				"datamap-control-zoom-in",
 				"datamap-control-zoom-out",
 				"datamap-control-toggle-legend",

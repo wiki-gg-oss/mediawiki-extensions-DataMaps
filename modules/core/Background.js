@@ -29,7 +29,7 @@ class Background extends EventEmitter {
          *
          * @type {string}
          */
-        this.displayName = config.name;
+        this.displayName = config.name || mw.msg( 'datamap-background-name-fallback' );
 
         /**
          * Associated marker category.
