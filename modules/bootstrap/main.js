@@ -155,8 +155,8 @@ mw.dataMaps = {
         /** @type {IntersectionObserver} */
         let observer;
         const handleDeferredLoad = () => {
-            mw.dataMaps.initialiseMapWithConfig( id, rootElement, config );
             observer.disconnect();
+            mw.dataMaps.initialiseMapWithConfig( id, rootElement, config );
         };
         observer = new IntersectionObserver(
             ( entries, observer ) => {
