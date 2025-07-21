@@ -145,7 +145,8 @@ class DataMapContentHandler extends JsonContentHandler {
         // Render the map if this is not a fragment
         if ( $isGood && !$content->isFragment() ) {
             $parser = MediaWikiServices::getInstance()->getParser();
-            $embed = $content->getEmbedRenderer( $pageRef, $parser, $parserOutput, [
+            $title = Title::newFromPageReference( $pageRef );
+            $embed = $content->getEmbedRenderer( $title, $parser, $parserOutput, [
                 'inlineData' => $parserOptions->getIsPreview(),
             ] );
             $embed->prepareOutput( $parserOutput );

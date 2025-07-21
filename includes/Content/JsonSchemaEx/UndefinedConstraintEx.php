@@ -9,10 +9,8 @@
 
  namespace MediaWiki\Extension\DataMaps\Content\JsonSchemaEx;
 
-use JsonSchema\Constraints\TypeCheck\LooseTypeCheck;
 use JsonSchema\Entity\JsonPointer;
 use JsonSchema\Exception\ValidationException;
-use JsonSchema\Uri\UriResolver;
 use JsonSchema\Constraints\UndefinedConstraint;
 
 /**

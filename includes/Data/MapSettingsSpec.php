@@ -2,7 +2,6 @@
 namespace MediaWiki\Extension\DataMaps\Data;
 
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
-use Status;
 use stdClass;
 
 class MapSettingsSpec extends DataModel {
