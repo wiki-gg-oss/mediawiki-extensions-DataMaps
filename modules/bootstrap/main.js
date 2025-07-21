@@ -14,6 +14,9 @@ const
     INLINE_CONFIG_SELECTOR = ':scope > script[type="application/datamap+json"][data-purpose="config"]';
 
 
+const LAZYLOAD_DEBOUNCE_TIME = 200;
+
+
 /**
  * Looks for a configuration element and parses its contents as JSON.
  *
@@ -146,15 +149,30 @@ mw.dataMaps = {
      * @param {DataMaps.Configuration.Map} config
      */
     lazyInitialiseMapWithConfig( id, rootElement, config ) {
-        const observer = new IntersectionObserver(
+        /** @type {number?} */
+        let timeoutId = null;
+
+        /** @type {IntersectionObserver} */
+        let observer;
+        const handleDeferredLoad = () => {
+            mw.dataMaps.initialiseMapWithConfig( id, rootElement, config );
+            observer.disconnect();
+        };
+        observer = new IntersectionObserver(
             ( entries, observer ) => {
                 if ( entries[ 0 ].isIntersecting ) {
-                    mw.dataMaps.initialiseMapWithConfig( id, rootElement, config );
-                    observer.disconnect();
+                    // Map's scrolled into view, let's queue up the load after a short while
+                    if ( !timeoutId ) {
+                        timeoutId = setTimeout( handleDeferredLoad, LAZYLOAD_DEBOUNCE_TIME );
+                    }
+                } else if ( timeoutId ) {
+                    // Map scrolled out of the view while still connected here, cancel the load
+                    clearTimeout( timeoutId );
+                    timeoutId = null;
                 }
             },
             {
-                threshold: 0.03,
+                threshold: 0.05,
             }
         );
         observer.observe( rootElement );
