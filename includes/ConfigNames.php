@@ -92,4 +92,9 @@ class ConfigNames {
      * TODO: in v0.17, rename to DataMapsExperimentalFeatures
      */
     public const EnableExperimentalFeatures = 'DataMapsAllowExperimentalFeatures';
+
+    /**
+     * Name constant. For use in ExtensionConfig.
+     */
+    public const EnableLoadMapButton = 'DataMapsEnableLoadMapButton';
 }
