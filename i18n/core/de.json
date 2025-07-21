@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"*surak*",
 			"Brettchenweber",
 			"Magiczocker",
 			"McDutchie",
@@ -50,7 +51,7 @@
 	"datamap-error-validatespec-map-mixin-with-mixins": "Auf andere Fragmente darf in einem Fragment nicht verwiesen werden.",
 	"datamap-error-render-unsupported-displaymode": "Anzeigemodus $1 wurde eine Markierung mitgeteilt, aber die Unterstützung fehlt. Dies ist ein Fehler im Code der Erweiterung.",
 	"datamap-error-pf-page-does-not-exist": "Die Kartenquellcodeseite \"[[$1]]\" existiert nicht.",
-	"datamap-error-pf-page-invalid-content-model": "Inhaltsmodell der Seite „[[$1]]“ ist nicht <code>Interactive Data Map</code>.",
+	"datamap-error-pf-page-invalid-content-model": "Die Seite „[[$1]]“ muss ein Inhaltsmodell von <code>{{int:content-model-datamap}}</code> aufweisen.",
 	"datamap-error-pf-max-width-invalid": "Die maximale Breite der Karteneinbettung muss eine Ganzzahl größer als Null sein.",
 	"datamap-error-pf-invalid-title": "Keine (oder ungültige) Kartenbezeichnung angegeben.",
 	"datamap-error-map-validation-fail": "Der [[$1|Quellcode der Datenkarte]] besteht die Datenvalidierung nicht mehr. Bitte die Fehler korrigieren.",
