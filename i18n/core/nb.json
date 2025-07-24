@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"EdoAug"
+			"EdoAug",
+			"Jon Harald Søby"
 		]
 	},
 	"datamap-desc": "Tillater innebygde, interaktive kart på wikisider.",
-	"content-model-datamap": "Interaktivt datakart",
+	"content-model-datamap": "Interaktivt kart",
 	"datamap-doc-page-does-not-exist": "''Dokumentasjon for dette kartet kan opprettes på [[$1]]''",
 	"datamap-doc-page-header": "'''Dette er dokumentasjonssiden for [[$1]]'''",
-	"datamap-category-pages-including-maps": "Sider som inneholder datakart",
-	"datamap-category-pages-including-broken-maps": "Sider som inneholder datakart med feilaktig validering",
+	"datamap-category-pages-including-maps": "Sider med interaktive kart",
+	"datamap-category-pages-including-broken-maps": "Sider med interaktive kart som ikke er validert",
 	"datamap-category-maps-failing-validation": "Kart med feilaktig validering",
 	"datamap-mapsrcinfo-internal-page": "Denne siden inneholder kildekoden til et kart. Det er ikke ment til å besøkes direkte og dukker ikke opp hos søkemotorer på nett. Det bør istedenfor bygges inn i en artikkel.",
 	"datamap-mapsrcinfo-status-ok": "Ingen problemer funnet i dette kartets kildekode.",

@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"datamap-desc": "Erméiglecht d'Abette vun interaktive Kaarten op Wikisäiten.",
+	"content-model-datamap": "Interaktiv Kaart",
+	"datamap-doc-page-does-not-exist": "''D'Dokumentatioun fir dës Kaart kann op [[$1]] ugeluecht ginn''",
+	"datamap-doc-page-header": "'''Dat hei ass d'Dokumentatiounssäit fir [[$1]]'''",
+	"datamap-category-pages-including-maps": "Säite mat interaktive Kaarten",
+	"datamap-mapsrcinfo-heading-errors": "'''Feeler:''' $1",
+	"datamap-mapsrcinfo-heading-warnings": "'''Warnungen:''' $1",
+	"datamap-load-map": "Kaart lueden",
+	"datamap-legend-tab-locations": "Markéierungen",
+	"datamap-toggle-hide-all": "All verstoppen",
+	"datamap-legend-tab-checklist": "Checklëschten",
+	"datamap-layer-surface": "Uewerfläch",
+	"datamap-popup-related-article": "Liest méi",
+	"datamap-userpref-load-map": "Interaktiv Kaarten automatesch lueden, ouni datt een drop klicke muss",
+	"datamap-userpref-load-map-always": "Kaarten ëmmer lueden",
+	"datamap-userpref-load-map-never": "Kaarten nëmme lueden, wann ech drop klicken",
+	"datamap-coordinate-control-text": "Breet $1, Längt $2",
+	"datamap-control-zoom-in": "Vergréisseren",
+	"datamap-control-zoom-out": "Verklengeren",
+	"datamap-control-edit": "Kaartendonnéeën änneren",
+	"datamap-control-search-toggle-sharing": "All Kaarten",
+	"datamap-control-search-no-results": "Keng Resultater fonnt.",
+	"datamap-control-fullscreen": "Vollbildmodus ëmschalten"
+}

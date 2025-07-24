@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eduardoaddad",
 			"Flaviane da Silva",
 			"Fúlvio"
 		]
@@ -26,5 +27,20 @@
 	"datamap-ve-panel-msettings-field-search-tabber": "Ativado (em todo o mapa)",
 	"datamap-ve-panel-msettings-field-legend": "Ocultar legenda do mapa e controles de visibilidade",
 	"datamap-ve-panel-msettings-field-popupbehaviour-click": "Mostrar ao clicar",
-	"datamap-ve-panel-msettings-set-edit": "Editor"
+	"datamap-ve-panel-msettings-set-edit": "Editor",
+	"datamap-ve-panel-mgroups": "Grupos",
+	"datamap-ve-panel-mcats": "Categorias",
+	"datamap-ve-workflow-marker-create": "Criar",
+	"datamap-ve-workflow-marker-edit": "Salvar",
+	"datamap-ve-workflow-marker-panel-setup": "No mapa",
+	"datamap-ve-workflow-marker-field-lon": "Longitude",
+	"datamap-ve-workflow-marker-field-lat": "Latitude",
+	"datamap-ve-workflow-marker-field-group": "Grupo",
+	"datamap-ve-workflow-marker-field-categories": "Categorias",
+	"datamap-ve-workflow-marker-set-behaviour": "Links permanentes",
+	"datamap-ve-workflow-marker-field-name": "Título",
+	"datamap-ve-workflow-marker-field-desc": "Descrição",
+	"datamap-ve-workflow-marker-field-article-label": "Título do link",
+	"datamap-ve-workflow-save-submit": "Publicar alterações",
+	"datamap-ve-workflow-save-summary": "Resumo da edição"
 }

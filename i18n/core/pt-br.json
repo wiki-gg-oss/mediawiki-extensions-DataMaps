@@ -1,16 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eduardoaddad",
 			"Flaviane da Silva",
 			"Fúlvio"
 		]
 	},
 	"datamap-desc": "Permite embeber mapas interativos nas páginas da wiki.",
-	"content-model-datamap": "Mapa de dados interativo",
+	"content-model-datamap": "Mapa interativo",
 	"datamap-doc-page-does-not-exist": "\"Documentação para esse mapa pode ser criado em [[$1]]\"",
 	"datamap-doc-page-header": "'''Essa é a documentação para a página [[$1]]'''",
-	"datamap-category-pages-including-maps": "Página inclui dados de mapas",
-	"datamap-category-pages-including-broken-maps": "Páginas incluem dados de mapas que falharam validação",
+	"datamap-category-pages-including-maps": "Páginas que incluem mapas interativos",
+	"datamap-category-pages-including-broken-maps": "Páginas que incluem mapas interativos com falha na validação",
 	"datamap-category-maps-failing-validation": "Mapas que falharam validação de dados",
 	"datamap-mapsrcinfo-internal-page": "Esta página contém código-fonte de um mapa. Ela não deve ser visitada diretamente e não irá aparecer nos motores de busca da internet.Invés disso, deve ser incorporada em um artigo.",
 	"datamap-mapsrcinfo-status-ok": "Nenhum problema foi encontrado no código-fonte do mapa.",
@@ -28,12 +29,13 @@
 	"datamap-validate-constraint-minimum": "Propriedades numericas devem conter um calor maior que $2: <code>$1</code>.",
 	"datamap-validate-constraint-maximum": "Propeidades numericas devem conter um calor menor que $2: <code>$1</code>.",
 	"datamap-error-validatespec-map-mixin-with-mixins": "Outros fragmentos não podem ser referenciados em um fragmento.",
-	"datamap-error-pf-page-does-not-exist": "Dados da página do mapa \"[[$1]]\" não existe.",
+	"datamap-error-pf-page-does-not-exist": "A página do código-fonte do mapa \"[[$1]]\" não existe.",
 	"datamap-background-name-fallback": "Sem título",
 	"datamap-legend-label": "Conteúdo",
 	"datamap-javascript-required": "JavaScript deve estar ativo para esse mapa funcionar. Se você não o vê abaixo, provavelmente o seu JavaScript está desativado.",
 	"datamap-loading-js": "Carregando scripts",
 	"datamap-loading-data": "Carregando dados a mostrar",
+	"datamap-load-map": "Carregar mapa",
 	"datamap-lazy-click-to-load": "Click para carregar os dados do mapa",
 	"datamap-legend-tab-locations": "Marcadores",
 	"datamap-toggle-show-all": "Mostrar todos",
@@ -51,6 +53,7 @@
 	"datamap-popup-mark-as-dismissed": "Marcar como coletado",
 	"datamap-popup-marker-link-get": "Obtenha um link compartilhável",
 	"datamap-popup-marker-link-copied": "Ligação copiada para a sua área de transferência.",
+	"datamap-userpref-load-map-always": "Sempre carregar mapas",
 	"datamap-coordinate-control-text": "Latitude $1, Longitude $2",
 	"datamap-control-zoom-in": "Ampliar",
 	"datamap-control-zoom-out": "Diminuir o zoom",
@@ -61,5 +64,6 @@
 	"datamap-control-search": "Digite aqui para pesquisar marcadores…",
 	"datamap-control-search-toggle-sharing": "Todos os mapas",
 	"datamap-control-search-no-results": "Nenhum resultado encontrado.",
-	"datamap-control-fullscreen": "Ativar ou desativar a tela cheia"
+	"datamap-control-fullscreen": "Ativar ou desativar a tela cheia",
+	"prefs-datamaps": "Opções de exibição dos mapas interativos"
 }

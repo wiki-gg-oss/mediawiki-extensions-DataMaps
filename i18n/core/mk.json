@@ -54,6 +54,7 @@
 	"datamap-javascript-required": "Морада биде овозможен JavaScript за да работи картава. Ако не ви се прикажува подолу, веројатно значи дека JavaScript ви е исклучен.",
 	"datamap-loading-js": "Вчитувам скрипти",
 	"datamap-loading-data": "Вчитувам податоци за приказ",
+	"datamap-load-map": "Вчитај карта",
 	"datamap-error-dataload": "<b>Не можев да ги вчитам податоците</b><br/>превчитајте и обедете се подоцна",
 	"datamap-lazy-click-to-load": "Стиснете тука за да ја вчитате податочната карта",
 	"datamap-legend-tab-locations": "Обележувачи",
@@ -73,6 +74,10 @@
 	"datamap-popup-mark-as-dismissed": "Означи како собрано",
 	"datamap-popup-marker-link-get": "Дај споделива врска",
 	"datamap-popup-marker-link-copied": "Врската е прекопирана во меѓускладот.",
+	"datamap-userpref-load-map": "Автоматски вчитувај интерактивни карти, без да треба да се стиска на нив",
+	"datamap-userpref-load-map-always": "Секогаш вчитувај карти",
+	"datamap-userpref-load-map-auto": "Одлучи во зависност од видот на уредот",
+	"datamap-userpref-load-map-never": "Вчитувај карти само кога ќе стиснам на нив",
 	"datamap-coordinate-control-text": "ширина $1, должина $2",
 	"datamap-control-zoom-in": "Приближи",
 	"datamap-control-zoom-out": "Оддалечи",
@@ -83,5 +88,6 @@
 	"datamap-control-search": "Тука пребарајте обележувачи…",
 	"datamap-control-search-toggle-sharing": "Сите карти",
 	"datamap-control-search-no-results": "Не пронајдов ништо.",
-	"datamap-control-fullscreen": "Полн/неполн екран"
+	"datamap-control-fullscreen": "Полн/неполн екран",
+	"prefs-datamaps": "Поставки за приказот на Интерактивни карти"
 }

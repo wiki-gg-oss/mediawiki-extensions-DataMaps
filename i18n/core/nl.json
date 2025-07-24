@@ -55,6 +55,7 @@
 	"datamap-javascript-required": "JavaScript moet ingeschakeld zijn om deze kaart te laten werken. Als u de kaart hieronder niet ziet, betekent dit waarschijnlijk dat JavaScript is uitgeschakeld.",
 	"datamap-loading-js": "Scripts worden geladen",
 	"datamap-loading-data": "Gegevens voor weergave worden geladen",
+	"datamap-load-map": "Kaart laden",
 	"datamap-error-dataload": "<b>Kan gegevens niet laden.</b><br/>Ververs de pagina of probeer het later opnieuw.",
 	"datamap-lazy-click-to-load": "Klik om de gegevenskaart te laden",
 	"datamap-legend-tab-locations": "Markeringen",
@@ -74,6 +75,10 @@
 	"datamap-popup-mark-as-dismissed": "Als verzameld markeren",
 	"datamap-popup-marker-link-get": "Deelbare koppeling opvragen",
 	"datamap-popup-marker-link-copied": "De koppeling is gekopieerd naar uw klembord.",
+	"datamap-userpref-load-map": "Interactieve kaarten automatisch laden, zonder erop te hoeven klikken",
+	"datamap-userpref-load-map-always": "Kaarten altijd laden",
+	"datamap-userpref-load-map-auto": "Dit van het soort apparaat laten afhangen",
+	"datamap-userpref-load-map-never": "Kaarten alleen laden als ik erop klik",
 	"datamap-coordinate-control-text": "lat $1, lon $2",
 	"datamap-control-zoom-in": "Inzoomen",
 	"datamap-control-zoom-out": "Uitzoomen",
@@ -84,5 +89,6 @@
 	"datamap-control-search": "Typ hier om markeringen te zoeken…",
 	"datamap-control-search-toggle-sharing": "Alle kaarten",
 	"datamap-control-search-no-results": "Geen resultaten gevonden.",
-	"datamap-control-fullscreen": "Modus volledig scherm omschakelen"
+	"datamap-control-fullscreen": "Modus volledig scherm omschakelen",
+	"prefs-datamaps": "Weergaveopties voor interactieve kaarten"
 }

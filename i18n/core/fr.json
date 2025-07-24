@@ -61,6 +61,7 @@
 	"datamap-javascript-required": "JavaScript doit être activé pour que la carte fonctionne. Si vous ne la voyez pas ci-dessous, cela signifie probablement que JavaScript est désactivé.",
 	"datamap-loading-js": "Chargement des scripts en cours...",
 	"datamap-loading-data": "Chargement des données à afficher en cours...",
+	"datamap-load-map": "Charger la carte",
 	"datamap-error-dataload": "<b>Impossible de charger les données</b><br/>Veuillez rafraîchir ou réessayer plus tard",
 	"datamap-lazy-click-to-load": "Cliquez pour charger la carte de données",
 	"datamap-legend-tab-locations": "Marqueurs",
@@ -80,6 +81,10 @@
 	"datamap-popup-mark-as-dismissed": "Marquer comme récoltée",
 	"datamap-popup-marker-link-get": "Obtenir un lien partageable",
 	"datamap-popup-marker-link-copied": "Lien copié dans votre presse-papiers.",
+	"datamap-userpref-load-map": "Charger automatiquement les cartes interactives, sans avoir à cliquer dessus",
+	"datamap-userpref-load-map-always": "Toujours charger les cartes",
+	"datamap-userpref-load-map-auto": "Choisir en fonction du type d’appareil",
+	"datamap-userpref-load-map-never": "Ne charger les cartes que lorsque je clique dessus",
 	"datamap-coordinate-control-text": "lat $1, lon $2",
 	"datamap-coordinate-control-text-xy": "x : $2, y : $1",
 	"datamap-coordinate-control-text-yx": "y : $1, x : $2",
@@ -92,5 +97,6 @@
 	"datamap-control-search": "Cliquez ici pour rechercher des marqueurs…",
 	"datamap-control-search-toggle-sharing": "Toutes les cartes",
 	"datamap-control-search-no-results": "Aucun résultat trouvé.",
-	"datamap-control-fullscreen": "Passer en mode plein écran"
+	"datamap-control-fullscreen": "Passer en mode plein écran",
+	"prefs-datamaps": "Options d’affichage des cartes interactives"
 }

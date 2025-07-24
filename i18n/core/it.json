@@ -27,6 +27,7 @@
 	"datamap-legend-label": "Leggenda",
 	"datamap-javascript-required": "Le mappe interattive dei dati richiedono l'abilitazione di JavaScript.",
 	"datamap-loading-js": "Attendere, caricamento dati",
+	"datamap-load-map": "Carica mappa",
 	"datamap-error-dataload": "<b>Impossibile caricare i dati</b><br/>aggiorna o riprova più tardi",
 	"datamap-lazy-click-to-load": "Fare clic per caricare la mappa dati",
 	"datamap-legend-tab-locations": "Marcatori",
@@ -43,6 +44,10 @@
 	"datamap-popup-mark-as-dismissed": "Contrassegna come raccolto",
 	"datamap-popup-marker-link-get": "Ottieni un link condivisibile",
 	"datamap-popup-marker-link-copied": "Link copiato negli appunti.",
+	"datamap-userpref-load-map": "Carica automaticamente le mappe interattive, senza doverci cliccare sopra",
+	"datamap-userpref-load-map-always": "Carica sempre le mappe",
+	"datamap-userpref-load-map-auto": "Decidi in base al tipo di dispositivo",
+	"datamap-userpref-load-map-never": "Carica le mappe solo quando clicco su di esse",
 	"datamap-coordinate-control-text": "lat $1, lon $2",
 	"datamap-control-zoom-in": "Ingrandisci",
 	"datamap-control-zoom-out": "Rimpicciolisci",
@@ -50,5 +55,6 @@
 	"datamap-control-centre-view": "Centra la vista al livello di zoom corrente",
 	"datamap-control-search": "Clicca e inizia a digitare per cercare...",
 	"datamap-control-search-toggle-sharing": "Tutte le mappe",
-	"datamap-control-search-no-results": "Nessun risultato trovato."
+	"datamap-control-search-no-results": "Nessun risultato trovato.",
+	"prefs-datamaps": "Opzioni di visualizzazione delle mappe interattive"
 }
