@@ -45,7 +45,7 @@
 	"datamap-error-validatespec-map-mixin-with-mixins": "Башха юзюмдюлени юзюмдюде белгилерге болмайды.",
 	"datamap-error-render-unsupported-displaymode": "Маркер ючюн $1 крюнюм режим белгиленнгенди, алай а аны дагъаны джокъду. Бу халат кенгериу коддады.",
 	"datamap-error-pf-page-does-not-exist": "\"[[$1]]\" къайнакъ код карта бет джокъду.",
-	"datamap-error-pf-page-invalid-content-model": "\"[[$1]]\" бетни контент модели <code>Интерактив Билги Карта</code> тюлдю.",
+	"datamap-error-pf-page-invalid-content-model": "\"[[$1]]\" бетни ичинде <code>{{int:content-model-datamap}}</code> контент модель болургъа керекди.",
 	"datamap-error-pf-max-width-invalid": "Ичине салынныкъ картаны максимум кенглиги нолдан аслам толу сан болургъа керекди.",
 	"datamap-error-map-validation-fail": "[[$1|Билгилени картасыны тамал коду]] мындан ары билгилени тинтиуюн ёталмайды. Тилейбиз, халатланы тюзетигиз.",
 	"datamap-background-name-fallback": "Башлыкъсыз",

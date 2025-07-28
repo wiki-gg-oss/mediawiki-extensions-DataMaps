@@ -5,7 +5,8 @@
 			"HighSierra0820",
 			"Lakejason0",
 			"Peterxy12",
-			"yanstime"
+			"yanstime",
+			"沈澄心"
 		]
 	},
 	"datamap-desc": "允许在Wiki页面中嵌入一个可交互地图。",
@@ -51,12 +52,14 @@
 	"datamap-error-pf-page-does-not-exist": "地图源代码页面“[[$1]]”不存在。",
 	"datamap-error-pf-page-invalid-content-model": "页面“[[$1]]”必须具有<code>{{int:content-model-datamap}}</code>的内容模型。",
 	"datamap-error-pf-max-width-invalid": "地图嵌入的最大宽度必须是大于零的整数。",
+	"datamap-error-pf-invalid-title": "地图标题未给出或无效。",
 	"datamap-error-map-validation-fail": "[[$1|数据地图的源代码]]不再能通过数据验证。请修复错误。",
 	"datamap-background-name-fallback": "无标题",
 	"datamap-legend-label": "内容",
 	"datamap-javascript-required": "必须启用JavaScript才能使用此地图。如果您在下面没有看到地图，可能是您已禁用JavaScript。",
 	"datamap-loading-js": "加载脚本中",
 	"datamap-loading-data": "加载要显示的数据",
+	"datamap-load-map": "加载地图",
 	"datamap-error-dataload": "<b>无法加载数据</b><br/>请刷新页面或稍后再试",
 	"datamap-lazy-click-to-load": "点击载入数据地图",
 	"datamap-legend-tab-locations": "标记",
@@ -75,6 +78,10 @@
 	"datamap-popup-mark-as-dismissed": "标记为已收集",
 	"datamap-popup-marker-link-get": "获取分享链接",
 	"datamap-popup-marker-link-copied": "链接已复制到剪切板。",
+	"datamap-userpref-load-map": "自动加载交互式地图，无需点击",
+	"datamap-userpref-load-map-always": "始终加载地图",
+	"datamap-userpref-load-map-auto": "根据设备类型决定",
+	"datamap-userpref-load-map-never": "仅当我点击地图时才加载地图",
 	"datamap-coordinate-control-text": "经度 $1, 纬度 $2",
 	"datamap-coordinate-control-text-xy": "X: $2, Y: $1",
 	"datamap-control-zoom-in": "放大",
@@ -86,5 +93,6 @@
 	"datamap-control-search": "搜索标记…",
 	"datamap-control-search-toggle-sharing": "所有地图",
 	"datamap-control-search-no-results": "无结果。",
-	"datamap-control-fullscreen": "切换全屏模式"
+	"datamap-control-fullscreen": "切换全屏模式",
+	"prefs-datamaps": "交互式地图显示选项"
 }

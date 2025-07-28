@@ -54,6 +54,7 @@
 	"datamap-javascript-required": "JavaScript debe esser activate pro facer iste carta functionar. Si tu non lo vide hic infra, es probabile que JavaScript es disactivate.",
 	"datamap-loading-js": "Cargamento de scripts in curso",
 	"datamap-loading-data": "Cargamento de datos a monstrar in curso",
+	"datamap-load-map": "Cargar carta",
 	"datamap-error-dataload": "<b>Non poteva cargar datos</b><br/>Per favor refresca o reproba plus tarde",
 	"datamap-lazy-click-to-load": "Clicca pro cargar le carta de datos",
 	"datamap-legend-tab-locations": "Marcatores",
@@ -73,6 +74,10 @@
 	"datamap-popup-mark-as-dismissed": "Marcar como colligite",
 	"datamap-popup-marker-link-get": "Obtener un ligamine divulgabile",
 	"datamap-popup-marker-link-copied": "Le ligamine ha essite copiate a tu area de transferentia.",
+	"datamap-userpref-load-map": "Cargar automaticamente le cartas interactive, sin deber cliccar sur illos",
+	"datamap-userpref-load-map-always": "Sempre cargar le cartas",
+	"datamap-userpref-load-map-auto": "Decider a base del typo de apparato",
+	"datamap-userpref-load-map-never": "Cargar le cartas solmente quando io clicca sur illos",
 	"datamap-coordinate-control-text": "lat $1, lon $2",
 	"datamap-control-zoom-in": "Zoom avante",
 	"datamap-control-zoom-out": "Zoom retro",
@@ -83,5 +88,6 @@
 	"datamap-control-search": "Scribe hic pro cercar marcatores…",
 	"datamap-control-search-toggle-sharing": "Tote le cartas",
 	"datamap-control-search-no-results": "Nulle resultato trovate.",
-	"datamap-control-fullscreen": "Commutar modo de plen schermo"
+	"datamap-control-fullscreen": "Commutar modo de plen schermo",
+	"prefs-datamaps": "Optiones de visualisation de cartas interactive"
 }
