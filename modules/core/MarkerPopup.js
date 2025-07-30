@@ -154,13 +154,14 @@ module.exports = class MarkerPopup {
         };
 
         if ( this.map.canModifyUriAddress() ) {
-            const getLink = createButton(
+            createButton(
                 'link',
                 'datamap-popup-marker-link-get',
                 CodexIcon.cdxIconLink,
                 () => {
+                    const /** @type {string} */ href = Util.makeUrlWithParams( this.map, { marker: this.uid }, true );
                     // eslint-disable-next-line compat/compat
-                    navigator.clipboard.writeText( /** @type {string} */ ( getLink.getAttribute( 'href' ) ) )
+                    navigator.clipboard.writeText( href )
                         .then( () => mw.notify( mw.msg( 'datamap-popup-marker-link-copied' ) ) );
                 }
             );
