@@ -5,7 +5,8 @@
 			"HvitCrow",
 			"Kareyac",
 			"Okras",
-			"SuperYwx9"
+			"SuperYwx9",
+			"Умар"
 		]
 	},
 	"datamap-desc": "Позволяет встраивать интерактивные карты в вики-страницы.",
@@ -33,8 +34,8 @@
 	"datamap-validate-constraint-minimum": "Числовое значение свойства должно быть больше $2: <code>$1</code>.",
 	"datamap-validate-constraint-maximum": "Значение числового свойства должно быть меньше $2: <code>$1</code>.",
 	"datamap-validate-constraint-fallback": "Произошла неизвестная ошибка при проверке свойства: <code>$1</code>. Пожалуйста, [$2 сообщите об этой проблеме] разработчикам.",
-	"datamap-validate-constraint-notcollectible": "Следующие свойства в группе <code>$1</code> не имеют эффекта, поскольку они не подлежат группированию: $2 .",
-	"datamap-validate-constraint-searchdisabled": "Следующие свойства в <code>$1</code> не действуют, поскольку поиск маркеров не включен: $2 .",
+	"datamap-validate-constraint-notcollectible": "Следующие свойства в группе <code>$1</code> не имеют эффекта, поскольку они не подлежат группированию: $2.",
+	"datamap-validate-constraint-searchdisabled": "Следующие свойства в <code>$1</code> не действуют, поскольку поиск маркеров не включен: $2.",
 	"datamap-validate-constraint-requiredfile": "Следующие файлы упоминаются, но не существуют: $1",
 	"datamap-validate-constraint-muidoverlap": "Найден маркер с уже использованным идентификатором: <code>$1</code> (UID <code>$2</code>)",
 	"datamap-validate-constraint-groupexists": "Группа упоминается для списка маркеров <code>$1</code>, но не существует: <code>$2</code>.",

@@ -59,6 +59,7 @@
 	"datamap-javascript-required": "يجب تفعيل جافا سكريبت لتعمل هذه الخريطة. إذا لم تظهر لك أدناه، فربما يعني ذلك أن جافا سكريبت معطل لديك.",
 	"datamap-loading-js": "تحميل البرامج النصية",
 	"datamap-loading-data": "تحميل البيانات لعرضها",
+	"datamap-load-map": "تحميل الخريطة",
 	"datamap-error-dataload": "<b>لم يتمكن من تحميل البيانات</b><br/> يرجى التحديث أو المحاولة مرة أخرى لاحقًا",
 	"datamap-lazy-click-to-load": "انقر لتحميل خريطة البيانات",
 	"datamap-legend-tab-locations": "علامات",
@@ -78,6 +79,10 @@
 	"datamap-popup-mark-as-dismissed": "علِّم بمجمع",
 	"datamap-popup-marker-link-get": "احصل على رابط قابل للمشاركة",
 	"datamap-popup-marker-link-copied": "تم نسخ الرابط إلى الحافظة الخاصة بك.",
+	"datamap-userpref-load-map": "تحميل الخرائط التفاعلية تلقائيًا، دون الحاجة إلى النقر عليها",
+	"datamap-userpref-load-map-always": "قم دائمًا بتحميل الخرائط",
+	"datamap-userpref-load-map-auto": "قرر حسب نوع الجهاز",
+	"datamap-userpref-load-map-never": "تحميل الخرائط فقط عندما أنقر عليها",
 	"datamap-coordinate-control-text": "خط العرض $1، خط الطول $2",
 	"datamap-control-zoom-in": "تكبير",
 	"datamap-control-zoom-out": "تصغير",
@@ -88,5 +93,6 @@
 	"datamap-control-search": "اكتب هنا للبحث عن العلامات…",
 	"datamap-control-search-toggle-sharing": "جميع الخرائط",
 	"datamap-control-search-no-results": "لم يتم العثور على نتائج.",
-	"datamap-control-fullscreen": "تبديل وضع ملء الشاشة"
+	"datamap-control-fullscreen": "تبديل وضع ملء الشاشة",
+	"prefs-datamaps": "خيارات عرض الخرائط التفاعلية"
 }
