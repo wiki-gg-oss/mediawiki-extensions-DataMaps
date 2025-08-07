@@ -40,7 +40,7 @@
 	"datamap-ve-panel-msettings-field-allowfullscreen": "Prikaži gumb za vstop v celozaslonski način",
 	"datamap-ve-panel-msettings-field-popupbehaviour": "Vedenje pojavnega okna s podrobnostmi označevalca",
 	"datamap-ve-panel-msettings-field-popupbehaviour-click": "Prikaži ob kliku",
-	"datamap-ve-panel-msettings-field-popupbehaviour-tooltip": "Prikaži kot opis orodja (ob postavitvi kurzorja miške nanj)",
+	"datamap-ve-panel-msettings-field-popupbehaviour-tooltip": "Prikaži kot opis orodja (ob postavitvi kazalca miške nanj)",
 	"datamap-ve-panel-msettings-field-backdrop-colour": "Barva ozadja",
 	"datamap-ve-panel-msettings-set-edit": "Urejevalnik",
 	"datamap-ve-panel-msettings-field-requireids": "Zahtevaj izrecne iD-je označevalcev",
