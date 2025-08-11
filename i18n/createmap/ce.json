@@ -17,6 +17,7 @@
 	"datamap-vec-select-background": "Фонан сурт",
 	"datamap-vec-note-image-size": "Барам: $1 × $2",
 	"datamap-vec-error-bad-file-type": "Файлан тайпа ($1) ловш дац; дехар ду JPEG, PNG, GIF йа SVG файл хьажа.",
+	"datamap-vec-error-poor-file-type": "Файлан хӀокху тайпано дика болх ца бан тарло доза тоьхначу сетехь. Аьтто болчохь JPEG леладе.",
 	"datamap-vec-extra-options": "Кхин а опцеш",
 	"datamap-vec-toggle-coord-display": "Курсорна кӀел координаташ гайтар",
 	"datamap-vec-toggle-zoom": "Масштабан дӀахӀоттайе",

@@ -67,6 +67,7 @@
 	"datamap-toggle-hide-all": "隐藏全部",
 	"datamap-layer-control": "切换",
 	"datamap-legend-tab-checklist": "清单",
+	"datamap-legend-tab-progress": "进度追踪",
 	"datamap-checklist-prelude": "以下是你可以勾选为已收集的项目：",
 	"datamap-interact-touch": "双指移动地图",
 	"datamap-interact-scroll": "使用 Ctrl+滚轮 缩放地图",
