@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"JeffreyKim",
+			"Ktchankt",
 			"Yueman"
 		]
 	},
@@ -36,7 +37,7 @@
 	"datamap-validate-constraint-muidoverlap": "搵到嘅標記，有一個已經用咗嘅識別碼： <code>$1</code>(UID<code>$2</code>)。",
 	"datamap-validate-constraint-groupexists": "標記清單<code>$1</code>嘅群組引用咗，但係唔存在：<code>$2</code>。",
 	"datamap-validate-constraint-bglayerexists": "標記清單<code>$1</code>參考嘅背景圖層，但係未宣布:<code>$2</code>。",
-	"datamap-validate-constraint-layerdecloverlap": "群組同類別唔可以共用名稱：<code>$1</code>, <code>$2</code>。",
+	"datamap-validate-constraint-layerdecloverlap": "群組同類別唔可以共用名：<code>$1</code>, <code>$2</code>。",
 	"datamap-validate-constraint-assocgroupoverlap": "標記清單<code>$1</code>淨係可以指定一個群組，搵到：$2。",
 	"datamap-validate-constraint-assocnonuniqoverlap": "標記清單<code>$1</code>已經指定咗多過一次嘅群組或者類別。",
 	"datamap-validate-constraint-deprecated-instead": "屬性<code>$3</code>喺架構修訂版$1入面已經唔再使用，而且喺$2入面唔會再支援。用屬性<code>$4</code>嚟代替。",
@@ -48,7 +49,7 @@
 	"datamap-error-pf-page-does-not-exist": "地圖源碼頁面\"[[$1]]\"唔存在。",
 	"datamap-error-pf-page-invalid-content-model": "\"[[$1]]\"頁面嘅內容模型必須係<code>{{int:content-model-datamap}}</code>。",
 	"datamap-error-pf-max-width-invalid": "地圖嵌入嘅最大闊度必須係大過零嘅整數。",
-	"datamap-error-pf-invalid-title": "冇提供（或者無效）嘅地圖標題。",
+	"datamap-error-pf-invalid-title": "冇畀到（或者無效）嘅地圖標題。",
 	"datamap-error-map-validation-fail": "[[$1|數據地圖嘅源碼]]唔再通過數據驗證。唔該修正返啲錯誤。",
 	"datamap-background-name-fallback": "未有標題",
 	"datamap-legend-label": "內容",
@@ -79,7 +80,7 @@
 	"datamap-userpref-load-map-always": "永遠係噉載入個地圖",
 	"datamap-userpref-load-map-auto": "根據返個裝置類型嚟決定",
 	"datamap-userpref-load-map-never": "淨係當我撳一下地圖嗰陣先至可以載入得張地圖",
-	"datamap-coordinate-control-text": "年$1，隆$2",
+	"datamap-coordinate-control-text": "緯度 $1，經度 $2",
 	"datamap-control-zoom-in": "放大",
 	"datamap-control-zoom-out": "縮細",
 	"datamap-control-toggle-legend": "撳一下就可以展開圖例嚟切換標記",

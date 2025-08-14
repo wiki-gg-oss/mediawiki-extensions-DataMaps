@@ -54,6 +54,7 @@
 	"datamap-javascript-required": "תמיכה ב־JavaScript חייבת להיות מופעלת כדי שהמפה הזאת תעבוד. אם אינך רואה את זה למטה, זה כנראה אומר ש־JavaScript כבוי אצלך.",
 	"datamap-loading-js": "טעינת סקריפטים",
 	"datamap-loading-data": "הנתונים להצגה נטענים",
+	"datamap-load-map": "טעינת מפה",
 	"datamap-error-dataload": "<b>לא היה אפשר לטעון נתונים</b><br/>נא לרענן או לנסות שוב מאוחר יותר",
 	"datamap-lazy-click-to-load": "יש ללחוץ כדי לטעון את מפת הנתונים",
 	"datamap-legend-tab-locations": "סמנים",
@@ -61,6 +62,7 @@
 	"datamap-toggle-hide-all": "להסתיר הכול",
 	"datamap-layer-control": "שינוי מצב",
 	"datamap-legend-tab-checklist": "רשימות תיוג",
+	"datamap-legend-tab-progress": "מעקב אחר התקדמות",
 	"datamap-checklist-prelude": "אלה הפריטים שבאפשרותך לסמן בתור פריטים שנאספו:",
 	"datamap-interact-touch": "יש להשתמש בשתי אצבעות כדי להזיז את המפה",
 	"datamap-interact-scroll": "אפשר להשתמש ב־CTRL + גלילה כדי להתקרב/להתרחק מול המפה",
@@ -72,6 +74,10 @@
 	"datamap-popup-mark-as-dismissed": "לסמן בתור אחד שנאסף",
 	"datamap-popup-marker-link-get": "קבלת קישור לשיתוף",
 	"datamap-popup-marker-link-copied": "הקישור הועתק ללוח שלך.",
+	"datamap-userpref-load-map": "טעינת מפות אינטראקטיביות אוטומטית, מבלי ללחוץ עליהן",
+	"datamap-userpref-load-map-always": "תמיד לטעון מפות",
+	"datamap-userpref-load-map-auto": "להחליט לפי סוג המכשיר",
+	"datamap-userpref-load-map-never": "לטעון מפות רק כשאני לוחץ עליהן",
 	"datamap-coordinate-control-text": "קו רוחב $1, קו אורך $2",
 	"datamap-control-zoom-in": "התקרבות",
 	"datamap-control-zoom-out": "התרחקות",
@@ -82,5 +88,6 @@
 	"datamap-control-search": "יש להקליד כאן כדי לחפש סמנים...",
 	"datamap-control-search-toggle-sharing": "כל המפות",
 	"datamap-control-search-no-results": "לא נמצאו תוצאות.",
-	"datamap-control-fullscreen": "החלפת מצב מסך מלא"
+	"datamap-control-fullscreen": "החלפת מצב מסך מלא",
+	"prefs-datamaps": "אפשרויות תצוגת מפה אינטראקטיבית"
 }

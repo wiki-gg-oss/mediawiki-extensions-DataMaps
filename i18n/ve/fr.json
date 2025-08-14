@@ -4,7 +4,8 @@
 			"Alien333",
 			"BlueCamille",
 			"Oujon",
-			"SleaY"
+			"SleaY",
+			"Urhixidur"
 		]
 	},
 	"datamap-ve-to-load": "Veuillez patienter pendant le chargement de l'éditeur visuel...",
@@ -12,7 +13,7 @@
 	"datamap-ve-error-cannot-open-validation-errors": "<b>L'éditeur visuel n'est pas disponible en raison d'erreurs dans le code source de la carte :</b><br/> $1",
 	"datamap-ve-needs-fallback-to-source": "Cette page de carte ne peut pas être modifiée avec l'éditeur visuel. Veuillez utiliser l'[$1 éditeur de source] à la place.",
 	"datamap-ve-experimental": "L'éditeur visuel de carte est encore expérimental",
-	"datamap-ve-experimental-content": "<p>Vous pouvez vous désinscrire à tout moment via vos préférences utilisateur MediaWiki dans la section <i>Édition</i> .</p> \n<p> Sachez que certaines fonctionnalités peuvent être indisponibles et que des bugs peuvent survenir - pour une liste ou pour créer un rapport, visitez <a class=\"external\" href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/149\">le numéro 149 sur le référentiel DataMaps GitHub</a> .</p>",
+	"datamap-ve-experimental-content": "<p>Vous pouvez vous désinscrire à tout moment via vos préférences utilisateur MediaWiki dans la section <i>Édition</i> .</p> \n<p> Sachez que certaines fonctionnalités peuvent être indisponibles et que des bogues peuvent survenir -pour une liste ou pour créer un rapport, visitez <a class=\"external\" href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/149\">le numéro 149 sur le référentiel DataMaps GitHub</a> .</p>",
 	"datamap-ve-experimental-close": "Fermer",
 	"datamap-userpref-enable-ve": "Activer l'éditeur visuel pour les cartes de données quand il sera stable",
 	"datamap-userpref-enable-ve-beta": "M'inscrire aux tests de l'éditeur visuel de cartes",
