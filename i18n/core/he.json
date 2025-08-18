@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Neriah",
 			"YaronSh"
 		]
 	},
 	"datamap-desc": "אפשרות להטביע מפות הידודיות בדפי ויקי.",
-	"content-model-datamap": "מפת נתונים הידודית",
+	"content-model-datamap": "מפה הידודית",
 	"datamap-doc-page-does-not-exist": "''ניתן ליצור תיעוד על המפה הזאת בדף [[$1]]''",
 	"datamap-doc-page-header": "'''זהו דף התיעוד עבור [[$1]]'''",
 	"datamap-category-pages-including-maps": "דפים שמכילים מפות נתונים",
@@ -45,7 +46,7 @@
 	"datamap-error-validatespec-map-bad-mixin": "דף המקטע \"<code>$1</code>\" חייב להתקיים, להשתמש במודל התוכן <code>מפת נתונים הידודית</code> (<code>Interactive Data Map</code>) ולהיות תקין מבחינת תחביר ומבנה.",
 	"datamap-error-validatespec-map-mixin-with-mixins": "אסור להפנות מתוך מקטע למקטעים אחרים.",
 	"datamap-error-render-unsupported-displaymode": "מצב תצוגה $1 דווח עבור סמן, אך חסרה לו תמיכה. זהו באג בקוד של ההרחבה.",
-	"datamap-error-pf-page-does-not-exist": "דף מפת הנתונים \"[[$1]]\" אינו קיים.",
+	"datamap-error-pf-page-does-not-exist": "דף קוד מקור של המפה \"[[$1]]\" אינו קיים.",
 	"datamap-error-pf-page-invalid-content-model": "מודל התוכן של הדף \"[[$1]]\" אינו <code>מפת נתונים הידודית</code> (<code>Interactive Data Map</code>).",
 	"datamap-error-pf-max-width-invalid": "הרוחב המרבי של הטבעת המפה חייב להיות מספר שלם הגדול מאפס.",
 	"datamap-error-map-validation-fail": "[[$1|קוד המקור של מפת הנתונים]] כבר לא עובר בדיקת תקינות נתונים. נא לתקן את השגיאות.",
@@ -74,10 +75,10 @@
 	"datamap-popup-mark-as-dismissed": "לסמן בתור אחד שנאסף",
 	"datamap-popup-marker-link-get": "קבלת קישור לשיתוף",
 	"datamap-popup-marker-link-copied": "הקישור הועתק ללוח שלך.",
-	"datamap-userpref-load-map": "טעינת מפות אינטראקטיביות אוטומטית, מבלי ללחוץ עליהן",
+	"datamap-userpref-load-map": "לטעון מפות הידודיות אוטומטית, מבלי ללחוץ עליהן",
 	"datamap-userpref-load-map-always": "תמיד לטעון מפות",
 	"datamap-userpref-load-map-auto": "להחליט לפי סוג המכשיר",
-	"datamap-userpref-load-map-never": "לטעון מפות רק כשאני לוחץ עליהן",
+	"datamap-userpref-load-map-never": "לטעון מפות רק אחרי לחיצה עליהן",
 	"datamap-coordinate-control-text": "קו רוחב $1, קו אורך $2",
 	"datamap-control-zoom-in": "התקרבות",
 	"datamap-control-zoom-out": "התרחקות",
@@ -89,5 +90,5 @@
 	"datamap-control-search-toggle-sharing": "כל המפות",
 	"datamap-control-search-no-results": "לא נמצאו תוצאות.",
 	"datamap-control-fullscreen": "החלפת מצב מסך מלא",
-	"prefs-datamaps": "אפשרויות תצוגת מפה אינטראקטיבית"
+	"prefs-datamaps": "אפשרויות תצוגת מפה הידודית"
 }
