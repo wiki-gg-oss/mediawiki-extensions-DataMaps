@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dolbaeb",
 			"Engineer56",
 			"HvitCrow",
 			"Kareyac",
@@ -59,6 +60,7 @@
 	"datamap-javascript-required": "Интерактивные карты данных требуют включения JavaScript.",
 	"datamap-loading-js": "Загрузка скриптов",
 	"datamap-loading-data": "Загрузка данных для отображения",
+	"datamap-load-map": "Загрузка карты",
 	"datamap-error-dataload": "<b>Не удалось загрузить данные</b><br/>пожалуйста, обновите страницу или повторите попытку позже",
 	"datamap-lazy-click-to-load": "Нажмите, чтобы загрузить карту данных",
 	"datamap-legend-tab-locations": "Маркеры",
@@ -78,6 +80,10 @@
 	"datamap-popup-mark-as-dismissed": "Отметить как собранный",
 	"datamap-popup-marker-link-get": "Получить ссылку, чтоб поделиться",
 	"datamap-popup-marker-link-copied": "Ссылка скопирована в буфер обмена.",
+	"datamap-userpref-load-map": "Загружать интерактивные карты автоматически, без необходимости нажимать на них",
+	"datamap-userpref-load-map-always": "Всегда загружать карты",
+	"datamap-userpref-load-map-auto": "Выбирать в зависимости от устройства",
+	"datamap-userpref-load-map-never": "Загружать карты только когда я нажму на них",
 	"datamap-coordinate-control-text": "широта $1, долгота $2",
 	"datamap-coordinate-control-text-xy": "х: $2 , у: $1",
 	"datamap-coordinate-control-text-yx": "у: $1 , х: $2",
@@ -90,5 +96,6 @@
 	"datamap-control-search": "Введите здесь для поиска маркеров…",
 	"datamap-control-search-toggle-sharing": "Все карты",
 	"datamap-control-search-no-results": "Ничего не найдено.",
-	"datamap-control-fullscreen": "Включить полноэкранный режим"
+	"datamap-control-fullscreen": "Включить полноэкранный режим",
+	"prefs-datamaps": "Опции отображения интерактивных карт"
 }
