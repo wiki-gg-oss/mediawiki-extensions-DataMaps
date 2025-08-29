@@ -72,24 +72,25 @@ class DataMapContentHandler extends JsonContentHandler {
         $pageRef = $cpoParams->getPage();
         $parserOptions = $cpoParams->getParserOptions();
         $parserOutput = new ParserOutput();
+        $generateHtml = $cpoParams->getGenerateHtml();
+        $parser = MediaWikiServices::getInstance()->getParser();
+        $html = '';
 
         // Render the prelude box
-        if ( $cpoParams->getGenerateHtml() ) {
-            $box = Html::noticeBox( wfMessage( 'datamap-mapsrcinfo-internal-page' )->inContentLanguage(), [] );
-            $parserOutput->setText( $box );
+        if ( $generateHtml ) {
+            $html .= Html::noticeBox( wfMessage( 'datamap-mapsrcinfo-internal-page' )->inContentLanguage(), [] );
         }
 
         // Generate the validation info box
         $info = $this->getSourceValidationInfo( $content );
         $isGood = $info['method'] !== 'errorBox';
-        if ( $cpoParams->getGenerateHtml() ) {
+        if ( $generateHtml ) {
             $boxText = implode( '', array_map( fn ( $value ) => "<p>$value</p>", $info['messages'] ) );
             // Methods used here:
             // - successBox
             // - warningBox
             // - errorBox
-            $box = Html::{$info['method']}( $boxText );
-            $parserOutput->setText( $parserOutput->getRawText() . $box );
+            $html .= Html::{$info['method']}( $boxText );
         }
 
         if ( !$isGood ) {
@@ -100,58 +101,42 @@ class DataMapContentHandler extends JsonContentHandler {
         // If this is a fragment, record so in the page properties. This branch must also not run if the JSON is not
         // valid.
         if ( $content->getData()->isGood() && $content->isFragment() ) {
-            $parserOutput->setPageProperty( Constants::PAGEPROP_IS_MIXIN, true );
-            $parserOutput->setPageProperty( Constants::PAGEPROP_DISABLE_VE, true );
+            $parserOutput->setPageProperty( Constants::PAGEPROP_IS_MIXIN, '' );
+            $parserOutput->setPageProperty( Constants::PAGEPROP_DISABLE_VE, '' );
         }
 
         // Render documentation. We retain the parser output for later - per GH#145 we'll add the metadata after
         // rendering the map, so primary background is listed before anything else.
         $docOutput = null;
-        $doc = self::getDocPage( $cpoParams->getPage() );
-        if ( $doc ) {
-            $msg = wfMessage( $doc->exists() ? 'datamap-doc-page-show' : 'datamap-doc-page-does-not-exist',
-                $doc->getPrefixedText() )->inContentLanguage();
-
-            if ( !$msg->isDisabled() ) {
-                // We cannot use ->parse() on the message as we need the ParserOutput
-                $docViewLang = $doc->getPageViewLanguage();
-                $dir = $docViewLang->getDir();
-
-                if ( $parserOptions->getTargetLanguage() === null ) {
-                    $parserOptions->setTargetLanguage( $doc->getPageLanguage() );
-                }
-
-                $docWikitext = Html::rawElement(
-                    'div',
-                    [
-                        'lang' => $docViewLang->getHtmlCode(),
-                        'dir' => $dir,
-                        'class' => "mw-content-$dir",
-                    ],
-                    "\n" . $msg->plain() . "\n"
-                );
-                $docOutput = MediaWikiServices::getInstance()->getParser()
-                    ->parse( $docWikitext, $pageRef, $parserOptions, true, true, $cpoParams->getRevId() );
-
-                if ( $cpoParams->getGenerateHtml() ) {
-                    $parserOutput->setText( $parserOutput->getRawText() . $docOutput->getRawText() );
-                }
-
-                // Mark the doc page as a transclusion, so we get purged when it changes
-                $parserOutput->addTemplate( $doc, $doc->getArticleID(), $doc->getLatestRevID() );
+        $docTitle = self::getDocPage( $pageRef );
+        $docMsg = $docTitle ? wfMessage(
+            $docTitle->exists() ? 'datamap-doc-page-show' : 'datamap-doc-page-does-not-exist',
+            $docTitle->getPrefixedText()
+        )->inContentLanguage() : null;
+        if ( $docMsg && !$docMsg->isDisabled() ) {
+            if ( $parserOptions->getTargetLanguage() === null ) {
+                $parserOptions->setTargetLanguage( $docTitle->getPageLanguage() );
             }
+            $docOutput = $parser->parse( $docMsg->plain(), $pageRef, $parserOptions, true, true, $cpoParams->getRevId() );
+            if ( $generateHtml ) {
+                $html .= $docOutput->getRawText();
+            }
+        }
+
+        if ( $docTitle ) {
+            // Mark the doc page as a transclusion, so we get purged when it changes
+            $parserOutput->addTemplate( $docTitle, $docTitle->getArticleID(), $docTitle->getLatestRevID() );
         }
 
         // Render the map if this is not a fragment
         if ( $isGood && !$content->isFragment() ) {
-            $parser = MediaWikiServices::getInstance()->getParser();
-            $title = Title::newFromPageReference( $pageRef );
+            $title = Title::castFromPageReference( $pageRef );
             $embed = $content->getEmbedRenderer( $title, $parser, $parserOutput, [
                 'inlineData' => $parserOptions->getIsPreview(),
             ] );
-            $embed->prepareOutput( $parserOutput );
-            if ( $cpoParams->getGenerateHtml() ) {
-                $parserOutput->setText( $parserOutput->getRawText() . $embed->getHtml( new EmbedRenderOptions() ) );
+            $embed->prepareOutput();
+            if ( $generateHtml ) {
+                $html .= $embed->getHtml( new EmbedRenderOptions() );
             }
         }
 
@@ -161,6 +146,7 @@ class DataMapContentHandler extends JsonContentHandler {
             $parserOutput->mergeInternalMetaDataFrom( $docOutput );
             $parserOutput->mergeTrackingMetaDataFrom( $docOutput );
         }
+        $parserOutput->setText( $html );
     }
 
     /**
