@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GilPe",
 			"Volvox"
 		]
 	},
@@ -23,5 +24,5 @@
 	"datamap-ve-workflow-marker-field-desc": "Beschreiwung",
 	"datamap-ve-workflow-marker-field-image": "Miniaturbild",
 	"datamap-ve-workflow-save": "Ännerunge späicheren",
-	"datamap-ve-workflow-save-summary": "Resumé vun der Ännerung"
+	"datamap-ve-workflow-save-summary": "Resümmee vun der Ännerung"
 }
