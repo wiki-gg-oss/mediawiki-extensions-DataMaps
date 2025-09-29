@@ -10,8 +10,11 @@
 			"محمد أحمد عبد الفتاح"
 		]
 	},
+	"datamap-ve-to-load": "يرجى الانتظار أثناء تحميل المحرر المرئي...",
+	"datamap-ve-needs-fallback-to-source": "لا يمكن تعديل صفحة الخريطة هذه باستخدام المحرر المرئي. يُرجى استخدام [$1 المحرر المصدري] بدلاً من ذلك.",
 	"datamap-ve-experimental": "محرر الخرائط المرئي لا يزال تجريبيًّا",
 	"datamap-ve-experimental-close": "أغلق",
+	"datamap-userpref-enable-ve": "تمكين المحرر المرئي لخرائط البيانات عندما يكون مستقرًا",
 	"datamap-ve-edit-source-action": "عدل المصدر",
 	"tag-datamaps-visualeditor": "تعديل خريطة مرئي",
 	"datamap-ve-background-default-name": "غير معنون",
