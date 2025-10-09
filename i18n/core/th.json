@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bellbox"
+			"Bellbox",
+			"Woraponboonkerd"
 		]
 	},
 	"datamap-desc": "อนุญาตให้ฝังแผนที่ข้อมูลแบบโต้ตอบตอบลงในหน้าวิกิ",
-	"content-model-datamap": "แผนที่ข้อมูลแบบโต้ตอบ",
+	"content-model-datamap": "แผนที่แบบ Interactive",
 	"datamap-doc-page-does-not-exist": "''เอกสารประกอบสำหรับหน้านี้ถูกสร้างขึ้นที่ [[$1]]''",
 	"datamap-doc-page-header": "'''เอกสารประกอบนี้สำหรับ [[$1]]'''",
 	"datamap-category-pages-including-maps": "บทความที่มีแผนที่เชิงโต้ตอบ",
