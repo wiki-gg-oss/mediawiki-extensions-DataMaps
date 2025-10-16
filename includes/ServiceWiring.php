@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Extension\DataMaps\Content\SchemaProvider;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaProvider;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessorFactory;
 use MediaWiki\MediaWikiServices;

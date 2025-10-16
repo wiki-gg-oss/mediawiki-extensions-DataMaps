@@ -2,10 +2,10 @@
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
 use MapCacheLRU;
-use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
-use MediaWiki\Extension\DataMaps\Data\MapSettingsSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\DataMapSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapSettingsSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerGroupSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerSpec;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
 use MediaWiki\Parser\Parser;

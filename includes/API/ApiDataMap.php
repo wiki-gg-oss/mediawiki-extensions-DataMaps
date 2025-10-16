@@ -15,7 +15,7 @@ use ObjectCache;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
-class ApiQueryDataMapEndpoint extends ApiBase {
+class ApiDataMap extends ApiBase {
     // This value is a part of every cache key produced by this endpoint. It should be raised only on API output changes and
     // cache management changes, including changes to the MarkerProcessor class.
     //
@@ -58,6 +58,9 @@ class ApiQueryDataMapEndpoint extends ApiBase {
             'revid' => [
                 ParamValidator::PARAM_TYPE => 'integer',
                 ParamValidator::PARAM_REQUIRED => false,
+            ],
+            'prop' => [
+                ParamValidator::PARAM_TYPE => ''
             ],
             'layers' => [
                 ParamValidator::PARAM_TYPE => 'string',

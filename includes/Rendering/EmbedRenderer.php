@@ -1,11 +1,11 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
-use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
-use MediaWiki\Extension\DataMaps\Data\MapBackgroundOverlaySpec;
-use MediaWiki\Extension\DataMaps\Data\MapBackgroundTileSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\DataMapSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapBackgroundOverlaySpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapBackgroundTileSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerGroupSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerSpec;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
 use MediaWiki\Html\Html;
 use MediaWiki\Json\FormatJson;

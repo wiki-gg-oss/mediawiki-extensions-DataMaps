@@ -336,7 +336,7 @@
 		}
 	},
 	"ContentHandlers": {
-		"datamap": "MediaWiki\\Extension\\DataMaps\\Content\\DataMapContentHandler"
+		"datamap": "MediaWiki\\Extension\\DataMaps\\LegacyCompat\\Content\\DataMapContentHandler"
 	},
 	
 	"callback": "MediaWiki\\Extension\\DataMaps\\Hooks\\ContentModelHooks::onRegistration",

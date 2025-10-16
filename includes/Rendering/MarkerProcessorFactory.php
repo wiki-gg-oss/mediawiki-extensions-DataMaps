@@ -2,7 +2,7 @@
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
 use MapCacheLRU;
-use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\DataMapSpec;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserFactory;

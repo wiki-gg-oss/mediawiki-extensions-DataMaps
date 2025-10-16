@@ -2,14 +2,14 @@
 namespace MediaWiki\Extension\DataMaps\Rendering;
 
 use InvalidArgumentException;
-use MediaWiki\Extension\DataMaps\Data\CoordinateSystem;
-use MediaWiki\Extension\DataMaps\Data\DataMapSpec;
-use MediaWiki\Extension\DataMaps\Data\MapBackgroundOverlaySpec;
-use MediaWiki\Extension\DataMaps\Data\MapBackgroundSpec;
-use MediaWiki\Extension\DataMaps\Data\MapBackgroundTileSpec;
-use MediaWiki\Extension\DataMaps\Data\MapSettingsSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerGroupSpec;
-use MediaWiki\Extension\DataMaps\Data\MarkerLayerSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\CoordinateSystem;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\DataMapSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapBackgroundOverlaySpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapBackgroundSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapBackgroundTileSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MapSettingsSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerGroupSpec;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Data\MarkerLayerSpec;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
 use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapFileUtils;
 use MediaWiki\Html\Html;

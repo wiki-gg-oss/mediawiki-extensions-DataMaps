@@ -3,7 +3,7 @@ namespace MediaWiki\Extension\DataMaps;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Extension\DataMaps\Content\SchemaRevision;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaRevision;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessor;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;

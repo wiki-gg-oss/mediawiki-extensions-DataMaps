@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
-use MediaWiki\Extension\DataMaps\Content\DataMapContent;
+use MediaWiki\Extension\DataMaps\LegacyCompat\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\MediaWikiServices;
