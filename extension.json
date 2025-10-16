@@ -364,7 +364,8 @@
         "ContentModelHooks": {
             "class": "MediaWiki\\Extension\\DataMaps\\Hooks\\ContentModelHooks",
 			"services": [
-				"DataMaps.Config"
+				"DataMaps.Config",
+				"DataMaps.ContentFactory"
 			]
         },
         "NamespaceHooks": {

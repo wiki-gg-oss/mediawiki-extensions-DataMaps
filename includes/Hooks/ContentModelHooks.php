@@ -13,7 +13,8 @@ final class ContentModelHooks implements
     \MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook
 {
     public function __construct(
-        private readonly ExtensionConfig $config
+        private readonly ExtensionConfig $config,
+        private readonly MapContentFactory $mapContentFactory
     ) { }
 
     public static function onRegistration(): bool {
@@ -43,29 +44,26 @@ final class ContentModelHooks implements
         return true;
     }
 
-    private static function isDocPage( Title $title ) {
-        $docPage = wfMessage( 'datamap-doc-page-suffix' )->inContentLanguage();
-        return !$docPage->isDisabled() && str_ends_with( $title->getPrefixedText(), $docPage->plain() );
-    }
-
     /**
      * Promotes map content model as default for pages in the Map namespace, optionally checking if the title prefix is
      * satisfied.
-     *
-     * @param Title $title
-     * @param string &$model
-     * @return void
      */
     public function onContentHandlerDefaultModelFor( $title, &$model ) {
-        if ( $title->getNamespace() === $this->config->getNamespaceId() && !self::isDocPage( $title ) ) {
-            $prefix = wfMessage( 'datamap-standard-title-prefix' )->inContentLanguage();
-            if ( $prefix !== '-' && str_starts_with( $title->getText(), $prefix->plain() ) ) {
-                $model = $this->config->hasNavigatorRefactorEnabled() ? CONTENT_MODEL_NAVIGATOR_MAP
-                    : CONTENT_MODEL_DATAMAPS;
-            }
+        if ( $title->getNamespace() !== $this->config->getNamespaceId() ) {
+            return;
         }
 
-        return true;
+        if ( $this->mapContentFactory->isDocumentationTitle( $title ) ) {
+            return;
+        }
+
+        $prefixMsg = wfMessage( 'datamap-standard-title-prefix' )->inContentLanguage()->plain();
+        if ( $prefixMsg !== '-' && !str_starts_with( $title->getText(), $prefixMsg ) ) {
+            return;
+        }
+
+        $model = $this->config->hasNavigatorRefactorEnabled() ? CONTENT_MODEL_NAVIGATOR_MAP
+            : CONTENT_MODEL_DATAMAPS;
     }
 
     /**
