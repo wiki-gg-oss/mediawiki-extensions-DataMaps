@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaProvider;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessorFactory;
@@ -27,6 +28,15 @@ return [
                 $services->getMainConfig()
             ),
             $services->getUrlUtils(),
+            $services->getService( ExtensionConfig::SERVICE_NAME )
+        );
+    },
+
+    MapContentFactory::SERVICE_NAME => static function (
+        MediaWikiServices $services
+    ): MapContentFactory {
+        return new MapContentFactory(
+            $services->getWikiPageFactory(),
             $services->getService( ExtensionConfig::SERVICE_NAME )
         );
     },

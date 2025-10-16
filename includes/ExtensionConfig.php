@@ -30,6 +30,7 @@ class ExtensionConfig {
         ConfigNames::EnablePortingTools,
         ConfigNames::EnableExperimentalFeatures,
         ConfigNames::EnableLoadMapButton,
+        ConfigNames::EnableNavigatorRefactor,
     ];
 
     public function __construct(
@@ -133,6 +134,10 @@ class ExtensionConfig {
 
     public function areFandomPortingToolsEnabled(): bool {
         return $this->hasExperimentalFeatures() && $this->options->get( ConfigNames::EnablePortingTools );
+    }
+
+    public function hasNavigatorRefactorEnabled(): bool {
+        return $this->hasExperimentalFeatures() && $this->options->get( ConfigNames::EnableNavigatorRefactor );
     }
 
     public function hasExperimentalFeatures(): bool {

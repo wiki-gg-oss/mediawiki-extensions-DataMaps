@@ -97,4 +97,9 @@ class ConfigNames {
      * Name constant. For use in ExtensionConfig.
      */
     public const EnableLoadMapButton = 'DataMapsEnableLoadMapButton';
+
+    /**
+     * Name constant. For use in ExtensionConfig.
+     */
+    public const EnableNavigatorRefactor = 'DataMapsEnableNavigatorRefactor';
 }

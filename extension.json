@@ -456,8 +456,12 @@
 		"EnableLoadMapButton": {
 			"value": false
 		},
+		"EnableNavigatorRefactor": {
+			"description": "[EXPERIMENTAL] Feature flag for the WIKIDEV-449 'Navigator' refactor.",
+			"value": false
+		},
 		"AllowExperimentalFeatures": {
-			"description": "Whether to enable experimental features.",
+			"description": "Whether to allow experimental features.",
 			"value": false
 		}
 	},
