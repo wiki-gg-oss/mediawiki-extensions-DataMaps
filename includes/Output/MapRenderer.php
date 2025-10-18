@@ -36,6 +36,20 @@ class MapRenderer {
         MapRenderOptions $opts,
         stdClass $object
     ): string {
+        // Register required modules
+        $parserOutput->addModuleStyles( [
+            'ext.navigator.map.styles',
+        ] );
+        if ( $opts->isLazyLoadingAllowed() ) {
+            $parserOutput->addModules( [
+                'ext.navigator.map.lazyload',
+            ] );
+        } else {
+            $parserOutput->addModules( [
+                'ext.navigator.map.app',
+            ] );
+        }
+
         // Initialisation placeholder
         if ( $opts->isLazyLoadingAllowed() ) {
             $initPlHtml =
