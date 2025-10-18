@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Hooks;
 
-use MediaWiki\Extension\DataMaps\API\ApiQueryDataMapEndpoint;
+use MediaWiki\Extension\DataMaps\Api\ApiQueryDataMapEndpoint;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use ObjectCache;
 use WikiPage;

@@ -1,5 +1,5 @@
 <?php
-namespace MediaWiki\Extension\DataMaps\API;
+namespace MediaWiki\Extension\DataMaps\Api;
 
 use LogicException;
 use MediaWiki\Api\ApiBase;

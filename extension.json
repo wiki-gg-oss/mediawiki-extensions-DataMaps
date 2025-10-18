@@ -328,7 +328,7 @@
 
 	"APIModules": {
 		"queryDataMap": {
-			"class": "MediaWiki\\Extension\\DataMaps\\API\\ApiQueryDataMapEndpoint",
+			"class": "MediaWiki\\Extension\\DataMaps\\Api\\ApiQueryDataMapEndpoint",
 			"services": [
 				"DataMaps.Config",
 				"DataMaps.MarkerProcessorFactory"
