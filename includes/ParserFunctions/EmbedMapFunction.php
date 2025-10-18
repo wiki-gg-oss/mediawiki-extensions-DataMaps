@@ -83,10 +83,10 @@ final class EmbedMapFunction extends ParserFunction {
         } elseif ( $content instanceof MapContent ) {
             // TODO: run validation
 
-            $metadataEmitter = $this->mapOutputFactory->createMapMetadataEmitter( $title );
-            $mapRenderer = $this->mapOutputFactory->createMapRenderer( $title );
+            $metadataEmitter = $this->mapOutputFactory->createMapMetadataEmitter( $parser, $title );
+            $mapRenderer = $this->mapOutputFactory->createMapRenderer( $parser, $title );
 
-            $metadataEmitter->runForContent( $parser, $parser->getOutput(), $content );
+            $metadataEmitter->runForContent( $parser->getOutput(), $content );
 
             return [ $mapRenderer->getHtmlForContent( $parser->getOutput(), $content ),
                 'noparse' => true, 'isHTML' => true ];
