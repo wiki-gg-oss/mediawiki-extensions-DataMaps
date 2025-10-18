@@ -1,9 +1,27 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 
-final class CommonUtilities {
+abstract class ParserFunction {
+    /**
+     * Executes the function.
+     *
+     * @param Parser $parser
+     * @param PPFrame $frame
+     * @param PPNode[] $args
+     * @return string
+     */
+    abstract public function run( Parser $parser, PPFrame $frame, array $args ): array;
+
+    /**
+     * Returns a callable specification for the ParserFirstCallInit hook.
+     */
+    public function asCallable(): array {
+        return [ $this, 'run' ];
+    }
+
     /**
      * Wraps text as a commonly recognised wikitext error pattern.
      *
@@ -11,7 +29,7 @@ final class CommonUtilities {
      * @param mixed ...$params
      * @return array
      */
-    public static function wrapError( string $message, ...$params ): array {
+    protected function wrapError( string $message, ...$params ): array {
         return [
             '<strong class="error">' . wfMessage( $message )->inContentLanguage()->params( $params ) . '</strong>',
             'noparse' => false,
@@ -27,7 +45,7 @@ final class CommonUtilities {
      * @param ?array $defaults
      * @return array
      */
-    public static function getArguments( PPFrame $frame, array $argNodes, ?array $defaults = null ) {
+    protected function getArguments( PPFrame $frame, array $argNodes, ?array $defaults = null ): array {
         $expanded = $defaults ?? [];
 
         foreach ( $argNodes as $argNode ) {

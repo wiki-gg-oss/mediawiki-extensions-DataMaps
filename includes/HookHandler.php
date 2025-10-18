@@ -4,6 +4,8 @@ namespace MediaWiki\Extension\DataMaps;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaRevision;
+use MediaWiki\Extension\DataMaps\ParserFunctions\EmbedMapFunction;
+use MediaWiki\Extension\DataMaps\ParserFunctions\MapLinkFunction;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessor;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
@@ -36,20 +38,18 @@ final class HookHandler implements
      * @return void
      */
     public function onParserFirstCallInit( $parser ) {
-        $parser->setFunctionHook(
-            'displaydatamap', [ ParserFunctions\EmbedMapFunction::class, 'run' ],
-            Parser::SFH_NO_HASH | Parser::SFH_OBJECT_ARGS
-        );
+        $services = MediaWikiServices::getInstance();
+        $embedMapImpl = new EmbedMapFunction( $this->config );
+        $maplinkImpl = new MapLinkFunction( $services->getLinkRenderer() );
+
+        $parser->setFunctionHook( 'displaydatamap', $embedMapImpl->asCallable(),
+            Parser::SFH_NO_HASH | Parser::SFH_OBJECT_ARGS );
         if ( $this->config->isTransclusionAliasEnabled() ) {
-            $parser->setFunctionHook(
-                'displaydatamap_short', [ ParserFunctions\EmbedMapFunction::class, 'run' ],
-                Parser::SFH_NO_HASH | Parser::SFH_OBJECT_ARGS
-            );
+            $parser->setFunctionHook( 'displaydatamap_short', $embedMapImpl->asCallable(),
+                Parser::SFH_NO_HASH | Parser::SFH_OBJECT_ARGS );
         }
-        $parser->setFunctionHook(
-            'datamaplink', [ ParserFunctions\MapLinkFunction::class, 'run' ],
-            Parser::SFH_OBJECT_ARGS
-        );
+        $parser->setFunctionHook( 'datamaplink', $maplinkImpl->asCallable(),
+            Parser::SFH_OBJECT_ARGS );
     }
 
     /**

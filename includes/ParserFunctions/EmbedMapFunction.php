@@ -9,7 +9,11 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
 
-final class EmbedMapFunction {
+final class EmbedMapFunction extends ParserFunction {
+    public function __construct(
+        private readonly ExtensionConfig $config
+    ) { }
+
     /**
      * Embeds a map.
      *
@@ -21,8 +25,8 @@ final class EmbedMapFunction {
      * @param PPNode[] $args
      * @return string
      */
-    public static function run( Parser $parser, PPFrame $frame, array $args ): array {
-        $params = CommonUtilities::getArguments( $frame, $args, [
+    public function run( Parser $parser, PPFrame $frame, array $args ): array {
+        $params = $this->getArguments( $frame, $args, [
             'filter' => null,
             'max-width' => null,
             'class' => null,
@@ -32,11 +36,9 @@ final class EmbedMapFunction {
             'open-marker' => null,
         ] );
 
-        $config = MediaWikiServices::getInstance()->get( ExtensionConfig::SERVICE_NAME );
-
-        $title = Title::makeTitleSafe( $config->getNamespaceId(), $params[0] );
+        $title = Title::makeTitleSafe( $this->config->getNamespaceId(), $params[0] );
         if ( !$title ) {
-            return CommonUtilities::wrapError( 'datamap-error-pf-invalid-title' );
+            return $this->wrapError( 'datamap-error-pf-invalid-title' );
         }
 
         // Register page's dependency on the data map
@@ -49,25 +51,25 @@ final class EmbedMapFunction {
         // Retrieve and validate options
         $options = self::getRenderOptions( $params );
         if ( is_string( $options ) ) {
-            return CommonUtilities::wrapError( $options );
+            return $this->wrapError( $options );
         }
 
         // Verify the page exists and is a data map
         // TODO: separate message if the page is of foreign format and can be ported
         $content = DataMapContent::loadPage( $title );
         if ( $content === DataMapContent::LERR_NOT_FOUND ) {
-            return CommonUtilities::wrapError(
+            return $this->wrapError(
                 'datamap-error-pf-page-does-not-exist',
                 wfEscapeWikiText( $title->getFullText() )
             );
         } elseif ( $content === DataMapContent::LERR_NOT_DATAMAP ) {
-            return CommonUtilities::wrapError(
+            return $this->wrapError(
                 'datamap-error-pf-page-invalid-content-model',
                 wfEscapeWikiText( $title->getFullText() )
             );
         } elseif ( !$content->getValidationStatus()->isOK() ) {
             $parser->addTrackingCategory( 'datamap-category-pages-including-broken-maps' );
-            return CommonUtilities::wrapError(
+            return $this->wrapError(
                 'datamap-error-map-validation-fail',
                 wfEscapeWikiText( $title->getFullText() )
             );

@@ -1,12 +1,16 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
 
-final class MapLinkFunction {
+final class MapLinkFunction extends ParserFunction {
+    public function __construct(
+        private readonly LinkRenderer $linkRenderer
+    ) { }
+
     /**
      * Renders a link to a page with a map.
      *
@@ -17,17 +21,15 @@ final class MapLinkFunction {
      * @param PPNode[] $args
      * @return string
      */
-    public static function run( Parser $parser, PPFrame $frame, array $args ): array {
-        $linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-
-        $expandedArgs = CommonUtilities::getArguments( $frame, $args, [
+    public function run( Parser $parser, PPFrame $frame, array $args ): array {
+        $expandedArgs = $this->getArguments( $frame, $args, [
             'marker' => null
         ] );
 
         $target = Title::newFromText( $expandedArgs[0] );
 
         return [
-            $linkRenderer->makeLink(
+            $this->linkRenderer->makeLink(
                 $target,
                 $expandedArgs[1] ?? null,
                 [],
