@@ -1,12 +1,12 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use MediaWiki\Extension\DataMaps\ContentValidation\EntityTreeValidator;
-use MediaWiki\Extension\DataMaps\ContentValidation\IMapValidator;
+use MediaWiki\Extension\DataMaps\Content\Validation\EntityTreeValidator;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 
 class MapContentFactory {
@@ -46,18 +46,20 @@ class MapContentFactory {
 
     /**
      * Loads map source content from a given title. Returns a null if unsuccessful.
+     *
+     * @return Status possibly wrapping a MapContent or DataMapContent object.
      */
-    public function loadPageContent( Title $title ): ?MapContent {
+    public function loadPageContent( Title $title ): Status {
         if ( !$title || !$title->exists() ) {
-            return null;
+            return Status::newFatal( 'datamap-error-pf-page-does-not-exist', $title->getFullText() );
         }
 
         $content = $this->wikiPageFactory->newFromTitle( $title )->getContent( RevisionRecord::RAW );
         if ( !( $content instanceof MapContent ) ) {
-            return null;
+            return Status::newFatal( 'datamap-error-pf-page-invalid-content-model', $title->getFullText() );
         }
 
-        return $content;
+        return Status::newGood( $content );
     }
 
     /**

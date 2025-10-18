@@ -1,17 +1,21 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\ParserFunctions;
 
+use Error;
+use InvalidArgumentException;
+use MediaWiki\Extension\DataMaps\Content\MapContent;
+use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
 
 final class EmbedMapFunction extends ParserFunction {
     public function __construct(
-        private readonly ExtensionConfig $config
+        private readonly ExtensionConfig $config,
+        private readonly MapContentFactory $mapContentFactory
     ) { }
 
     /**
@@ -56,29 +60,29 @@ final class EmbedMapFunction extends ParserFunction {
 
         // Verify the page exists and is a data map
         // TODO: separate message if the page is of foreign format and can be ported
-        $content = DataMapContent::loadPage( $title );
-        if ( $content === DataMapContent::LERR_NOT_FOUND ) {
-            return $this->wrapError(
-                'datamap-error-pf-page-does-not-exist',
-                wfEscapeWikiText( $title->getFullText() )
-            );
-        } elseif ( $content === DataMapContent::LERR_NOT_DATAMAP ) {
-            return $this->wrapError(
-                'datamap-error-pf-page-invalid-content-model',
-                wfEscapeWikiText( $title->getFullText() )
-            );
-        } elseif ( !$content->getValidationStatus()->isOK() ) {
-            $parser->addTrackingCategory( 'datamap-category-pages-including-broken-maps' );
-            return $this->wrapError(
-                'datamap-error-map-validation-fail',
-                wfEscapeWikiText( $title->getFullText() )
-            );
+        $contentResult = $this->mapContentFactory->loadPageContent( $title );
+
+        if ( !$contentResult->isOK() ) {
+            // TODO: format this properly without getHTML and make sure to use the parser's context info
+            return $this->wrapError( $contentResult->getHTML() );
         }
 
-        $embed = $content->getEmbedRenderer( $title, $parser, $parser->getOutput() );
-        $embed->prepareOutput();
+        $content = $contentResult->getValue();
+        if ( $content instanceof DataMapContent ) {
+            if ( !$content->getValidationStatus()->isOK() ) {
+                $parser->addTrackingCategory( 'datamap-category-pages-including-broken-maps' );
+                return $this->wrapError( 'datamap-error-map-validation-fail', $title->getFullText() );
+            }
 
-        return [ $embed->getHtml( $options ), 'noparse' => true, 'isHTML' => true ];
+            $embed = $content->getEmbedRenderer( $title, $parser, $parser->getOutput() );
+            $embed->prepareOutput();
+
+            return [ $embed->getHtml( $options ), 'noparse' => true, 'isHTML' => true ];
+        } elseif ( $content instanceof MapContent ) {
+            throw new Error( 'Navigator map display has not been implemented yet.' );
+        } else {
+            throw new InvalidArgumentException( 'MapContentFactory returned an unsupported content object.' );
+        }
     }
 
     /**

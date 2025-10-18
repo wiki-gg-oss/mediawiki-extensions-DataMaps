@@ -3,6 +3,7 @@ namespace MediaWiki\Extension\DataMaps;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaRevision;
 use MediaWiki\Extension\DataMaps\ParserFunctions\EmbedMapFunction;
 use MediaWiki\Extension\DataMaps\ParserFunctions\MapLinkFunction;
@@ -39,8 +40,14 @@ final class HookHandler implements
      */
     public function onParserFirstCallInit( $parser ) {
         $services = MediaWikiServices::getInstance();
-        $embedMapImpl = new EmbedMapFunction( $this->config );
-        $maplinkImpl = new MapLinkFunction( $services->getLinkRenderer() );
+
+        $embedMapImpl = new EmbedMapFunction(
+            $this->config,
+            $services->getService( MapContentFactory::SERVICE_NAME )
+        );
+        $maplinkImpl = new MapLinkFunction(
+            $services->getLinkRenderer()
+        );
 
         $parser->setFunctionHook( 'displaydatamap', $embedMapImpl->asCallable(),
             Parser::SFH_NO_HASH | Parser::SFH_OBJECT_ARGS );
