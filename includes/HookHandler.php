@@ -5,6 +5,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaRevision;
+use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
 use MediaWiki\Extension\DataMaps\ParserFunctions\EmbedMapFunction;
 use MediaWiki\Extension\DataMaps\ParserFunctions\MapLinkFunction;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessor;
@@ -43,7 +44,8 @@ final class HookHandler implements
 
         $embedMapImpl = new EmbedMapFunction(
             $this->config,
-            $services->getService( MapContentFactory::SERVICE_NAME )
+            $services->getService( MapContentFactory::SERVICE_NAME ),
+            $services->getService( MapOutputFactory::SERVICE_NAME )
         );
         $maplinkImpl = new MapLinkFunction(
             $services->getLinkRenderer()

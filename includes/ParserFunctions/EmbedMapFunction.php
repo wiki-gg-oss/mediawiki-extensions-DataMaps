@@ -7,6 +7,7 @@ use MediaWiki\Extension\DataMaps\Content\MapContent;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
@@ -15,7 +16,8 @@ use MediaWiki\Title\Title;
 final class EmbedMapFunction extends ParserFunction {
     public function __construct(
         private readonly ExtensionConfig $config,
-        private readonly MapContentFactory $mapContentFactory
+        private readonly MapContentFactory $mapContentFactory,
+        private readonly MapOutputFactory $mapOutputFactory
     ) { }
 
     /**
@@ -79,7 +81,15 @@ final class EmbedMapFunction extends ParserFunction {
 
             return [ $embed->getHtml( $options ), 'noparse' => true, 'isHTML' => true ];
         } elseif ( $content instanceof MapContent ) {
-            throw new Error( 'Navigator map display has not been implemented yet.' );
+            // TODO: run validation
+
+            $metadataEmitter = $this->mapOutputFactory->createMapMetadataEmitter( $title );
+            $mapRenderer = $this->mapOutputFactory->createMapRenderer( $title );
+
+            $metadataEmitter->runForContent( $parser, $parser->getOutput(), $content );
+
+            return [ $mapRenderer->getHtmlForContent( $parser->getOutput(), $content ),
+                'noparse' => true, 'isHTML' => true ];
         } else {
             throw new InvalidArgumentException( 'MapContentFactory returned an unsupported content object.' );
         }

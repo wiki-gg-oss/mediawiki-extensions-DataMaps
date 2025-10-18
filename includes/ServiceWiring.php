@@ -4,6 +4,7 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\SchemaProvider;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
 use MediaWiki\Extension\DataMaps\Rendering\MarkerProcessorFactory;
 use MediaWiki\MediaWikiServices;
 
@@ -39,6 +40,12 @@ return [
             $services->getWikiPageFactory(),
             $services->getService( ExtensionConfig::SERVICE_NAME )
         );
+    },
+
+    MapOutputFactory::SERVICE_NAME => static function (
+        MediaWikiServices $services
+    ): MapOutputFactory {
+        return new MapOutputFactory();
     },
 
     MarkerProcessorFactory::SERVICE_NAME => static function (
