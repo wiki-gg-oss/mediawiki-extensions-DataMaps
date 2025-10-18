@@ -1,6 +1,9 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Output;
 
+/**
+ * Container holding settings for a map embedded in an article.
+ */
 class MapRenderOptions {
     private bool $allowLazyLoading = true;
 
