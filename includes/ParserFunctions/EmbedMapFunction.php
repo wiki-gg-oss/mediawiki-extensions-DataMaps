@@ -8,6 +8,7 @@ use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\LegacyCompat\Content\DataMapContent;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
+use MediaWiki\Extension\DataMaps\Output\MapRenderOptions;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
@@ -83,12 +84,15 @@ final class EmbedMapFunction extends ParserFunction {
         } elseif ( $content instanceof MapContent ) {
             // TODO: run validation
 
+            $renderOpts = ( new MapRenderOptions() )
+                ->setLazyLoadingAllowed( true );
+
             $metadataEmitter = $this->mapOutputFactory->createMapMetadataEmitter( $parser, $title );
             $mapRenderer = $this->mapOutputFactory->createMapRenderer( $parser, $title );
 
             $metadataEmitter->runForContent( $parser->getOutput(), $content );
 
-            return [ $mapRenderer->getHtmlForContent( $parser->getOutput(), $content ),
+            return [ $mapRenderer->getHtmlForContent( $parser->getOutput(), $renderOpts, $content ),
                 'noparse' => true, 'isHTML' => true ];
         } else {
             throw new InvalidArgumentException( 'MapContentFactory returned an unsupported content object.' );

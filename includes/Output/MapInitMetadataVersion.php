@@ -1,5 +1,5 @@
 <?php
-namespace MediaWiki\Extension\DataMaps\Content;
+namespace MediaWiki\Extension\DataMaps\Output;
 
 enum MapInitMetadataVersion: int {
     case REV_1 = 1;
