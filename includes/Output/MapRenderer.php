@@ -31,6 +31,8 @@ class MapRenderer {
         return $this->getHtml( $parserOutput, $opts, $dataResult->getValue() );
     }
 
+    // TODO: in-place marker emitting is needed
+
     public function getHtml(
         ParserOutput $parserOutput,
         MapRenderOptions $opts,

@@ -12,7 +12,9 @@ use MediaWiki\Extension\DataMaps\Output\MapRenderOptions;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
+use StatusValue;
 
 final class EmbedMapFunction extends ParserFunction {
     public function __construct(
@@ -55,10 +57,11 @@ final class EmbedMapFunction extends ParserFunction {
         // Add the page to a tracking category
         $parser->addTrackingCategory( 'datamap-category-pages-including-maps' );
 
-        // Retrieve and validate options
-        $options = self::getRenderOptions( $params );
-        if ( is_string( $options ) ) {
-            return $this->wrapError( $options );
+        // Retrieve and validate options - this is used for the legacy map format only. For Navigator maps, the options
+        // are collected and validated later.
+        $legacyOptions = self::getRenderOptions( $params );
+        if ( is_string( $legacyOptions ) ) {
+            return $this->wrapError( $legacyOptions );
         }
 
         // Verify the page exists and is a data map
@@ -80,20 +83,30 @@ final class EmbedMapFunction extends ParserFunction {
             $embed = $content->getEmbedRenderer( $title, $parser, $parser->getOutput() );
             $embed->prepareOutput();
 
-            return [ $embed->getHtml( $options ), 'noparse' => true, 'isHTML' => true ];
+            return [ $embed->getHtml( $legacyOptions ), 'noparse' => true, 'isHTML' => true ];
         } elseif ( $content instanceof MapContent ) {
             // TODO: run validation
 
-            $renderOpts = ( new MapRenderOptions() )
-                ->setLazyLoadingAllowed( true );
+            $renderOptsResult = $this->collectMapRenderOptions( $params );
+            if ( !$renderOptsResult->isOK() ) {
+                // TODO: format this properly without getHTML and make sure to use the parser's context info
+                return $this->wrapError( $renderOptsResult->getHTML() );
+            }
 
             $metadataEmitter = $this->mapOutputFactory->createMapMetadataEmitter( $parser, $title );
             $mapRenderer = $this->mapOutputFactory->createMapRenderer( $parser, $title );
 
             $metadataEmitter->runForContent( $parser->getOutput(), $content );
 
-            return [ $mapRenderer->getHtmlForContent( $parser->getOutput(), $renderOpts, $content ),
-                'noparse' => true, 'isHTML' => true ];
+            return [
+                $mapRenderer->getHtmlForContent(
+                    $parser->getOutput(),
+                    $renderOptsResult->getValue(),
+                    $content
+                ),
+                'noparse' => true,
+                'isHTML' => true,
+            ];
         } else {
             throw new InvalidArgumentException( 'MapContentFactory returned an unsupported content object.' );
         }
@@ -140,5 +153,13 @@ final class EmbedMapFunction extends ParserFunction {
         }
 
         return $result;
+    }
+
+    private function collectMapRenderOptions( array $params ): Status {
+        $retval = ( new MapRenderOptions() )
+            // TODO: not very strict as this accepts things like marker=preload - fix later
+            ->setLazyLoadingAllowed( !in_array( 'preload', $params, true ) );
+
+        return Status::newGood( $retval );
     }
 }
