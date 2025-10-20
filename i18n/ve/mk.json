@@ -11,7 +11,7 @@
 	"datamap-ve-experimental": "Нагледното уредување на карти сè уште е пробно",
 	"datamap-ve-experimental-content": "<p>Можете да се откажете во секое време во одделот <i>Уредување</i> на нагодувањата на вашата сметка.</p>\n<p>Имајте на ум дека некои можности може да бидат недостапни, а може да се јават и грешки — за список на грешки или пријавување на грешка, посетете го <a class=\"external\" href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/149\">проблем бр. 149 на складот на GitHub за DataMaps</a>.</p>",
 	"datamap-ve-experimental-close": "Затвори",
-	"datamap-userpref-enable-ve": "Овозможи го нагледниот уредник за податочни карти кога ќе стане устојчив",
+	"datamap-userpref-enable-ve": "Овозможи го нагледниот уредник за податочни карти кога ќе стане постојан",
 	"datamap-userpref-enable-ve-beta": "Сакам да учествувам во пробите на нагледнот уредник на карти",
 	"datamap-ve-edit-source-action": "Уреди извор",
 	"datamap-ve-beta-notice": "Овој нагледен уредник во во рана развојна фаза. Грешките пријавувајте ги на <a href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/new\" class=\"external\">GitHub</a>.",
