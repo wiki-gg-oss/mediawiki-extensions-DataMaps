@@ -261,7 +261,7 @@ class EmbedRenderer {
             ) ) );
         }
 
-        return Html::rawElement(
+        $containerMain->prependContent( new HtmlSnippet( Html::rawElement(
             'noscript',
             [],
             ( new \OOUI\MessageWidget( [
@@ -274,7 +274,9 @@ class EmbedRenderer {
                 ],
                 '.ext-datamaps-container{display:none}'
             )
-        ) . $containerMain;
+        ) ) );
+
+        return $containerMain->toString();
     }
 
     public function getLeafletContainerHtml(): string {
