@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Darafsh",
+			"LordProfo",
 			"Rulebased"
 		]
 	},
-	"datamap-ve-to-load": "لطفاً تا بارگذاری ویرایشگر بصری منتظر بمانید...",
-	"datamap-ve-experimental": "نسخه ویرایش‌گر بصری نقشه همچنان آزمایشی است",
+	"datamap-ve-to-load": "لطفاً تا بارگذاری ویرایشگر دیداری منتظر بمانید...",
+	"datamap-ve-experimental": "ویرایشگر دیداری نقشه همچنان آزمایشی است",
 	"datamap-ve-experimental-close": "بستن",
 	"datamap-ve-edit-source-action": "ویرایش منبع",
-	"tag-datamaps-visualeditor": "ویرایش بصری نقشه",
+	"tag-datamaps-visualeditor": "ویرایش دیداری نقشه",
 	"datamap-ve-background-default-name": "بدون عنوان",
 	"datamap-ve-generic-cancel": "لغو",
 	"datamap-ve-panel-msettings-field-coordorder": "دستگاه مختصات",
