@@ -10,6 +10,8 @@ use MediaWiki\Extension\DataMaps\Content\MapContent;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\Content\MapJsonFormatter;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
+use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
+use MediaWiki\Extension\DataMaps\Output\MapRenderOptions;
 use MediaWiki\Extension\DataMaps\Rendering\EmbedRenderOptions;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -24,7 +26,8 @@ class MapContentHandler extends JsonContentHandler {
     public function __construct(
         $modelId = CONTENT_MODEL_NAVIGATOR_MAP,
         private readonly ExtensionConfig $config,
-        private readonly MapContentFactory $mapContentFactory
+        private readonly MapContentFactory $mapContentFactory,
+        private readonly MapOutputFactory $mapOutputFactory
     ) {
         parent::__construct( $modelId );
 		$this->mSupportedFormats = [ CONTENT_FORMAT_NAVIGATOR_MAP ];
@@ -144,7 +147,8 @@ class MapContentHandler extends JsonContentHandler {
                 ->addTrackingCategory( $parserOutput, 'datamap-category-maps-failing-validation', $page );
         }
 
-        // TODO: emit metadata from the map's source code
+        // Generate metadata from the map's source code
+        $this->mapOutputFactory->createMapMetadataEmitter( $parser, $page )->runForContent( $parserOutput, $content );
 
         if ( !$generateHtml ) {
             // We've done everything which emits metadata and absolutely has to be done.
@@ -153,7 +157,10 @@ class MapContentHandler extends JsonContentHandler {
         }
 
         if ( $validateStatus->isOK() ) {
-            // TODO: render the map embed
+            $renderOpts = ( new MapRenderOptions() )
+                ->setLazyLoadingAllowed( false );
+            $renderer = $this->mapOutputFactory->createMapRenderer( $parser, $page );
+            $html .= $renderer->getHtmlForContent( $parserOutput, $renderOpts, $content );
         }
 
         $parserOutput->setRawText( $html );

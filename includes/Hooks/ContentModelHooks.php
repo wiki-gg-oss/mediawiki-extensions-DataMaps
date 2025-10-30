@@ -5,6 +5,7 @@ use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Extension\DataMaps\Content\MapContentHandler;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Extension\DataMaps\Migration\Fandom\FandomMapContentHandler;
+use MediaWiki\Extension\DataMaps\Output\MapOutputFactory;
 use MediaWiki\Title\Title;
 
 // @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
@@ -37,6 +38,7 @@ final class ContentModelHooks implements
                 'services' => [
                     ExtensionConfig::SERVICE_NAME,
                     MapContentFactory::SERVICE_NAME,
+                    MapOutputFactory::SERVICE_NAME,
                 ],
             ];
         }
