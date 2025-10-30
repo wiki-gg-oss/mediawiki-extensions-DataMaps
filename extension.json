@@ -316,6 +316,21 @@
 				"createMapLazy/main.js"
 			],
 			"targets": [ "desktop" ]
+		},
+
+		"ext.navigator.map.styles": {
+			"localBasePath": "modules/ext.navigator.map.styles",
+			"remoteExtPath": "DataMaps/modules/ext.navigator.map.styles",
+			"styles": [
+				"main.less"
+			]
+		},
+		"ext.navigator.map.lazyload": {
+			"localBasePath": "modules/ext.navigator.map.lazyload",
+			"remoteExtPath": "DataMaps/modules/ext.navigator.map.lazyload",
+			"packageFiles": [
+				"main.js"
+			]
 		}
 	},
 

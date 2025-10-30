@@ -67,10 +67,16 @@ class MapRenderer {
                 );
         } else {
             $initPlHtml =
-                Html::element( 'div', [
+                Html::rawElement( 'div', [
                         'class' => 'ext-navigator-statusmsg',
                     ],
-                    $this->parser->msg( 'navigator-loading-eager' )->plain() );
+                    $this->parser->msg( 'navigator-loading-eager' )->escaped()
+                    . Html::rawElement( 'div', [
+                            'class' => 'cdx-progress-bar cdx-progress-bar--inline',
+                            'role' => 'progressbar',
+                        ],
+                        Html::element( 'div', [ 'class' => 'cdx-progress-bar__bar' ] ) )
+                );
         }
 
         // Main outer container and the no-JS message
