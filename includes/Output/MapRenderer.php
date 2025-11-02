@@ -61,7 +61,7 @@ class MapRenderer {
                     $this->parser->msg( 'navigator-loading-lazy' )->escaped()
                     . Html::rawElement( 'button', [
                             'class' => 'cdx-button cdx-button--action-progressive cdx-button--weight-primary',
-                            'disabled' => 'true',
+                            'disabled' => true,
                         ],
                         $this->parser->msg( 'navigator-loading-lazy-btn' )->escaped() )
                 );
