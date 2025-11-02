@@ -331,6 +331,18 @@
 			"packageFiles": [
 				"main.js"
 			]
+		},
+		"ext.navigator.map.app": {
+			"localBasePath": "modules/ext.navigator.map.app",
+			"remoteExtPath": "DataMaps/modules/ext.navigator.map.app",
+			"dependencies": [
+				"vue"
+			],
+			"packageFiles": [
+				"index.js",
+				"setupFunctions.js",
+				"components/App.vue"
+			]
 		}
 	},
 

@@ -1,0 +1,25 @@
+@navi-background-color-pl: color-mix( in srgb, @background-color-base, transparent 25% );
+@navi-border-color-pl: color-mix( in srgb, @border-color-base, transparent 10% );
+@navi-background-color-stripes: color-mix( in srgb, @color-progressive, transparent 50% );
+@navi-size-stripe: 2em;
+
+.ext-navi-map {
+    position: relative;
+    border: 1px solid @navi-border-color-pl;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    width: 100%;
+    padding: 2px;
+    box-sizing: border-box;
+    background-color: @navi-background-color-pl;
+
+    &:not( &--ready ) {
+        background: repeating-linear-gradient( 45deg, transparent, transparent @navi-size-stripe,
+            @navi-background-color-stripes @navi-size-stripe, @navi-background-color-stripes calc( @navi-size-stripe * 2 ) );
+    }
+
+    &--eager,
+    &--ready {
+        height: ~"max( 50vh, 300px )";
+    }
+}

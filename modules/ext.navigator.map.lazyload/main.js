@@ -99,7 +99,7 @@ function setup( element ) {
 
 
 mw.hook( 'wikipage.content' ).add( $content => {
-    for ( const element of $content.find( '.ext-navigator-map[ data-mw-navigator ]' ) ) {
+    for ( const element of $content.find( '.ext-navi-map[ data-mw-navigator ]' ) ) {
         trap( () => setup( element ) );
     }
 } );

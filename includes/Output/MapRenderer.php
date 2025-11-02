@@ -51,6 +51,8 @@ class MapRenderer {
             ] );
         }
 
+        $classes = [ 'ext-navi-map' ];
+
         // Initialisation placeholder
         if ( $opts->isLazyLoadingAllowed() ) {
             $initPlHtml =
@@ -64,6 +66,7 @@ class MapRenderer {
                         ],
                         $this->parser->msg( 'navigator-loading-lazy-btn' )->escaped() )
                 );
+            $classes[] = 'ext-navi-map--lazy';
         } else {
             $initPlHtml =
                 Html::rawElement( 'div', [
@@ -76,11 +79,12 @@ class MapRenderer {
                         ],
                         Html::element( 'div', [ 'class' => 'cdx-progress-bar__bar' ] ) )
                 );
+            $classes[] = 'ext-navi-map--eager';
         }
 
         // Main outer container and the no-JS message
         return Html::rawElement( 'div', [
-                'class' => 'ext-navigator-map',
+                'class' => $classes,
                 'data-mw-navigator' => FormatJson::encode( $this->getInitMetadataArray( $opts ) ),
             ],
             Html::element( 'noscript', [
