@@ -28,12 +28,15 @@ function trap( fn ) {
 
 function proxiedInitialiseEmbed( element ) {
     mw.loader.using( 'ext.navigator.map.app', () => {
+        console.debug( `[Navigator] Moving container out of bootstrap stage:`, element );
         require( 'ext.navigator.map.app' ).initialiseEmbed( element );
     } );
 }
 
 
 function setup( element ) {
+    console.debug( `[Navigator] Container setup request invoked for:`, element );
+
     // Unserialise the embed config
     const initConfig = JSON.parse( element.getAttribute( 'data-mw-navigator' ) );
     // Confirm the metadata version is one we provide support for
@@ -44,6 +47,7 @@ function setup( element ) {
     // Precheck is done. We handle both eager and lazy loading here, so the paths diverge depending on the flag
     if ( initConfig.flags & MapInitFlag.Lazy ) {
         // Embed is configured in lazily-loaded mode; let's set up the button
+        console.debug( `[Navigator] Setting up manual lazy-loader on container:`, element );
         const
             messageElement = element.querySelector( ':scope > div.ext-navigator-statusmsg' ),
             buttonElement = messageElement.querySelector( ':scope > .cdx-button' );
@@ -63,6 +67,7 @@ function setup( element ) {
     } else {
         // Embed is configured in eagerly-loaded mode; let's set up an IntersectionObserver and initialise the embed
         // once it's sufficiently in the viewport
+        console.debug( `[Navigator] Setting up intersection loader on container:`, element );
         // TODO: ideally we'd reuse this observer
         // TODO: possible memory leak if the element gets detached before init?
         let timeoutId = null;
@@ -71,6 +76,7 @@ function setup( element ) {
                 if ( entries[ 0 ].isIntersecting ) {
                     // Map's scrolled into view, let's queue up the load after a short while
                     if ( !timeoutId ) {
+                        console.debug( `[Navigator] Container in view, scheduling for loading:`, element );
                         timeoutId = setTimeout( () => {
                             observer.disconnect();
                             proxiedInitialiseEmbed( element );
@@ -78,6 +84,7 @@ function setup( element ) {
                     }
                 } else if ( timeoutId ) {
                     // Map scrolled out of the view while still connected here, cancel the load
+                    console.debug( `[Navigator] Container out of view, cancelling load:`, element );
                     clearTimeout( timeoutId );
                     timeoutId = null;
                 }
