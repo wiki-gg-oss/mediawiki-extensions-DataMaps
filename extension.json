@@ -336,12 +336,37 @@
 			"localBasePath": "modules/ext.navigator.map.app",
 			"remoteExtPath": "DataMaps/modules/ext.navigator.map.app",
 			"dependencies": [
-				"vue"
+				"vue",
+				"@wikimedia/codex"
 			],
 			"packageFiles": [
 				"index.js",
 				"setupFunctions.js",
-				"components/App.vue"
+				"components/App.vue",
+				"components/ControlsArea.vue",
+				{
+					"name": "data/icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAdd",
+						"cdxIconAlignCenter",
+						"cdxIconClose",
+						"cdxIconEdit",
+						"cdxIconExitFullscreen",
+						"cdxIconExpand",
+						"cdxIconFullScreen",
+						"cdxIconFunnel",
+						"cdxIconImageLayoutFrame",
+						"cdxIconInfo",
+						"cdxIconLink",
+						"cdxIconSearch",
+						"cdxIconSubtract",
+						"cdxIconDownTriangle",
+						"cdxIconUpTriangle",
+						"cdxIconNext",
+						"cdxIconMenu"
+					]
+				}
 			]
 		}
 	},
