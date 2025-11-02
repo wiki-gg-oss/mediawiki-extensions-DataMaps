@@ -7,6 +7,11 @@ const MapInitFlag = Object.freeze( {
 } );
 
 
+const
+    INTERSECT_THRESHOLD = 0.1,
+    INTERSECT_DELAY_TIME = 200;
+
+
 function trap( fn ) {
     if ( mw.config.get( 'debug' ) ) {
         return fn();
@@ -21,6 +26,13 @@ function trap( fn ) {
 }
 
 
+function proxiedInitialiseEmbed( element ) {
+    mw.loader.using( 'ext.navigator.map.app', () => {
+        require( 'ext.navigator.map.app' ).initialiseEmbed( element );
+    } );
+}
+
+
 function setup( element ) {
     // Unserialise the embed config
     const initConfig = JSON.parse( element.getAttribute( 'data-mw-navigator' ) );
@@ -28,30 +40,54 @@ function setup( element ) {
     if ( !KnownInitMetadataVersions.includes( initConfig['$version'] ) ) {
         throw new Error( `Unknown map metadata version: ${initConfig['$version']}` );
     }
-    // Confirm the lazy flag is set, and silently bail otherwise
-    if ( !( initConfig.flags & MapInitFlag.Lazy ) ) {
-        return;
-    }
 
-    // Precheck is done; let's set up the button
-    const
-        messageElement = element.querySelector( ':scope > div.ext-navigator-statusmsg' ),
-        buttonElement = messageElement.querySelector( ':scope > .cdx-button' );
-    buttonElement.addEventListener( 'mousedown', () => {
-        const progressBarInnerElement = document.createElement( 'div' );
-        progressBarInnerElement.classList.add( 'cdx-progress-bar__bar' );
+    // Precheck is done. We handle both eager and lazy loading here, so the paths diverge depending on the flag
+    if ( initConfig.flags & MapInitFlag.Lazy ) {
+        // Embed is configured in lazily-loaded mode; let's set up the button
+        const
+            messageElement = element.querySelector( ':scope > div.ext-navigator-statusmsg' ),
+            buttonElement = messageElement.querySelector( ':scope > .cdx-button' );
+        buttonElement.addEventListener( 'mousedown', () => {
+            const progressBarInnerElement = document.createElement( 'div' );
+            progressBarInnerElement.classList.add( 'cdx-progress-bar__bar' );
 
-        const progressBarElement = document.createElement( 'div' );
-        progressBarElement.classList.add( 'cdx-progress-bar', 'cdx-progress-bar--inline' );
-        progressBarElement.role = 'progressbar';
-        progressBarElement.append( progressBarInnerElement );
-        buttonElement.replaceWith( progressBarElement );
+            const progressBarElement = document.createElement( 'div' );
+            progressBarElement.classList.add( 'cdx-progress-bar', 'cdx-progress-bar--inline' );
+            progressBarElement.role = 'progressbar';
+            progressBarElement.append( progressBarInnerElement );
+            buttonElement.replaceWith( progressBarElement );
 
-        mw.loader.using( 'ext.navigator.map.app', () => {
-            require( 'ext.navigator.map.app' ).initialiseEmbed( element );
+            proxiedInitialiseEmbed( element );
         } );
-    } );
-    buttonElement.removeAttribute( 'disabled' );
+        buttonElement.removeAttribute( 'disabled' );
+    } else {
+        // Embed is configured in eagerly-loaded mode; let's set up an IntersectionObserver and initialise the embed
+        // once it's sufficiently in the viewport
+        // TODO: ideally we'd reuse this observer
+        // TODO: possible memory leak if the element gets detached before init?
+        let timeoutId = null;
+        const observer = new IntersectionObserver(
+            ( entries, observer ) => {
+                if ( entries[ 0 ].isIntersecting ) {
+                    // Map's scrolled into view, let's queue up the load after a short while
+                    if ( !timeoutId ) {
+                        timeoutId = setTimeout( () => {
+                            observer.disconnect();
+                            proxiedInitialiseEmbed( element );
+                        }, INTERSECT_DELAY_TIME );
+                    }
+                } else if ( timeoutId ) {
+                    // Map scrolled out of the view while still connected here, cancel the load
+                    clearTimeout( timeoutId );
+                    timeoutId = null;
+                }
+            },
+            {
+                threshold: INTERSECT_THRESHOLD,
+            }
+        );
+        observer.observe( element );
+    }
 }
 
 

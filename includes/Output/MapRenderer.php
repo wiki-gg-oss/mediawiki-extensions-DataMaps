@@ -42,11 +42,10 @@ class MapRenderer {
         $parserOutput->addModuleStyles( [
             'ext.navigator.map.styles',
         ] );
-        if ( $opts->isLazyLoadingAllowed() ) {
-            $parserOutput->addModules( [
-                'ext.navigator.map.lazyload',
-            ] );
-        } else {
+        $parserOutput->addModules( [
+            'ext.navigator.map.lazyload',
+        ] );
+        if ( !$opts->isLazyLoadingAllowed() ) {
             $parserOutput->addModules( [
                 'ext.navigator.map.app',
             ] );
