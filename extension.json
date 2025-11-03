@@ -337,6 +337,7 @@
 			"remoteExtPath": "DataMaps/modules/ext.navigator.map.app",
 			"dependencies": [
 				"vue",
+				"pinia",
 				"@wikimedia/codex"
 			],
 			"packageFiles": [
