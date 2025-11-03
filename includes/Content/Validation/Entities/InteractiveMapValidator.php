@@ -14,7 +14,8 @@ class InteractiveMapValidator extends EntityValidator {
                 EntityValidator::CHECK_CLASS => SettingsValidator::class ],
             'markerTypes' => [ 'is_array', EntityValidator::ITEM_SPEC => [ 'is_object',
                 EntityValidator::CHECK_CLASS => PolymorphicMarkerTypeValidator::class ] ],
-            'features' => [ 'is_array' ],
+            'features' => [ 'is_array', EntityValidator::ITEM_SPEC => [ 'is_object',
+                EntityValidator::CHECK_CLASS => PolymorphicFeatureValidator::class ] ],
         ] );
 
         return true;
