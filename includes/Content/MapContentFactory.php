@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Extension\DataMaps\Content;
 
-use MediaWiki\Extension\DataMaps\Content\Validation\EntityTreeValidator;
+use MediaWiki\Extension\DataMaps\Content\Validation\MapContentValidator;
 use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
@@ -137,9 +137,7 @@ class MapContentFactory {
     /**
      * Creates a map source validator.
      */
-    public function createValidator( MapContentVersion $contentVersion ): EntityTreeValidator {
-        return new EntityTreeValidator(
-            $contentVersion
-        );
+    public function createValidator(): MapContentValidator {
+        return new MapContentValidator();
     }
 }
