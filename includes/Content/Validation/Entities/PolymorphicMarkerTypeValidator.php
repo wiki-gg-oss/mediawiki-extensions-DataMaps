@@ -8,7 +8,7 @@ class PolymorphicMarkerTypeValidator extends EntityValidator {
      * @inheritDoc
      */
     public function validateObject( stdClass $data ): bool {
-        if ( isset( $data->include ) ) {
+        if ( $this->hasAnyProperty( $data, [ 'group', 'include' ] ) ) {
             $this->expectProperties( $data, [
                 'group' => [ 'is_string' ],
                 'description' => [ 'is_string', EntityValidator::NULLABLE => true ],

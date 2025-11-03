@@ -19,6 +19,15 @@ abstract class EntityValidator {
 
     abstract public function validateObject( stdClass $data ): bool;
 
+    protected function hasAnyProperty( stdClass $data, array $props ): bool {
+        foreach ( $props as $prop ) {
+            if ( isset( $data->{$prop} ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected function expectProperties( stdClass $data, array $props ): array {
         $presentProps = [];
         $validatorCache = [];
