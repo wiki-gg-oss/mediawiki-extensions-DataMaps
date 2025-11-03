@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"datamap-vec-title": "Crear un mapa",
+	"datamap-ve-skip": "Omitir",
+	"datamap-vec-intro": "Axusta a seguinte información ás túas necesidades para que poidamos preparar un mapa básico antes de comezares a editalo",
+	"datamap-vec-select-crs-origin": "Esquina de coordenadas (0, 0)",
+	"datamap-vec-crs-top-left": "Arriba á esquerda",
+	"datamap-vec-crs-bottom-left": "Abaixo á esquerda",
+	"datamap-vec-select-crs": "Sistema de coordenadas",
+	"datamap-vec-crs-percent": "Porcentaxe (0-100 %)",
+	"datamap-vec-crs-image": "Coordenadas da imaxe correspondente",
+	"datamap-vec-crs-custom": "Personalizado",
+	"datamap-vec-select-background": "Imaxe de fondo",
+	"datamap-vec-note-image-size": "Tamaño: $1 × $2",
+	"datamap-vec-error-bad-file-type": "O tipo de ficheiro ($1) non é compatible; selecciona un ficheiro JPEG, PNG, GIF ou SVG.",
+	"datamap-vec-error-poor-file-type": "Este tipo de ficheiro pode ter un rendemento deficiente en redes limitadas. Usa o formato JPEG sempre que sexa posible.",
+	"datamap-vec-extra-options": "Opcións adicionais",
+	"datamap-vec-toggle-coord-display": "Mostrar as coordenadas baixo o cursor",
+	"datamap-vec-toggle-zoom": "Activar o zoom",
+	"datamap-vec-toggle-search": "Activar a busca de marcadores",
+	"datamap-vec-toggle-search-tabber": "Compartir os datos de busca dentro de Tabber",
+	"datamap-vec-toggle-uid-requirement": "Esixir identificadores de marcador únicos",
+	"datamap-vec-submit": "Continuar",
+	"datamap-vec-example-group-id": "exemplo",
+	"datamap-vec-example-group-name": "Grupo de exemplo",
+	"datamap-vec-example-marker": "Marcador de exemplo"
+}
