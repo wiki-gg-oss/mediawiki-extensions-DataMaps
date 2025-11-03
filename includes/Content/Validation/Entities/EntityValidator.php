@@ -45,14 +45,14 @@ abstract class EntityValidator {
         // Check nullability
         if ( $value === null ) {
             if ( !( $spec[EntityValidator::NULLABLE] ?? false ) ) {
-                $this->status->fatal( 'navigator-validate-unexpected-null', $this->trace->getLeaf( $name ) );
+                $this->status->fatal( 'navigator-validate-unexpected-null', $this->trace->toString( $name ) );
             }
             return false;
         }
 
         // Check direct type
         if ( !$spec[0]( $value ) ) {
-            $this->status->fatal( 'navigator-validate-unexpected-type', $this->trace->getLeaf( $name ) );
+            $this->status->fatal( 'navigator-validate-unexpected-type', $this->trace->toString( $name ) );
             return false;
         }
 
