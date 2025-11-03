@@ -76,9 +76,7 @@ abstract class EntityValidator {
             $this->trace->push( $name );
             $isGood = true;
             foreach ( $value as $key => $item ) {
-                $this->trace->push( $key );
                 $isGood &= $this->expectValue( $key, $item, $itemSpec );
-                $this->trace->back();
             }
             $this->trace->back();
 
