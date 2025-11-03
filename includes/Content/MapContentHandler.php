@@ -18,6 +18,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use StatusValue;
 use stdClass;
@@ -87,9 +88,9 @@ class MapContentHandler extends JsonContentHandler {
     /**
      * Checks whether the map is valid.
      */
-    public function validate( Content $content, PageIdentity $page ): StatusValue {
-        // TODO: wire things together
-        return StatusValue::newGood();
+    public function validate( Content $content, PageIdentity $page ): Status {
+        $validator = $this->mapContentFactory->createValidator();
+        return $validator->validateContentObject( $content );
     }
 
     /**
@@ -142,7 +143,8 @@ class MapContentHandler extends JsonContentHandler {
 
         $validateStatus = $this->validate( $content, $page );
         if ( !$validateStatus->isOK() ) {
-            // TODO: emit the validation notice
+            $html .= $validateStatus->getWikiText();
+
             MediaWikiServices::getInstance()->getTrackingCategories()
                 ->addTrackingCategory( $parserOutput, 'datamap-category-maps-failing-validation', $page );
         }
