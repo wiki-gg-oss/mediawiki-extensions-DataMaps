@@ -10,6 +10,7 @@
     <cdx-button
         :aria-label="name"
         :disabled="data.disabled"
+        @click="data.click"
         v-else
     >
         <slot />
