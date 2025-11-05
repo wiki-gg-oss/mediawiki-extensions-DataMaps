@@ -345,6 +345,7 @@
 				"setupFunctions.js",
 				"InjectedSymbol.js",
 				"MapEmbed.js",
+				"util/lazyModuleShim.js",
 				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
 				"viewport/ViewportInteractionBridge.js",
