@@ -4,13 +4,14 @@
 
 <script>
 const
-    { inject } = require( 'vue' );
+    { inject } = require( 'vue' ),
+    InjectedSymbol = require( '../InjectedSymbol.js' );
 
 // @vue/component
 module.exports = {
 	name: 'LeafletViewport',
     mounted() {
-        this.$refs.root.appendChild( inject( 'leafletHost' ) );
+        this.$refs.root.appendChild( inject( InjectedSymbol.LEAFLET_HOST ) );
     },
 };
 </script>

@@ -1,6 +1,7 @@
 const
     Vue = require( 'vue' ),
     { createPinia } = require( 'pinia' ),
+    InjectedSymbol = require( './InjectedSymbol.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     App = require( './components/App.vue' );
 
@@ -18,7 +19,7 @@ module.exports = class MapEmbed {
         this.#pinia = createPinia();
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
-            .provide( 'leafletHost', this.#viewportElement )
+            .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
             .mount( mountTargetElement );
     }
 

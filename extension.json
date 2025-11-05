@@ -343,6 +343,7 @@
 			"packageFiles": [
 				"index.js",
 				"setupFunctions.js",
+				"InjectedSymbol.js",
 				"MapEmbed.js",
 				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
