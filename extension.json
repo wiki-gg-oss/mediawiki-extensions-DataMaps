@@ -344,6 +344,7 @@
 				"index.js",
 				"setupFunctions.js",
 				"MapEmbed.js",
+				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
