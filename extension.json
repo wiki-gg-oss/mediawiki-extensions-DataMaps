@@ -347,6 +347,7 @@
 				"MapEmbed.js",
 				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
+				"viewport/ViewportInteractionBridge.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
 				"components/App.vue",

@@ -3,6 +3,7 @@ const
     { createPinia } = require( 'pinia' ),
     InjectedSymbol = require( './InjectedSymbol.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
+    ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
     App = require( './components/App.vue' );
 
 
@@ -20,6 +21,7 @@ module.exports = class MapEmbed {
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
+            .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this.#viewportManager ) )
             .mount( mountTargetElement );
     }
 

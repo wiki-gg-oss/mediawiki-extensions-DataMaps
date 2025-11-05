@@ -37,6 +37,7 @@
 const
     { ref, computed, watch } = require( 'vue' ),
     { CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
+    { useViewportInteraction } = require( '../InjectedSymbol.js' ),
     useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
     useViewportState = require( '../stores/ViewportState.js' ),
     ControlsArea = require( './ControlsArea.vue' ),
@@ -88,12 +89,14 @@ module.exports = {
                             name: 'zoomIn',
                             icon: uiIcons.cdxIconAdd,
                             disabled: computed( () => !this.viewportState.canZoomIn ),
+                            click: () => this.viewportBridge.zoomIn(),
                         },
                         {
                             type: 'button',
                             name: 'zoomOut',
                             icon: uiIcons.cdxIconSubtract,
                             disabled: computed( () => !this.viewportState.canZoomOut ),
+                            click: () => this.viewportBridge.zoomOut(),
                         },
                     ],
                 },
@@ -115,6 +118,7 @@ module.exports = {
 
     setup() {
         return {
+            viewportBridge: useViewportInteraction(),
             markerTypesStore: useMarkerTypesStore(),
             viewportState: useViewportState(),
             isLegendOpen: ref( true ),

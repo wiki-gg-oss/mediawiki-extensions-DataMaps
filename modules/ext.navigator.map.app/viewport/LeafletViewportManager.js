@@ -9,6 +9,12 @@ module.exports = class LeafletViewportManager {
 
     constructor( mountTargetElement ) {
         this.#mountTargetElement = mountTargetElement;
+        this.#map = null;
+    }
+
+
+    getLeafletHandle() {
+        return this.#map;
     }
 
 
