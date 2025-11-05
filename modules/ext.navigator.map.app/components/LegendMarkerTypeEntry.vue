@@ -140,6 +140,7 @@ module.exports = {
     margin-top: calc( -0.15em / 0.9 );
     padding: 0 calc( 0.4em / 0.9 );
     font-size: 0.9em;
+    line-height: 1.3;
     color: @color-subtle;
 }
 
