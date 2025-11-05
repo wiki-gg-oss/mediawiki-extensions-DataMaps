@@ -6,6 +6,8 @@ use ApiBase;
 use ApiModuleManager;
 use MediaWiki\Extension\DataMaps\Content\MapContent;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -20,12 +22,14 @@ class ApiGetMap extends ApiBase {
 	private readonly ApiModuleManager $moduleMgr;
 
 	private ?Title $title = null;
+	private ?RevisionRecord $rev = null;
 	private ?MapContent $contentObj = null;
 
 	public function __construct(
 		$query,
 		$moduleName,
 		private readonly ObjectFactory $objectFactory,
+		private readonly RevisionStore $revisionStore,
 		private readonly MapContentFactory $mapContentFactory
 	) {
 		parent::__construct( $query, $moduleName, '' );
@@ -52,6 +56,10 @@ class ApiGetMap extends ApiBase {
 				ParamValidator::PARAM_REQUIRED => true,
 				ParamValidator::PARAM_TYPE => 'integer',
 			],
+			'revid' => [
+				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'integer',
+			],
 			'prop' => [
 				ParamValidator::PARAM_REQUIRED => true,
 				ParamValidator::PARAM_TYPE => 'submodule',
@@ -68,6 +76,15 @@ class ApiGetMap extends ApiBase {
 		}
 
 		$this->checkTitleUserPermissions( $this->title, [ 'read' ] );
+
+		if ( isset( $params['revid'] ) ) {
+			$this->rev = $this->revisionStore->getRevisionById( $params['revid'], page: $this->title );
+			if ( !$this->rev ) {
+				$this->dieWithError( [ 'apierror-nosuchrevid', $params['revid'] ] );
+			}
+		} else {
+			$this->rev = $this->revisionStore->getRevisionByTitle( $this->title );
+		}
 
 		if ( isset( $params['prop'] ) ) {
 			$instance = $this->moduleMgr->getModule( $params['prop'], 'prop' );
@@ -87,9 +104,17 @@ class ApiGetMap extends ApiBase {
 		return $this->title;
 	}
 
+	public function getRevisionRecord(): RevisionRecord {
+		if ( $this->rev === null ) {
+			ApiBase::dieDebug( __METHOD__, 'RevisionRecord is null but a submodule is being executed' );
+		}
+
+		return $this->rev;
+	}
+
 	public function fetchContent(): MapContent {
 		if ( $this->contentObj === null ) {
-			$contentStatus = $this->mapContentFactory->loadPageContent( $this->getTitle() );
+			$contentStatus = $this->mapContentFactory->loadPageContentByRevision( $this->getRevisionRecord() );
 			if ( !$contentStatus->isGood() ) {
 				$this->dieStatus( $contentStatus );
 			}

@@ -56,7 +56,16 @@ class MapContentFactory {
 
         $content = $this->wikiPageFactory->newFromTitle( $title )->getContent( RevisionRecord::RAW );
         if ( !( $content instanceof MapContent ) ) {
-            return Status::newFatal( 'datamap-error-pf-page-invalid-content-model', $title->getFullText() );
+            return Status::newFatal( 'datamap-error-pf-page-invalid-content-model', $title->getDBkey() );
+        }
+
+        return Status::newGood( $content );
+    }
+
+    public function loadPageContentByRevision( RevisionRecord $rev ): Status {
+        $content = $rev->getContent( RevisionRecord::RAW );
+        if ( !( $content instanceof MapContent ) ) {
+            return Status::newFatal( 'datamap-error-pf-page-invalid-content-model', $rev->getPage()->getDBkey() );
         }
 
         return Status::newGood( $content );
