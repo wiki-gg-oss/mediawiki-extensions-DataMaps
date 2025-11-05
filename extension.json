@@ -350,9 +350,12 @@
 				"viewport/ViewportInteractionBridge.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
+				"search/FuzzysortApi.js",
+				"search/MarkerSearchEngine.js",
 				"components/App.vue",
 				"components/Control.vue",
 				"components/ControlsArea.vue",
+				"components/MarkerSearch.vue",
 				"components/LegendArea.vue",
 				"components/LegendMarkerTypeEntry.vue",
 				"components/LeafletViewport.vue",
@@ -379,6 +382,11 @@
 						"cdxIconMenu"
 					]
 				}
+			]
+		},
+		"ext.navigator.3rdparty.fuzzysort": {
+			"packageFiles": [
+				"vendor/fuzzysort/fuzzysort.min.js"
 			]
 		}
 	},

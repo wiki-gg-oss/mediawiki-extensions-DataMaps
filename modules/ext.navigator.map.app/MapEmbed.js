@@ -4,6 +4,7 @@ const
     InjectedSymbol = require( './InjectedSymbol.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
+    MarkerSearchEngine = require( './search/MarkerSearchEngine.js' ),
     App = require( './components/App.vue' );
 
 
@@ -23,6 +24,7 @@ module.exports = class MapEmbed {
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
             .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this.#viewportManager,
                 this.#pinia ) )
+            .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
             .mount( mountTargetElement );
     }
 

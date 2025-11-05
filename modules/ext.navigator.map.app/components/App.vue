@@ -17,12 +17,7 @@
                     <cdx-icon :icon="uiIcons.cdxIconMenu"></cdx-icon>
                 </cdx-toggle-button>
 
-                <div class="ext-navi-map-search">
-                    <cdx-search-input
-    		            placeholder="[PH]Search..."
-                    >
-                    </cdx-search-input>
-                </div>
+                <marker-search></marker-search>
             </div>
 
             <legend-area
@@ -37,20 +32,22 @@
 const
     { ref, computed, watch } = require( 'vue' ),
     { CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
-    { useViewportInteraction } = require( '../InjectedSymbol.js' ),
+    { useViewportInteraction, useMarkerSearchEngine } = require( '../InjectedSymbol.js' ),
     useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
     useViewportState = require( '../stores/ViewportState.js' ),
     ControlsArea = require( './ControlsArea.vue' ),
+    MarkerSearch = require( './MarkerSearch.vue' ),
     LegendArea = require( './LegendArea.vue' ),
     LeafletViewport = require( './LeafletViewport.vue' ),
     uiIcons = require( '../data/icons.json' );
+
 
 // @vue/component
 module.exports = {
 	name: 'App',
     components: {
         CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton,
-        ControlsArea, LegendArea, LeafletViewport,
+        ControlsArea, MarkerSearch, LegendArea, LeafletViewport,
     },
 
     data() {

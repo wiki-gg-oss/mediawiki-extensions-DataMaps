@@ -5,6 +5,7 @@ const
 module.exports = Object.freeze( {
     LEAFLET_HOST: 'leaflet_host',
     VIEWPORT_INTERACTION: 'viewport_interaction',
+    MARKER_SEARCH_ENGINE: 'marker_search_engine',
 
 
     useLeafletHost() {
@@ -14,5 +15,10 @@ module.exports = Object.freeze( {
 
     useViewportInteraction() {
         return inject( module.exports.VIEWPORT_INTERACTION );
+    },
+
+
+    useMarkerSearchEngine() {
+        return inject( module.exports.MARKER_SEARCH_ENGINE );
     },
 } );
