@@ -343,8 +343,11 @@
 			"packageFiles": [
 				"index.js",
 				"setupFunctions.js",
+				"stores/MarkerTypesStore.js",
 				"components/App.vue",
 				"components/ControlsArea.vue",
+				"components/LegendArea.vue",
+				"components/LegendMarkerTypeEntry.vue",
 				{
 					"name": "data/icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
