@@ -343,6 +343,8 @@
 			"packageFiles": [
 				"index.js",
 				"setupFunctions.js",
+				"MapEmbed.js",
+				"viewport/LeafletViewportManager.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
 				"components/App.vue",

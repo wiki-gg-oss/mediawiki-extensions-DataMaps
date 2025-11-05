@@ -1,20 +1,12 @@
 const
-    Vue = require( 'vue' ),
-    { createPinia } = require( 'pinia' ),
-    App = require( './components/App.vue' );
+    MapEmbed = require( './MapEmbed.js' );
 
 
-function initialiseEmbed( element ) {
-    element.classList.add( 'ext-navi-map--ready' );
-
-    const leafletHost = document.createElement( 'div' );
-    leafletHost.textContent = '[PH]Headless Leaflet viewport host area';
-
-    const pinia = createPinia();
-    Vue.createMwApp( App )
-        .use( pinia )
-        .provide( 'leafletHost', leafletHost )
-        .mount( element );
+function initialiseEmbed( mountTargetElement ) {
+    mountTargetElement.classList.add( 'ext-navi-map--ready' );
+    const embed = new MapEmbed( mountTargetElement );
+    embed.getViewportManager().enable();
+    return embed;
 }
 
 
