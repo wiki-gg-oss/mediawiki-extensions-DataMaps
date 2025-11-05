@@ -344,6 +344,7 @@
 				"index.js",
 				"setupFunctions.js",
 				"stores/MarkerTypesStore.js",
+				"stores/ViewportState.js",
 				"components/App.vue",
 				"components/Control.vue",
 				"components/ControlsArea.vue",

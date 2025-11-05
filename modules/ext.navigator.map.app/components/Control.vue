@@ -1,6 +1,7 @@
 <template>
     <cdx-toggle-button
         :aria-label="name"
+        :disabled="data.disabled"
         v-model="data.modelValue"
         v-if="data.type === 'toggleButton'"
     >
@@ -8,6 +9,7 @@
     </cdx-toggle-button>
     <cdx-button
         :aria-label="name"
+        :disabled="data.disabled"
         v-else
     >
         <slot />
