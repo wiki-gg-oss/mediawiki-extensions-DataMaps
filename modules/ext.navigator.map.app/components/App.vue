@@ -42,6 +42,7 @@ const
     LeafletViewport = require( './LeafletViewport.vue' ),
     MarkerVisibilityQuickToggleRow = require( './MarkerVisibilityQuickToggleRow.vue' ),
     MarkerTypesRow = require( './MarkerTypesRow.vue' ),
+    DebugModeRow = require( './DebugModeRow.vue' ),
     uiIcons = require( '../data/icons.json' );
 
 
@@ -55,6 +56,26 @@ module.exports = {
 
     data() {
         const isFullscreen = ref( false );
+        const legendSections = [
+            {
+                type: 'direct',
+                component: MarkerVisibilityQuickToggleRow,
+            },
+            {
+                type: 'accordion',
+                label: '[PH]Locations (markers)',
+                component: MarkerTypesRow,
+            },
+        ];
+
+        if ( mw.config.get( 'debug' ) ) {
+            legendSections.push( {
+                type: 'accordion',
+                label: '[PH]Debugging',
+                component: DebugModeRow,
+            } );
+        }
+
         return {
             uiIcons,
             isFullscreen,
@@ -101,17 +122,7 @@ module.exports = {
                     ],
                 },
             ],
-            legendSections: [
-                {
-                    type: 'direct',
-                    component: MarkerVisibilityQuickToggleRow,
-                },
-                {
-                    type: 'accordion',
-                    label: '[PH]Locations (markers)',
-                    component: MarkerTypesRow,
-                },
-            ]
+            legendSections,
         };
     },
 

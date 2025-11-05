@@ -361,6 +361,7 @@
 				"components/LegendRow.vue",
 				"components/MarkerTypesRow.vue",
 				"components/MarkerVisibilityQuickToggleRow.vue",
+				"components/DebugModeRow.vue",
 				"components/LegendMarkerTypeEntry.vue",
 				"components/LeafletViewport.vue",
 				{
