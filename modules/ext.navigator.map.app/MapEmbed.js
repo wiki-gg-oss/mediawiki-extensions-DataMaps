@@ -21,7 +21,8 @@ module.exports = class MapEmbed {
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
-            .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this.#viewportManager ) )
+            .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this.#viewportManager,
+                this.#pinia ) )
             .mount( mountTargetElement );
     }
 

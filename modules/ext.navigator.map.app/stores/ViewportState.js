@@ -3,8 +3,19 @@ const
     { defineStore } = require( 'pinia' );
 
 module.exports = defineStore( 'viewportState', () => {
+	const
+		canZoomOut = ref( false ),
+		canZoomIn = ref( false );
+
+
     return {
-        canZoomIn: true,
-		canZoomOut: false,
+		canZoomOut,
+        canZoomIn,
+
+
+		setZoomAbility( newCanZoomOut, newCanZoomIn ) {
+			canZoomOut.value = newCanZoomOut;
+			canZoomIn.value = newCanZoomIn;
+		},
     };
 } );
