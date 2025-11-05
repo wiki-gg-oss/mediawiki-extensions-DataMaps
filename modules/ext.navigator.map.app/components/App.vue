@@ -1,35 +1,37 @@
 <template>
-	<div class="ext-navi-map-viewport">
-        [PH]Headless Leaflet viewport area
-    </div>
-
-    <controls-area
-        :control-groups="controlGroups"
-    >
-    </controls-area>
-
-    <div class="ext-navi-map-panels">
-        <div class="ext-navi-map-panels-row">
-            <cdx-toggle-button
-                v-model="isLegendOpen"
-                class="ext-navi-map-legend-btn"
-                aria-label="[PH]Expand/collapse"
-            >
-                <cdx-icon :icon="uiIcons.cdxIconMenu"></cdx-icon>
-            </cdx-toggle-button>
-
-            <div class="ext-navi-map-search">
-                <cdx-search-input
-		            placeholder="[PH]Search..."
-                >
-                </cdx-search-input>
-            </div>
+    <div class="ext-navi-map-app" :class="runtimeContainerClasses">
+    	<div class="ext-navi-map-viewport">
+            [PH]Headless Leaflet viewport area
         </div>
 
-        <legend-area
-            :is-open="isLegendOpen"
+        <controls-area
+            :control-groups="controlGroups"
         >
-        </legend-area>
+        </controls-area>
+
+        <div class="ext-navi-map-panels">
+            <div class="ext-navi-map-panels-row">
+                <cdx-toggle-button
+                    v-model="isLegendOpen"
+                    class="ext-navi-map-legend-btn"
+                    aria-label="[PH]Expand/collapse"
+                >
+                    <cdx-icon :icon="uiIcons.cdxIconMenu"></cdx-icon>
+                </cdx-toggle-button>
+
+                <div class="ext-navi-map-search">
+                    <cdx-search-input
+    		            placeholder="[PH]Search..."
+                    >
+                    </cdx-search-input>
+                </div>
+            </div>
+
+            <legend-area
+                :is-open="isLegendOpen"
+            >
+            </legend-area>
+        </div>
     </div>
 </template>
 
@@ -51,8 +53,10 @@ module.exports = {
     },
 
     data() {
+        const isFullscreen = ref( false );
         return {
             uiIcons,
+            isFullscreen,
             controlGroups: [
                 {
                     name: 'editing',
@@ -71,6 +75,7 @@ module.exports = {
                             type: 'toggleButton',
                             name: 'fullscreen',
                             icon: uiIcons.cdxIconFullScreen,
+                            modelValue: isFullscreen,
                         },
                     ],
                 },
@@ -94,6 +99,18 @@ module.exports = {
         };
     },
 
+    computed: {
+        runtimeContainerClasses() {
+            const classes = [];
+
+            if ( this.isFullscreen ) {
+                classes.push( 'ext-navi-map-app--fullscreen' );
+            }
+
+            return classes.join( ' ' );
+        },
+    },
+
     setup() {
         return {
             markerTypesStore: useMarkerTypesStore(),
@@ -115,38 +132,56 @@ module.exports = {
         background-color: @background-color-base;
     }
 
-    > .ext-navi-map-viewport {
+    &-app {
         height: 100%;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #666;
     }
 
-    > .ext-navi-map-panels {
-        position: absolute;
-        top: @navi-size-edge-offset;
-        left: @navi-size-edge-offset;
+
+    &:has( &-app--fullscreen ) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+        z-index: @z-index-overlay;
+    }
+}
+
+.ext-navi-map-viewport {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.ext-navi-map-panels {
+    position: absolute;
+    top: @navi-size-edge-offset;
+    left: @navi-size-edge-offset;
+    display: flex;
+    flex-direction: column;
+    gap: @navi-size-panel-spacing;
+    height: ~"calc( 100% - @{navi-size-edge-offset} * 2 )";
+    width: 200px;
+
+    @media screen and ( min-width: @min-width-breakpoint-tablet ) {
+        width: 300px;
+    }
+
+    @media screen and ( min-width: @min-width-breakpoint-desktop ) {
+        width: 350px;
+    }
+
+    > .ext-navi-map-panels-row {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: @navi-size-panel-spacing;
-        height: ~"calc( 100% - @{navi-size-edge-offset} * 2 )";
-        width: 200px;
-
-        @media screen and ( min-width: @min-width-breakpoint-tablet ) {
-            width: 300px;
-        }
-
-        @media screen and ( min-width: @min-width-breakpoint-desktop ) {
-            width: 350px;
-        }
-
-        > .ext-navi-map-panels-row {
-            display: flex;
-            flex-direction: row;
-            gap: @navi-size-panel-spacing;
-        }
     }
 }
 

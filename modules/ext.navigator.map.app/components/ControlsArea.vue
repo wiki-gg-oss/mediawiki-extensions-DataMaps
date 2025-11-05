@@ -8,12 +8,13 @@
             <div
                 :class="group.spacing ? undefined : 'cdx-button-group'"
             >
-                <cdx-button
-                    :aria-label="item.name"
+                <control
+                    :name="item.name"
+                    :data="item"
                     v-for="item in group.items"
                 >
                     <cdx-icon :icon="item.icon"></cdx-icon>
-                </cdx-button>
+                </control>
             </component>
         </div>
     </div>
@@ -22,13 +23,15 @@
 <script>
 const
     { ref, computed, watch } = require( 'vue' ),
-    { CdxButton, CdxButtonGroup, CdxIcon } = require( '@wikimedia/codex' );
+    { CdxButton, CdxButtonGroup, CdxIcon } = require( '@wikimedia/codex' ),
+    Control = require( './Control.vue' );
 
 // @vue/component
 module.exports = {
 	name: 'ControlsArea',
     components: {
         CdxButton, CdxButtonGroup, CdxIcon,
+        Control,
     },
 	props: {
 		controlGroups: {

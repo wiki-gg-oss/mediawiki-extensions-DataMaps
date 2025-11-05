@@ -345,6 +345,7 @@
 				"setupFunctions.js",
 				"stores/MarkerTypesStore.js",
 				"components/App.vue",
+				"components/Control.vue",
 				"components/ControlsArea.vue",
 				"components/LegendArea.vue",
 				"components/LegendMarkerTypeEntry.vue",
