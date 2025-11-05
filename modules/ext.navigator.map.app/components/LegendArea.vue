@@ -3,33 +3,13 @@
         class="ext-navi-map-legend"
         :class="isOpen ? undefined : 'ext-navi-map-legend--collapsed'"
     >
-        <div class="ext-navi-map-legend-row">
-            <div class="cdx-button-group">
-                <cdx-button>[PH]Show all</cdx-button>
-                <cdx-button>[PH]Show none</cdx-button>
-            </div>
-        </div>
-
-        <div class="ext-navi-map-legend-row">
-            <cdx-accordion open>
-                <template #title>
-                    [PH]Locations (markers)
-                </template>
-                <ul class="ext-navi-map-legend-groups">
-                    <legend-marker-type-entry
-                        v-for="item in dataStore.markerTypes"
-                        :key="item.id"
-                        :id="item.id"
-                        :is-expanded="false"
-                        :name="item.name"
-                        :description="item.description"
-                        :has-progress-tracking="item.progressTracking"
-                        :subtypes="item.include"
-                    >
-                    </legend-marker-type-entry>
-                </ul>
-            </cdx-accordion>
-        </div>
+        <legend-row
+            v-for="item in sectionData"
+            :row-type="item.type"
+            :row-data="item"
+        >
+            <component :is="item.component"></component>
+        </legend-row>
     </div>
 </template>
 
@@ -37,8 +17,7 @@
 const
     { ref, computed, watch } = require('vue'),
     { CdxAccordion, CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
-    LegendMarkerTypeEntry = require( './LegendMarkerTypeEntry.vue' ),
-    useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
+    LegendRow = require( './LegendRow.vue' ),
     uiIcons = require( '../data/icons.json' );
 
 
@@ -47,17 +26,20 @@ module.exports = {
     name: 'LegendArea',
     components: {
         CdxAccordion, CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton,
-        LegendMarkerTypeEntry,
+        LegendRow,
     },
     props: {
         isOpen: {
             type: [ Boolean ],
             required: true
         },
+        sectionData: {
+            type: Array,
+            required: true,
+        },
     },
     setup() {
         return {
-            dataStore: useMarkerTypesStore(),
             uiIcons,
         };
     },
@@ -136,28 +118,6 @@ module.exports = {
         > .cdx-button {
             flex: 1 1;
             border-color: transparent;
-        }
-    }
-}
-
-.ext-navi-map-legend-row > .cdx-accordion > .cdx-accordion__content {
-    > .ext-navi-map-legend-groups {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-
-        > li:not( :last-child )::after {
-            content: '';
-            display: block;
-            width: calc( 100% - 0.4em * 2 );
-            height: 0;
-            box-shadow: 0 0 0 1px @border-color-divider;
-            opacity: 0.2;
-            position: absolute;
-            margin-top: calc( 0.3rem / 2 );
         }
     }
 }

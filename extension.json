@@ -358,6 +358,9 @@
 				"components/ControlsArea.vue",
 				"components/MarkerSearch.vue",
 				"components/LegendArea.vue",
+				"components/LegendRow.vue",
+				"components/MarkerTypesRow.vue",
+				"components/MarkerVisibilityQuickToggleRow.vue",
 				"components/LegendMarkerTypeEntry.vue",
 				"components/LeafletViewport.vue",
 				{

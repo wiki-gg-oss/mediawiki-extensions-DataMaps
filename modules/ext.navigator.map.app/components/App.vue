@@ -22,6 +22,7 @@
 
             <legend-area
                 :is-open="isLegendOpen"
+                :section-data="legendSections"
             >
             </legend-area>
         </div>
@@ -39,6 +40,8 @@ const
     MarkerSearch = require( './MarkerSearch.vue' ),
     LegendArea = require( './LegendArea.vue' ),
     LeafletViewport = require( './LeafletViewport.vue' ),
+    MarkerVisibilityQuickToggleRow = require( './MarkerVisibilityQuickToggleRow.vue' ),
+    MarkerTypesRow = require( './MarkerTypesRow.vue' ),
     uiIcons = require( '../data/icons.json' );
 
 
@@ -98,6 +101,17 @@ module.exports = {
                     ],
                 },
             ],
+            legendSections: [
+                {
+                    type: 'direct',
+                    component: MarkerVisibilityQuickToggleRow,
+                },
+                {
+                    type: 'accordion',
+                    label: '[PH]Locations (markers)',
+                    component: MarkerTypesRow,
+                },
+            ]
         };
     },
 
