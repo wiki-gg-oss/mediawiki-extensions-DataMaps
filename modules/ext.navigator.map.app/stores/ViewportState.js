@@ -1,21 +1,31 @@
 const
-    { ref } = require( 'vue' ),
+    { computed, ref } = require( 'vue' ),
     { defineStore } = require( 'pinia' );
+
 
 module.exports = defineStore( 'viewportState', () => {
 	const
-		canZoomOut = ref( false ),
-		canZoomIn = ref( false );
+		zoomMax = ref( 0 ),
+		zoomMin = ref( 0 ),
+		zoomCurrent = ref( 0 );
 
 
     return {
-		canZoomOut,
-        canZoomIn,
+		zoomMax,
+		zoomMin,
+		zoomCurrent,
+		canZoomOut: computed( () => zoomCurrent.value > zoomMin.value ),
+		canZoomIn: computed( () => zoomCurrent.value < zoomMax.value ),
 
 
-		setZoomAbility( newCanZoomOut, newCanZoomIn ) {
-			canZoomOut.value = newCanZoomOut;
-			canZoomIn.value = newCanZoomIn;
+		setZoomRange( max, min ) {
+			zoomMax.value = max;
+			zoomMin.value = min;
+		},
+
+
+		setCurrentZoom( value ) {
+			zoomCurrent.value = value;
 		},
     };
 } );

@@ -14,19 +14,30 @@ module.exports = class ViewportInteractionBridge {
         this.#viewportManager.waitUntilReady().then( () => {
             const map = this.#viewportManager.getLeafletHandle();
 
-            map.on( 'zoomend zoomlevelschange', this.#updateZoomUiState, this );
+            map.on( 'zoomend', this.#propagateZoomLevel, this );
+            map.on( 'zoomlevelschange', this.#propagateZoomRange, this );
 
-            this.#updateZoomUiState();
+            this.#propagateZoomLevel();
+            this.#propagateZoomRange();
         } );
     }
 
 
-    #updateZoomUiState() {
-        console.debug( `[Navigator] Updating viewport UI state following zoom change` );
+    #propagateZoomLevel() {
+        console.debug( `[Navigator] Updating zoom level in the viewport UI state` );
 
         const map = this.#viewportManager.getLeafletHandle();
 
-        this.#uiState.setZoomAbility( map._zoom > map.getMinZoom(), map._zoom < map.getMaxZoom() );
+        this.#uiState.setCurrentZoom( map._zoom );
+    }
+
+
+    #propagateZoomRange() {
+        console.debug( `[Navigator] Updating zoom range in the viewport UI state` );
+
+        const map = this.#viewportManager.getLeafletHandle();
+
+        this.#uiState.setZoomRange( map.getMaxZoom(), map.getMinZoom() );
     }
 
 
