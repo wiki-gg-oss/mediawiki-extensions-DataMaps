@@ -4,6 +4,8 @@ namespace MediaWiki\Extension\DataMaps\Api;
 
 use ApiBase;
 use ApiModuleManager;
+use MediaWiki\Extension\DataMaps\Content\MapContent;
+use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -17,10 +19,14 @@ class ApiGetMap extends ApiBase {
 
 	private readonly ApiModuleManager $moduleMgr;
 
+	private ?Title $title = null;
+	private ?MapContent $contentObj = null;
+
 	public function __construct(
 		$query,
 		$moduleName,
-		private readonly ObjectFactory $objectFactory
+		private readonly ObjectFactory $objectFactory,
+		private readonly MapContentFactory $mapContentFactory
 	) {
 		parent::__construct( $query, $moduleName, '' );
 
@@ -56,12 +62,12 @@ class ApiGetMap extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$title = Title::newFromID( $params['pageid'] );
-		if ( !$title ) {
+		$this->title = Title::newFromID( $params['pageid'] );
+		if ( !$this->title ) {
 			$this->dieWithError( [ 'apierror-nosuchpageid', $params['pageid'] ] );
 		}
 
-		$this->checkTitleUserPermissions( $title, [ 'read' ] );
+		$this->checkTitleUserPermissions( $this->title, [ 'read' ] );
 
 		if ( isset( $params['prop'] ) ) {
 			$instance = $this->moduleMgr->getModule( $params['prop'], 'prop' );
@@ -71,6 +77,27 @@ class ApiGetMap extends ApiBase {
 			
 			$instance->execute();
 		}
+	}
+
+	public function getTitle(): Title {
+		if ( $this->title === null ) {
+			ApiBase::dieDebug( __METHOD__, 'Title is null but a submodule is being executed' );
+		}
+
+		return $this->title;
+	}
+
+	public function fetchContent(): MapContent {
+		if ( $this->contentObj === null ) {
+			$contentStatus = $this->mapContentFactory->loadPageContent( $this->getTitle() );
+			if ( !$contentStatus->isGood() ) {
+				$this->dieStatus( $contentStatus );
+			}
+
+			$this->contentObj = $contentStatus->getValue();
+		}
+
+		return $this->contentObj;
 	}
 
 	/**

@@ -16,6 +16,7 @@ class MapContent extends JsonContent {
      * @return Status
      */
     public function getData() {
+        // TODO: try to preserve comments
 		$this->jsonParse ??= FormatJson::parse( $this->getText(), FormatJson::TRY_FIXING );
 		return $this->jsonParse;
     }

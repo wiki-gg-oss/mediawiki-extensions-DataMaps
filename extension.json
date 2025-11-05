@@ -390,7 +390,8 @@
 		"getmap": {
 			"class": "MediaWiki\\Extension\\DataMaps\\Api\\ApiGetMap",
 			"services": [
-				"ObjectFactory"
+				"ObjectFactory",
+				"DataMaps.ContentFactory"
 			]
 		}
 	},

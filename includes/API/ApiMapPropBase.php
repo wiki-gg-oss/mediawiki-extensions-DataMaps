@@ -14,7 +14,7 @@ abstract class ApiMapPropBase extends ApiBase {
 	}
 
 	/** @inheritDoc */
-	public function getParent() {
+	public function getParent(): ApiGetMap {
 		return $this->mainModule;
 	}
 }
