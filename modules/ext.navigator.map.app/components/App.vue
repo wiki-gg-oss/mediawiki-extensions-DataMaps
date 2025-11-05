@@ -1,8 +1,6 @@
 <template>
     <div class="ext-navi-map-app" :class="runtimeContainerClasses">
-    	<div class="ext-navi-map-viewport">
-            [PH]Headless Leaflet viewport area
-        </div>
+        <leaflet-viewport></leaflet-viewport>
 
         <controls-area
             :control-groups="controlGroups"
@@ -43,6 +41,7 @@ const
     useViewportState = require( '../stores/ViewportState.js' ),
     ControlsArea = require( './ControlsArea.vue' ),
     LegendArea = require( './LegendArea.vue' ),
+    LeafletViewport = require( './LeafletViewport.vue' ),
     uiIcons = require( '../data/icons.json' );
 
 // @vue/component
@@ -50,7 +49,7 @@ module.exports = {
 	name: 'App',
     components: {
         CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton,
-        ControlsArea, LegendArea,
+        ControlsArea, LegendArea, LeafletViewport,
     },
 
     data() {
@@ -153,15 +152,6 @@ module.exports = {
         border-radius: 0;
         z-index: @z-index-overlay;
     }
-}
-
-.ext-navi-map-viewport {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
 }
 
 .ext-navi-map-panels {

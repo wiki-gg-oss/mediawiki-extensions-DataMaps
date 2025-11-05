@@ -350,6 +350,7 @@
 				"components/ControlsArea.vue",
 				"components/LegendArea.vue",
 				"components/LegendMarkerTypeEntry.vue",
+				"components/LeafletViewport.vue",
 				{
 					"name": "data/icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
