@@ -140,7 +140,6 @@ module.exports = {
         width: 100%;
     }
 
-
     &:has( &-app--fullscreen ) {
         position: fixed;
         top: 0;
@@ -151,6 +150,22 @@ module.exports = {
         margin: 0;
         border-radius: 0;
         z-index: @z-index-overlay;
+    }
+}
+
+.ext-navi-map {
+    &-viewport {
+        position: relative;
+        z-index: @z-index-stacking-0;
+    }
+
+    &-controls {
+        z-index: @z-index-stacking-1;
+    }
+
+    &-panels,
+    &-search {
+        z-index: @z-index-stacking-2;
     }
 }
 

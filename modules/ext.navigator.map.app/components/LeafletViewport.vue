@@ -22,9 +22,8 @@ module.exports = {
 .ext-navi-map-viewport {
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template: ~"1fr / 1fr";
     color: #666;
 }
 </style>
