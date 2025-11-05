@@ -33,11 +33,11 @@
                 <legend-marker-type-entry
                     v-for="item in subtypes"
                     :key="item.id"
+                    :id="item.id"
                     :is-expanded="false"
                     :name="item.name"
                     :description="item.description"
-                    :has-progress-tracking="false"
-                    :marker-count="0"
+                    :has-progress-tracking="item.progressTracking"
                     :subtypes="item.include"
                 >
                 </legend-marker-type-entry>
@@ -50,6 +50,7 @@
 const
     { ref, computed, watch } = require('vue'),
     { CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
+    useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
     uiIcons = require( '../data/icons.json' );
 
 // @vue/component
@@ -61,6 +62,10 @@ module.exports = {
     props: {
         isExpanded: {
             type: [ Boolean ],
+            required: true,
+        },
+        id: {
+            type: String,
             required: true,
         },
         name: {
@@ -76,20 +81,23 @@ module.exports = {
             required: false,
             default: false,
         },
-        markerCount: {
-            type: Number,
-            required: false,
-            default: 0,
-        },
         subtypes: {
             type: Array,
             required: false,
         }
     },
     computed: {
+        markerCount() {
+            return this.dataStore.markerCountByType[ this.id ];
+        },
+
+        markerCountTickedOff() {
+            return this.dataStore.markerCountByTypeTickedOff[ this.id ] || 0;
+        },
+
         markerCountText() {
             if ( this.hasProgressTracking ) {
-                return `0/${this.markerCount}`;
+                return `${this.markerCountTickedOff}/${this.markerCount}`;
             }
 
             return `${this.markerCount}`;
@@ -97,6 +105,7 @@ module.exports = {
     },
     setup() {
         return {
+            dataStore: useMarkerTypesStore(),
             uiIcons,
         };
     },

@@ -15,11 +15,11 @@
                 <legend-marker-type-entry
                     v-for="item in dataStore.markerTypes"
                     :key="item.id"
+                    :id="item.id"
                     :is-expanded="false"
                     :name="item.name"
                     :description="item.description"
-                    :has-progress-tracking="false"
-                    :marker-count="0"
+                    :has-progress-tracking="item.progressTracking"
                     :subtypes="item.include"
                 >
                 </legend-marker-type-entry>
