@@ -1,6 +1,6 @@
 <template>
     <div class="ext-navi-map-debuginfo">
-        <b>View box:</b> (? ?) (? ?)<br />
+        <b>View box:</b> ({{ vs.viewBoxNe[ 0 ] }} {{ vs.viewBoxNe[ 1 ] }}) ({{ vs.viewBoxSw[ 0 ] }} {{ vs.viewBoxSw[ 1 ] }})<br />
         <b>Zoom:</b> {{ vs.zoomCurrent }} in {{ vs.zoomMin }}..{{ vs.zoomMax }} (out: {{ vs.canZoomOut }}, in: {{ vs.canZoomIn }})
     </div>
 </template>

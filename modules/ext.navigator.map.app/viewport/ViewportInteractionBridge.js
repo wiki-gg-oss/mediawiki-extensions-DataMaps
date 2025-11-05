@@ -16,9 +16,11 @@ module.exports = class ViewportInteractionBridge {
 
             map.on( 'zoomend', this.#propagateZoomLevel, this );
             map.on( 'zoomlevelschange', this.#propagateZoomRange, this );
+            map.on( 'moveend', this.#propagateViewBox, this );
 
             this.#propagateZoomLevel();
             this.#propagateZoomRange();
+            this.#propagateViewBox();
         } );
     }
 
@@ -38,6 +40,19 @@ module.exports = class ViewportInteractionBridge {
         const map = this.#viewportManager.getLeafletHandle();
 
         this.#uiState.setZoomRange( map.getMaxZoom(), map.getMinZoom() );
+    }
+
+
+    #propagateViewBox() {
+        console.debug( `[Navigator] Updating view-box in the viewport UI state` );
+
+        const map = this.#viewportManager.getLeafletHandle();
+
+        const bounds = map.getBounds(),
+            ne = bounds.getNorthEast(),
+            sw = bounds.getSouthWest();
+
+        this.#uiState.setViewBox( [ ne.lat, ne.lng ], [ sw.lat, sw.lng ] );
     }
 
 

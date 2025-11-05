@@ -7,7 +7,9 @@ module.exports = defineStore( 'viewportState', () => {
 	const
 		zoomMax = ref( 0 ),
 		zoomMin = ref( 0 ),
-		zoomCurrent = ref( 0 );
+		zoomCurrent = ref( 0 ),
+		viewBoxNe = ref( [ 0, 0 ] ),
+		viewBoxSw = ref( [ 0, 0 ] );
 
 
     return {
@@ -16,6 +18,8 @@ module.exports = defineStore( 'viewportState', () => {
 		zoomCurrent,
 		canZoomOut: computed( () => zoomCurrent.value > zoomMin.value ),
 		canZoomIn: computed( () => zoomCurrent.value < zoomMax.value ),
+		viewBoxNe,
+		viewBoxSw,
 
 
 		setZoomRange( max, min ) {
@@ -26,6 +30,12 @@ module.exports = defineStore( 'viewportState', () => {
 
 		setCurrentZoom( value ) {
 			zoomCurrent.value = value;
+		},
+
+
+		setViewBox( ne, sw ) {
+			viewBoxNe.value = ne;
+			viewBoxSw.value = sw;
 		},
     };
 } );
