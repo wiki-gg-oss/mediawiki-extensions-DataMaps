@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"MasterStudioCZ",
+			"Pavreh",
 			"ShaggyCZ - Main"
 		]
 	},
 	"datamap-desc": "Umožňuje vkládání interaktivních map do wiki stránek.",
-	"content-model-datamap": "Interaktivní mapa dat",
+	"content-model-datamap": "Interaktivní mapa",
 	"datamap-doc-page-header": "'''Toto je stránka dokumentace pro [[$1]]'''",
 	"datamap-mapsrcinfo-status-ok": "Ve zdrojovém kódu této mapy nebyly nalezeny žádné problémy.",
 	"datamap-mapsrcinfo-status-meh": "Ve zdrojovém kódu této mapy byly nalezeny drobné problémy.",
