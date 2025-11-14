@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\DataMaps\Api;
 
 use ApiBase;
+use MediaWiki\Extension\DataMaps\Api\WikitextParser\IWikitextParser;
 
 abstract class ApiMapPropBase extends ApiBase {
 	public function __construct(
@@ -16,5 +17,9 @@ abstract class ApiMapPropBase extends ApiBase {
 	/** @inheritDoc */
 	public function getParent(): ApiGetMap {
 		return $this->mainModule;
+	}
+
+	public function getWikitextParser(): IWikitextParser {
+		return $this->mainModule->getWikitextParser();
 	}
 }

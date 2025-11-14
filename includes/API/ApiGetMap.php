@@ -4,8 +4,11 @@ namespace MediaWiki\Extension\DataMaps\Api;
 
 use ApiBase;
 use ApiModuleManager;
+use MediaWiki\Extension\DataMaps\Api\WikitextParser\CoreWikitextParser;
+use MediaWiki\Extension\DataMaps\Api\WikitextParser\IWikitextParser;
 use MediaWiki\Extension\DataMaps\Content\MapContent;
 use MediaWiki\Extension\DataMaps\Content\MapContentFactory;
+use MediaWiki\Parser\ParserFactory;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
@@ -21,6 +24,7 @@ class ApiGetMap extends ApiBase {
 
 	private readonly ApiModuleManager $moduleMgr;
 
+	private ?IWikitextParser $parser = null;
 	private ?Title $title = null;
 	private ?RevisionRecord $rev = null;
 	private ?MapContent $contentObj = null;
@@ -29,6 +33,7 @@ class ApiGetMap extends ApiBase {
 		$query,
 		$moduleName,
 		private readonly ObjectFactory $objectFactory,
+		private readonly ParserFactory $parserFactory,
 		private readonly RevisionStore $revisionStore,
 		private readonly MapContentFactory $mapContentFactory
 	) {
@@ -110,6 +115,15 @@ class ApiGetMap extends ApiBase {
 		}
 
 		return $this->rev;
+	}
+
+	public function getWikitextParser(): IWikitextParser {
+		$this->parser ??= new CoreWikitextParser(
+			$this->title,
+			$this->rev->getId(),
+			$this->parserFactory
+		);
+		return $this->parser;
 	}
 
 	public function fetchContent(): MapContent {

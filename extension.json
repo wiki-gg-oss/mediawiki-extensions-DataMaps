@@ -415,6 +415,7 @@
 			"class": "MediaWiki\\Extension\\DataMaps\\Api\\ApiGetMap",
 			"services": [
 				"ObjectFactory",
+				"ParserFactory",
 				"RevisionStore",
 				"DataMaps.ContentFactory"
 			]
