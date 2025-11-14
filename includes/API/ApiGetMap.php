@@ -91,6 +91,10 @@ class ApiGetMap extends ApiBase {
 			$this->rev = $this->revisionStore->getRevisionByTitle( $this->title );
 		}
 
+		$this->getResult()->addValue( 'map', 'title', $this->title->getFullText() );
+		$this->getResult()->addValue( 'map', 'pageid', $this->title->getId() );
+		$this->getResult()->addValue( 'map', 'revid', $this->rev->getId() );
+
 		if ( isset( $params['prop'] ) ) {
 			$instance = $this->moduleMgr->getModule( $params['prop'], 'prop' );
 			if ( $instance === null ) {
