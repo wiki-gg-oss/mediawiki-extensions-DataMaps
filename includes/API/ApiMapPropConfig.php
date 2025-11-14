@@ -5,8 +5,6 @@ namespace MediaWiki\Extension\DataMaps\Api;
 use stdClass;
 
 class ApiMapPropConfig extends ApiMapPropBase {
-	private int $anonMarkerTypeId = 0;
-
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'c' );
 	}
@@ -59,8 +57,6 @@ class ApiMapPropConfig extends ApiMapPropBase {
 			$result['id'] = $data->id;
 		} else {
 			$result['type'] = 'Group';
-			$idCounter = ++$this->anonMarkerTypeId;
-			$result['id'] = "dyn+{$idCounter}";
 		}
 
 		$result['name'] = $data->name;
