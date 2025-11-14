@@ -23,7 +23,7 @@ class ApiMapPropConfig extends ApiMapPropBase {
 		$data = $this->getParent()->fetchContent()->getData()->getValue();
 
 		if ( isset( $data->subtitle ) ) {
-			$this->getResult()->addValue( 'map', 'subtitle', $this->getWikitextParser()->parse( $data->subtitle,
+			$this->getResult()->addValue( 'map', 'subtitleHtml', $this->getWikitextParser()->parse( $data->subtitle,
 				stripOuterParagraph: true ) );
 		}
 
@@ -59,10 +59,10 @@ class ApiMapPropConfig extends ApiMapPropBase {
 			$result['type'] = 'Group';
 		}
 
-		$result['name'] = $parser->parse( $data->name, stripOuterParagraph: true );
+		$result['nameHtml'] = $parser->parse( $data->name, stripOuterParagraph: true );
 
 		if ( isset( $data->description ) ) {
-			$result['description'] = $parser->parse( $data->description );
+			$result['descriptionHtml'] = $parser->parse( $data->description );
 		}
 
 		if ( isset( $data->include ) ) {
