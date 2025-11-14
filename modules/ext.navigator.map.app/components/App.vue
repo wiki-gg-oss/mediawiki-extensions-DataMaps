@@ -34,6 +34,7 @@ const
     { ref, computed, watch } = require( 'vue' ),
     { CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
     { useViewportInteraction, useMarkerSearchEngine } = require( '../InjectedSymbol.js' ),
+    useAppSettings = require( '../stores/AppSettingsStore.js' ),
     useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
     useViewportState = require( '../stores/ViewportState.js' ),
     ControlsArea = require( './ControlsArea.vue' ),
@@ -56,25 +57,6 @@ module.exports = {
 
     data() {
         const isFullscreen = ref( false );
-        const legendSections = [
-            {
-                type: 'direct',
-                component: MarkerVisibilityQuickToggleRow,
-            },
-            {
-                type: 'accordion',
-                label: '[PH]Locations (markers)',
-                component: MarkerTypesRow,
-            },
-        ];
-
-        if ( mw.config.get( 'debug' ) ) {
-            legendSections.push( {
-                type: 'accordion',
-                label: '[PH]Debugging',
-                component: DebugModeRow,
-            } );
-        }
 
         return {
             uiIcons,
@@ -122,7 +104,6 @@ module.exports = {
                     ],
                 },
             ],
-            legendSections,
         };
     },
 
@@ -136,11 +117,46 @@ module.exports = {
 
             return classes.join( ' ' );
         },
+
+
+        legendSections() {
+            const retval = [];
+
+            if ( this.appSettings.subtitleHtml ) {
+                retval.push( {
+                    type: 'rawHtml',
+                    value: this.appSettings.subtitleHtml,
+                } );
+            }
+            
+            retval.push(
+                {
+                    type: 'direct',
+                    component: MarkerVisibilityQuickToggleRow,
+                },
+                {
+                    type: 'accordion',
+                    label: '[PH]Locations (markers)',
+                    component: MarkerTypesRow,
+                },
+            );
+
+            if ( mw.config.get( 'debug' ) ) {
+                retval.push( {
+                    type: 'accordion',
+                    label: '[PH]Debugging',
+                    component: DebugModeRow,
+                } );
+            }
+
+            return retval;
+        },
     },
 
     setup() {
         return {
             viewportBridge: useViewportInteraction(),
+            appSettings: useAppSettings(),
             markerTypesStore: useMarkerTypesStore(),
             viewportState: useViewportState(),
             isLegendOpen: ref( true ),

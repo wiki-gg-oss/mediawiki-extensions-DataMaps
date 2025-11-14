@@ -1,5 +1,7 @@
 <template>
-    <div class="ext-navi-map-legend-row">
+    <div class="ext-navi-map-legend-row" v-if="rowType === 'rawHtml'" v-html="rowData.value">
+    </div>
+    <div class="ext-navi-map-legend-row" v-else>
         <cdx-accordion
             open
             v-if="rowType === 'accordion'"

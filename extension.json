@@ -349,6 +349,7 @@
 				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
 				"viewport/ViewportInteractionBridge.js",
+				"stores/AppSettingsStore.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
 				"search/FuzzysortApi.js",

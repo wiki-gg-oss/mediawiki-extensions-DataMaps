@@ -1,6 +1,7 @@
 const
     Vue = require( 'vue' ),
     { createPinia } = require( 'pinia' ),
+    useAppSettings = require( './stores/AppSettingsStore.js' ),
     InjectedSymbol = require( './InjectedSymbol.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
@@ -13,6 +14,7 @@ module.exports = class MapEmbed {
     #viewportManager;
     #pinia;
     #app;
+    #appSettings;
 
 
     constructor( mountTargetElement ) {
@@ -26,6 +28,16 @@ module.exports = class MapEmbed {
                 this.#pinia ) )
             .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
             .mount( mountTargetElement );
+        this.#appSettings = useAppSettings( this.#pinia );
+    }
+
+
+    setSubtitleHtml( value ) {
+        if ( !value ) {
+            value = null;
+        }
+
+        this.#appSettings.setSubtitleHtml( value );
     }
 
 

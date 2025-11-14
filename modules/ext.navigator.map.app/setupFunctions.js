@@ -24,6 +24,8 @@ async function initialiseEmbed( mountTargetElement ) {
 
     const liveConfig = ( await fetchMapConfig( initConfig.pageId, initConfig.revId ) ).map;
 
+    embed.setSubtitleHtml( liveConfig.subtitleHtml );
+
     // Enable the viewport now that the core setup is done
     embed.getViewportManager().enable();
     return embed;
