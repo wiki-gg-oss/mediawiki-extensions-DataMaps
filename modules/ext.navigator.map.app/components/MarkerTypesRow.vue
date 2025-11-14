@@ -6,9 +6,9 @@
             :id="item.id"
             :is-expanded="false"
             :name="item.name"
-            :description="item.description"
+            :description-html="item.descriptionHtml"
             :has-progress-tracking="item.progressTracking"
-            :subtypes="item.include"
+            :subtypes="item.subtypes"
         >
         </legend-marker-type-entry>
     </ul>

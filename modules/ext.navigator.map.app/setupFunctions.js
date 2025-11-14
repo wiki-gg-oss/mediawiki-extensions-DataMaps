@@ -1,5 +1,6 @@
 const
     MapEmbed = require( './MapEmbed.js' ),
+    { MarkerTypeInfo } = require( './stores/MarkerTypesStore.js' ),
     apiClient = new mw.Api();
 
 
@@ -24,7 +25,17 @@ async function initialiseEmbed( mountTargetElement ) {
 
     const liveConfig = ( await fetchMapConfig( initConfig.pageId, initConfig.revId ) ).map;
 
+    // Apply the configuration properties
     embed.setSubtitleHtml( liveConfig.subtitleHtml );
+
+    // Apply marker type configuration
+    const markerTypeManager = embed.getMarkerTypeManager();
+    for ( const markerTypeInfo of liveConfig.markerTypes ) {
+        const markerType = markerTypeManager.createType( markerTypeInfo.id );
+        markerType.setName( markerTypeInfo.name );
+        markerType.setDescriptionHtml( markerTypeInfo.descriptionHtml );
+    }
+    markerTypeManager.propagateState();
 
     // Enable the viewport now that the core setup is done
     embed.getViewportManager().enable();

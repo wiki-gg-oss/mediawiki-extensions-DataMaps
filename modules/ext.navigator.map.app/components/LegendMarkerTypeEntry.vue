@@ -20,10 +20,9 @@
 
         <div
             class="ext-navi-map-legend-group-desc"
-            v-if="description"
-        >
-            {{ description }}
-        </div>
+            v-if="descriptionHtml"
+            v-html="descriptionHtml"
+        ></div>
 
         <div
             class="ext-navi-map-legend-group-extras"
@@ -31,14 +30,14 @@
         >
             <ul class="ext-navi-map-legend-groups">
                 <legend-marker-type-entry
-                    v-for="item in subtypes"
+                    v-for="item in "
                     :key="item.id"
                     :id="item.id"
                     :is-expanded="false"
                     :name="item.name"
-                    :description="item.description"
+                    :description-html="item.descriptionHtml"
                     :has-progress-tracking="item.progressTracking"
-                    :subtypes="item.include"
+                    :subtypes="item.subtypes"
                 >
                 </legend-marker-type-entry>
             </ul>
@@ -72,7 +71,7 @@ module.exports = {
             type: String,
             required: true,
         },
-        description: {
+        descriptionHtml: {
             type: String,
             required: false,
         },

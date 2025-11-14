@@ -349,6 +349,8 @@
 				"viewport/LeafletApi.js",
 				"viewport/LeafletViewportManager.js",
 				"viewport/ViewportInteractionBridge.js",
+				"markers/MarkerType.js",
+				"markers/MarkerTypeManager.js",
 				"stores/AppSettingsStore.js",
 				"stores/MarkerTypesStore.js",
 				"stores/ViewportState.js",
