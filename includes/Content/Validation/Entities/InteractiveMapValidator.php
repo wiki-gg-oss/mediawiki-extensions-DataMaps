@@ -10,6 +10,7 @@ class InteractiveMapValidator extends EntityValidator {
     public function validateObject( stdClass $data ): bool {
         $this->expectProperties( $data, [
             'version' => [ 'is_int' ],
+            'subtitle' => [ 'is_string', EntityValidator::NULLABLE => true ],
             'settings' => [ 'is_object', EntityValidator::NULLABLE => true,
                 EntityValidator::CHECK_CLASS => SettingsValidator::class ],
             'markerTypes' => [ 'is_array', EntityValidator::ITEM_SPEC => [ 'is_object',

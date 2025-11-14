@@ -22,6 +22,11 @@ class ApiMapPropConfig extends ApiMapPropBase {
 	private function outputSettings(): void {
 		$data = $this->getParent()->fetchContent()->getData()->getValue();
 
+		if ( isset( $data->subtitle ) ) {
+			$this->getResult()->addValue( 'map', 'subtitle', $this->getWikitextParser()->parse( $data->subtitle,
+				stripOuterParagraph: true ) );
+		}
+
 		$settings = $data->settings ?? new stdClass();
 		$this->getResult()->addValue( 'map', 'displayCoordinates', $settings->displayCoordinates ?? true );
 	}
