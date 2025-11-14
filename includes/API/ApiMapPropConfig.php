@@ -59,7 +59,7 @@ class ApiMapPropConfig extends ApiMapPropBase {
 			$result['type'] = 'Group';
 		}
 
-		$result['nameHtml'] = $parser->parse( $data->name, stripOuterParagraph: true );
+		$result['name'] = $data->name;
 
 		if ( isset( $data->description ) ) {
 			$result['descriptionHtml'] = $parser->parse( $data->description );
