@@ -1,11 +1,12 @@
 <?php
 
-namespace MediaWiki\Extension\DataMaps\Api;
+namespace MediaWiki\Extension\DataMaps\Api\Props;
 
 use ApiBase;
+use MediaWiki\Extension\DataMaps\Api\ApiGetMap;
 use MediaWiki\Extension\DataMaps\Api\WikitextParser\IWikitextParser;
 
-abstract class ApiMapPropBase extends ApiBase {
+abstract class PropModule extends ApiBase {
 	public function __construct(
 		protected readonly ApiGetMap $mainModule,
 		$moduleName,

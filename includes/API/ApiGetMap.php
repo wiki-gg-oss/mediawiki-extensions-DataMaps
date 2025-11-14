@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DataMaps\Api;
 
 use ApiBase;
 use ApiModuleManager;
+use MediaWiki\Extension\DataMaps\Api\Props\PropModuleConfig;
 use MediaWiki\Extension\DataMaps\Api\WikitextParser\CoreWikitextParser;
 use MediaWiki\Extension\DataMaps\Api\WikitextParser\IWikitextParser;
 use MediaWiki\Extension\DataMaps\Content\MapContent;
@@ -18,7 +19,7 @@ use Wikimedia\ParamValidator\ParamValidator;
 class ApiGetMap extends ApiBase {
 	private const PROP_MODULES = [
 		'config' => [
-			'class' => ApiMapPropConfig::class,
+			'class' => PropModuleConfig::class,
 		],
 	];
 

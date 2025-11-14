@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extension\DataMaps\Api;
+namespace MediaWiki\Extension\DataMaps\Api\Props;
 
 use stdClass;
 
-class ApiMapPropConfig extends ApiMapPropBase {
+class PropModuleConfig extends PropModule {
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'c' );
 	}
