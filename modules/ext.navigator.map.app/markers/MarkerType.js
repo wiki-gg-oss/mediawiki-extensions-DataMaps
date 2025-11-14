@@ -2,6 +2,7 @@ module.exports = class MarkerType {
     #id;
     #name = '';
     #descriptionHtml = null;
+    #childTypes = null;
 
 
     constructor( id ) {
@@ -34,12 +35,23 @@ module.exports = class MarkerType {
     }
 
 
+    pushChildInternal( subtype ) {
+        // TODO: really should not be public, see comment in MarkerTypeManager.createSubType
+
+        if ( this.#childTypes === null ) {
+            this.#childTypes = [];
+        }
+
+        this.#childTypes.push( subtype );
+    }
+
+
     asTransientMetadata() {
         return {
             id: this.#id,
             name: this.#name,
             descriptionHtml: this.#descriptionHtml,
-            subtypes: null,
+            subtypes: this.#childTypes ? this.#childTypes.map( item => item.asTransientMetadata() ) : null,
         };
     }
 };

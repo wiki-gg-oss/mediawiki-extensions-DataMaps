@@ -34,6 +34,15 @@ async function initialiseEmbed( mountTargetElement ) {
         const markerType = markerTypeManager.createType( markerTypeInfo.id );
         markerType.setName( markerTypeInfo.name );
         markerType.setDescriptionHtml( markerTypeInfo.descriptionHtml );
+
+        if ( markerTypeInfo.subTypes ) {
+            for ( const subTypeInfo of markerTypeInfo.subTypes ) {
+                const subType = markerTypeManager.createSubType( markerType, subTypeInfo.id );
+                // TODO: we need an API->runtime factory
+                subType.setName( subTypeInfo.name );
+                subType.setDescriptionHtml( subTypeInfo.descriptionHtml );
+            }
+        }
     }
     markerTypeManager.propagateState();
 

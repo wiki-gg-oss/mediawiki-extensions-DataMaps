@@ -30,7 +30,7 @@
         >
             <ul class="ext-navi-map-legend-groups">
                 <legend-marker-type-entry
-                    v-for="item in "
+                    v-for="item in subtypes"
                     :key="item.id"
                     :id="item.id"
                     :is-expanded="false"
