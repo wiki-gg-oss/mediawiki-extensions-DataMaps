@@ -6,6 +6,7 @@ use MediaWiki\Extension\DataMaps\ExtensionConfig;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 
@@ -63,7 +64,7 @@ class MapContentFactory {
     }
 
     public function loadPageContentByRevision( RevisionRecord $rev ): Status {
-        $content = $rev->getContent( RevisionRecord::RAW );
+        $content = $rev->getContent( SlotRecord::MAIN, RevisionRecord::RAW );
         if ( !( $content instanceof MapContent ) ) {
             return Status::newFatal( 'datamap-error-pf-page-invalid-content-model', $rev->getPage()->getDBkey() );
         }
