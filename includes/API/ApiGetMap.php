@@ -68,6 +68,7 @@ class ApiGetMap extends ApiBase {
 			],
 			'prop' => [
 				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_ISMULTI => true,
 				ParamValidator::PARAM_TYPE => 'submodule',
 			],
 		];
@@ -97,12 +98,14 @@ class ApiGetMap extends ApiBase {
 		$this->getResult()->addValue( 'map', 'revid', $this->rev->getId() );
 
 		if ( isset( $params['prop'] ) ) {
-			$instance = $this->moduleMgr->getModule( $params['prop'], 'prop' );
-			if ( $instance === null ) {
-				ApiBase::dieDebug( __METHOD__, 'Error instantiating module' );
-			}
+			foreach ( $params['prop'] as $prop ) {
+				$instance = $this->moduleMgr->getModule( $prop, 'prop' );
+				if ( $instance === null ) {
+					ApiBase::dieDebug( __METHOD__, 'Error instantiating module' );
+				}
 			
-			$instance->execute();
+				$instance->execute();
+			}
 		}
 	}
 
