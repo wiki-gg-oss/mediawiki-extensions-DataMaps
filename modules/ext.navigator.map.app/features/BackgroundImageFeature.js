@@ -26,7 +26,12 @@ module.exports = class BackgroundImageFeature extends Feature {
     }
 
 
-    getImageUrl() {
+    getDimensions() {
+        return [ this.#width, this.#height ];
+    }
+
+
+    getUrl() {
         return this.#imageUrl;
     }
 };

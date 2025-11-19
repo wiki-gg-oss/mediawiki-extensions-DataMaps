@@ -3,6 +3,18 @@ const
 
 
 const DEFAULT_LAYER_FACTORIES = {
+    BackgroundImageFeature( f ) {
+        const
+            [ swX, swY ] = f.getLocation(),
+            w = f.getWidth(),
+            h = f.getHeight(),
+            neX = swX + w,
+            neY = swY + h;
+        return new Leaflet.ImageOverlay(
+            f.getUrl(),
+            [ [ neY, neX ], [ swY, swX ] ]
+        );
+    },
 };
 
 
