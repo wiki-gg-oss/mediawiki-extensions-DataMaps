@@ -14,6 +14,7 @@ use MediaWiki\Parser\ParserFactory;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
+use RepoGroup;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -28,8 +29,8 @@ class ApiGetMap extends ApiBase {
 	];
 
 	private readonly ApiModuleManager $moduleMgr;
-
-	private ?IWikitextParser $parser = null;
+	private ?IWikitextParser $wikitextParser = null;
+	private ?FileExportUtils $fileExportUtils = null;
 	private ?Title $title = null;
 	private ?RevisionRecord $rev = null;
 	private ?MapContent $contentObj = null;
@@ -40,6 +41,7 @@ class ApiGetMap extends ApiBase {
 		private readonly ObjectFactory $objectFactory,
 		private readonly ParserFactory $parserFactory,
 		private readonly RevisionStore $revisionStore,
+		private readonly RepoGroup $repoGroup,
 		private readonly MapContentFactory $mapContentFactory
 	) {
 		parent::__construct( $query, $moduleName, '' );
@@ -130,12 +132,17 @@ class ApiGetMap extends ApiBase {
 	}
 
 	public function getWikitextParser(): IWikitextParser {
-		$this->parser ??= new CoreWikitextParser(
+		return $this->wikitextParser ??= new CoreWikitextParser(
 			$this->title,
 			$this->rev->getId(),
 			$this->parserFactory
 		);
-		return $this->parser;
+	}
+
+	public function getFileExportUtils(): FileExportUtils {
+		return $this->fileExportUtils ??= new FileExportUtils(
+			$this->repoGroup
+		);
 	}
 
 	public function fetchContent(): MapContent {

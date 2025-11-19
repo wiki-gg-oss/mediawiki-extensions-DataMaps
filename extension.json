@@ -420,6 +420,7 @@
 				"ObjectFactory",
 				"ParserFactory",
 				"RevisionStore",
+				"RepoGroup",
 				"DataMaps.ContentFactory"
 			]
 		}

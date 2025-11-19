@@ -34,7 +34,8 @@ class PropModuleFeatures extends PropModule {
 	}
 
 	private function transformFeature( stdClass $data ): ?array {
-		$parser = $this->getWikitextParser();
+		$wtParser = $this->getWikitextParser();
+		$fileExport = $this->getFileExportUtils();
 
 		static $pos00 = [ 0, 0 ];
 
@@ -47,9 +48,12 @@ class PropModuleFeatures extends PropModule {
 			case 'BackgroundImage':
 				$typeName = $data->type;
 				$location = $data->at ?? $pos00;
+
+				// TODO: should use batching!!!
+				$fileObj = $fileExport->findFile( $data->image );
 				$props = [
-					'dimens' => $data->dimensions ?? 'same-as-file',
-					'imageUrl' => $data->image,
+					'dimens' => $fileExport->getDimensionsVec( $fileObj, $data->dimensions ?? 'same-as-file' ),
+					'imageUrl' => $fileExport->getFullResImageUrl( $fileObj ),
 				];
 				if ( isset( $data->attachFeatures ) ) {
 					$childNodes = $this->transformFeaturesArray( $data->attachFeatures );

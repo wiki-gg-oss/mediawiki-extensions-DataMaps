@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DataMaps\Api\Props;
 
 use ApiBase;
 use MediaWiki\Extension\DataMaps\Api\ApiGetMap;
+use MediaWiki\Extension\DataMaps\Api\FileExportUtils;
 use MediaWiki\Extension\DataMaps\Api\WikitextParser\IWikitextParser;
 
 abstract class PropModule extends ApiBase {
@@ -22,5 +23,9 @@ abstract class PropModule extends ApiBase {
 
 	public function getWikitextParser(): IWikitextParser {
 		return $this->mainModule->getWikitextParser();
+	}
+
+	public function getFileExportUtils(): FileExportUtils {
+		return $this->mainModule->getFileExportUtils();
 	}
 }
