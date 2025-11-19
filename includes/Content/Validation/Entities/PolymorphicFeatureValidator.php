@@ -23,8 +23,11 @@ class PolymorphicFeatureValidator extends EntityValidator {
             case 'BackgroundImage':
                 $this->expectProperties( $data, [
                     'image' => [ 'is_string' ],
-                    // TODO: dimensions may be a vec2 too
-                    'dimensions' => [ 'is_string' ],
+                    'dimensions' => [ EntityValidator::UNION => [
+                        // TODO: need constants
+                        [ 'is_string' ],
+                        // TODO: need a full definition of vec2
+                        [ 'is_array', EntityValidator::ITEM_SPEC => [ 'is_numeric' ] ] ] ],
                     'attachFeatures' => self::ARRAY_SPEC,
                 ] );
                 break;

@@ -10,11 +10,12 @@ abstract class EntityValidator {
     public const NULLABLE = 'nullable';
     public const CHECK_CLASS = 'checker';
     public const ITEM_SPEC = 'itemSpec';
+    public const UNION = 'union';
 
     public function __construct(
         protected readonly Trace $trace,
         protected readonly MapContentVersion $contentVersion,
-        protected readonly Status $status
+        protected Status $status
     ) { }
 
     abstract public function validateObject( stdClass $data ): bool;
@@ -47,6 +48,23 @@ abstract class EntityValidator {
             if ( !( $spec[EntityValidator::NULLABLE] ?? false ) ) {
                 $this->status->fatal( 'navigator-validate-unexpected-null', $this->trace->toString( $name ) );
             }
+            return false;
+        }
+
+        // Handle unions
+        if ( array_key_exists( EntityValidator::UNION, $spec ) ) {
+            $retval = false;
+            foreach ( $spec[EntityValidator::UNION] as $subSpec ) {
+                $prevStatus = $this->status;
+                $fakeStatus = new Status();
+                $this->status = $fakeStatus;
+                $retval = $this->expectValue( $name, $value, $subSpec );
+                $this->status = $prevStatus;
+                if ( $fakeStatus->isGood() ) {
+                    return $retval;
+                }
+            }
+            $this->status->fatal( 'navigator-validate-unexpected-type', $this->trace->toString( $name ) );
             return false;
         }
 
