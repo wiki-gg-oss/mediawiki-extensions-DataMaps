@@ -1,43 +1,6 @@
 const
-    Leaflet = require( './LeafletApi.js' );
-
-
-const DEFAULT_LAYER_FACTORIES = {
-    BackgroundImageFeature( f ) {
-        const
-            [ swX, swY ] = f.getLocation(),
-            w = f.getWidth(),
-            h = f.getHeight(),
-            neX = swX + w,
-            neY = swY + h;
-        return new Leaflet.ImageOverlay(
-            f.getUrl(),
-            [ [ neY, neX ], [ swY, swX ] ]
-        );
-    },
-    TextFeature( f ) {
-        const
-            [ swX, swY ] = f.getLocation();
-        // TODO: need an actual text overlay implementation
-        const retval = new Leaflet.DivOverlay( [ swY, swX ], {
-            pane: 'markerPane',
-        } );
-        retval._initLayout = function () {
-            this._container = document.createElement( 'div' );
-            const textContainer = document.createElement( 'span' );
-            textContainer.style.position = 'absolute';
-            textContainer.style.transform = 'translate(-50%) translateY(-50%)';
-            textContainer.style.whiteSpace = 'nowrap';
-            textContainer.innerHTML = f.getHtml();
-            this._container.append( textContainer );
-        };
-        retval._updateLayout = function () {
-            this._container.style.opacity = 1;
-        };
-        retval._adjustPan = () => {};
-        return retval;
-    },
-};
+    Leaflet = require( './LeafletApi.js' ),
+    DEFAULT_LAYER_FACTORIES = require( './defaultLayerFactories.js' );
 
 
 module.exports = class LeafletViewportManager {
@@ -49,6 +12,7 @@ module.exports = class LeafletViewportManager {
     #isUpdating = false;
     #layerFactories;
     #featureLayerMap;
+    #tryFeatureFn;
 
 
     constructor( mountTargetElement, featureTree ) {
@@ -58,6 +22,7 @@ module.exports = class LeafletViewportManager {
         this.#readinessPromise = new Promise( resolve => ( this.#readinessPromiseResolve = resolve ) );
         this.#featureLayerMap = {};
         this.#layerFactories = Object.assign( {}, DEFAULT_LAYER_FACTORIES );
+        this.#tryFeatureFn = this.#tryFactory.bind( this );
     }
 
 
@@ -129,16 +94,25 @@ module.exports = class LeafletViewportManager {
 
 
     #initFeatureLayer( feature ) {
-        const factory = this.#layerFactories[ feature.constructor.name ];
-        if ( !factory ) {
-            console.debug( `[Navigator] Missing Leaflet layer factory for feature type ${feature.constructor.name}` );
+        const layer = this.#tryFactory( feature.constructor.name, feature );
+        if ( !layer ) {
+            console.debug( `[Navigator] Failed to construct a Leaflet layer for feature type ${feature.constructor.name}` );
             return null;
         }
 
-        const layer = factory( feature );
         this.#map.addLayer( layer );
-
         this.#featureLayerMap[ feature.getId() ] = layer;
+
         return layer;
+    }
+
+
+    #tryFactory( factoryName, feature ) {
+        const factory = this.#layerFactories[ factoryName ];
+        if ( !factory ) {
+            console.debug( `[Navigator] Missing Leaflet layer factory with name of ${factoryName}` );
+            return null;
+        }
+        return factory( feature, this.#tryFeatureFn );
     }
 };

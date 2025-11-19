@@ -32,7 +32,21 @@ function decodeVec( value ) {
 }
 
 
-function buildFeaturesFromArray( featureFactory, liveFeatures ) {
+function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
+    for ( const markerInfo of liveMarkers ) {
+        const
+            locationVec = decodeVec( markerInfo[ 0 ] ),
+            props = markerInfo[ 1 ];
+
+        featureFactory.createMarker( {
+            location: locationVec,
+            markerType,
+        } );
+    }
+}
+
+
+function buildFeaturesFromArray( featureFactory, markerTypeManager, liveFeatures ) {
     for ( const featureInfo of liveFeatures ) {
         const
             typeName = featureInfo[ 0 ],
@@ -42,7 +56,7 @@ function buildFeaturesFromArray( featureFactory, liveFeatures ) {
 
         switch ( typeName ) {
             case 'FeatureCollection':
-                buildFeaturesFromArray( featureFactory, childNodes );
+                buildFeaturesFromArray( featureFactory, markerTypeManager, childNodes );
                 break;
             
             case 'BackgroundImage':
@@ -60,6 +74,11 @@ function buildFeaturesFromArray( featureFactory, liveFeatures ) {
                     location: locationVec,
                     text: props.html,
                 } );
+                break;
+            
+            case 'MarkerCollection':
+                const markerType = markerTypeManager.getTypeById( props.markerType );
+                buildMarkersFromArray( featureFactory, markerType, childNodes );
                 break;
             
             default:
@@ -105,7 +124,7 @@ async function initialiseEmbed( mountTargetElement ) {
     {
         const liveFeatures = ( await fetchMapFeatures( initConfig.pageId, initConfig.revId ) ).map.features;
         embed.getFeatureTree().openMutationSection( featureFactory => {
-            buildFeaturesFromArray( featureFactory, liveFeatures );
+            buildFeaturesFromArray( featureFactory, embed.getMarkerTypeManager(), liveFeatures );
         } );
     }
 

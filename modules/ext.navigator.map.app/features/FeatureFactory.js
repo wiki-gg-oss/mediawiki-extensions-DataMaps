@@ -1,6 +1,7 @@
 const
     BackgroundImageFeature = require( './BackgroundImageFeature.js' ),
-    TextFeature = require( './TextFeature.js' );
+    TextFeature = require( './TextFeature.js' ),
+    MarkerFeature = require( './MarkerFeature.js' );
 
 
 module.exports = class FeatureFactory {
@@ -32,10 +33,21 @@ module.exports = class FeatureFactory {
 
     createText( {
         location,
-        text
+        text,
     } ) {
         // TODO: type-check
         const retval = new TextFeature( this.#featureTree, ++this.#featureIdCounter, location, text );
+        this.#featureTreePrivate.addFeature( retval );
+        return retval;
+    }
+
+
+    createMarker( {
+        location,
+        markerType,
+    } ) {
+        // TODO: type-check
+        const retval = new MarkerFeature( this.#featureTree, ++this.#featureIdCounter, location, markerType );
         this.#featureTreePrivate.addFeature( retval );
         return retval;
     }

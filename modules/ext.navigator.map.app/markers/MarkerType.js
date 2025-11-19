@@ -1,3 +1,6 @@
+const MarkerPresentationType = require( './MarkerPresentationType.js' );
+
+
 module.exports = class MarkerType {
     #id;
     #name = '';
@@ -32,6 +35,14 @@ module.exports = class MarkerType {
 
     setDescriptionHtml( value ) {
         this.#descriptionHtml = value;
+    }
+
+
+    getStyle() {
+        return {
+            form: MarkerPresentationType.CIRCLE,
+            fillColour: '#f0f',
+        };
     }
 
 

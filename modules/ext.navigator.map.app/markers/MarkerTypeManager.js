@@ -37,6 +37,11 @@ module.exports = class MarkerTypeManager {
         return retval;
     }
 
+    
+    getTypeById( id ) {
+        return this.#typeById[ id ] || null;
+    }
+
 
     createType( id ) {
         const retval = this.#createTypeInternal( id );
