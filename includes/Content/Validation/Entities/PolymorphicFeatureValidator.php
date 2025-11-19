@@ -28,6 +28,12 @@ class PolymorphicFeatureValidator extends EntityValidator {
                     'attachFeatures' => self::ARRAY_SPEC,
                 ] );
                 break;
+            
+            case 'Text':
+                $this->expectProperties( $data, [
+                    'content' => [ 'is_string' ],
+                ] );
+                break;
 
             case 'MarkerCollection':
                 $this->expectProperties( $data, [

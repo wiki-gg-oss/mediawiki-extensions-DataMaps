@@ -15,6 +15,28 @@ const DEFAULT_LAYER_FACTORIES = {
             [ [ neY, neX ], [ swY, swX ] ]
         );
     },
+    TextFeature( f ) {
+        const
+            [ swX, swY ] = f.getLocation();
+        // TODO: need an actual text overlay implementation
+        const retval = new Leaflet.DivOverlay( [ swY, swX ], {
+            pane: 'markerPane',
+        } );
+        retval._initLayout = function () {
+            this._container = document.createElement( 'div' );
+            const textContainer = document.createElement( 'span' );
+            textContainer.style.position = 'absolute';
+            textContainer.style.transform = 'translate(-50%) translateY(-50%)';
+            textContainer.style.whiteSpace = 'nowrap';
+            textContainer.innerHTML = f.getHtml();
+            this._container.append( textContainer );
+        };
+        retval._updateLayout = function () {
+            this._container.style.opacity = 1;
+        };
+        retval._adjustPan = () => {};
+        return retval;
+    },
 };
 
 

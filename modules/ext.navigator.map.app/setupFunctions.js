@@ -55,6 +55,13 @@ function buildFeaturesFromArray( featureFactory, liveFeatures ) {
                 } );
                 break;
             
+            case 'Text':
+                featureFactory.createText( {
+                    location: locationVec,
+                    text: props.html,
+                } );
+                break;
+            
             default:
                 console.debug( `[Navigator] Unknown feature type name: ${typeName}` );
         }

@@ -66,6 +66,14 @@ class PropModuleFeatures extends PropModule {
 					$childNodes = $this->transformFeaturesArray( $data->attachFeatures );
 				}
 				break;
+			
+			case 'Text':
+				$typeName = $data->type;
+				$location = $data->at ?? $pos00;
+				$props = [
+					'html' => $wtParser->parse( $data->content, true ),
+				];
+				break;
 
 			case 'MarkerCollection':
 				$typeName = $data->type;

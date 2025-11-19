@@ -1,5 +1,6 @@
 const
-    BackgroundImageFeature = require( './BackgroundImageFeature.js' );
+    BackgroundImageFeature = require( './BackgroundImageFeature.js' ),
+    TextFeature = require( './TextFeature.js' );
 
 
 module.exports = class FeatureFactory {
@@ -24,6 +25,17 @@ module.exports = class FeatureFactory {
         // TODO: type-check
         const retval = new BackgroundImageFeature( this.#featureTree, ++this.#featureIdCounter, location, width, height,
             imageUrl );
+        this.#featureTreePrivate.addFeature( retval );
+        return retval;
+    }
+
+
+    createText( {
+        location,
+        text
+    } ) {
+        // TODO: type-check
+        const retval = new TextFeature( this.#featureTree, ++this.#featureIdCounter, location, text );
         this.#featureTreePrivate.addFeature( retval );
         return retval;
     }

@@ -356,6 +356,7 @@
 				"features/FeatureFactory.js",
 				"features/FeatureTree.js",
 				"features/BackgroundImageFeature.js",
+				"features/TextFeature.js",
 				"markers/MarkerType.js",
 				"markers/MarkerTypeManager.js",
 				"search/FuzzysortApi.js",
