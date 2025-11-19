@@ -30,7 +30,7 @@ class PropModuleFeatures extends PropModule {
 	}
 
 	private function transformFeaturesArray( array $items ): array {
-		return array_filter( array_map( fn ( $item ) => $this->transformFeature( $item ), $items ) );
+		return array_values( array_filter( array_map( fn ( $item ) => $this->transformFeature( $item ), $items ) ) );
 	}
 
 	private function transformFeature( stdClass $data ): ?array {
