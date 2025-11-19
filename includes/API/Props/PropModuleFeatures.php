@@ -45,6 +45,12 @@ class PropModuleFeatures extends PropModule {
 		$childNodes = null;
 
 		switch ( $data->type ) {
+			case 'FeatureCollection':
+				// TODO: child nodes should be emitted into the parent's list
+				$typeName = $data->type;
+				$childNodes = $this->transformFeaturesArray( $data->attachFeatures ?? [] );
+				break;
+
 			case 'BackgroundImage':
 				$typeName = $data->type;
 				$location = $data->at ?? $pos00;
