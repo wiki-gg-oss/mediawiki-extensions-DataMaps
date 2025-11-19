@@ -27,7 +27,8 @@ module.exports = class MapEmbed {
     constructor( mountTargetElement ) {
         this.#pinia = createPinia();
         this.#viewportElement = document.createElement( 'div' );
-        this.#viewportManager = new LeafletViewportManager( this.#viewportElement );
+        this.#featureTree = new FeatureTree( this );
+        this.#viewportManager = new LeafletViewportManager( this.#viewportElement, this.#featureTree );
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
@@ -36,7 +37,6 @@ module.exports = class MapEmbed {
             .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
             .mount( mountTargetElement );
         this.#markerTypeManager = new MarkerTypeManager( this.#pinia );
-        this.#featureTree = new FeatureTree( this );
         this.#appSettings = useAppSettings( this.#pinia );
         this.#markerTypes = useMarkerTypes( this.#pinia );
     }
