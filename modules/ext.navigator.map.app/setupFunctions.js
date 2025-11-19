@@ -14,6 +14,54 @@ async function fetchMapConfig( pageId, revId ) {
 }
 
 
+async function fetchMapFeatures( pageId, revId ) {
+    return await apiClient.get( {
+        action: 'getmap',
+        pageid: pageId,
+        revid: revId,
+        prop: [ 'features' ],
+    } );
+}
+
+
+function decodeVec( value ) {
+    if ( typeof( value ) === 'number' ) {
+        return [ value, value ];
+    }
+    return value;
+}
+
+
+function buildFeaturesFromArray( featureFactory, liveFeatures ) {
+    for ( const featureInfo of liveFeatures ) {
+        const
+            typeName = featureInfo[ 0 ],
+            locationVec = decodeVec( featureInfo[ 1 ] ),
+            props = featureInfo[ 2 ],
+            childNodes = featureInfo[ 3 ];
+
+        switch ( typeName ) {
+            case 'FeatureCollection':
+                buildFeaturesFromArray( featureFactory, childNodes );
+                break;
+            
+            case 'BackgroundImage':
+                const dimens = decodeVec( props.dimens );
+                featureFactory.createBackgroundImage( {
+                    location: locationVec,
+                    width: dimens[ 0 ],
+                    height: dimens[ 1 ],
+                    imageUrl: props.imageUrl,
+                } );
+                break;
+            
+            default:
+                console.debug( `[Navigator] Unknown feature type name: ${typeName}` );
+        }
+    }
+}
+
+
 async function initialiseEmbed( mountTargetElement ) {
     // Unserialise the embed config
     const initConfig = JSON.parse( mountTargetElement.getAttribute( 'data-mw-navigator' ) );
@@ -46,8 +94,17 @@ async function initialiseEmbed( mountTargetElement ) {
     }
     markerTypeManager.propagateState();
 
+    // Create features
+    buildFeaturesFromArray(
+        embed.getFeatureFactory(),
+        ( await fetchMapFeatures( initConfig.pageId, initConfig.revId ) ).map.features
+    );
+
     // Enable the viewport now that the core setup is done
     embed.getViewportManager().enable();
+
+    window.dataMapsEmbed = embed;
+
     return embed;
 }
 

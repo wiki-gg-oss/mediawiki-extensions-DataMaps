@@ -7,6 +7,7 @@ const
     MarkerTypeManager = require( './markers/MarkerTypeManager.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
+    FeatureTree = require( './features/FeatureTree.js' ),
     MarkerSearchEngine = require( './search/MarkerSearchEngine.js' ),
     App = require( './components/App.vue' );
 
@@ -14,6 +15,7 @@ const
 module.exports = class MapEmbed {
     #viewportElement;
     #markerTypeManager;
+    #featureTree;
     #viewportManager;
     #pinia;
     #app;
@@ -33,6 +35,7 @@ module.exports = class MapEmbed {
             .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
             .mount( mountTargetElement );
         this.#markerTypeManager = new MarkerTypeManager( this.#pinia );
+        this.#featureTree = new FeatureTree( this );
         this.#appSettings = useAppSettings( this.#pinia );
         this.#markerTypes = useMarkerTypes( this.#pinia );
     }
@@ -49,6 +52,16 @@ module.exports = class MapEmbed {
 
     getMarkerTypeManager() {
         return this.#markerTypeManager;
+    }
+
+
+    getFeatureTree() {
+        return this.#featureTree;
+    }
+
+
+    getFeatureFactory() {
+        return this.#featureTree.getFeatureFactory();
     }
 
 

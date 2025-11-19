@@ -30,6 +30,7 @@ class PropModuleFeatures extends PropModule {
 	}
 
 	private function transformFeaturesArray( array $items ): array {
+		// TODO: paging
 		return array_values( array_filter( array_map( fn ( $item ) => $this->transformFeature( $item ), $items ) ) );
 	}
 
