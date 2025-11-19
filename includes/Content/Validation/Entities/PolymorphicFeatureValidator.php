@@ -14,6 +14,12 @@ class PolymorphicFeatureValidator extends EntityValidator {
     public function validateObject( stdClass $data ): bool {
         $type = $data->type ?? null;
         switch ( $type ) {
+            case 'FeatureCollection':
+                $this->expectProperties( $data, [
+                    'attachFeatures' => self::ARRAY_SPEC,
+                ] );
+                break;
+
             case 'BackgroundImage':
                 $this->expectProperties( $data, [
                     'image' => [ 'is_string' ],
