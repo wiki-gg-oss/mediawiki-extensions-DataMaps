@@ -80,7 +80,7 @@ class PropModuleFeatures extends PropModule {
 				$props = [
 					'markerType' => $data->attachType,
 				];
-				$childNodes = $this->transformFeaturesArray( $data->attachFeatures ?? [] );
+				$childNodes = $this->transformMarkersArray( $data->attachFeatures ?? [] );
 				break;
 		}
 
@@ -108,6 +108,47 @@ class PropModuleFeatures extends PropModule {
 			return [ $typeName, $location, $props ];
 		} else {
 			return [ $typeName, $location ];
+		}
+	}
+
+	private function transformMarkersArray( array $items ): array {
+		// TODO: paging
+		return array_values( array_filter( array_map( fn ( $item ) => $this->transformMarker( $item ), $items ) ) );
+	}
+
+	private function transformMarker( stdClass $data ): ?array {
+		$wtParser = $this->getWikitextParser();
+		$fileExport = $this->getFileExportUtils();
+
+		static $pos00 = [ 0, 0 ];
+
+		$location = $data->at ?? $pos00;
+		$props = [];
+
+		if ( isset( $data->title ) ) {
+			$props['titleHtml'] = $wtParser->parse( $data->title );
+		}
+		if ( isset( $data->description ) ) {
+			$props['descHtml'] = $wtParser->parse( $data->description );
+		}
+		if ( isset( $data->image ) ) {
+			// TODO: should use batching!!!
+			$fileObj = $fileExport->findFile( $data->image );
+			$props['imgDimens'] = $fileExport->getDimensionsVec( $fileObj, 'same-as-file' );
+			$props['imgUrl'] = $fileExport->getFullResImageUrl( $fileObj );
+		}
+
+		// Turn location vector compact if the axis are equal
+		if ( $location[0] === $location[1] ) {
+			$location = $location[0];
+		}
+
+		// Use a specialised slot format depending on available data
+		$hasProps = !empty( $props );
+		if ( $hasProps ) {
+			return [ $location, $props ];
+		} else {
+			return [ $location ];
 		}
 	}
 }
