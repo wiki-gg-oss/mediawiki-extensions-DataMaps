@@ -32,16 +32,14 @@ class PropModuleConfig extends PropModule {
 	}
 
 	private function outputMarkerTypes(): void {
-		$this->getResult()->addValue( 'map', 'markerTypes', $this->transcribeMarkerTypes() );
-	}
-
-	private function transcribeMarkerTypes(): array {
 		$data = $this->getParent()->fetchContent()->getData()->getValue();
-		if ( !isset( $data->markerTypes ) ) {
-			return [];
+
+		$results = [];
+		if ( isset( $data->markerTypes ) ) {
+			$results = $this->transformMarkerTypeArray( $data->markerTypes );
 		}
 
-		return $this->transformMarkerTypeArray( $data->markerTypes );
+		$this->getResult()->addValue( 'map', 'markerTypes', $results );
 	}
 
 	private function transformMarkerTypeArray( array $items ): array {
