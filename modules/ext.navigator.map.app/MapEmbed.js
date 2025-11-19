@@ -21,6 +21,7 @@ module.exports = class MapEmbed {
     #app;
     #appSettings;
     #markerTypes;
+    #viewportUpdateTimeoutId = null;
 
 
     constructor( mountTargetElement ) {
@@ -67,6 +68,22 @@ module.exports = class MapEmbed {
 
     getViewportManager() {
         return this.#viewportManager;
+    }
+
+
+    queueViewportUpdate() {
+        if ( this.#viewportUpdateTimeoutId === null ) {
+            console.debug( `[Navigator] Scheduling viewport update` );
+            this.#viewportUpdateTimeoutId = setTimeout( async () => {
+                await this.#viewportManager.waitUntilReady();
+                console.debug( `[Navigator] Executing the viewport update` );
+                // TODO: technically raceable here... and if the viewport update fails we've got a deadlock
+                this.#viewportManager.update();
+                this.#viewportUpdateTimeoutId = null;
+            } );
+        } else {
+            console.debug( `[Navigator] Culling a viewport update request (already scheduled)` );
+        }
     }
 };
 

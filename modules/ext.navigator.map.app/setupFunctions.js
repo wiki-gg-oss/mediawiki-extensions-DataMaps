@@ -95,10 +95,12 @@ async function initialiseEmbed( mountTargetElement ) {
     markerTypeManager.propagateState();
 
     // Create features
-    buildFeaturesFromArray(
-        embed.getFeatureFactory(),
-        ( await fetchMapFeatures( initConfig.pageId, initConfig.revId ) ).map.features
-    );
+    {
+        const liveFeatures = ( await fetchMapFeatures( initConfig.pageId, initConfig.revId ) ).map.features;
+        embed.getFeatureTree().openMutationSection( featureFactory => {
+            buildFeaturesFromArray( featureFactory, liveFeatures );
+        } );
+    }
 
     // Enable the viewport now that the core setup is done
     embed.getViewportManager().enable();

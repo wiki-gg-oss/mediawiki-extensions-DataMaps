@@ -7,6 +7,7 @@ module.exports = class LeafletViewportManager {
     #map;
     #readinessPromise;
     #readinessPromiseResolve;
+    #isUpdating = false;
 
 
     constructor( mountTargetElement ) {
@@ -43,5 +44,20 @@ module.exports = class LeafletViewportManager {
             { color: '#00f', weight: 1 } ) );
         
         this.#readinessPromiseResolve();
+    }
+
+
+    async update() {
+        if ( this.#isUpdating ) {
+            throw new Error( 'Viewport is already in the process of being updated' );
+        }
+
+        console.debug( `[Navigator] Starting a viewport update, locking it...` );
+
+        this.#isUpdating = true;
+
+        await this.#readinessPromise;
+
+        this.#isUpdating = false;
     }
 };
