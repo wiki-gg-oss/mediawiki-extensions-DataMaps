@@ -3,6 +3,29 @@ const
     MarkerPresentationType = require( '../markers/MarkerPresentationType.js' );
 
 
+function styleToLeaflet( style, format ) {
+    // TODO: options object should be cached
+    const retval = {};
+    retval.fill = style.hasFill();
+    retval.stroke = style.hasOutline();
+    if ( retval.fill ) {
+        retval.fillColor = style.getFillColour();
+        retval.fillOpacity = style.getFillOpacity();
+    }
+    if ( retval.stroke ) {
+        retval.color = style.getOutlineColour();
+        retval.opacity = style.getOutlineOpacity();
+        retval.weight = style.getOutlineWidth();
+    }
+    switch ( format ) {
+        case MarkerPresentationType.CIRCLE:
+            retval.radius = style.getSize() / 2;
+            break;
+    }
+    return retval;
+}
+
+
 module.exports = Object.freeze( {
     BackgroundImageFeature( f ) {
         const
@@ -53,16 +76,6 @@ module.exports = Object.freeze( {
             [ swX, swY ] = f.getLocation(),
             style = f.getMarkerType().getStyle();
 
-        // TODO: options object should be cached
-        return new Leaflet.Circle( [ swY, swX ], {
-            radius: style.sizeHalf,
-            fill: !!style.fillColour,
-            fillColor: style.fillColour,
-            fillOpacity: style.fillOpacity,
-            stroke: !!style.strokeColour,
-            weight: style.strokeWidth,
-            color: style.strokeColour,
-            opacity: style.strokeOpacity,
-        } );
+        return new Leaflet.Circle( [ swY, swX ], styleToLeaflet( style, MarkerPresentationType.CIRCLE ) );
     },
 } );
