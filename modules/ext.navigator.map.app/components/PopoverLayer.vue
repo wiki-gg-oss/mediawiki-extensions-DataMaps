@@ -4,32 +4,33 @@
         ref="attachmentTarget"
         class="ext-navi-popover-attachment-point"
         :style="attachmentPointStyle"
-    ></div>
-	<cdx-popover
-        v-if="state.isVisible"
-        class="ext-navi-popover"
-		:open="state.isVisible"
-		:anchor="attachmentTarget"
-		placement="bottom"
-		:use-close-button="true"
-        :render-in-place="true"
-        @update:open="value => ( !value && this.state.deactivate() )"
-		:title="stTitle"
-	>
-        <div
-            v-if="!!stImageUrl"
-            class="ext-navi-popover-image-holder-outer"
-            :style="imageHolderOuterOuter"
-        >
-            <div class="ext-navi-popover-image-holder">
-                <img :src="stImageUrl" width="300" />
+    >
+    	<cdx-popover
+            v-if="state.isVisible"
+            class="ext-navi-popover"
+    		:open="state.isVisible"
+    		:anchor="attachmentTarget"
+    		placement="bottom"
+    		:use-close-button="true"
+            :render-in-place="true"
+            @update:open="value => ( !value && this.state.deactivate() )"
+    		:title="stTitle"
+    	>
+            <div
+                v-if="!!stImageUrl"
+                class="ext-navi-popover-image-holder-outer"
+                :style="imageHolderOuterOuter"
+            >
+                <div class="ext-navi-popover-image-holder">
+                    <img :src="stImageUrl" width="300" />
+                </div>
             </div>
-        </div>
-		<div
-            class="ext-navi-popover-desc-holder"
-            v-html="stDescHtml">
-        </div>
-	</cdx-popover>
+    		<div
+                class="ext-navi-popover-desc-holder"
+                v-html="stDescHtml">
+            </div>
+    	</cdx-popover>
+    </div>
 </template>
 
 <script>
