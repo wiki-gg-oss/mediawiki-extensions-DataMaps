@@ -1,6 +1,8 @@
 <template>
-    <div class="ext-navi-map-app" :class="runtimeContainerClasses">
-        <leaflet-viewport></leaflet-viewport>
+    <div class="ext-navi-map-app ext-navi-map-stack" :class="runtimeContainerClasses">
+        <leaflet-viewport>
+            <popover-layer></popover-layer>
+        </leaflet-viewport>
 
         <controls-area
             :control-groups="controlGroups"
@@ -41,6 +43,7 @@ const
     MarkerSearch = require( './MarkerSearch.vue' ),
     LegendArea = require( './LegendArea.vue' ),
     LeafletViewport = require( './LeafletViewport.vue' ),
+    PopoverLayer = require( './PopoverLayer.vue' ),
     MarkerVisibilityQuickToggleRow = require( './MarkerVisibilityQuickToggleRow.vue' ),
     MarkerTypesRow = require( './MarkerTypesRow.vue' ),
     DebugModeRow = require( './DebugModeRow.vue' ),
@@ -52,7 +55,7 @@ module.exports = {
 	name: 'App',
     components: {
         CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton,
-        ControlsArea, MarkerSearch, LegendArea, LeafletViewport,
+        ControlsArea, MarkerSearch, LegendArea, LeafletViewport, PopoverLayer,
     },
 
     data() {

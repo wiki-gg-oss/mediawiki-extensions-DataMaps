@@ -377,6 +377,7 @@
 				"components/DebugModeRow.vue",
 				"components/LegendMarkerTypeEntry.vue",
 				"components/LeafletViewport.vue",
+				"components/PopoverLayer.vue",
 				{
 					"name": "data/icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",

@@ -8,6 +8,7 @@ module.exports = defineStore( 'popoverState', () => {
 		attachmentLocationX = ref( null ),
 		attachmentLocationY = ref( null ),
 		containerProjectionFn = ref( null ),
+		projectedAttachmentPosition = ref( null ),
 		dataObject = ref( null );
 
 
@@ -15,6 +16,7 @@ module.exports = defineStore( 'popoverState', () => {
 		attachmentLocationX,
 		attachmentLocationY,
 		containerProjectionFn,
+		projectedAttachmentPosition,
 		dataObject,
 		isVisible: computed( () => ( containerProjectionFn.value !== null && attachmentLocationX.value !== null ) ),
 
@@ -24,10 +26,17 @@ module.exports = defineStore( 'popoverState', () => {
 		},
 
 
+		reproject() {
+			projectedAttachmentPosition.value = containerProjectionFn.value( [ attachmentLocationX.value,
+				attachmentLocationY.value ] );
+		},
+
+
 		activate( locationVec, data ) {
 			attachmentLocationX.value = locationVec[ 0 ];
 			attachmentLocationY.value = locationVec[ 1 ];
 			dataObject.value = data;
+			this.reproject();
 		},
 
 

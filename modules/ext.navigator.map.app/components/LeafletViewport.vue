@@ -1,5 +1,7 @@
 <template>
-    <div class="ext-navi-map-viewport" ref="root"></div>
+    <div class="ext-navi-map-viewport" ref="root">
+        <slot />
+    </div>
 </template>
 
 <script>
@@ -10,7 +12,7 @@ const
 module.exports = {
 	name: 'LeafletViewport',
     mounted() {
-        this.$refs.root.appendChild( useLeafletHost() );
+        this.$refs.root.prepend( useLeafletHost() );
     },
 };
 </script>
