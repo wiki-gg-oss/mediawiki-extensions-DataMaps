@@ -1,7 +1,7 @@
 <template>
     <div class="ext-navi-map-controls">
         <div
-            v-for="group in controlGroups"
+            v-for="group in enabledControlGroups"
             class="ext-navi-map-controls-group"
         >
             <h3>{{ group.name }}</h3>
@@ -39,6 +39,11 @@ module.exports = {
 			required: true
 		},
 	},
+    computed: {
+        enabledControlGroups() {
+            return this.controlGroups.filter( item => !item.hidden );
+        },
+    },
 };
 </script>
 

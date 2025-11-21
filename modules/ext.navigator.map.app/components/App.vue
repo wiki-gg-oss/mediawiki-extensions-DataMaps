@@ -77,6 +77,7 @@ module.exports = {
                 },
                 {
                     name: 'view',
+                    hidden: true,
                     items: [
                         {
                             type: 'toggleButton',
