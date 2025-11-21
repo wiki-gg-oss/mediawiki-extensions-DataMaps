@@ -244,6 +244,14 @@ module.exports = {
     }
 }
 
+.ext-navi-map-panels {
+    pointer-events: none;
+
+    > div {
+        pointer-events: auto;
+    }
+}
+
 .ext-navi-map-search {
     flex-grow: 1;
 
