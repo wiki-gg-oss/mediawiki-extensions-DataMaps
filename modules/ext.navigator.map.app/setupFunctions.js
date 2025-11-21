@@ -1,6 +1,7 @@
 const
     MapEmbed = require( './MapEmbed.js' ),
     PopupData = require( './features/PopupData.js' ),
+    MarkerPresentationType = require( './markers/MarkerPresentationType.js' ),
     { MarkerTypeInfo } = require( './stores/MarkerTypesStore.js' ),
     apiClient = new mw.Api();
 
@@ -109,6 +110,27 @@ function buildFeaturesFromArray( featureFactory, markerTypeManager, liveFeatures
 }
 
 
+function importMarkerTypeSettings( markerType, info ) {
+    markerType.setName( info.name );
+    markerType.setDescriptionHtml( info.descriptionHtml );
+
+    const
+        style = markerType.getStyle(),
+        styleInfo = info.defaultStyle;
+    style.setPointForm( MarkerPresentationType.fromString( styleInfo.pointForm ) );
+    style.setSize( styleInfo.size );
+    if ( 'fill' in styleInfo ) {
+        style.setFillColour( styleInfo.fill.colour );
+        style.setFillOpacity( styleInfo.fill.opacity );
+    }
+    if ( 'outline' in styleInfo ) {
+        style.setOutlineColour( styleInfo.outline.colour );
+        style.setOutlineOpacity( styleInfo.outline.opacity );
+        style.setOutlineWidth( styleInfo.outline.width );
+    }
+}
+
+
 async function initialiseEmbed( mountTargetElement ) {
     // Unserialise the embed config
     const initConfig = JSON.parse( mountTargetElement.getAttribute( 'data-mw-navigator' ) );
@@ -127,15 +149,12 @@ async function initialiseEmbed( mountTargetElement ) {
     const markerTypeManager = embed.getMarkerTypeManager();
     for ( const markerTypeInfo of liveConfig.markerTypes ) {
         const markerType = markerTypeManager.createType( markerTypeInfo.id );
-        markerType.setName( markerTypeInfo.name );
-        markerType.setDescriptionHtml( markerTypeInfo.descriptionHtml );
+        importMarkerTypeSettings( markerType, markerTypeInfo );
 
         if ( markerTypeInfo.subTypes ) {
             for ( const subTypeInfo of markerTypeInfo.subTypes ) {
                 const subType = markerTypeManager.createSubType( markerType, subTypeInfo.id );
-                // TODO: we need an API->runtime factory
-                subType.setName( subTypeInfo.name );
-                subType.setDescriptionHtml( subTypeInfo.descriptionHtml );
+                importMarkerTypeSettings( subType, subTypeInfo );
             }
         }
     }

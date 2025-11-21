@@ -358,6 +358,7 @@
 				"features/TextFeature.js",
 				"features/MarkerFeature.js",
 				"markers/MarkerPresentationType.js",
+				"markers/MarkerStyle.js",
 				"markers/MarkerType.js",
 				"markers/MarkerTypeManager.js",
 				"viewport/LeafletApi.js",

@@ -21,7 +21,7 @@ module.exports = class MarkerFeature extends Feature {
 
 
     getPresentationType() {
-        return ( this.#style || this.#markerType.getStyle() ).pointForm;
+        return ( this.#style || this.#markerType.getStyle() ).getPointForm();
     }
 
 

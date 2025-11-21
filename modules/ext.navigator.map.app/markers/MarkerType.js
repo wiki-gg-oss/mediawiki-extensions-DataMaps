@@ -1,5 +1,6 @@
 const
     MarkerPresentationType = require( './MarkerPresentationType.js' ),
+    MarkerStyle = require( './MarkerStyle.js' ),
     PopupData = require( '../features/PopupData.js' );
 
 
@@ -8,10 +9,12 @@ module.exports = class MarkerType {
     #name = '';
     #descriptionHtml = null;
     #childTypes = null;
+    #style;
 
 
     constructor( id ) {
         this.#id = id;
+        this.#style = new MarkerStyle();
     }
 
 
@@ -41,16 +44,7 @@ module.exports = class MarkerType {
 
 
     getStyle() {
-        return {
-            pointForm: MarkerPresentationType.CIRCLE,
-            size: 160,
-            sizeHalf: 80,
-            fillColour: '#f0f',
-            fillOpacity: 1,
-            strokeColour: '#0f0',
-            strokeOpacity: 1,
-            strokeWidth: 1,
-        };
+        return this.#style;
     }
 
 
