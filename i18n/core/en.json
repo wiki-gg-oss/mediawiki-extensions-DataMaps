@@ -94,5 +94,7 @@
     "datamap-control-search-toggle-sharing": "All maps",
     "datamap-control-search-no-results": "No results found.",
     "datamap-control-fullscreen": "Toggle fullscreen mode",
-    "prefs-datamaps": "Interactive Maps display options"
+    "prefs-datamaps": "Interactive Maps display options",
+    "navigator-validate-unexpected-type": "[PH]At <code>$1</code>, value did not match the expected type.",
+    "navigator-validate-unexpected-null": "[PH]At <code>$1</code>, did not expect null."
 }
