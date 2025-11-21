@@ -21,6 +21,38 @@ function styleToLeaflet( style, format ) {
         case MarkerPresentationType.CIRCLE:
             retval.radius = style.getSize() / 2;
             break;
+        case MarkerPresentationType.PIN:
+            const iconSize = [ style.getSize(), style.getSize() ];
+            const icon = new Leaflet.DivIcon( {
+                iconSize,
+            } );
+            icon.createIcon = oldElement => {
+                if ( !( oldElement && oldElement.tagName === 'SVG' ) ) {
+                    const root = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' );
+                    root.classList.add( 'leaflet-marker-icon' );
+                    root.setAttribute( 'viewBox', '0 0 20 20' );
+                    const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+                    path.setAttribute( 'd', 'M 10,0 C 5.4971441,-0.21118927 1.7888107,3.4971441 2,8 c 0,2.52 2,5 3,6 1,1 5,6 5,6 0,0 4,-5 5,'
+                        + '-6 1,-1 3,-3.48 3,-6 0.211189,-4.5028559 -3.497144,-8.21118927 -8,-8 z' );
+                    path.setAttribute( 'fill', retval.fillColor );
+                    path.setAttribute( 'stroke', retval.color );
+                    path.setAttribute( 'stroke-width', retval.weight );
+                    const circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
+                    circle.setAttribute( 'cx', '10' );
+                    circle.setAttribute( 'cy', '8' );
+                    circle.setAttribute( 'r', '3.3' );
+                    circle.setAttribute( 'fill', '#0009' );
+                    root.style.width = `${iconSize[ 0 ]}px`;
+                    root.style.height = `${iconSize[ 1 ]}px`;
+                    root.appendChild( path );
+                    root.appendChild( circle );
+                    oldElement = root;
+                }
+                return oldElement;
+            };
+            retval.icon = icon;
+            retval.static = true;
+            break;
     }
     return retval;
 }
@@ -65,7 +97,8 @@ module.exports = Object.freeze( {
         switch ( f.getPresentationType() ) {
             case MarkerPresentationType.CIRCLE:
                 return tryFactory( 'MarkerFeature.Circle', f );
-
+            case MarkerPresentationType.PIN:
+                return tryFactory( 'MarkerFeature.Pin', f );
             default:
                 console.debug( `[Navigator] Missing support for marker presentation form with ID of ${f.getPresentationType()}` );
                 return null;
@@ -77,5 +110,12 @@ module.exports = Object.freeze( {
             style = f.getMarkerType().getStyle();
 
         return new Leaflet.Circle( [ swY, swX ], styleToLeaflet( style, MarkerPresentationType.CIRCLE ) );
+    },
+    'MarkerFeature.Pin'( f ) {
+        const
+            [ swX, swY ] = f.getLocation(),
+            style = f.getMarkerType().getStyle();
+
+        return new Leaflet.Marker( [ swY, swX ], styleToLeaflet( style, MarkerPresentationType.PIN ) );
     },
 } );

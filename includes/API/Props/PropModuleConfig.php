@@ -79,7 +79,7 @@ class PropModuleConfig extends PropModule {
 
 		$result = [
 			'pointForm' => 'pin',
-			'size' => 80,
+			'size' => 20,
 			'outline' => [ 'colour' => '#36cf', 'width' => 2 ],
 			'fill' => [ 'colour' => '#36cc' ]
 		];
