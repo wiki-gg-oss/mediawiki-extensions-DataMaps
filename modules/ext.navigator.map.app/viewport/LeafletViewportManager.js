@@ -38,6 +38,13 @@ module.exports = class LeafletViewportManager {
     }
 
 
+    assertReady( callerName ) {
+        if ( this.#map === null ) {
+            throw new Error( `Attempted to invoke '${callerName}' before Leaflet viewport initialisation` );
+        }
+    }
+
+
     async enable() {
         await Leaflet.resolve();
 
@@ -75,6 +82,19 @@ module.exports = class LeafletViewportManager {
         this.#isUpdating = false;
 
         console.debug( `[Navigator] Viewport update complete` );
+    }
+
+
+    projectVirtualPoint( locationVec ) {
+        this.assertReady( 'projectPoint' );
+        const result = this.#map.latLngToContainerPoint( [ locationVec[ 1 ], locationVec[ 0 ] ] );
+        return [ result.x, result.y ];
+    }
+
+
+    getVirtualPointProjector() {
+        this.assertReady( 'getPointProjector' );
+        return this.projectVirtualPoint.bind( this );
     }
 
 

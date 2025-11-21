@@ -7,14 +7,21 @@ module.exports = defineStore( 'popoverState', () => {
 	const
 		attachmentLocationX = ref( null ),
 		attachmentLocationY = ref( null ),
+		containerProjectionFn = ref( null ),
 		dataObject = ref( null );
 
 
     return {
 		attachmentLocationX,
 		attachmentLocationY,
+		containerProjectionFn,
 		dataObject,
-		isVisible: computed( () => attachmentLocationX.value === null ),
+		isVisible: computed( () => ( containerProjectionFn.value !== null && attachmentLocationX.value !== null ) ),
+
+
+		setContainerProjectionFn( value ) {
+			containerProjectionFn.value = value;
+		},
 
 
 		activate( locationVec, data ) {

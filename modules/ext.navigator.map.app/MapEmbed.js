@@ -42,6 +42,10 @@ module.exports = class MapEmbed {
         this.#appSettings = useAppSettings( this.#pinia );
         this.#popoverState = usePopoverState( this.#pinia );
         this.#markerTypes = useMarkerTypes( this.#pinia );
+
+        this.#viewportManager.waitUntilReady().then( () => {
+            this.#popoverState.setContainerProjectionFn( this.#viewportManager.getVirtualPointProjector() );
+        } );
     }
 
 
