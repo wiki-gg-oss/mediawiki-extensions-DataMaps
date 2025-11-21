@@ -98,6 +98,9 @@ module.exports = class MapEmbed {
         this.#moveTickFrameReqId = null;
 
         console.debug( `[Navigator] Executing move tick updates` );
+        if ( this.#popoverState.isVisible ) {
+            this.#popoverState.reproject();
+        }
     }
 
 
