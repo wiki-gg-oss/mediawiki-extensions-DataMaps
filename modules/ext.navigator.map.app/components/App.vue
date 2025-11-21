@@ -67,11 +67,14 @@ module.exports = {
             controlGroups: [
                 {
                     name: 'editing',
+                    hidden: !mw.user.isNamed(),
                     items: [
                         {
                             type: 'button',
                             name: 'edit',
                             icon: uiIcons.cdxIconEdit,
+                            disabled: computed( () => !this.appSettings.isSourceCodeTitleAvailable ),
+                            click: () => this.viewportBridge.navigateToEditPage(),
                         },
                     ],
                 },

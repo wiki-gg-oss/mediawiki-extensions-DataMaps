@@ -4,9 +4,13 @@ const
 
 
 module.exports = defineStore( 'appSettings', () => {
-	const subtitleHtml = ref( '' );
+	const
+		isSourceCodeTitleAvailable = ref( false ),
+		subtitleHtml = ref( '' );
 
     return {
+		isSourceCodeTitleAvailable,
+		setSourceCodeTitleAvailable( value ) { isSourceCodeTitleAvailable.value = value; },
         subtitleHtml,
 		setSubtitleHtml( value ) { subtitleHtml.value = value; }
     };

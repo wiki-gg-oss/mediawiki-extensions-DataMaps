@@ -142,6 +142,8 @@ async function initialiseEmbed( mountTargetElement ) {
 
     const liveConfig = ( await fetchMapConfig( initConfig.pageId, initConfig.revId ) ).map;
 
+    embed.setSourceCodeTitle( liveConfig.title );
+
     // Apply the configuration properties
     embed.setSubtitleHtml( liveConfig.subtitleHtml );
 

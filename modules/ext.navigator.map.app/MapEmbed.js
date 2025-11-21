@@ -14,6 +14,7 @@ const
 
 
 module.exports = class MapEmbed {
+    #sourceCodeTitle = null;
     #viewportElement;
     #markerTypeManager;
     #featureTree;
@@ -42,8 +43,7 @@ module.exports = class MapEmbed {
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
-            .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this.#viewportManager,
-                this.#pinia ) )
+            .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this, this.#pinia ) )
             .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
             .mount( mountTargetElement );
         this.#markerTypeManager = new MarkerTypeManager( this.#pinia );
@@ -54,6 +54,17 @@ module.exports = class MapEmbed {
         this.#viewportManager.waitUntilReady().then( () => {
             this.#popoverState.setContainerProjectionFn( this.#viewportManager.getVirtualPointProjector() );
         } );
+    }
+
+
+    getSourceCodeTitle() {
+        return this.#sourceCodeTitle;
+    }
+
+
+    setSourceCodeTitle( pageName ) {
+        this.#sourceCodeTitle = mw.Title.newFromText( pageName );
+        this.#appSettings.setSourceCodeTitleAvailable( true );
     }
 
 

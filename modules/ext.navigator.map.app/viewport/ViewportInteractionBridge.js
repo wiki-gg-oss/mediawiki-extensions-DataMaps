@@ -3,12 +3,14 @@ const
 
 
 module.exports = class ViewportInteractionBridge {
+    #mapEmbed;
     #viewportManager;
     #uiState;
 
 
-    constructor( viewportManager, pinia ) {
-        this.#viewportManager = viewportManager;
+    constructor( mapEmbed, pinia ) {
+        this.#mapEmbed = mapEmbed;
+        this.#viewportManager = this.#mapEmbed.getViewportManager();
         this.#uiState = useViewportState( pinia );
 
         this.#viewportManager.waitUntilReady().then( () => {
@@ -69,5 +71,10 @@ module.exports = class ViewportInteractionBridge {
         if ( map ) {
             map.zoomOut();
         }
+    }
+
+
+    navigateToEditPage() {
+        location.href = this.#mapEmbed.getSourceCodeTitle().getUrl( { action: 'edit' } );
     }
 };
