@@ -78,7 +78,7 @@ class PropModuleConfig extends PropModule {
 		$data ??= $dataEmpty;
 
 		$result = [
-			'pointForm' => 'circle',
+			'pointForm' => 'pin',
 			'size' => 80,
 			'outline' => [ 'colour' => '#36cf', 'width' => 2 ],
 			'fill' => [ 'colour' => '#36cc' ]
