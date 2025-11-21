@@ -8,9 +8,10 @@
 	<cdx-popover
 		:open="state.isVisible"
 		:anchor="attachmentTarget"
-		placement="bottom-start"
+		placement="bottom"
 		title="Test"
 		:use-close-button="true"
+        :render-in-place="true"
 	>
 		Test popover
 	</cdx-popover>
@@ -51,4 +52,8 @@ module.exports = {
 <style lang="less">
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins.less';
+
+.ext-navi-popover-attachment-point {
+    position: absolute;
+}
 </style>
