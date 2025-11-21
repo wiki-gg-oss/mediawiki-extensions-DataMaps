@@ -13,6 +13,7 @@ module.exports = class LeafletViewportManager {
     #layerFactories;
     #featureLayerMap;
     #tryFeatureFn;
+    #layerClickFn;
 
 
     constructor( mountTargetElement, featureTree ) {
@@ -23,6 +24,7 @@ module.exports = class LeafletViewportManager {
         this.#featureLayerMap = {};
         this.#layerFactories = Object.assign( {}, DEFAULT_LAYER_FACTORIES );
         this.#tryFeatureFn = this.#tryFactory.bind( this );
+        this.#layerClickFn = this.#createFeatureEventDispatcher( 'onClick' );
     }
 
 
@@ -100,6 +102,14 @@ module.exports = class LeafletViewportManager {
             return null;
         }
 
+        layer._ng_feature_id = feature.getId();
+
+        if ( 'onClick' in feature ) {
+            layer.on( {
+                click: this.#layerClickFn,
+            } );
+        }
+
         this.#map.addLayer( layer );
         this.#featureLayerMap[ feature.getId() ] = layer;
 
@@ -114,5 +124,23 @@ module.exports = class LeafletViewportManager {
             return null;
         }
         return factory( feature, this.#tryFeatureFn );
+    }
+
+
+    #createFeatureEventDispatcher( methodName ) {
+        return event => {
+            const feature = this.#featureTree.getFeatureById( event.target._ng_feature_id );
+            console.debug( `[Navigator] Dispatching event '${methodName}' to feature ${feature.getId()}:`, feature,
+                event );
+
+            const handled = feature[ methodName ].call( feature, {
+                virtualPos: [ event.latlng.lng, event.latlng.lat ],
+                physicalPos: [ event.containerPoint.x, event.containerPoint.y ],
+                domEvent: event.originalEvent,
+            } );
+            if ( handled ) {
+                Leaflet.DomEvent.stop( event );
+            }
+        };
     }
 };

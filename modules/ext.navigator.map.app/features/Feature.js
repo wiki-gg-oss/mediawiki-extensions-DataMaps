@@ -11,6 +11,16 @@ module.exports = class Feature {
     }
 
 
+    getOwnerTree() {
+        return this.#parentTree;
+    }
+
+
+    getMapEmbed() {
+        return this.#parentTree.getMapEmbed();
+    }
+
+
     getId() {
         return this.#id;
     }
