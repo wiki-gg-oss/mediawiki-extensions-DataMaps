@@ -12,6 +12,7 @@
 		title="Test"
 		:use-close-button="true"
         :render-in-place="true"
+        @update:open="value => !value && this.state.deactivate()"
 	>
 		Test popover
 	</cdx-popover>
