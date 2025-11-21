@@ -42,8 +42,14 @@ module.exports = class MarkerType {
 
     getStyle() {
         return {
-            form: MarkerPresentationType.CIRCLE,
+            pointForm: MarkerPresentationType.CIRCLE,
+            size: 160,
+            sizeHalf: 80,
             fillColour: '#f0f',
+            fillOpacity: 1,
+            strokeColour: '#0f0',
+            strokeOpacity: 1,
+            strokeWidth: 1,
         };
     }
 

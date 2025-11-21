@@ -50,10 +50,19 @@ module.exports = Object.freeze( {
     },
     'MarkerFeature.Circle'( f ) {
         const
-            [ swX, swY ] = f.getLocation();
+            [ swX, swY ] = f.getLocation(),
+            style = f.getMarkerType().getStyle();
 
+        // TODO: options object should be cached
         return new Leaflet.Circle( [ swY, swX ], {
-            radius: 40,
+            radius: style.sizeHalf,
+            fill: !!style.fillColour,
+            fillColor: style.fillColour,
+            fillOpacity: style.fillOpacity,
+            stroke: !!style.strokeColour,
+            weight: style.strokeWidth,
+            color: style.strokeColour,
+            opacity: style.strokeOpacity,
         } );
     },
 } );

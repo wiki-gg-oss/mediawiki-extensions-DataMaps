@@ -5,6 +5,7 @@ const
 module.exports = class MarkerFeature extends Feature {
     #markerType;
     #popupData;
+    #style = null;
 
 
     constructor( parentTree, id, locationVec, markerType, popupData = null ) {
@@ -20,7 +21,12 @@ module.exports = class MarkerFeature extends Feature {
 
 
     getPresentationType() {
-        return this.#markerType.getStyle().form;
+        return ( this.#style || this.#markerType.getStyle() ).pointForm;
+    }
+
+
+    getStyle() {
+        return this.#style || this.#markerType.getStyle();
     }
 
 
