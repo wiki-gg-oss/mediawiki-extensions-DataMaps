@@ -1,14 +1,18 @@
 <template>
-    <div class="ext-navi-map-debuginfo">
-        <b>View box:</b> ({{ vs.viewBoxNe[ 0 ] }} {{ vs.viewBoxNe[ 1 ] }}) ({{ vs.viewBoxSw[ 0 ] }} {{ vs.viewBoxSw[ 1 ] }})<br />
-        <b>Zoom:</b> {{ vs.zoomCurrent }} in {{ vs.zoomMin }}..{{ vs.zoomMax }} (out: {{ vs.canZoomOut }}, in: {{ vs.canZoomIn }})
-    </div>
+    <ul class="ext-navi-map-debuginfo">
+        <li
+            v-for="(left, right) in lines"
+        >
+            <b>{{ right }}:</b> {{ left }}
+        </li>
+    </ul>
 </template>
 
 <script>
 const
     { ref, computed, watch } = require( 'vue' ),
-    useViewportState = require( '../stores/ViewportState.js' );
+    useViewportState = require( '../stores/ViewportState.js' ),
+    usePopoverState = require( '../stores/PopoverState.js' );
 
 
 // @vue/component
@@ -17,7 +21,19 @@ module.exports = {
     setup() {
         return {
             vs: useViewportState(),
+            ps: usePopoverState(),
         };
+    },
+    computed: {
+        lines() {
+            const
+                vs = this.vs,
+                ps = this.ps;
+            return {
+                'View box': `(${vs.viewBoxNe}) (${vs.viewBoxSw})`,
+                'Zoom': `${vs.zoomCurrent} in ${vs.zoomMin}..${vs.zoomMax} (out: ${vs.canZoomOut}, in: ${vs.canZoomIn})`,
+            };
+        },
     },
 };
 </script>
@@ -25,5 +41,7 @@ module.exports = {
 <style lang="less">
 .ext-navi-map-debuginfo {
     font-size: 11px;
+    list-style: none;
+    margin: 0;
 }
 </style>
