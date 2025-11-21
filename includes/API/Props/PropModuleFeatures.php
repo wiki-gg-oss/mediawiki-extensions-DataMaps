@@ -116,7 +116,7 @@ class PropModuleFeatures extends PropModule {
 		return array_values( array_filter( array_map( fn ( $item ) => $this->transformMarker( $item ), $items ) ) );
 	}
 
-	private function transformMarker( stdClass $data ): ?array {
+	private function transformMarker( stdClass $data ): array|int|float|null {
 		$wtParser = $this->getWikitextParser();
 		$fileExport = $this->getFileExportUtils();
 
@@ -138,17 +138,12 @@ class PropModuleFeatures extends PropModule {
 			$props['imgUrl'] = $fileExport->getFullResImageUrl( $fileObj );
 		}
 
-		// Turn location vector compact if the axis are equal
-		if ( $location[0] === $location[1] ) {
-			$location = $location[0];
-		}
-
 		// Use a specialised slot format depending on available data
 		$hasProps = !empty( $props );
 		if ( $hasProps ) {
-			return [ $location, $props ];
+			return [ $location[0], $location[1], $props ];
 		} else {
-			return [ $location ];
+			return $location;
 		}
 	}
 }

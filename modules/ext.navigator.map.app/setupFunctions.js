@@ -39,8 +39,8 @@ function decodeVec( value ) {
 function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
     for ( const markerInfo of liveMarkers ) {
         const
-            locationVec = decodeVec( markerInfo[ 0 ] ),
-            props = markerInfo[ 1 ] || {};
+            locationVec = [ markerInfo[ 0 ], markerInfo[ 1 ] ],
+            props = markerInfo[ 2 ] || {};
 
         let popupData = null;
         if (
