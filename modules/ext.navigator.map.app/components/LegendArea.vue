@@ -4,7 +4,7 @@
         :class="isOpen ? undefined : 'ext-navi-map-legend--collapsed'"
     >
         <legend-row
-            v-for="item in sectionData"
+            v-for="item in enabledSections"
             :row-type="item.type"
             :row-data="item"
         >
@@ -42,6 +42,11 @@ module.exports = {
         return {
             uiIcons,
         };
+    },
+    computed: {
+        enabledSections() {
+            return this.sectionData.filter( item => !item.hidden );
+        },
     },
 };
 </script>

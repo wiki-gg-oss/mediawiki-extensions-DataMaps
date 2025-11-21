@@ -139,6 +139,7 @@ module.exports = {
             retval.push(
                 {
                     type: 'direct',
+                    hidden: true,
                     component: MarkerVisibilityQuickToggleRow,
                 },
                 {
