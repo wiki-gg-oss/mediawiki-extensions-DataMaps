@@ -32,6 +32,7 @@ module.exports = {
             return {
                 'View box': `(${vs.viewBoxNe}) (${vs.viewBoxSw})`,
                 'Zoom': `${vs.zoomCurrent} in ${vs.zoomMin}..${vs.zoomMax} (out: ${vs.canZoomOut}, in: ${vs.canZoomIn})`,
+                'Popover': `${ps.isVisible} @ ${ps.attachmentLocationX},${ps.attachmentLocationY} (real: ${ps.projectedAttachmentPosition})`,
             };
         },
     },
