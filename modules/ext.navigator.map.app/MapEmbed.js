@@ -24,13 +24,21 @@ module.exports = class MapEmbed {
     #popoverState;
     #markerTypes;
     #viewportUpdateTimeoutId = null;
+    #dispatchMoveTickImmediateFn;
+    #moveTickFrameReqId = null;
 
 
     constructor( mountTargetElement ) {
+        this.#dispatchMoveTickImmediateFn = this.#dispatchMoveTickImmediate.bind( this );
+
         this.#pinia = createPinia();
         this.#viewportElement = document.createElement( 'div' );
         this.#featureTree = new FeatureTree( this );
-        this.#viewportManager = new LeafletViewportManager( this.#viewportElement, this.#featureTree );
+        this.#viewportManager = new LeafletViewportManager( this.#viewportElement, Object.freeze( {
+            featureTree: this.#featureTree,
+            dispatchMoveTickLatent: this.#dispatchMoveTickLatent.bind( this ),
+            dispatchMoveTickImmediate: this.#dispatchMoveTickImmediateFn,
+        } ) );
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
@@ -75,6 +83,21 @@ module.exports = class MapEmbed {
 
     getViewportManager() {
         return this.#viewportManager;
+    }
+
+
+    #dispatchMoveTickLatent() {
+        // TODO: if we need to repeat this pattern, better to make a factory and encapsulate the frame request ID
+        if ( this.#moveTickFrameReqId === null ) {
+            this.#moveTickFrameReqId = requestAnimationFrame( this.#dispatchMoveTickImmediateFn );
+        }
+    }
+
+
+    #dispatchMoveTickImmediate() {
+        this.#moveTickFrameReqId = null;
+
+        console.debug( `[Navigator] Executing move tick updates` );
     }
 
 

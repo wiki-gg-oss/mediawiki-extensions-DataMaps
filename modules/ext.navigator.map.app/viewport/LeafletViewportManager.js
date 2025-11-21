@@ -5,8 +5,7 @@ const
 
 module.exports = class LeafletViewportManager {
     #mountTargetElement;
-    #map;
-    #featureTree;
+    #embedPrivate;
     #readinessPromise;
     #readinessPromiseResolve;
     #isUpdating = false;
@@ -14,11 +13,12 @@ module.exports = class LeafletViewportManager {
     #featureLayerMap;
     #tryFeatureFn;
     #layerClickFn;
+    #map;
 
 
-    constructor( mountTargetElement, featureTree ) {
+    constructor( mountTargetElement, embedPrivate ) {
         this.#mountTargetElement = mountTargetElement;
-        this.#featureTree = featureTree;
+        this.#embedPrivate = embedPrivate;
         this.#map = null;
         this.#readinessPromise = new Promise( resolve => ( this.#readinessPromiseResolve = resolve ) );
         this.#featureLayerMap = {};
@@ -62,6 +62,10 @@ module.exports = class LeafletViewportManager {
             [ [ 25, 25 ], [ 75, 75 ] ],
             { color: '#00f', weight: 1 } ) );
         
+        this.#map.on( {
+            move: this.#embedPrivate.dispatchMoveTickLatent,
+        } );
+        
         this.#readinessPromiseResolve();
     }
 
@@ -99,7 +103,7 @@ module.exports = class LeafletViewportManager {
 
 
     #updateInternal() {
-        const dirtyFeatures = this.#featureTree.getDirtyFeatureSet();
+        const dirtyFeatures = this.#embedPrivate.featureTree.getDirtyFeatureSet();
         for ( const feature of dirtyFeatures ) {
             let layer = this.#featureLayerMap[ feature.getId() ];
             if ( !layer ) {
@@ -149,7 +153,7 @@ module.exports = class LeafletViewportManager {
 
     #createFeatureEventDispatcher( methodName ) {
         return event => {
-            const feature = this.#featureTree.getFeatureById( event.target._ng_feature_id );
+            const feature = this.#embedPrivate.featureTree.getFeatureById( event.target._ng_feature_id );
             console.debug( `[Navigator] Dispatching event '${methodName}' to feature ${feature.getId()}:`, feature,
                 event );
 
