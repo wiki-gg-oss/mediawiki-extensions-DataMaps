@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\DataMaps\Api\Props;
 
+use MediaWiki\Extension\DataMaps\Rendering\Utils\DataMapColourUtils;
 use stdClass;
 
 class PropModuleConfig extends PropModule {
@@ -65,6 +66,55 @@ class PropModuleConfig extends PropModule {
 
 		if ( isset( $data->include ) ) {
 			$result['subTypes'] = $this->transformMarkerTypeArray( $data->include );
+		}
+
+		$result['defaultStyle'] = $this->transformMarkerStyleArray( $data->defaultStyle ?? null );
+
+		return $result;
+	}
+
+	private function transformMarkerStyleArray( ?stdClass $data ): array {
+		static $dataEmpty = new stdClass();
+		$data ??= $dataEmpty;
+
+		$result = [
+			'pointForm' => 'circle',
+			'size' => 80,
+			'outline' => [ 'colour' => '#36cf', 'width' => 2 ],
+			'fill' => [ 'colour' => '#36cc' ]
+		];
+
+		$result['pointForm'] = $data->pointForm ?? $result['pointForm'];
+		$result['size'] = $data->size ?? $result['size'];
+		if ( isset( $data->outline ) ) {
+			if ( $data->outline === false ) {
+				unset( $result['outline'] );
+			} else {
+				$result['outline']['colour'] = $data->outline->color ?? $result['outline']['colour'];
+				$result['outline']['width'] = $data->outline->width ?? $result['outline']['width'];
+			}
+		}
+		if ( isset( $data->fill ) ) {
+			if ( $data->fill === false ) {
+				unset( $result['fill'] );
+			} else {
+				$result['fill']['colour'] = $data->fill->color ?? $result['fill']['colour'];
+			}
+		}
+
+		if ( array_key_exists( 'outline', $result ) ) {
+			$rgba = DataMapColourUtils::decode4( $result['outline']['colour'] );
+			$a = round( ( $rgba[3] ?? 255 ) / 255, 3 );
+			$rgb = [ $rgba[0], $rgba[1], $rgba[2] ];
+			$result['outline']['colour'] = DataMapColourUtils::asHex( $rgb );
+			$result['outline']['opacity'] = $a;
+		}
+		if ( array_key_exists( 'fill', $result ) ) {
+			$rgba = DataMapColourUtils::decode4( $result['fill']['colour'] );
+			$a = round( ( $rgba[3] ?? 255 ) / 255, 3 );
+			$rgb = [ $rgba[0], $rgba[1], $rgba[2] ];
+			$result['fill']['colour'] = DataMapColourUtils::asHex( $rgb );
+			$result['fill']['opacity'] = $a;
 		}
 
 		return $result;
