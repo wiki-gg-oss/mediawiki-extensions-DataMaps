@@ -1,5 +1,6 @@
 const
     MapEmbed = require( './MapEmbed.js' ),
+    PopupData = require( './features/PopupData.js' ),
     { MarkerTypeInfo } = require( './stores/MarkerTypesStore.js' ),
     apiClient = new mw.Api();
 
@@ -25,6 +26,9 @@ async function fetchMapFeatures( pageId, revId ) {
 
 
 function decodeVec( value ) {
+    if ( value === null || value === undefined ) {
+        return [ 0, 0 ];
+    }
     if ( typeof( value ) === 'number' ) {
         return [ value, value ];
     }
@@ -36,11 +40,28 @@ function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
     for ( const markerInfo of liveMarkers ) {
         const
             locationVec = decodeVec( markerInfo[ 0 ] ),
-            props = markerInfo[ 1 ];
+            props = markerInfo[ 1 ] || {};
+
+        let popupData = null;
+        if (
+            'titleHtml' in props
+            || 'descHtml' in props
+            || 'imgUrl' in props
+        ) {
+            const [ imageWidth, imageHeight ] = decodeVec( props.imgDimens );
+            popupData = new PopupData( {
+                titleHtml: props.titleHtml,
+                descHtml: props.descHtml,
+                imageUrl: props.imgUrl,
+                imageWidth,
+                imageHeight,
+            } );
+        }
 
         featureFactory.createMarker( {
             location: locationVec,
             markerType,
+            popupData,
         } );
     }
 }

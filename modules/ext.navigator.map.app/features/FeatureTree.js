@@ -40,6 +40,11 @@ module.exports = class FeatureTree {
     }
 
 
+    getFeatureById( id ) {
+        return this.#featureMap[ id ];
+    }
+
+
     getDirtyFeatureSet() {
         const retval = Object.freeze( this.#dirtyFeatureSet );
         this.#dirtyFeatureSet = new Set();

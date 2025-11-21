@@ -45,9 +45,11 @@ module.exports = class FeatureFactory {
     createMarker( {
         location,
         markerType,
+        popupData,
     } ) {
         // TODO: type-check
-        const retval = new MarkerFeature( this.#featureTree, ++this.#featureIdCounter, location, markerType );
+        const retval = new MarkerFeature( this.#featureTree, ++this.#featureIdCounter, location, markerType,
+            popupData );
         this.#featureTreePrivate.addFeature( retval );
         return retval;
     }

@@ -3,6 +3,7 @@ const
     { createPinia } = require( 'pinia' ),
     useAppSettings = require( './stores/AppSettingsStore.js' ),
     useMarkerTypes = require( './stores/MarkerTypesStore.js' ),
+    usePopoverState = require( './stores/PopoverState.js' ),
     InjectedSymbol = require( './InjectedSymbol.js' ),
     MarkerTypeManager = require( './markers/MarkerTypeManager.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
@@ -20,6 +21,7 @@ module.exports = class MapEmbed {
     #pinia;
     #app;
     #appSettings;
+    #popoverState;
     #markerTypes;
     #viewportUpdateTimeoutId = null;
 
@@ -38,6 +40,7 @@ module.exports = class MapEmbed {
             .mount( mountTargetElement );
         this.#markerTypeManager = new MarkerTypeManager( this.#pinia );
         this.#appSettings = useAppSettings( this.#pinia );
+        this.#popoverState = usePopoverState( this.#pinia );
         this.#markerTypes = useMarkerTypes( this.#pinia );
     }
 
@@ -68,6 +71,17 @@ module.exports = class MapEmbed {
 
     getViewportManager() {
         return this.#viewportManager;
+    }
+
+
+    displayPopoverAt( locationVec, popupData ) {
+        console.debug( `[Navigator] Attaching popover to location ${locationVec}:`, popupData );
+        this.#popoverState.activate( locationVec, popupData );
+    }
+
+
+    closePopover() {
+        this.#popoverState.deactivate();
     }
 
 

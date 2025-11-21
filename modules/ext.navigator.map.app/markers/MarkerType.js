@@ -1,4 +1,6 @@
-const MarkerPresentationType = require( './MarkerPresentationType.js' );
+const
+    MarkerPresentationType = require( './MarkerPresentationType.js' ),
+    PopupData = require( '../features/PopupData.js' );
 
 
 module.exports = class MarkerType {
@@ -43,6 +45,11 @@ module.exports = class MarkerType {
             form: MarkerPresentationType.CIRCLE,
             fillColour: '#f0f',
         };
+    }
+
+
+    getDefaultPopupData() {
+        return PopupData.Empty;
     }
 
 

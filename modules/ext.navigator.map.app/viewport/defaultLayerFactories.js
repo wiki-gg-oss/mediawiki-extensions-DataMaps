@@ -53,7 +53,7 @@ module.exports = Object.freeze( {
             [ swX, swY ] = f.getLocation();
 
         return new Leaflet.Circle( [ swY, swX ], {
-            radius: 10,
+            radius: 40,
         } );
     },
 } );
