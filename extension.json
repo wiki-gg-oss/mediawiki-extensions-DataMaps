@@ -402,6 +402,14 @@
 						"cdxIconMenu"
 					]
 				}
+			],
+			"messages": [
+			    "navigator-app-control-edit",
+			    "navigator-app-control-fullscreen",
+			    "navigator-app-control-zoom-in",
+			    "navigator-app-control-zoom-out",
+			    "navigator-app-section-markertypes",
+			    "navigator-app-section-debug"
 			]
 		},
 		"ext.navigator.3rdparty.fuzzysort": {

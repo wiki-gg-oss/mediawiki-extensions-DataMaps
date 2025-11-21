@@ -71,7 +71,7 @@ module.exports = {
                     items: [
                         {
                             type: 'button',
-                            name: 'edit',
+                            name: mw.msg( 'navigator-app-control-edit' ),
                             icon: uiIcons.cdxIconEdit,
                             disabled: computed( () => !this.appSettings.isSourceCodeTitleAvailable ),
                             click: () => this.viewportBridge.navigateToEditPage(),
@@ -84,7 +84,7 @@ module.exports = {
                     items: [
                         {
                             type: 'toggleButton',
-                            name: 'fullscreen',
+                            name: mw.msg( 'navigator-app-control-fullscreen' ),
                             icon: uiIcons.cdxIconFullScreen,
                             modelValue: isFullscreen,
                         },
@@ -96,14 +96,14 @@ module.exports = {
                     items: [
                         {
                             type: 'button',
-                            name: 'zoomIn',
+                            name: mw.msg( 'navigator-app-control-zoom-in' ),
                             icon: uiIcons.cdxIconAdd,
                             disabled: computed( () => !this.viewportState.canZoomIn ),
                             click: () => this.viewportBridge.zoomIn(),
                         },
                         {
                             type: 'button',
-                            name: 'zoomOut',
+                            name: mw.msg( 'navigator-app-control-zoom-out' ),
                             icon: uiIcons.cdxIconSubtract,
                             disabled: computed( () => !this.viewportState.canZoomOut ),
                             click: () => this.viewportBridge.zoomOut(),
@@ -144,7 +144,7 @@ module.exports = {
                 },
                 {
                     type: 'accordion',
-                    label: '[PH]Locations (markers)',
+                    label: mw.msg( 'navigator-app-section-markertypes' ),
                     component: MarkerTypesRow,
                 },
             );
@@ -152,7 +152,7 @@ module.exports = {
             if ( mw.config.get( 'debug' ) ) {
                 retval.push( {
                     type: 'accordion',
-                    label: '[PH]Debugging',
+                    label: mw.msg( 'navigator-app-section-debug' ),
                     component: DebugModeRow,
                 } );
             }

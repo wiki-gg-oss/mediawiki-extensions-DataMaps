@@ -96,5 +96,11 @@
     "datamap-control-fullscreen": "Toggle fullscreen mode",
     "prefs-datamaps": "Interactive Maps display options",
     "navigator-validate-unexpected-type": "[PH]At <code>$1</code>, value did not match the expected type.",
-    "navigator-validate-unexpected-null": "[PH]At <code>$1</code>, did not expect null."
+    "navigator-validate-unexpected-null": "[PH]At <code>$1</code>, did not expect null.",
+    "navigator-app-control-edit": "Edit this map",
+    "navigator-app-control-fullscreen": "Toggle fullscreen mode",
+    "navigator-app-control-zoom-in": "Zoom in",
+    "navigator-app-control-zoom-out": "Zoom out",
+    "navigator-app-section-markertypes": "Locations",
+    "navigator-app-section-debug": "Debugging information"
 }
