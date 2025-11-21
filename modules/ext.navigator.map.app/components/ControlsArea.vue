@@ -4,7 +4,7 @@
             v-for="group in enabledControlGroups"
             class="ext-navi-map-controls-group"
         >
-            <h3>{{ group.name }}</h3>
+            <h3 v-if="isDebugMode">{{ group.name }}</h3>
             <div
                 :class="group.spacing ? undefined : 'cdx-button-group'"
             >
@@ -39,6 +39,11 @@ module.exports = {
 			required: true
 		},
 	},
+    setup() {
+        return {
+            isDebugMode: mw.config.get( 'debug' ),
+        };
+    },
     computed: {
         enabledControlGroups() {
             return this.controlGroups.filter( item => !item.hidden );
