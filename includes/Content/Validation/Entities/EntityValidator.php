@@ -10,6 +10,8 @@ abstract class EntityValidator {
     public const NULLABLE = 'nullable';
     public const CHECK_CLASS = 'checker';
     public const ITEM_SPEC = 'itemSpec';
+    public const MIN_ITEMS = 'itemMin';
+    public const MAX_ITEMS = 'itemMax';
     public const UNION = 'union';
 
     public function __construct(
@@ -89,17 +91,35 @@ abstract class EntityValidator {
         }
 
         // Check the item type
-        if ( array_key_exists( EntityValidator::ITEM_SPEC, $spec ) ) {
-            $itemSpec = $spec[EntityValidator::ITEM_SPEC];
-            $this->trace->push( $name );
-            $isGood = true;
-            foreach ( $value as $key => $item ) {
-                $isGood &= $this->expectValue( $key, $item, $itemSpec );
-            }
-            $this->trace->back();
-
-            if ( !$isGood ) {
+        if ( $spec[0] === 'is_array' ) {
+            if (
+                array_key_exists( EntityValidator::MIN_ITEMS, $spec )
+                && count( $value ) < $spec[EntityValidator::MIN_ITEMS]
+            ) {
+                $this->status->fatal( 'navigator-validate-range-lt', $this->trace->toString( $name ) );
                 return false;
+            }
+
+            if (
+                array_key_exists( EntityValidator::MAX_ITEMS, $spec )
+                && count( $value ) > $spec[EntityValidator::MAX_ITEMS]
+            ) {
+                $this->status->fatal( 'navigator-validate-range-gt', $this->trace->toString( $name ) );
+                return false;
+            }
+
+            if ( array_key_exists( EntityValidator::ITEM_SPEC, $spec ) ) {
+                $itemSpec = $spec[EntityValidator::ITEM_SPEC];
+                $this->trace->push( $name );
+                $isGood = true;
+                foreach ( $value as $key => $item ) {
+                    $isGood &= $this->expectValue( $key, $item, $itemSpec );
+                }
+                $this->trace->back();
+
+                if ( !$isGood ) {
+                    return false;
+                }
             }
         }
 
