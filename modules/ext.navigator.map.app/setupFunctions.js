@@ -114,19 +114,30 @@ function importMarkerTypeSettings( markerType, info ) {
     markerType.setName( info.name );
     markerType.setDescriptionHtml( info.descriptionHtml );
 
-    const
-        style = markerType.getStyle(),
-        styleInfo = info.defaultStyle;
-    style.setPointForm( MarkerPresentationType.fromString( styleInfo.pointForm ) );
-    style.setSize( styleInfo.size );
-    if ( 'fill' in styleInfo ) {
-        style.setFillColour( styleInfo.fill.colour );
-        style.setFillOpacity( styleInfo.fill.opacity );
-    }
-    if ( 'outline' in styleInfo ) {
-        style.setOutlineColour( styleInfo.outline.colour );
-        style.setOutlineOpacity( styleInfo.outline.opacity );
-        style.setOutlineWidth( styleInfo.outline.width );
+    switch ( info.type ) {
+        case 'MarkerType':
+            const
+                style = markerType.getStyle(),
+                styleInfo = info.defaultStyle;
+            style.setPointForm( MarkerPresentationType.fromString( styleInfo.pointForm ) );
+            style.setSize( styleInfo.size );
+            if ( 'fill' in styleInfo ) {
+                style.setFillColour( styleInfo.fill.colour );
+                style.setFillOpacity( styleInfo.fill.opacity );
+            }
+            if ( 'outline' in styleInfo ) {
+                style.setOutlineColour( styleInfo.outline.colour );
+                style.setOutlineOpacity( styleInfo.outline.opacity );
+                style.setOutlineWidth( styleInfo.outline.width );
+            }
+            break;
+
+        case 'Group':
+            markerType.setForbidsDisplay( true );
+            break;
+
+        default:
+            throw new Error( `Cannot initialise a marker type with intent of ${info.type}` );
     }
 }
 

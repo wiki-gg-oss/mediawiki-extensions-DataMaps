@@ -115,6 +115,19 @@ module.exports = class MarkerStyle {
         this.#outlineWidth = value;
         return this;
     }
+
+
+    asTransientMetadata() {
+        return {
+            pointForm: this.#pointForm,
+            size: this.#size,
+            fillColour: this.#fillColour,
+            fillOpacity: this.#fillOpacity,
+            outlineColour: this.#outlineColour,
+            outlineOpacity: this.#outlineOpacity,
+            outlineWidth: this.#outlineWidth,
+        };
+    }
 };
 
 

@@ -9,6 +9,7 @@ module.exports = class MarkerType {
     #name = '';
     #descriptionHtml = null;
     #childTypes = null;
+    #forbidsDisplay = false;
     #style;
 
 
@@ -43,7 +44,20 @@ module.exports = class MarkerType {
     }
 
 
+    isDisplayForbidden() {
+        return this.#forbidsDisplay;
+    }
+
+
+    setForbidsDisplay( value ) {
+        this.#forbidsDisplay = value;
+    }
+
+
     getStyle() {
+        if ( this.#forbidsDisplay ) {
+            throw new Error( 'Cannot retrieve marker style of a non-display (organisational) marker type.' );
+        }
         return this.#style;
     }
 
@@ -69,6 +83,7 @@ module.exports = class MarkerType {
             id: this.#id,
             name: this.#name,
             descriptionHtml: this.#descriptionHtml,
+            placeholderStyle: this.#forbidsDisplay ? false : this.#style.asTransientMetadata(),
             subtypes: this.#childTypes ? this.#childTypes.map( item => item.asTransientMetadata() ) : null,
         };
     }

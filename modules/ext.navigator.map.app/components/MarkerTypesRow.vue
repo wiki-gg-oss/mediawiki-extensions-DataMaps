@@ -5,10 +5,7 @@
             :key="item.id"
             :id="item.id"
             :is-expanded="false"
-            :name="item.name"
-            :description-html="item.descriptionHtml"
-            :has-progress-tracking="item.progressTracking"
-            :subtypes="item.subtypes"
+            :transient-data="item"
         >
         </legend-marker-type-entry>
     </ul>
