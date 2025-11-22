@@ -35,4 +35,17 @@ module.exports = class MarkerFeature extends Feature {
         const popupData = this.#popupData || this.#markerType.getDefaultPopupData();
         embed.displayPopoverAt( event.virtualPos, popupData );
     }
+
+    
+    getSearchMetadata() {
+        const name = this.#popupData ? this.#popupData.getTitle() : this.#markerType.getName();
+        const desc = this.#popupData ? this.#popupData.getDescriptionHtml() : null;
+        return {
+            name,
+            phrases: [
+                [ 1, name ],
+                desc ? [ 0.2, desc ] : false,
+            ],
+        };
+    }
 };

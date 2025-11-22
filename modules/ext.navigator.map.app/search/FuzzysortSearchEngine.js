@@ -24,38 +24,20 @@ module.exports = class FuzzysortSearchEngine extends MarkerSearchEngine {
 
         await Fuzzysort.resolve();
 
-        this.#indexedItems = [];
-        this.#indexedItems.push( {
-            identifiers: [
-                [ Fuzzysort.prepare( this.normalisePhrase( 'Hello world' ) ), 1 ],
-            ],
-            target: {
-                name: 'Search test dummy data',
-                featureId: 1,
-            },
+        this.#indexedItems = ( await this.getIndexableFeatures() ).map( feature => {
+            const meta = feature.getSearchMetadata();
+            return {
+                target: {
+                    featureId: feature.getId(),
+                    name: meta.name,
+                },
+                identifiers: meta.phrases.filter( item => !!item ).map( item => [
+                    Fuzzysort.prepare( this.normalisePhrase( item[ 1 ] ) ),
+                    item[ 0 ],
+                ] ),
+            };
         } );
-        this.#indexedItems.push( {
-            identifiers: [
-                [ Fuzzysort.prepare( this.normalisePhrase( 'Hello aaa' ) ), 1 ],
-            ],
-            target: {
-                name: 'Search test dummy data',
-                featureId: 1,
-            },
-        } );
-        this.#indexedItems.push( {
-            identifiers: [
-                [ Fuzzysort.prepare( this.normalisePhrase( 'Hello' ) ), 1 ],
-            ],
-            target: {
-                name: 'Search test dummy data',
-                featureId: 1,
-            },
-        } );
-
-        await new Promise( resolve => {
-            setTimeout( resolve, 2000 );
-        } )
+        console.debug( `[Navigator] Indexed ${this.#indexedItems.length} features for marker search` );
     }
 
 

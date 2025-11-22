@@ -8,7 +8,7 @@ module.exports = class MarkerSearchEngine {
 
 
     async getIndexableFeatures() {
-
+        return Array.from( this.#featureTree.getFeatures() ).filter( feature => !!feature.getSearchMetadata );
     }
 
 
