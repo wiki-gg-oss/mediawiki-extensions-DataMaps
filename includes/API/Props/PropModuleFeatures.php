@@ -137,6 +137,9 @@ class PropModuleFeatures extends PropModule {
 			$props['imgDimens'] = $fileExport->getDimensionsVec( $fileObj, 'same-as-file' );
 			$props['imgUrl'] = $fileExport->getFullResImageUrl( $fileObj );
 		}
+		if ( isset( $data->link ) ) {
+			$props['linkTarget'] = $data->link;
+		}
 
 		// Use a specialised slot format depending on available data
 		$hasProps = !empty( $props );
