@@ -5,13 +5,20 @@
                 v-if="transientData.placeholderStyle !== false"
                 class="ext-navi-markertype-visualiser"
             >
-                <svg viewBox="0 0 20 20">
+                <svg viewBox="0 0 20 20" v-if="visualiserFormatName === 'pin'">
                     <path
                         d="M 10,0 C 5.4971441,-0.21118927 1.7888107,3.4971441 2,8 c 0,2.52 2,5 3,6 1,1 5,6 5,6 0,0 4,-5 5,-6 1,-1 3,-3.48 3,-6 0.211189,-4.5028559 -3.497144,-8.21118927 -8,-8 z"
                         :fill="visualiserFillColour"
                         :stroke="visualiserOutlineColour"
                         :stroke-width="visualiserOutlineWidth" />
                     <circle cx="10" cy="8" r="3.3" fill="#0009" />
+                </svg>
+                <svg viewBox="0 0 20 20" v-else-if="visualiserFormatName === 'circle'">
+                    <circle
+                        cx="10" cy="10" :r="11 - visualiserOutlineWidthClamped"
+                        :fill="visualiserFillColour"
+                        :stroke="visualiserOutlineColour"
+                        :stroke-width="visualiserOutlineWidthClamped" />
                 </svg>
             </div>
 
@@ -64,6 +71,7 @@
 const
     { ref, computed, watch } = require('vue'),
     { CdxButton, CdxButtonGroup, CdxIcon, CdxSearchInput, CdxToggleButton } = require( '@wikimedia/codex' ),
+    MarkerPresentationType = require( '../../markers/MarkerPresentationType.js' ),
     useMarkerTypesStore = require( '../stores/MarkerTypesStore.js' ),
     uiIcons = require( '../data/icons.json' );
 
@@ -92,9 +100,11 @@ module.exports = {
             return this.dataStore.markerCountByType[ this.id ];
         },
 
+
         markerCountTickedOff() {
             return this.dataStore.markerCountByTypeTickedOff[ this.id ] || 0;
         },
+
 
         markerCountText() {
             if ( this.transientData.hasProgressTracking ) {
@@ -104,16 +114,29 @@ module.exports = {
             return `${this.markerCount}`;
         },
 
+
+        visualiserFormatName() {
+            return MarkerPresentationType.toCanonicalName( this.transientData.placeholderStyle.pointForm );
+        },
+
+
         visualiserFillColour() {
             return this.transientData.placeholderStyle.fillColour;
         },
+
 
         visualiserOutlineColour() {
             return this.transientData.placeholderStyle.outlineColour;
         },
 
+
         visualiserOutlineWidth() {
             return this.transientData.placeholderStyle.outlineWidth;
+        },
+
+
+        visualiserOutlineWidthClamped() {
+            return Math.max( Math.min( this.transientData.placeholderStyle.outlineWidth, 6 ), 3 );
         },
     },
     setup() {

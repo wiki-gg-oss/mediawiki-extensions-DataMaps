@@ -8,4 +8,18 @@ module.exports = Object.freeze( {
     fromString( value ) {
         return this[ value.toUpperCase() ];
     },
+
+
+    toCanonicalName( value ) {
+        const retval = ( {
+            [module.exports.ICON]: 'icon',
+            [module.exports.RECTANGLE]: 'rectangle',
+            [module.exports.PIN]: 'pin',
+            [module.exports.CIRCLE]: 'circle',
+        } )[ value ];
+        if ( !retval ) {
+            throw new Error( `Invalid MarkerPresentationType value: ${value}` );
+        }
+        return retval;
+    },
 } );
