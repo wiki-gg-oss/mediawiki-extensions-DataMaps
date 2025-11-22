@@ -88,9 +88,6 @@ module.exports = {
             };
         },
         stTitle() {
-            // TODO: HACK - Force an attachment update by faking a reference
-            this.state.projectedAttachmentPosition;
-
             return toRaw( this.state.dataObject ).getTitle();
         },
         stDescHtml() {
