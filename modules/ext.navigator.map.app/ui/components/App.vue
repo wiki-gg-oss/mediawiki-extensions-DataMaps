@@ -213,9 +213,12 @@ module.exports = {
         z-index: @z-index-stacking-1;
     }
 
-    &-panels,
-    &-search {
+    &-panels {
         z-index: @z-index-stacking-2;
+    }
+
+    &-search {
+        z-index: @z-index-stacking-3;
     }
 }
 
