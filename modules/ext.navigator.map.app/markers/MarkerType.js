@@ -10,6 +10,7 @@ module.exports = class MarkerType {
     #descriptionHtml = null;
     #childTypes = null;
     #forbidsDisplay = false;
+    #defaultPopoverCached = null;
     #style;
 
 
@@ -63,7 +64,12 @@ module.exports = class MarkerType {
 
 
     getDefaultPopupData() {
-        return PopupData.Empty;
+        if ( this.#defaultPopoverCached === null ) {
+            this.#defaultPopoverCached = new PopupData( {
+                title: this.#name,
+            } );
+        }
+        return this.#defaultPopoverCached;
     }
 
 
