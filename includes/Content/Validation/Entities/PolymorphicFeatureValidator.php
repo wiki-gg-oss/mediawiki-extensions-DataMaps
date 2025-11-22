@@ -13,6 +13,15 @@ class PolymorphicFeatureValidator extends EntityValidator {
      */
     public function validateObject( stdClass $data ): bool {
         $type = $data->type ?? null;
+
+        // TODO: move somewhere sensible
+        static $specVec2 = [ 'is_array', EntityValidator::MIN_ITEMS => 2, EntityValidator::MAX_ITEMS => 2,
+            EntityValidator::ITEM_SPEC => [ 'is_numeric' ] ];
+        // TODO: should be static
+        $commonPlaceable = [
+            'at' => $specVec2,
+        ];
+
         switch ( $type ) {
             case 'FeatureCollection':
                 $this->expectProperties( $data, [
@@ -22,18 +31,19 @@ class PolymorphicFeatureValidator extends EntityValidator {
 
             case 'BackgroundImage':
                 $this->expectProperties( $data, [
+                    ...$commonPlaceable,
                     'image' => [ 'is_string' ],
                     'dimensions' => [ EntityValidator::UNION => [
                         // TODO: need constants
                         [ 'is_string' ],
-                        // TODO: need a full definition of vec2
-                        [ 'is_array', EntityValidator::ITEM_SPEC => [ 'is_numeric' ] ] ] ],
+                        $specVec2 ] ],
                     'attachFeatures' => self::ARRAY_SPEC,
                 ] );
                 break;
             
             case 'Text':
                 $this->expectProperties( $data, [
+                    ...$commonPlaceable,
                     'content' => [ 'is_string' ],
                 ] );
                 break;
