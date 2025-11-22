@@ -126,7 +126,7 @@ class PropModuleFeatures extends PropModule {
 		$props = [];
 
 		if ( isset( $data->title ) ) {
-			$props['titleHtml'] = $wtParser->parse( $data->title );
+			$props['title'] = $data->title;
 		}
 		if ( isset( $data->description ) ) {
 			$props['descHtml'] = $wtParser->parse( $data->description );

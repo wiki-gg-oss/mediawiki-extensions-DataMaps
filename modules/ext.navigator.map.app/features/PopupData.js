@@ -1,5 +1,5 @@
 module.exports = class PopupData {
-    #titleHtml;
+    #title;
     #descHtml;
     #imageUrl;
     #imageWidth;
@@ -7,13 +7,13 @@ module.exports = class PopupData {
 
 
     constructor( {
-        titleHtml = null,
+        title = null,
         descHtml = null,
         imageUrl = null,
         imageWidth = null,
         imageHeight = null,
     } ) {
-        this.#titleHtml = titleHtml;
+        this.#title = title;
         this.#descHtml = descHtml;
         this.#imageUrl = imageUrl;
         this.#imageWidth = imageWidth;
@@ -21,8 +21,8 @@ module.exports = class PopupData {
     }
 
 
-    getTitleHtml() {
-        return this.#titleHtml;
+    getTitle() {
+        return this.#title;
     }
 
 

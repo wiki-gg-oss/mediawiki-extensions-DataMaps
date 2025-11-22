@@ -44,13 +44,13 @@ function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
 
         let popupData = null;
         if (
-            'titleHtml' in props
+            'title' in props
             || 'descHtml' in props
             || 'imgUrl' in props
         ) {
             const [ imageWidth, imageHeight ] = decodeVec( props.imgDimens );
             popupData = new PopupData( {
-                titleHtml: props.titleHtml,
+                title: props.title,
                 descHtml: props.descHtml,
                 imageUrl: props.imgUrl,
                 imageWidth,
