@@ -1,17 +1,14 @@
-const
-    Fuzzysort = require( './FuzzysortApi.js' );
-
-
-const
-    SCORE_THRESHOLD = -75000;
-
-
 module.exports = class MarkerSearchEngine {
-    #indexedItems;
+    #featureTree;
 
 
-    constructor() {
-        this.#indexedItems = null;
+    constructor( featureTree ) {
+        this.#featureTree = featureTree;
+    }
+
+
+    async getIndexableFeatures() {
+
     }
 
 
@@ -30,30 +27,7 @@ module.exports = class MarkerSearchEngine {
     }
 
 
-    async #ensureReady() {
-        if ( this.#indexedItems ) {
-            return;
-        }
-
-        await Fuzzysort.resolve();
-
-        this.#indexedItems = [];
-        this.#indexedItems.push( {
-            keywords: [
-                [ Fuzzysort.prepare( this.normalisePhrase( 'Hello world' ) ), 1 ],
-            ],
-            target: {
-                name: 'Search test dummy data',
-            },
-        } );
-    }
-
-
     async query( phrase ) {
-        await this.#ensureReady();
-        return Fuzzysort.go( this.normalisePhrase( phrase ), this.#indexedItems, {
-            threshold: SCORE_THRESHOLD,
-            weighedKey: 'keywords',
-        } );
+        throw new Error( `${this.constructor.name}.query not implemented` );
     }
 };

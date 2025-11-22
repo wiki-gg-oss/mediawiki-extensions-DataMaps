@@ -9,7 +9,7 @@ const
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
     FeatureTree = require( './features/FeatureTree.js' ),
-    MarkerSearchEngine = require( './search/MarkerSearchEngine.js' ),
+    FuzzysortSearchEngine = require( './search/FuzzysortSearchEngine.js' ),
     App = require( './ui/components/App.vue' );
 
 
@@ -19,6 +19,7 @@ module.exports = class MapEmbed {
     #markerTypeManager;
     #featureTree;
     #viewportManager;
+    #markerSearchEngine;
     #pinia;
     #app;
     #appSettings;
@@ -40,11 +41,12 @@ module.exports = class MapEmbed {
             dispatchMoveTickLatent: this.#dispatchMoveTickLatent.bind( this ),
             dispatchMoveTickImmediate: this.#dispatchMoveTickImmediateFn,
         } ) );
+        this.#markerSearchEngine = new FuzzysortSearchEngine( this.#featureTree );
         this.#app = Vue.createMwApp( App )
             .use( this.#pinia )
             .provide( InjectedSymbol.LEAFLET_HOST, this.#viewportElement )
             .provide( InjectedSymbol.VIEWPORT_INTERACTION, new ViewportInteractionBridge( this, this.#pinia ) )
-            .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, new MarkerSearchEngine() )
+            .provide( InjectedSymbol.MARKER_SEARCH_ENGINE, this.#markerSearchEngine )
             .mount( mountTargetElement );
         this.#markerTypeManager = new MarkerTypeManager( this.#pinia );
         this.#appSettings = useAppSettings( this.#pinia );

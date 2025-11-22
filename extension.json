@@ -362,6 +362,7 @@
 				"viewport/defaultLayerFactories.js",
 				"search/FuzzysortApi.js",
 				"search/MarkerSearchEngine.js",
+				"search/FuzzysortSearchEngine.js",
 				"ui/InjectedSymbol.js",
 				"ui/stores/AppSettingsStore.js",
 				"ui/stores/MarkerTypesStore.js",
