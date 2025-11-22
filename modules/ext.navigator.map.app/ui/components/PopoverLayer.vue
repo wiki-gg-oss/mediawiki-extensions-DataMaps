@@ -8,13 +8,15 @@
     	<cdx-popover
             v-if="state.isVisible"
             class="ext-navi-popover"
-    		:open="state.isVisible"
     		:anchor="attachmentTarget"
-    		placement="bottom"
-    		:use-close-button="true"
             :render-in-place="true"
+    		placement="bottom"
+    		:open="state.isVisible"
+    		:use-close-button="true"
             @update:open="value => ( !value && this.state.deactivate() )"
     		:title="stTitle"
+            :primary-action="stPopoverButtonData"
+            @primary="onLinkTargetClick"
     	>
             <div
                 v-if="!!stImageUrl"
@@ -94,8 +96,30 @@ module.exports = {
         stDescHtml() {
             return toRaw( this.state.dataObject ).getDescriptionHtml();
         },
+        stLinkTargetUrl() {
+            const title = toRaw( this.state.dataObject ).getLinkTarget();
+            if ( !title ) {
+                return null;
+            }
+            return title.getUrl();
+        },
         stImageUrl() {
             return toRaw( this.state.dataObject ).getImageUrl();
+        },
+        stPopoverButtonData() {
+            if ( this.stLinkTargetUrl ) {
+                return {
+                    label: '[PH]Read more',
+                    actionType: 'progressive',
+                };
+            }
+            return null;
+        },
+    },
+    methods: {
+        onLinkTargetClick() {
+            // TODO: Navigation shouldn't be done by JS
+            location.href = this.stLinkTargetUrl;
         },
     },
 };

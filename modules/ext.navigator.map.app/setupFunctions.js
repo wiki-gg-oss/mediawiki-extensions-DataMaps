@@ -52,6 +52,7 @@ function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
             popupData = new PopupData( {
                 title: props.title,
                 descHtml: props.descHtml,
+                linkTarget: mw.Title.newFromText( props.linkTarget ),
                 imageUrl: props.imgUrl,
                 imageWidth,
                 imageHeight,
