@@ -51,8 +51,7 @@ class PolymorphicFeatureValidator extends EntityValidator {
             case 'MarkerCollection':
                 $this->expectProperties( $data, [
                     'attachType' => [ 'is_string' ],
-                    // TODO: must expect only markers here
-                    // 'attachFeatures' => self::ARRAY_SPEC,
+                    'attachFeatures' => [ 'is_array', EntityValidator::ITEM_SPEC => MarkerValidator::OBJECT_SPEC ],
                 ] );
                 break;
             
