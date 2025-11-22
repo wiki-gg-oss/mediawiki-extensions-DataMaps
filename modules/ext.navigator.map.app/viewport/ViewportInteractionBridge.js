@@ -1,5 +1,5 @@
 const
-    useViewportState = require( '../stores/ViewportState.js' );
+    useViewportState = require( '../ui/stores/ViewportState.js' );
 
 
 module.exports = class ViewportInteractionBridge {

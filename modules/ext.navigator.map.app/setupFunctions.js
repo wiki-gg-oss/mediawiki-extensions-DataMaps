@@ -2,7 +2,6 @@ const
     MapEmbed = require( './MapEmbed.js' ),
     PopupData = require( './features/PopupData.js' ),
     MarkerPresentationType = require( './markers/MarkerPresentationType.js' ),
-    { MarkerTypeInfo } = require( './stores/MarkerTypesStore.js' ),
     apiClient = new mw.Api();
 
 

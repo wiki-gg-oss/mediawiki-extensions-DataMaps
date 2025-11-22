@@ -1,6 +1,6 @@
 const
     MarkerType = require( './MarkerType.js' ),
-    useMarkerTypes = require( '../stores/MarkerTypesStore.js' );
+    useMarkerTypes = require( '../ui/stores/MarkerTypesStore.js' );
 
 
 module.exports = class MarkerTypeManager {

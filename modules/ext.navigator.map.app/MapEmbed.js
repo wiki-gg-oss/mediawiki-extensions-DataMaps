@@ -1,16 +1,16 @@
 const
     Vue = require( 'vue' ),
     { createPinia } = require( 'pinia' ),
-    useAppSettings = require( './stores/AppSettingsStore.js' ),
-    useMarkerTypes = require( './stores/MarkerTypesStore.js' ),
-    usePopoverState = require( './stores/PopoverState.js' ),
-    InjectedSymbol = require( './InjectedSymbol.js' ),
+    useAppSettings = require( './ui/stores/AppSettingsStore.js' ),
+    useMarkerTypes = require( './ui/stores/MarkerTypesStore.js' ),
+    usePopoverState = require( './ui/stores/PopoverState.js' ),
+    InjectedSymbol = require( './ui/InjectedSymbol.js' ),
     MarkerTypeManager = require( './markers/MarkerTypeManager.js' ),
     LeafletViewportManager = require( './viewport/LeafletViewportManager.js' ),
     ViewportInteractionBridge = require( './viewport/ViewportInteractionBridge.js' ),
     FeatureTree = require( './features/FeatureTree.js' ),
     MarkerSearchEngine = require( './search/MarkerSearchEngine.js' ),
-    App = require( './components/App.vue' );
+    App = require( './ui/components/App.vue' );
 
 
 module.exports = class MapEmbed {
