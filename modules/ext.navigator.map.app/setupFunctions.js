@@ -46,13 +46,14 @@ function buildMarkersFromArray( featureFactory, markerType, liveMarkers ) {
         if (
             'title' in props
             || 'descHtml' in props
+            || 'linkTarget' in props
             || 'imgUrl' in props
         ) {
             const [ imageWidth, imageHeight ] = decodeVec( props.imgDimens );
             popupData = new PopupData( {
                 title: props.title,
                 descHtml: props.descHtml,
-                linkTarget: mw.Title.newFromText( props.linkTarget ),
+                linkTarget: props.linkTarget ? mw.Title.newFromText( props.linkTarget ) : null,
                 imageUrl: props.imgUrl,
                 imageWidth,
                 imageHeight,
