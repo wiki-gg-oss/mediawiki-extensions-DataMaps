@@ -58,10 +58,6 @@ module.exports = class LeafletViewportManager {
             renderer: new Leaflet.Canvas( {} ),
         } );
 
-        this.#map.addLayer( new Leaflet.Rectangle(
-            [ [ 25, 25 ], [ 75, 75 ] ],
-            { color: '#00f', weight: 1 } ) );
-        
         this.#map.on( {
             move: this.#embedPrivate.dispatchMoveTickLatent,
         } );
