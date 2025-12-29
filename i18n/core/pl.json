@@ -7,7 +7,8 @@
 			"Msz2001",
 			"PanWor",
 			"Rail",
-			"WaldiSt"
+			"WaldiSt",
+			"Woytecr"
 		]
 	},
 	"datamap-desc": "Umożliwia osadzanie interaktywnych map na stronach wiki.",
@@ -50,7 +51,7 @@
 	"datamap-error-validatespec-map-bad-mixin": "Strona fragmentu „<code>$1</code>” musi istnieć i używać modelu zawartości <code>Interaktywna mapa</code>, a także być poprawna składniowo i strukturalnie.",
 	"datamap-error-validatespec-map-mixin-with-mixins": "W danym fragmencie nie można odwoływać się do innych fragmentów.",
 	"datamap-error-pf-page-does-not-exist": "Strona mapy danych „[[$1]]” nie istnieje.",
-	"datamap-error-pf-page-invalid-content-model": "Model zawartości strony „[[$1]]” to nie <code>Interaktywna mapa danych</code>.",
+	"datamap-error-pf-page-invalid-content-model": "Strona „[[$1]]” musi mieć model zawartości <code>{{int:content-model-datamap}}</code>.",
 	"datamap-background-name-fallback": "Bez tytułu",
 	"datamap-legend-label": "Zawartość",
 	"datamap-javascript-required": "Aby ta mapa działała, JavaScript musi być włączony. Jeśli mapa nie została wyświetlona poniżej, prawdopodobnie oznacza to, że wyłączono obsługę JavaScript.",
