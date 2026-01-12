@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stefan2255"
+		]
+	},
+	"datamap-vec-title": "Skapa en karta",
+	"datamap-ve-skip": "Hoppa över",
+	"datamap-vec-intro": "Anpassa följande information efter dina behov så att vi kan förbereda en grundläggande karta innan du går vidare till redigeringen.",
+	"datamap-vec-select-crs-origin": "(0, 0) koordinathörn",
+	"datamap-vec-crs-top-left": "Övre vänster",
+	"datamap-vec-crs-bottom-left": "Nederst till vänster",
+	"datamap-vec-select-crs": "Koordinatsystem",
+	"datamap-vec-crs-percent": "Procentandel (0–100%)",
+	"datamap-vec-crs-image": "Matcha bildens koordinater",
+	"datamap-vec-crs-custom": "Anpassad",
+	"datamap-vec-select-background": "Bakgrundsbild",
+	"datamap-vec-note-image-size": "Storlek: $1 × $2",
+	"datamap-vec-error-bad-file-type": "Filtypen ($1) stöds inte; välj en JPEG-, PNG-, GIF- eller SVG-fil.",
+	"datamap-vec-error-poor-file-type": "Den här filtypen kan fungera dåligt på begränsade nätverk. Använd JPEG-filer när det är möjligt.",
+	"datamap-vec-extra-options": "Extra alternativ",
+	"datamap-vec-toggle-coord-display": "Visa koordinater under markören",
+	"datamap-vec-toggle-zoom": "Aktivera zoomning",
+	"datamap-vec-toggle-search": "Aktivera markörsökning",
+	"datamap-vec-toggle-search-tabber": "Dela sökdata inom fliken",
+	"datamap-vec-toggle-uid-requirement": "Kräv unika markör-ID:n",
+	"datamap-vec-submit": "Fortsätt",
+	"datamap-vec-example-group-id": "exempel",
+	"datamap-vec-example-group-name": "Exempelgrupp",
+	"datamap-vec-example-marker": "Exempelmarkör"
+}
