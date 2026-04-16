@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"*Youngjin",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
 	"datamap-desc": "위키 문서에 대화형 지도를 추가할 수 있게 허용합니다.",
-	"content-model-datamap": "대화형 데이터 지도",
+	"content-model-datamap": "대화형 지도",
 	"datamap-doc-page-does-not-exist": "이 지도의 설명문서는 [[$1]]에서 만들 수 있습니다",
 	"datamap-doc-page-header": "'''이 문서는 [[$1]]에 대한 설명문서입니다.'''",
-	"datamap-category-pages-including-maps": "데이터 맵을 포함하는 문서",
-	"datamap-category-pages-including-broken-maps": "유효성 검사에 실패한 데이터 맵이 포함된 문서",
+	"datamap-category-pages-including-maps": "대화형 맵을 포함하는 문서",
+	"datamap-category-pages-including-broken-maps": "유효성 검사에 실패한 대화형 맵이 포함된 문서",
 	"datamap-category-maps-failing-validation": "데이터 검증에 실패한 지도",
 	"datamap-mapsrcinfo-status-ok": "이 지도의 소스 코드에 문제가 없습니다.",
 	"datamap-mapsrcinfo-status-meh": "이 지도의 소스 코드에 사소한 문제가 있습니다.",
@@ -28,7 +29,7 @@
 	"datamap-validate-constraint-maximum": "숫자 속성의 값은 $2보다 작아야 합니다: <code>$1</code>.",
 	"datamap-validate-constraint-fallback": "<code>$1</code> 속성을 검증하는 동안 알 수 없는 오류가 발생했습니다. 개발자에게 [$2 이 문제를 보고]해 주십시오.",
 	"datamap-validate-constraint-requiredfile": "다음 파일이 참조되었으나 존재하지 않습니다: $1",
-	"datamap-error-pf-page-does-not-exist": "\"[[$1]]\" 데이터 지도 문서가 존재하지 않습니다.",
+	"datamap-error-pf-page-does-not-exist": "\"[[$1]]\" 지도 소스 코드 문서가 존재하지 않습니다.",
 	"datamap-background-name-fallback": "제목 없음",
 	"datamap-legend-label": "내용",
 	"datamap-javascript-required": "이 지도가 작동하려면 자바스크립트를 활성화해야 합니다. 아래에 보이지 않으면 자바스크립트가 비활성화되어 있는 것입니다.",
