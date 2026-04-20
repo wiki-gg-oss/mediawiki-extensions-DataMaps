@@ -9,6 +9,7 @@
 	"datamap-ve-error-cannot-open-validation-errors": "<b>지도의 원본 코드의 오류로 인해 시각 편집기를 사용할 수 없습니다:</b><br/>$1",
 	"datamap-ve-needs-fallback-to-source": "이 지도 페이지는 시각 문서로 편집할 수 없습니다. [$1 원본 편집기]를 대신 사용해 주십시오.",
 	"datamap-ve-experimental": "지도 시각 편집기는 현재 실험 기능입니다",
+	"datamap-ve-experimental-content": "<p>언제든지 미디어위키 사용자 환경설정의 <i>편집</i> 문단에서 참여를 취소할 수 있습니다.</p> \n<p>일부 기능이 사용 불가능하거나 버그가 발생할 수 있습니다. 버그 목록을 확인하거나 보고하려면 <a class=\"external\" href=\"https://github.com/alex4401/mediawiki-extensions-DataMaps/issues/149\">DataMaps GitHub 저장소의 이슈 #149</a>를 방문하세요.</p>",
 	"datamap-ve-experimental-close": "닫기",
 	"datamap-userpref-enable-ve": "안정된 상태에서 데이터 맵의 시각 편집기 활성화",
 	"datamap-ve-edit-source-action": "원본 편집",

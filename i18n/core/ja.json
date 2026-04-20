@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aphaia",
+			"Cookie4782",
 			"Hideki Yoshida",
 			"Kokage si",
 			"Shirayuki",
@@ -12,10 +13,10 @@
 		]
 	},
 	"datamap-desc": "インタラクティブな地図をウィキのページに埋め込むことができます。",
-	"content-model-datamap": "対話型データマップ",
+	"content-model-datamap": "対話型マップ",
 	"datamap-doc-page-does-not-exist": "''このデータページのドキュメントは、[[$1]]で作成できます''",
 	"datamap-doc-page-header": "'''これは[[$1]]のドキュメントページです'''",
-	"datamap-category-pages-including-maps": "データマップを含むページ",
+	"datamap-category-pages-including-maps": "対話型マップを含むページ",
 	"datamap-category-pages-including-broken-maps": "検証に失敗したデータ地図を含むページ",
 	"datamap-category-maps-failing-validation": "データ検証に失敗した地図",
 	"datamap-mapsrcinfo-internal-page": "このページは地図のソースコードを格納しています。直接このページを閲覧することは想定されておらず、ウェブの検索エンジンにも表示されません。記事に埋め込んで使用してください。",
