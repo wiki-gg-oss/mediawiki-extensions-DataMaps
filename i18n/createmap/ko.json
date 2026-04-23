@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
 	"datamap-vec-title": "지도 만들기",
 	"datamap-ve-skip": "건너뛰기",
+	"datamap-vec-intro": "다음 정보를 필요에 맞게 조정하면 기본적인 지도가 제작됩니다. 그 후에 편집 단계로 넘어가면 됩니다",
 	"datamap-vec-select-crs-origin": "(0, 0) 좌표 모서리",
 	"datamap-vec-crs-top-left": "위-왼쪽",
 	"datamap-vec-crs-bottom-left": "아래-왼쪽",
@@ -21,6 +23,7 @@
 	"datamap-vec-toggle-coord-display": "커서 아래에 좌표 표시",
 	"datamap-vec-toggle-zoom": "크기 조절 사용",
 	"datamap-vec-toggle-search": "마커 검색 사용",
+	"datamap-vec-toggle-search-tabber": "탭 내에서 검색 데이터 공유",
 	"datamap-vec-toggle-uid-requirement": "고유한 마커 ID가 필요합니다",
 	"datamap-vec-submit": "진행",
 	"datamap-vec-example-group-id": "예시",

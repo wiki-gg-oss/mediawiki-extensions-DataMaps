@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"EdoAug",
+			"Fademaze",
 			"Jon Harald Søby"
 		]
 	},
@@ -20,14 +21,24 @@
 	"datamap-mapsrcinfo-heading-warnings": "'''Advarsler:''' $1",
 	"datamap-mapsrcinfo-docslink": "Du kan sjekke [$1 dokumentasjonen til utvidelsen] om det trengs eller [$2 opprette en problemrapport eller funksjonsforespørselssak] om du tenker at det er behov for endringer.",
 	"datamap-error-validate-invalid-json": "Dette er ikke et gyldig JSON-dokument.",
+	"datamap-validate-constraint-requiredfile": "De følgende filene refereres, men finnes ikke: $1",
 	"datamap-background-name-fallback": "Uten navn",
 	"datamap-legend-label": "Innhold",
+	"datamap-lazy-click-to-load": "Klokk for å laste inn datakartet",
+	"datamap-legend-tab-locations": "Markører",
 	"datamap-toggle-show-all": "Vis alt",
 	"datamap-toggle-hide-all": "Skjul alt",
 	"datamap-layer-control": "Veksle",
 	"datamap-legend-tab-checklist": "Sjekklister",
+	"datamap-legend-tab-progress": "Framgangssporing",
 	"datamap-checklist-prelude": "Disse er elementene du kan markere som samlet:",
 	"datamap-interact-touch": "Bruk to fingre for å flytte på kartet",
+	"datamap-interact-scroll-mac": "Bruk ⌘ + Scroll for å zoome kartet",
+	"datamap-popup-dismissed": "Samlet inn",
+	"datamap-popup-mark-as-dismissed": "Marker som samlet inn",
+	"datamap-popup-marker-link-get": "Få en delbar lenke",
+	"datamap-userpref-load-map-always": "Alltid last inn kart",
 	"datamap-control-zoom-in": "Forstørr",
-	"datamap-control-zoom-out": "Forminsk"
+	"datamap-control-zoom-out": "Forminsk",
+	"datamap-control-search-no-results": "Ingen resultater ble funnet."
 }
