@@ -90,6 +90,6 @@
 	"datamap-control-search": "마커를 검색하려면 여기에 입력하세요…",
 	"datamap-control-search-toggle-sharing": "모든 지도",
 	"datamap-control-search-no-results": "결과가 없습니다.",
-	"datamap-control-fullscreen": "전체 화면 모드 토글",
+	"datamap-control-fullscreen": "전체 화면 모드 전환",
 	"prefs-datamaps": "대화형 지도 표시 옵션"
 }
