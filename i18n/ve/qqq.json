@@ -1,10 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Jérémy-Günther-Heinz Jähnick"
 		]
 	},
 	"datamap-ve-to-load": "Message shown over the map while visual editor's scripts are not loaded yet.",
+	"datamap-ve-cannot-edit-mixins": "Les mixins ne sont actuellement pas pris en charge par l'éditeur visuel.",
+	"datamap-ve-error-cannot-open-validation-errors": "<b>L'éditeur visuel est indisponible en raison d'erreurs dans le code source de la carte :</b><br/>$1",
+	"datamap-ve-needs-fallback-to-source": "Cette page de carte ne peut pas être modifiée avec l'éditeur visuel. Veuillez utiliser [$1 l'éditeur de code source] à la place.",
+	"datamap-ve-experimental": "L'éditeur visuel de cartes est encore en phase expérimentale.",
+	"datamap-ve-experimental-close": "Fermer",
+	"datamap-userpref-enable-ve": "Activer l'éditeur visuel pour les cartes de données lorsqu'il sera stable.",
+	"datamap-userpref-enable-ve-beta": "Je souhaite participer aux tests de l'éditeur visuel de cartes",
+	"datamap-ve-edit-source-action": "Éditer la source",
+	"datamap-ve-limited-preview-notice": "Certaines fonctionnalités ne sont pas disponibles lors de la prévisualisation de la carte dans l'éditeur visuel.",
+	"tag-datamaps-visualeditor": "Modification de la carte visuelle",
+	"tag-datamaps-visualeditor-description": "Modification effectuée à l'aide de l'éditeur visuel DataMaps",
+	"datamap-ve-field-locked-unknown-value": "Cette propriété est définie sur une valeur actuellement non prise en charge par cet éditeur visuel. L'éditeur de code source est requis pour la modifier.",
+	"datamap-ve-background-default-name": "Sans titre",
+	"datamap-ve-generic-cancel": "Annuler",
+	"datamap-ve-panel-msettings": "Paramètres",
 	"datamap-ve-workflow-marker-field-x": "{{optional}}",
 	"datamap-ve-workflow-marker-field-y": "{{optional}}"
 }

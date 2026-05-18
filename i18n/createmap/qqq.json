@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alex4401",
+			"Jérémy-Günther-Heinz Jähnick",
 			"ShaggyCZ - Main"
 		]
 	},
@@ -13,6 +14,7 @@
 	"datamap-vec-crs-bottom-left": "Coordinate system origin point option. The dropdown's label is {{mw-msg|datamap-vec-select-crs-origin}}.",
 	"datamap-vec-select-crs": "Systém souřadnic",
 	"datamap-vec-crs-percent": "Procentuální (0-100 %)",
+	"datamap-vec-crs-image": "Faire correspondre les coordonnées de l'image",
 	"datamap-vec-crs-custom": "Vlastní",
 	"datamap-vec-select-background": "Obrázek na pozadí",
 	"datamap-vec-note-image-size": "Velikost: $1 × $2",
@@ -21,7 +23,9 @@
 	"datamap-vec-extra-options": "Další možnosti",
 	"datamap-vec-toggle-coord-display": "Zobrazit souřadnice pod kurzorem",
 	"datamap-vec-toggle-zoom": "Povolit přibližování",
-	"datamap-vec-toggle-search": "Povolit vyhledávání značek",
+	"datamap-vec-toggle-search": "Activer la recherche de marqueurs",
+	"datamap-vec-toggle-search-tabber": "Partager les données de recherche dans l'onglet",
+	"datamap-vec-toggle-uid-requirement": "Nécessite des identifiants de marqueurs uniques",
 	"datamap-vec-submit": "Label of the button to proceed to the source editor, with a preset generated from user's data.\n{{Identical|Proceed}}",
 	"datamap-vec-example-group-id": "ID of the default, example marker group. Do not use spaces. This will appear in the generated source code.\n{{Identical|Example}}",
 	"datamap-vec-example-group-name": "Name of the default, example marker group. This will appear in the generated source code.",

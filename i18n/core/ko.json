@@ -13,7 +13,7 @@
 	"datamap-category-pages-including-maps": "대화형 지도를 포함하는 문서",
 	"datamap-category-pages-including-broken-maps": "유효성 검사에 실패한 대화형 지도를 포함된 문서",
 	"datamap-category-maps-failing-validation": "데이터 검증에 실패한 지도",
-	"datamap-mapsrcinfo-internal-page": "이 문서는 지도의 소스 코드를 포함하고 있습니다. 직접 방문하도록 설계된 문서가 아니며, 웹 검색 엔진에 표시되지 않습니다. 대신 기사 내에 삽입하여 사용되어야 합니다.",
+	"datamap-mapsrcinfo-internal-page": "이 문서는 지도의 소스 코드를 포함하고 있습니다. 직접 방문하도록 설계된 문서가 아니며, 웹 검색 엔진에 표시되지 않습니다. 대신 문서 내에 삽입하여 사용되어야 합니다.",
 	"datamap-mapsrcinfo-status-ok": "이 지도의 소스 코드에 문제가 없습니다.",
 	"datamap-mapsrcinfo-status-meh": "이 지도의 소스 코드에 사소한 문제가 있습니다.",
 	"datamap-mapsrcinfo-status-errors": "이 지도는 소스 코드 검증을 통과하지 못했습니다.",

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kizule",
+			"Milicevic01"
+		]
+	},
+	"datamap-vec-title": "Направи мапу",
+	"datamap-ve-skip": "Прескочи",
+	"datamap-vec-select-crs": "Координатни систем",
+	"datamap-vec-select-background": "Слика позадине",
+	"datamap-vec-note-image-size": "Величина: $1 × $2",
+	"datamap-vec-error-bad-file-type": "Тип датотеке ($1) није подржан; одаберите JPEG, PNG, GIF или SVG датотеку.",
+	"datamap-vec-extra-options": "Додатне опције",
+	"datamap-vec-toggle-coord-display": "Прикажи координате испод курсора",
+	"datamap-vec-toggle-zoom": "Омогући зумирање",
+	"datamap-vec-submit": "Настави",
+	"datamap-vec-example-group-id": "пример",
+	"datamap-vec-example-group-name": "Пример групе",
+	"datamap-vec-example-marker": "Пример маркера"
+}

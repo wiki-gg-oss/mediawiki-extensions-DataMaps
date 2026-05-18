@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Alex4401",
-			"Amire80"
+			"Amire80",
+			"Jérémy-Günther-Heinz Jähnick"
 		]
 	},
 	"datamap-desc": "{{desc\n| name = DataMaps\n| url = https://mediawiki.org/wiki/Extension:DataMaps\n}}",
@@ -48,12 +49,14 @@
 	"datamap-error-pf-page-does-not-exist": "Error shown instead of a map when the map's source page does not exist.\n\nParameters:\n* $1 - page name of the map.",
 	"datamap-error-pf-page-invalid-content-model": "{{doc-important|The content model name should match {{msg-mw|content-model-datamap}}}}\nError shown instead of a map when the map's source page is not of the <code>Interactive Data Map</code> content model.\n\nParameters:\n* $1 - page name of the map.",
 	"datamap-error-pf-max-width-invalid": "Error shown instead of a map when the <code>max-width</code> parameter (provided by an editor to the <code>DataMap</code>/<code>Map</code> function) is equal to or lower than zero.",
+	"datamap-error-pf-invalid-title": "Titre de la carte manquant (ou invalide).",
 	"datamap-error-map-validation-fail": "Error message shown instead of the map if the source code no longer passes data validation without errors (likely due to the extension getting updated).",
 	"datamap-background-name-fallback": "Fallback display name for backgrounds, used if the <code>name</code> property is not set.\n\nThis is shown to regular users primarily in the background selection dropdown.",
 	"datamap-legend-label": "Button label for opening the legend panel (including filtering buttons, collectibles list) of the map.",
 	"datamap-javascript-required": "Message shown instead of the map if the reader has JavaScript support disabled in their browser.",
 	"datamap-loading-js": "Message temporarily shown instead of a map while the extension's scripts are being loaded.",
 	"datamap-loading-data": "Message temporarily shown instead of a map while the map's data is being loaded.",
+	"datamap-load-map": "Charger la carte",
 	"datamap-error-dataload": "Error shown over a map if the map's data failed to load. The reason for the failure is unknown (but likely occurred due to a server-side or network error).",
 	"datamap-lazy-click-to-load": "Label of the button used to load a data map a request, if the map is set not to load on page view.",
 	"datamap-legend-tab-locations": "Label of the legend (Contents) tab containing toggles for marker visibility.",
@@ -73,6 +76,10 @@
 	"datamap-popup-mark-as-dismissed": "Label for the 'Mark as collected' button (that hides the marker) at the bottom of a marker's detail popup. It denotes the marker can be dismissed/hidden.",
 	"datamap-popup-marker-link-get": "Text letting users know that they can copy a sharable link to a marker on the map. Displayed at the bottom of a marker's details popup.",
 	"datamap-popup-marker-link-copied": "Message shown when a marker link is successfully copied to the viewer's clipboard.",
+	"datamap-userpref-load-map": "Chargement automatique des cartes interactives, sans avoir à cliquer dessus",
+	"datamap-userpref-load-map-always": "Toujours charger les cartes",
+	"datamap-userpref-load-map-auto": "Décider en fonction du type d'appareil",
+	"datamap-userpref-load-map-never": "Charger les cartes lorsque je clique dessus.",
 	"datamap-coordinate-control-text": "On maps configured to use a coordinate scheme of 'Latitude then Longitude', message shown in the bottom-left corner of the map containing current mouse cursor coordinates, if the mouse cursor is currently over the map.\n\nParameters:\n* $1 - latitude.\n* $2 - longitude.\n\nMaps using other schemes will use one of following messages instead:\n* datamap-coordinate-control-text-xy\n* datamap-coordinate-control-text-yx",
 	"datamap-coordinate-control-text-xy": "{{optional}}\nOn maps configured to use a coordinate scheme of 'X then Y', message shown in the bottom-left corner of the map containing current mouse cursor coordinates, if the mouse cursor is currently over the map.\n\nParameters:\n* $1 - Y coordinate.\n* $2 - X coordinate.\n\nMaps using other schemes will use one of following messages instead:\n* datamap-coordinate-control-text\n* datamap-coordinate-control-text-yx",
 	"datamap-coordinate-control-text-yx": "{{optional}}\nOn maps configured to use a coordinate scheme of 'Y then X', message shown in the bottom-left corner of the map containing current mouse cursor coordinates, if the mouse cursor is currently over the map.\n\nParameters:\n* $1 - Y coordinate.\n* $2 - X coordinate.\n\nMaps using other schemes will use one of following messages instead:\n* datamap-coordinate-control-text\n* datamap-coordinate-control-text-xy",
@@ -85,5 +92,6 @@
 	"datamap-control-search": "Text message shown in the map's marker search text field when empty, prompting the viewer to input a query.",
 	"datamap-control-search-toggle-sharing": "Label for a toggle situated in the marker search text input. The toggle controls whether results from other map tabs within a tabber will be shown within this map's search results.\n\nAlternatively \"All tabs\". Please keep this message short if possible.",
 	"datamap-control-search-no-results": "Text message that no markers were found. Shown in the map's built-in search panel.",
-	"datamap-control-fullscreen": "Tooltip for the button that switches the map into (and out of) full screen mode."
+	"datamap-control-fullscreen": "Tooltip for the button that switches the map into (and out of) full screen mode.",
+	"prefs-datamaps": "Options d'affichage des cartes interactives"
 }
