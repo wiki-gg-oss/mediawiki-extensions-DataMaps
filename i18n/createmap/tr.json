@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Brightt11",
+			"HakanIST",
+			"Slickdaddy"
+		]
+	},
+	"datamap-vec-title": "Bir harita oluştur",
+	"datamap-ve-skip": "Atla",
+	"datamap-vec-intro": "Temel bir harita hazırlayabilmemiz için aşağıdaki bilgileri ihtiyaçlarınıza göre ayarlayın.",
+	"datamap-vec-select-crs-origin": "(0, 0) koordinat köşesi",
+	"datamap-vec-crs-top-left": "Sol üst",
+	"datamap-vec-crs-bottom-left": "Sol alt",
+	"datamap-vec-note-image-size": "Boyut: $1 × $2",
+	"datamap-vec-submit": "Devam et",
+	"datamap-vec-example-group-id": "Örnek"
+}

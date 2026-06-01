@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"LowensteinYang"
 		]
 	},
 	"datamap-ve-to-load": "視覺化編輯器載入中，請稍後…",
@@ -50,18 +51,18 @@
 	"datamap-ve-workflow-marker": "標記",
 	"datamap-ve-workflow-marker-create": "建立",
 	"datamap-ve-workflow-marker-edit": "儲存",
-	"datamap-ve-workflow-marker-delete": "永久刪除此標記（無法還原）",
-	"datamap-ve-workflow-marker-panel-setup": "在地圖",
+	"datamap-ve-workflow-marker-delete": "永久(無法還原)刪除此標記",
+	"datamap-ve-workflow-marker-panel-setup": "在地圖上",
 	"datamap-ve-workflow-marker-set-coordinates": "放置",
 	"datamap-ve-workflow-marker-field-lon": "經度",
 	"datamap-ve-workflow-marker-field-lat": "緯度",
 	"datamap-ve-workflow-marker-set-association": "[PH] 圖層分配",
 	"datamap-ve-workflow-marker-field-group": "群組",
-	"datamap-ve-workflow-marker-field-group-desc": "每一個標記必須屬於一個標記群組，標記群組主要決定所屬的標記在地圖上顯示方式。群組也可用來控制視覺化的主要方式 - 檢視者可透過篩選面板來執行此操作。",
+	"datamap-ve-workflow-marker-field-group-desc": "每一個標記必須屬於一個標記群組，標記群組主要決定所屬的標記在地圖上顯示的方式。群組也可做為主要控制視覺化的方式ーー檢視者可透過篩選面板來執行此操作。",
 	"datamap-ve-workflow-marker-field-categories": "分類",
 	"datamap-ve-workflow-marker-field-categories-disabled": "您不能對標記新增不存在分類。",
 	"datamap-ve-workflow-marker-field-background": "僅在背景可見",
-	"datamap-ve-workflow-marker-field-background-disabled": "需要多個背景。",
+	"datamap-ve-workflow-marker-field-background-disabled": "這需要多個背景。",
 	"datamap-ve-workflow-marker-set-behaviour": "固定連結",
 	"datamap-ve-workflow-marker-field-id": "唯一識別碼",
 	"datamap-ve-workflow-marker-field-id-desc": "這會依照各地圖設定自動產生。",
@@ -73,13 +74,13 @@
 	"datamap-ve-workflow-marker-field-article-label": "連結標註",
 	"datamap-ve-workflow-marker-panel-search": "當搜尋時",
 	"datamap-ve-workflow-save": "儲存您的更改",
-	"datamap-ve-workflow-save-submit": "發布更改",
+	"datamap-ve-workflow-save-submit": "發佈更改",
 	"datamap-ve-workflow-save-summary": "編輯摘要",
 	"datamap-ve-workflow-save-summary-desc": "描述您做出的更改",
 	"datamap-ve-group-id": "[PH] 唯一識別碼",
 	"datamap-ve-group-id-cannot-modify": "[PH] 視覺化編輯器目前不支援重新命名群組功能",
 	"datamap-ve-group-article-link": "[PH] 預設條目連結",
-	"datamap-ve-group-article-link-subtext": "[PH] 這可在個別標記上覆蓋",
+	"datamap-ve-group-article-link-subtext": "[PH] 在個別標記上可無視這個。",
 	"datamap-ve-group-collectible-mode": "[PH] 收集類型",
 	"datamap-ve-group-confirm-delete": "[PH] 您確定要永久刪除標記群組「$1」？請注意此操作是不可還原的。"
 }
