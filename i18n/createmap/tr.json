@@ -12,6 +12,7 @@
 	"datamap-vec-select-crs-origin": "(0, 0) koordinat köşesi",
 	"datamap-vec-crs-top-left": "Sol üst",
 	"datamap-vec-crs-bottom-left": "Sol alt",
+	"datamap-vec-crs-custom": "Özel",
 	"datamap-vec-note-image-size": "Boyut: $1 × $2",
 	"datamap-vec-submit": "Devam et",
 	"datamap-vec-example-group-id": "Örnek"

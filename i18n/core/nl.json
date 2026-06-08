@@ -18,7 +18,7 @@
 	"datamap-mapsrcinfo-status-errors": "Deze kaart doorstaat de validatie van de broncode niet.",
 	"datamap-mapsrcinfo-heading-errors": "'''Fouten:''' $1",
 	"datamap-mapsrcinfo-heading-warnings": "'''Waarschuwingen:''' $1",
-	"datamap-mapsrcinfo-docslink": "U kunt de [$1 documentatie van de extensie $1] raadplegen, of [$2 een probleemmelding aanmaken of nieuwe functie aanvragen] als u denkt dat er wijzigingen nodig zijn.",
+	"datamap-mapsrcinfo-docslink": "U kunt de [$1 documentatie van de uitbreiding] raadplegen, of [$2 een probleemmelding aanmaken of nieuwe functie aanvragen] als u denkt dat er wijzigingen nodig zijn.",
 	"datamap-error-validate-invalid-json": "Dit is geen geldig JSON-document.",
 	"datamap-validate-bad-schema": "De eigenschap <code>$schema</code> van deze kaart verwijst niet naar een ondersteunde indelingsdefinitie.\n\nOndersteunde schemaversies:\n$1",
 	"datamap-validate-constraint-required": "Er ontbreekt een vereiste eigenschap: <code>$1</code>.",

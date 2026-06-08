@@ -6,7 +6,9 @@
 			"Slickdaddy"
 		]
 	},
+	"datamap-ve-experimental-close": "Kapat",
 	"datamap-ve-edit-source-action": "Kaynağı düzenle",
+	"tag-datamaps-visualeditor-description": "DataMaps görsel düzenleyici kullanılarak yapılan düzenleme",
 	"datamap-ve-background-default-name": "Başlıksız",
 	"datamap-ve-generic-cancel": "İptal",
 	"datamap-ve-panel-msettings": "Ayarlar",
