@@ -29,7 +29,7 @@
 	"datamap-validate-constraint-minlength": "De teksteigenschap moet uit minimaal $2 tekens bestaan: <code>$1</code>.",
 	"datamap-validate-constraint-minimum": "De waarde van de numerieke eigenschap moet hoger zijn dan $2: <code>$1</code>.",
 	"datamap-validate-constraint-maximum": "De waarde van de numerieke eigenschap moet lager zijn dan $2: <code>$1</code>.",
-	"datamap-validate-constraint-fallback": "Er is een onbekende fout opgetreden tijdens het valideren van de eigenschap: <code>$1</code>. Gelieve [$2 dit probleem aan de ontwikkelaars te rapporteren].",
+	"datamap-validate-constraint-fallback": "Er is een onbekende fout opgetreden tijdens het valideren van de eigenschap: <code>$1</code>. Gelieve [$2 dit probleem aan de ontwikkelaars te melden].",
 	"datamap-validate-constraint-notcollectible": "De volgende eigenschappen in de groep <code>$1</code> hebben geen effect omdat de groep geen verzamelingen kan bevatten: $2.",
 	"datamap-validate-constraint-searchdisabled": "De volgende eigenschappen in <code>$1</code> hebben geen effect omdat het zoeken naar markeringen niet is ingeschakeld: $2.",
 	"datamap-validate-constraint-requiredfile": "Naar de volgende bestanden wordt verwezen, maar ze bestaan niet: $1",
