@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"datamap-vec-title": "نخشه جوړول",
+	"datamap-ve-skip": "تېرېدل",
+	"datamap-vec-crs-top-left": "پورته کيڼ",
+	"datamap-vec-crs-bottom-left": "کښته کيڼ",
+	"datamap-vec-select-crs": "همغږۍ غونډال",
+	"datamap-vec-crs-percent": "سلنه (۰-۱۰۰٪)",
+	"datamap-vec-crs-image": "د انځور د همغږۍ پرتلنه",
+	"datamap-vec-crs-custom": "دوديز",
+	"datamap-vec-select-background": "د شاليد انځور",
+	"datamap-vec-note-image-size": "کچه: $1 × $2",
+	"datamap-vec-extra-options": "زياتي خوښنې",
+	"datamap-vec-toggle-coord-display": "د کرسر لاندې همغږۍ ښکاره‌کول",
+	"datamap-vec-submit": "پرمخ‌ځه",
+	"datamap-vec-example-group-id": "بېلگه",
+	"datamap-vec-example-group-name": "بېلگې ډله",
+	"datamap-vec-example-marker": "بېلگه جوړوونکی"
+}
