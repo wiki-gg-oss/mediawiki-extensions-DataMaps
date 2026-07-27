@@ -11,6 +11,7 @@
 	"datamap-category-pages-including-maps": "Säite mat interaktive Kaarten",
 	"datamap-mapsrcinfo-heading-errors": "'''Feeler:''' $1",
 	"datamap-mapsrcinfo-heading-warnings": "'''Warnungen:''' $1",
+	"datamap-error-validate-invalid-json": "Dat hei ass kee gültegt JSON-Dokument.",
 	"datamap-load-map": "Kaart lueden",
 	"datamap-legend-tab-locations": "Markéierungen",
 	"datamap-toggle-hide-all": "All verstoppen",
