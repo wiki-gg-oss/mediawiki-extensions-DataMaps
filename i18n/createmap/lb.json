@@ -4,12 +4,15 @@
 			"Volvox"
 		]
 	},
+	"datamap-vec-title": "Eng Kaart uleeën",
 	"datamap-ve-skip": "Iwwersprangen",
 	"datamap-vec-crs-top-left": "Uewe lénks",
 	"datamap-vec-crs-bottom-left": "Ënne lénks",
 	"datamap-vec-select-crs": "Koordinatesystem",
+	"datamap-vec-crs-percent": "Prozent (0-100&nbsp;%)",
 	"datamap-vec-select-background": "Hannergrondbild",
 	"datamap-vec-note-image-size": "Gréisst: $1 × $2",
+	"datamap-vec-extra-options": "Extraoptiounen",
 	"datamap-vec-toggle-coord-display": "Koordinaten ënner dem Cursor weisen",
 	"datamap-vec-example-group-id": "Beispill",
 	"datamap-vec-example-group-name": "Beispillgrupp"
