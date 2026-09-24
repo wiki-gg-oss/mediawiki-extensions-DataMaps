@@ -79,7 +79,7 @@
 	"datamap-ve-group-id": "[PH] מזהה ייחודי",
 	"datamap-ve-group-id-cannot-modify": "[PH] נכון לעכשיו שינוי שמות של קבוצות אינו נתמך בעורך החזותי",
 	"datamap-ve-group-article-link": "[PH] קישור ברירת מחדל לערך",
-	"datamap-ve-group-article-link-subtext": "[PH] ניתן לעקוף את זה בסמנים בודדים.",
+	"datamap-ve-group-article-link-subtext": "[PH] ניתן לדרוס את זה בסמנים בודדים.",
 	"datamap-ve-group-collectible-mode": "[PH] סוג פריט ניתן לאיסוף",
 	"datamap-ve-group-confirm-delete": "[PH] האם ברצונך באמת להרוס לצמיתות את קבוצת הסמנים $1? הפעולה הזאת בלתי־הפיכה."
 }
